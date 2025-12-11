@@ -1,0 +1,481 @@
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  return (
+    <div className="App">
+      {/* Top Bar */}
+      <div className="top-bar">
+        <div className="top-left">
+          <div className="item">
+            <i className="fa-solid fa-phone"></i>
+            <span>081804376001</span>
+          </div>
+          <div className="item">
+            <i className="fa-solid fa-envelope"></i>
+            <span>titikvisualjogja@gmail.com</span>
+          </div>
+        </div>
+        <div className="top-right">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i className="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i className="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <nav className="main-nav">
+        <div className="nav-left">
+          <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
+        </div>
+
+        <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+          <li><a href="/beranda/index.html">Home</a></li>
+          <li><a href="/page-about/index.html">Profile</a></li>
+          <li><a href="/page-layanan/index.html">Layanan</a></li>
+          <li className="active"><a href="#portfolio">Portfolio</a></li>
+          <li><a href="/page-contact/index.html">Kontak</a></li>
+        </ul>
+
+        <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+
+      <main>
+        {/* Portfolio Hero Section */}
+        <section className="portfolio-hero-section">
+          <div className="container">
+            <h1>Portfolio Kami</h1>
+            <p>Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.</p>
+            <div className="hero-buttons">
+              <a href="#portfolio" className="btn btn-primary">
+                <i className="fas fa-eye"></i>
+                Lihat Semua Karya
+              </a>
+              <a href="/contact" className="btn btn-secondary">
+                <i className="fas fa-arrow-up-right-from-square"></i>
+                Diskusi Proyek
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Portfolio Section */}
+        <section id="portfolio" className="portfolio-section">
+          <div className="container">
+            <h2 className="section-title">Featured Projects</h2>
+            <p className="section-subtitle">Karya-karya unggulan yang menjadi kebanggaan kami</p>
+
+            <div className="portfolio-grid">
+              {/* Project Card 1 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="E-Commerce Mobile App" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">UI/UX Design</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">E-Commerce Mobile App</h3>
+                  <p className="project-description">Complete mobile app design untuk platform e-commerce 
+                    dengan user experience yang optimal dan conversion rate
+                    tinggi.</p>
+                  <div className="project-tech">
+                    <span>Mobile</span>
+                    <span>E-commerce</span>
+                    <span>iOS</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: ShopNow Indonesia</span>
+                    <a href="/portfolio/ecommerce-mobile-app" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 2 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="SaaS Dashboard Design" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">UI/UX Design</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">SaaS Dashboard Design</h3>
+                  <p className="project-description">Dashboard design untuk SaaS platform dengan data 
+                    visualization yang clear dan user-friendly interface.</p>
+                  <div className="project-tech">
+                    <span>Web App</span>
+                    <span>Dashboard</span>
+                    <span>SaaS</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: DataFlow Solutions</span>
+                    <a href="/portfolio/saas-dashboard" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 3 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Banking Mobile App" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Mobile App</span>
+                    <span className="project-year">2023</span>
+                  </div>
+                  <h3 className="project-title">Banking Mobile App</h3>
+                  <p className="project-description">Secure dan user-friendly banking app dengan modern 
+                    interface dan advanced security features.</p>
+                  <div className="project-tech">
+                    <span>Mobile App</span>
+                    <span>Banking</span>
+                    <span>Security</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: SecureBank Digital</span>
+                    <a href="/portfolio/banking-app" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 4 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="E-Commerce Mobile App" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">UI/UX Design</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">E-Commerce Mobile App</h3>
+                  <p className="project-description">Complete mobile app design untuk platform e-commerce
+                    dengan user experience yang optimal dan conversion rate
+                    tinggi.</p>
+                  <div className="project-tech">
+                    <span>Mobile</span>
+                    <span>E-commerce</span>
+                    <span>iOS</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: ShopNow Indonesia</span>
+                    <a href="/portfolio/ecommerce-mobile-app-2" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 5 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="SaaS Dashboard Design" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">UI/UX Design</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">SaaS Dashboard Design</h3>
+                  <p className="project-description">Dashboard design untuk SaaS platform dengan data 
+                    visualization yang clear dan user-friendly interface.</p>
+                  <div className="project-tech">
+                    <span>Web App</span>
+                    <span>Dashboard</span>
+                    <span>SaaS</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: DataFlow Solutions</span>
+                    <a href="/portfolio/saas-dashboard-2" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 6 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Corporate Website" />
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Web Development</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">Corporate Website</h3>
+                  <p className="project-description">Website corporate yang modern dan professional dengan
+                    CMS integration untuk easy content management.</p>
+                  <div className="project-tech">
+                    <span>Website</span>
+                    <span>Corporate</span>
+                    <span>Responsive</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: PT. Maju Bersama</span>
+                    <a href="/portfolio/corporate-website" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 7 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Banking Mobile App" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Mobile App</span>
+                    <span className="project-year">2023</span>
+                  </div>
+                  <h3 className="project-title">Banking Mobile App</h3>
+                  <p className="project-description">Secure dan user-friendly banking app dengan modern
+                    interface dan advanced security features.</p>
+                  <div className="project-tech">
+                    <span>Mobile App</span>
+                    <span>Banking</span>
+                    <span>Security</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: SecureBank Digital</span>
+                    <a href="/portfolio/banking-app-2" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 8 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Brand Identity Package" />
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Branding</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">Brand Identity Package</h3>
+                  <p className="project-description">Complete brand identity package termasuk logo, color
+                    palette, typography, dan brand guidelines.</p>
+                  <div className="project-tech">
+                    <span>Logo</span>
+                    <span>Brand Identity</span>
+                    <span>Guidelines</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: GreenTech Startup</span>
+                    <a href="/portfolio/brand-identity" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 9 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Social Media Campaign" />
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Social Media</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">Social Media Campaign</h3>
+                  <p className="project-description">Social media campaign design untuk fashion brand dengan
+                    consistent visual identity dan engaging content.</p>
+                  <div className="project-tech">
+                    <span>Social Media</span>
+                    <span>Campaign</span>
+                    <span>Instagram</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: Fashion Brand Co</span>
+                    <a href="/portfolio/social-media-campaign" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 10 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Restaurant Website" />
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Web Development</span>
+                    <span className="project-year">2023</span>
+                  </div>
+                  <h3 className="project-title">Restaurant Website</h3>
+                  <p className="project-description">Website restaurant dengan online menu, table booking
+                    system, dan gallery yang menarik.</p>
+                  <div className="project-tech">
+                    <span>Website</span>
+                    <span>Restaurant</span>
+                    <span>Online Menu</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: Rasa Nusantara</span>
+                    <a href="/portfolio/restaurant-website" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 11 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="Fitness App UI/UX" />
+                  <span className="project-tag">Featured</span>
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">UI/UX Design</span>
+                    <span className="project-year">2024</span>
+                  </div>
+                  <h3 className="project-title">Fitness App UI/UX</h3>
+                  <p className="project-description">Fitness tracking app dengan motivational design dan
+                    comprehensive workout planning features.</p>
+                  <div className="project-tech">
+                    <span>Mobile</span>
+                    <span>Fitness</span>
+                    <span>Health</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: FitLife App</span>
+                    <a href="/portfolio/fitness-app" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 12 */}
+              <div className="project-card">
+                <div className="card-image">
+                  <img src="../img/portfolio.png" alt="E-Learning Platform" />
+                </div>
+                <div className="card-content">
+                  <div className="content-header">
+                    <span className="project-category">Web Development</span>
+                    <span className="project-year">2023</span>
+                  </div>
+                  <h3 className="project-title">E-Learning Platform</h3>
+                  <p className="project-description">E-learning platform dengan interactive course content dan
+                    comprehensive student management system.</p>
+                  <div className="project-tech">
+                    <span>Web App</span>
+                    <span>Education</span>
+                    <span>LMS</span>
+                  </div>
+                  <div className="project-footer">
+                    <span className="client-name">Client: EduTech Indonesia</span>
+                    <a href="/portfolio/e-learning-platform" className="project-link">
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="cta-section">
+          <div className="container">
+            <h2>Tertarik dengan Karya Kami?</h2>
+            <p>Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda</p>
+            <div className="cta-buttons">
+              <a href="/contact" className="btn btn-primary-cta">
+                <i className="fas fa-arrow-up-right-from-square"></i> Diskusi Proyek
+              </a>
+              <a href="#portfolio" className="btn btn-secondary-cta">
+                <i className="fas fa-eye"></i> Lihat Semua Portfolio
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="footer">
+          <div className="container">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+                <p>Portfolio lengkap karya digital creative yang telah membantu berbagai klien mencapai kesuksesan.</p>
+              </div>
+              <div className="footer-links">
+                <h4>Portfolio</h4>
+                <ul>
+                  <li><a href="/portfolio/ui-ux">UI/UX Design</a></li>
+                  <li><a href="/portfolio/web-development">Web Development</a></li>
+                  <li><a href="/portfolio/mobile-app">Mobile App</a></li>
+                  <li><a href="/portfolio/branding">Branding</a></li>
+                  <li><a href="/portfolio/social-media">Social Media</a></li>
+                </ul>
+              </div>
+              <div className="footer-links">
+                <h4>Kategori</h4>
+                <ul>
+                  <li><a href="/portfolio/featured">Featured Works</a></li>
+                  <li><a href="/portfolio/case-studies">Case Studies</a></li>
+                  <li><a href="/portfolio/client-stories">Client Stories</a></li>
+                  <li><a href="/portfolio/awards">Awards</a></li>
+                  <li><a href="/portfolio/recognition">Recognition</a></li>
+                </ul>
+              </div>
+              <div className="footer-links">
+                <h4>Kontak</h4>
+                <ul>
+                  <li>081804376001</li>
+                  <li>titikvisualjogja@gmail.com</li>
+                  <li>Yogyakarta, Indonesia</li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p>© 2024 Titik Visual. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+export default App;
