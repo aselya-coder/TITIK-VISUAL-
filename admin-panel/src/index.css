@@ -1,0 +1,12 @@
+@import "./input.css";
+
+@layer base {
+  body {
+    @apply min-h-screen font-sans antialiased;
+    font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}

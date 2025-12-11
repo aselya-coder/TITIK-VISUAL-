@@ -1,0 +1,121 @@
+/* GLOBAL RESET (agar tidak ada yang kepotong) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* penting! biar tidak ada geser horizontal */
+  background: #0F2E27;
+  font-family: "Poppins", sans-serif;
+  color: #FFFFFF;
+}
+
+/* WRAPPER */
+.dashboard-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px 40px;
+  background: #0F2E27;
+}
+
+/* NAVBAR */
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1A3F38;
+  padding: 15px 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  margin-bottom: 35px;
+}
+
+.dashboard-nav h1 {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-right .email {
+  font-size: 14px;
+  color: #A7D6C5;
+}
+
+/* BUTTON */
+.logout-btn {
+  background: #22C55E;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #29D96B;
+}
+
+/* HEADER SECTION */
+.dashboard-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  font-size: 15px;
+  color: #A7D6C5;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+/* GRID MENU */
+.dashboard-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* CARD */
+.dashboard-card {
+  background: #1A3F38;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.25s;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.dashboard-card:hover {
+  background: #24544C;
+  transform: translateY(-4px);
+}
+
+/* TEXT IN CARD */
+.dashboard-card .icon {
+  font-size: 42px;
+}
+
+.dashboard-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.dashboard-card p {
+  font-size: 14px;
+  color: #A7D6C5;
+  margin-top: 5px;
+}
