@@ -183,10 +183,10 @@ Detail: ${formData.detail}`;
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html">Home</a></li>
-          <li><a href="../page-about/index.html">Profile</a></li>
-          <li><a href="../page-layanan/index.html">Layanan</a></li>
-          <li><a href="../page-portfolio/index.html">Portfolio</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
+          <li><a href="../page-about/page-about.tsx">Profile</a></li>
+          <li><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
           <li className="active"><a href="#contact">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle">
@@ -464,7 +464,7 @@ Detail: ${formData.detail}`;
               <ul className="footer-list">
                 <li>
                   <button 
-                    onClick={() => navigateToPage('../page-about/index.html')} 
+                    onClick={() => navigateToPage('../page-about/page-about.tsx')} 
                     className="link-button"
                   >
                     About Us
@@ -472,7 +472,7 @@ Detail: ${formData.detail}`;
                 </li>
                 <li>
                   <button 
-                    onClick={() => navigateToPage('../page-portfolio/index.html')} 
+                    onClick={() => navigateToPage('../page-portfolio/page-portfolio.tsx')} 
                     className="link-button"
                   >
                     Portfolio
@@ -480,7 +480,7 @@ Detail: ${formData.detail}`;
                 </li>
                 <li>
                   <button 
-                    onClick={() => navigateToPage('../page-layanan/index.html')} 
+                    onClick={() => navigateToPage('../page-layanan/page-layanan.tsx')} 
                     className="link-button"
                   >
                     Services

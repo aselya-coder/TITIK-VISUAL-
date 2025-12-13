@@ -14,15 +14,12 @@ export function PreviewPane({ fullWidth = false }) {
       </CardHeader>
       <CardContent className="flex-1">
         <ScrollArea className="h-[500px]">
-          <div className="rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/10 p-8 text-center">
-            <div className="mx-auto max-w-md space-y-4">
-              <div className="text-4xl">🖼️</div>
-              <h3 className="text-lg font-semibold">Preview Area</h3>
-              <p className="text-sm text-muted-foreground">
-                Live preview of your page will appear here as you make changes
-              </p>
-            </div>
-          </div>
+          <iframe
+            id="tv-preview"
+            title="Website Preview"
+            src="http://localhost:3000/"
+            style={{ width: '100%', height: '500px', border: '1px solid #e2e8f0', borderRadius: '8px' }}
+          />
         </ScrollArea>
       </CardContent>
     </Card>

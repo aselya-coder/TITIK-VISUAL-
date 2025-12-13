@@ -414,7 +414,7 @@ const CustomMerchandisePage = () => {
               <span className="label">Produksi:</span>
               <span className="time">{product.productionTime}</span>
             </div>
-            <a href="../page-contact/index.html" className="btn-order">
+            <a href="../page-contact/page-contact.tsx" className="btn-order">
               <i className="fas fa-arrow-right"></i> Order Sekarang
             </a>
           </div>
@@ -448,7 +448,7 @@ const CustomMerchandisePage = () => {
               <span className="label">Produksi:</span>
               <span className="time">{product.productionTime}</span>
             </div>
-            <a href="../page-contact/index.html" className="btn-order">
+            <a href="../page-contact/page-contact.tsx" className="btn-order">
               <i className="fas fa-arrow-right"></i> Order Sekarang
             </a>
           </div>
@@ -473,11 +473,11 @@ const CustomMerchandisePage = () => {
       <nav className="main-nav">
         <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html">Home</a></li>
-          <li><a href="../page-about/index.html">Profile</a></li>
-          <li className="active"><a href="../page-layanan/index.html">Layanan</a></li>
-          <li><a href="../page-portfolio/index.html">Portfolio</a></li>
-          <li><a href="../page-contact/index.html">Kontak</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
+          <li><a href="../page-about/page-about.tsx">Profile</a></li>
+          <li className="active"><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="../page-portfolio/page-porfolio.tsx">Portfolio</a></li>
+          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
@@ -485,7 +485,7 @@ const CustomMerchandisePage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/index.html">Home</a> / <a href="../page-layanan/index.html">Services</a> / <span>Custom Merchandise</span>
+          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Custom Merchandise</span>
         </div>
       </section>
 
@@ -503,8 +503,8 @@ const CustomMerchandisePage = () => {
               bottles, hingga notebook dan payung custom. Semua produk dapat
               disesuaikan dengan brand identity Anda.</p>
             <div className="hero-buttons">
-              <a href="../page-contact/index.html" className="btn btn-gradient"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/index.html" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
+              <a href="../page-contact/page-contact.tsx" className="btn btn-gradient"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
             </div>
           </div>
           <div className="hero-image-wrapper">

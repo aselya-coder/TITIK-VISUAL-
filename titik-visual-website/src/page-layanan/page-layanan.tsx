@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './style.css';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,11 +44,11 @@ function App() {
         </div>
 
         <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="/beranda/index.html">Home</a></li>
-          <li><a href="/page-about/index.html">Profile</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
+          <li><a href="../page-about/page-about.tsx">Profile</a></li>
           <li className="active"><a href="#layanan">Layanan</a></li>
-          <li><a href="/page-portfolio">Portfolio</a> <i className="fas fa-chevron-down"></i></li>
-          <li><a href="/page-contact/index.html">Kontak</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a> <i className="fas fa-chevron-down"></i></li>
+          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
 
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
@@ -72,7 +72,7 @@ function App() {
               </div>
               <h3>UI/UX Design</h3>
               <p>Desain interface yang user-friendly dan menarik</p>
-              <a href="/layanan/ui-ux" className="btn-detail btn-purple">
+              <a href="../page layanan detail ui_ux/layanan detail ui_ux.tsx" className="btn-detail btn-purple">
                 <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -84,7 +84,7 @@ function App() {
               </div>
               <h3>Website & Aplikasi</h3>
               <p>Website responsif dan aplikasi mobile modern</p>
-              <a href="/layanan/website-aplikasi" className="btn-detail btn-blue">
+              <a href="../page detail layanan web&apk/layanan detail web&apk.tsx" className="btn-detail btn-blue">
                 <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -96,7 +96,7 @@ function App() {
               </div>
               <h3>Logo Design</h3>
               <p>Logo profesional untuk identitas brand Anda</p>
-              <a href="/layanan/logo-design" className="btn-detail btn-orange">
+              <a href="../Page Detail Layanan Logo Design/Layanan Logo Design.tsx" className="btn-detail btn-orange">
                 <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -108,7 +108,7 @@ function App() {
               </div>
               <h3>Social Media</h3>
               <p>Kelola media sosial dengan strategi tepat</p>
-              <a href="/layanan/social-media" className="btn-detail btn-pink">
+              <a href="../Page Detail layanan Social Media/Layanan Social Media.tsx" className="btn-detail btn-pink">
                 <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -120,7 +120,7 @@ function App() {
               </div>
               <h3>Merchandise</h3>
               <p>Merchandise berkualitas untuk promosi brand</p>
-              <a href="/layanan/custom-merchandise" className="btn-detail btn-green">
+              <a href="../Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise.tsx" className="btn-detail btn-green">
                 <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -156,7 +156,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>2-4 minggu</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -182,7 +182,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>3-6 minggu</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-blue"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-blue"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -208,7 +208,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>6-12 minggu</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-green"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-green"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -234,7 +234,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>1-2 minggu</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-orange"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-orange"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -260,7 +260,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>2-3 minggu</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -286,7 +286,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-pink"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-pink"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -312,7 +312,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-purple"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
 
@@ -338,7 +338,7 @@ function App() {
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
-                <a href="/contact" className="btn-pesan btn-grad-blue"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
+                <a href="../page-contact/page-contact.tsx" className="btn-pesan btn-grad-blue"><i className="fas fa-arrow-right"></i> Pesan Sekarang</a>
               </div>
             </div>
           </div>
@@ -377,7 +377,7 @@ function App() {
                     <span>7-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-blue">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-blue">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -409,7 +409,7 @@ function App() {
                     <span>7-10 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-orange">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-orange">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -441,7 +441,7 @@ function App() {
                     <span>10-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-purple">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-purple">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -473,7 +473,7 @@ function App() {
                     <span>7-12 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-green">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-green">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -514,7 +514,7 @@ function App() {
                     <span>7-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-pink">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-pink">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -546,7 +546,7 @@ function App() {
                     <span>5-10 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-blue">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-blue">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -578,7 +578,7 @@ function App() {
                     <span>7-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-green">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-green">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -619,7 +619,7 @@ function App() {
                     <span>10-21 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-green">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-green">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -651,7 +651,7 @@ function App() {
                     <span>7-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-pink">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-pink">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -683,7 +683,7 @@ function App() {
                     <span>10-21 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-blue">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-blue">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -724,7 +724,7 @@ function App() {
                     <span>10-21 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-blue">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-blue">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -756,7 +756,7 @@ function App() {
                     <span>14-21 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-orange">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-orange">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -788,7 +788,7 @@ function App() {
                     <span>7-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-pink">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-pink">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>
@@ -820,7 +820,7 @@ function App() {
                     <span>10-14 hari</span>
                   </div>
                 </div>
-                <a href="/contact" className="btn-product btn-grad-slate">
+                <a href="../page-contact/page-contact.tsx" className="btn-product btn-grad-slate">
                   <i className="fas fa-arrow-right"></i> Order Sekarang
                 </a>
               </div>

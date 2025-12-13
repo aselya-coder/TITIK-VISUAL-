@@ -238,11 +238,11 @@ const UIUXPage = () => {
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html">Home</a></li>
-          <li><a href="../page-about/index.html">Profile</a></li>
-          <li className="active"><a href="../page-layanan/index.html">Layanan</a></li>
-          <li><a href="../page-portfolio/index.html">Portfolio</a></li>
-          <li><a href="../page-contact/index.html">Kontak</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
+          <li><a href="../page-about/page-about.tsx">Profile</a></li>
+          <li className="active"><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
+          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle">
           <span></span>
@@ -254,7 +254,7 @@ const UIUXPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/index.html">Home</a> / <a href="../page-contact/index.html">Services</a> / <span>UI/UX Design</span>
+          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-contact/page-contact.tsx">Services</a> / <span>UI/UX Design</span>
         </div>
       </section>
 
@@ -275,7 +275,7 @@ const UIUXPage = () => {
               <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer">
                 <i className="far fa-comment"></i> Konsultasi Gratis
               </a>
-              <a href="../page-portfolio/index.html" className="btn btn-outline">
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline">
                 <i className="far fa-eye"></i> Lihat Portfolio
               </a>
             </div>
@@ -347,7 +347,7 @@ const UIUXPage = () => {
             ))}
           </div>
           <div className="portfolio-cta">
-            <a href="../page-portfolio/index.html" className="btn btn-outline-primary">
+            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-eye">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
@@ -374,7 +374,7 @@ const UIUXPage = () => {
                     <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="../page-contact/index.html" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-outline-dark'}`}>
+                <a href="../page-contact/page-contact.tsx" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-outline-dark'}`}>
                   <i className="fas fa-arrow-right"></i> Pilih Paket
                 </a>
               </div>
@@ -421,7 +421,7 @@ const UIUXPage = () => {
             <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer">
               <i className="far fa-comment"></i> WhatsApp Sekarang
             </a>
-            <a href="../page-portfolio/index.html" className="btn btn-outline-light">
+            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-light">
               <i className="fas fa-download"></i> Download Portfolio
             </a>
           </div>

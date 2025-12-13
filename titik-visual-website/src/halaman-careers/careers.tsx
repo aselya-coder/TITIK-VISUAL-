@@ -44,10 +44,10 @@ const CareersPage: React.FC = () => {
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html" className="nav-link">Home</a></li>
-          <li><a href="../page-about/index.html" className="nav-link">About</a></li>
-          <li><a href="../page-layanan/index.html" className="nav-link">Services</a></li>
-          <li><a href="../page-portfolio/index.html" className="nav-link">Portfolio</a></li>
+          <li><a href="../beranda/beranda.tsx" className="nav-link">Home</a></li>
+          <li><a href="../page-about/page-about.tsx" className="nav-link">About</a></li>
+          <li><a href="../page-layanan/page-layanan.tsx" className="nav-link">Services</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx" className="nav-link">Portfolio</a></li>
           <li><button 
             onClick={() => scrollToSection('careers')} 
             className="nav-link active"
@@ -55,7 +55,7 @@ const CareersPage: React.FC = () => {
           >
             Careers
           </button></li>
-          <li><a href="../page-contact/index.html" className="nav-link">Contact</a></li>
+          <li><a href="../page-contact/page-contact.tsx" className="nav-link">Contact</a></li>
         </ul>
         <button 
           className="mobile-menu-toggle" 
@@ -70,10 +70,10 @@ const CareersPage: React.FC = () => {
       {/* Mobile Navigation Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <nav className="mobile-nav">
-          <a href="../beranda/index.html" className="mobile-nav-link">Home</a>
-          <a href="../page-about/index.html" className="mobile-nav-link">About</a>
-          <a href="../page-layanan/index.html" className="mobile-nav-link">Services</a>
-          <a href="../page-portfolio/index.html" className="mobile-nav-link">Portfolio</a>
+          <a href="../beranda/beranda.tsx" className="mobile-nav-link">Home</a>
+          <a href="../page-about/page-about.tsx" className="mobile-nav-link">About</a>
+          <a href="../page-layanan/page-layanan.tsx" className="mobile-nav-link">Services</a>
+          <a href="../page-portfolio/page-porfolio.tsx" className="mobile-nav-link">Portfolio</a>
           <button 
             onClick={() => scrollToSection('careers')} 
             className="mobile-nav-link active"
@@ -81,7 +81,7 @@ const CareersPage: React.FC = () => {
           >
             Careers
           </button>
-          <a href="../page-contact/index.html" className="mobile-nav-link">Contact</a>
+          <a href="../page-contact/page-contact.tsx" className="mobile-nav-link">Contact</a>
         </nav>
       </div>
 
@@ -92,10 +92,10 @@ const CareersPage: React.FC = () => {
             <h1>Bergabunglah dengan Program <br /><span className="highlight">Titik Visual</span> Yogyakarta</h1>
             <p>Tempat berkarya dan berkembang di industri kreatif. Kami menawarkan program magang dan kesempatan karir untuk talenta muda yang passionate di bidang digital dan creative industry.</p>
             <div className="hero-buttons">
-              <a href="../halaman-program-magang/index.html" className="btn btn-primary">
+              <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-primary">
                 <i className="fas fa-graduation-cap"></i> Lihat Program Magang
               </a>
-              <a href="../halaman-lowongan-kerja/index.html" className="btn btn-secondary">
+              <a href="../halaman-lowongan-kerja/lowongan-kerja.tsx" className="btn btn-secondary">
                 <i className="fas fa-briefcase"></i> Cari Lowongan Kerja
               </a>
             </div>                
@@ -134,7 +134,7 @@ const CareersPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <a href="../page-about/index.html" className="btn btn-learn-more">Pelajari Lebih Lanjut</a>
+                <a href="../page-about/page-about.tsx" className="btn btn-learn-more">Pelajari Lebih Lanjut</a>
               </div>
               <div className="about-image">
                 <div className="image-card">
@@ -181,7 +181,7 @@ const CareersPage: React.FC = () => {
                     <strong>Mahasiswa</strong>
                   </div>
                 </div>
-                <a href="../halaman-program-magang/index.html" className="btn btn-magang">Lihat Program Magang &rarr;</a>
+                <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-magang">Lihat Program Magang &rarr;</a>
               </div>
     
               {/* Job Vacancy Card */}
@@ -209,7 +209,7 @@ const CareersPage: React.FC = () => {
                     <strong>Fresh Graduate+</strong>
                   </div>
                 </div>
-                <a href="../halaman-lowongan-kerja/index.html" className="btn btn-lowongan">Lihat Lowongan Kerja &rarr;</a>
+                <a href="../halaman-lowongan-kerja/lowongan-kerja.tsx" className="btn btn-lowongan">Lihat Lowongan Kerja &rarr;</a>
               </div>
             </div>
           </div>
@@ -362,10 +362,10 @@ const CareersPage: React.FC = () => {
             <h2>Tertarik Bergabung Bersama Kami?</h2>
             <p>Mari tumbuh dan berkarya bersama tim profesional Titik Visual dalam menciptakan solusi digital yang berdampak.</p>
             <div className="cta-buttons">
-              <a href="../halaman-program-magang/index.html" className="btn btn-outline">
+              <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-outline">
                 <i className="fas fa-external-link-alt"></i> Lihat Program Magang
               </a>
-              <a href="../halaman-lowongan-kerja/index.html" className="btn btn-outline">
+              <a href="../halaman-lowongan-kerja/lowongan-kerja.tsx" className="btn btn-outline">
                 <i className="fas fa-external-link-alt"></i> Lihat Lowongan Kerja
               </a>
             </div>

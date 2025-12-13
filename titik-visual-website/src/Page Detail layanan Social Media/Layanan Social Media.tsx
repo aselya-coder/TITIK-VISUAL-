@@ -319,11 +319,11 @@ const SocialMediaPage = () => {
       <nav className="main-nav">
         <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html">Home</a></li>
-          <li><a href="../page-about/index.html">Profile</a></li>
-          <li className="active"><a href="../page-layanan/index.html">Layanan</a></li>
-          <li><a href="../page-portfolio/index.html">Portfolio</a></li>
-          <li><a href="../page-contact/index.html">Kontak</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
+          <li><a href="../page-about/page-about.tsx">Profile</a></li>
+          <li className="active"><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
+          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
@@ -331,7 +331,7 @@ const SocialMediaPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/index.html">Home</a> / <a href="../page-layanan/index.html">Services</a> / <span>Social Media Management</span>
+          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Social Media Management</span>
         </div>
       </section>
 
@@ -349,7 +349,7 @@ const SocialMediaPage = () => {
               paid ads, kami kelola semua aspek social media bisnis Anda.</p>
             <div className="hero-buttons">
               <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/index.html" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
             </div>
           </div>
           <div className="hero-image-wrapper">
@@ -461,7 +461,7 @@ const SocialMediaPage = () => {
                     <span>Durasi:</span>
                     <span className="duration-value">{plan.duration}</span>
                   </div>
-                  <a href="../page-contact/index.html" className={`btn-pricing ${plan.buttonClass}`}>
+                  <a href="../page-contact/page-contact.tsx" className={`btn-pricing ${plan.buttonClass}`}>
                     <i className="fas fa-arrow-right"></i> Mulai Sekarang
                   </a>
                 </div>
@@ -532,7 +532,7 @@ const SocialMediaPage = () => {
             ))}
           </div>
           <div className="view-all-stories">
-            <a href="../page-about/index.html" className="btn-outline-stories"><i className="far fa-eye"></i> Lihat Semua Case Studies</a>
+            <a href="../page-about/page-about.tsx" className="btn-outline-stories"><i className="far fa-eye"></i> Lihat Semua Case Studies</a>
           </div>
         </div>
       </section>
@@ -559,7 +559,7 @@ const SocialMediaPage = () => {
                   ))}
                 </ul>
                 <div className="package-footer">
-                  <a href="../page-contact/index.html" className={`btn-package ${plan.recommended ? 'btn-gradient' : ''}`}>
+                  <a href="../page-contact/page-contact.tsx" className={`btn-package ${plan.recommended ? 'btn-gradient' : ''}`}>
                     <i className="fas fa-arrow-right"></i> Pilih Paket
                   </a>
                 </div>
@@ -607,7 +607,7 @@ const SocialMediaPage = () => {
           <p>Konsultasikan strategi social media Anda dengan tim expert kami secara gratis</p>
           <div className="cta-buttons">
             <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> WhatsApp Sekarang</a>
-            <a href="../page-about/index.html" className="btn btn-outline-light"><i className="fas fa-download"></i> Download Case Study</a>
+            <a href="../page-about/page-about.tsx" className="btn btn-outline-light"><i className="fas fa-download"></i> Download Case Study</a>
           </div>
         </div>
       </section>

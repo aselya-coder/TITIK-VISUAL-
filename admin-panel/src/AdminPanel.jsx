@@ -22,14 +22,70 @@ export default function AdminPanel() {
     "page-portfolio",
   ];
 
+  const STORAGE_KEY = "tv_page_content";
   const [selectedPage, setSelectedPage] = useState(pages[0]);
-  const [title, setTitle] = useState("");
-  const [subtitle, setSubtitle] = useState("");
+  const [title, setTitle] = useState(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return "";
+      const data = JSON.parse(raw);
+      const content = data?.[pages[0]];
+      return content?.title || "";
+    } catch {
+      return "";
+    }
+  });
+  const [subtitle, setSubtitle] = useState(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return "";
+      const data = JSON.parse(raw);
+      const content = data?.[pages[0]];
+      return content?.subtitle || "";
+    } catch {
+      return "";
+    }
+  });
   const [saved, setSaved] = useState(false);
 
+
+  const loadContent = (page) => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        setTitle("");
+        setSubtitle("");
+        return;
+      }
+      const data = JSON.parse(raw);
+      const content = data?.[page];
+      setTitle(content?.title || "");
+      setSubtitle(content?.subtitle || "");
+    } catch (e) {
+      console.error(e);
+      setTitle("");
+      setSubtitle("");
+    }
+  };
+
+  
+
   const handleSave = () => {
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const data = raw ? JSON.parse(raw) : {};
+      data[selectedPage] = { title, subtitle };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      window.postMessage(
+        { type: "tv_content_update", page: selectedPage, title, subtitle },
+        "*"
+      );
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch {
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    }
   };
 
   return (
@@ -46,15 +102,19 @@ export default function AdminPanel() {
         <CardContent className="p-6 space-y-4">
           <div>
             <label className="text-gray-700 font-medium">Pilih Halaman</label>
-            <select
-              className="w-full mt-1 p-2 border rounded-xl"
-              value={selectedPage}
-              onChange={(e) => setSelectedPage(e.target.value)}
-            >
-              {pages.map((p, i) => (
-                <option key={i} value={p}>{p}</option>
-              ))}
-            </select>1
+          <select
+            className="w-full mt-1 p-2 border rounded-xl"
+            value={selectedPage}
+            onChange={(e) => {
+              const page = e.target.value;
+              setSelectedPage(page);
+              loadContent(page);
+            }}
+          >
+            {pages.map((p, i) => (
+              <option key={i} value={p}>{p}</option>
+            ))}
+            </select>
           </div>
 
           <div>
@@ -71,7 +131,7 @@ export default function AdminPanel() {
             <label className="text-gray-700 font-medium">Subtitle Halaman</label>
             <Input
               value={subtitle}
-              onChange={(e) => setSubtitle(e.target.vhalue)}
+              onChange={(e) => setSubtitle(e.target.value)}
               placeholder="Masukkan subtitle halaman"
               className="mt-1"
             />

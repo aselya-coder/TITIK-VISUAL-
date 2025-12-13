@@ -220,11 +220,11 @@ const AboutPage = () => {
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/index.html">Home</a></li>
+          <li><a href="../beranda/beranda.tsx">Home</a></li>
           <li><a href="#profile"><strong>Profile</strong></a></li>
-          <li><a href="../page-layanan/index.html">Layanan</a></li>
-          <li><a href="../page-portfolio/index.html">Portfolio</a></li>
-          <li><a href="../page-contact/index.html">Kontak</a></li>
+          <li><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
+          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle">
           <span></span>
@@ -254,7 +254,7 @@ const AboutPage = () => {
             </p>
             
             <div className="hero-buttons">
-              <a href="../page-portfolio/index.html" className="btn-primary">
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn-primary">
                 <i className="fa-solid fa-arrow-up-right-from-square"></i> Lihat Portfolio
               </a>
               
@@ -419,10 +419,10 @@ const AboutPage = () => {
           <h2>Siap Berkolaborasi dengan Kami?</h2>
           <p>Mari wujudkan visi digital Anda bersama tim profesional Titik Visual</p>
           <div className="cta-buttons">
-            <a href="../page-contact/index.html" className="btn btn-cta-primary">
+            <a href="../page-contact/page-contact.tsx" className="btn btn-cta-primary">
               <i className="far fa-comment"></i> Mulai Diskusi
             </a>
-            <a href="../page-portfolio/index.html" className="btn btn-cta-outline-white">
+            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-cta-outline-white">
               <i className="fas fa-arrow-up-right-from-square"></i> Lihat Portfolio
             </a>
           </div>

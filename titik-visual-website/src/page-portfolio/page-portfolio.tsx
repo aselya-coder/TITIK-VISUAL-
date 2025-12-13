@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './style.css';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -39,11 +39,11 @@ function App() {
         </div>
 
         <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="/beranda/index.html">Home</a></li>
-          <li><a href="/page-about/index.html">Profile</a></li>
-          <li><a href="/page-layanan/index.html">Layanan</a></li>
+          <li><a href="/beranda/beranda.tsx">Home</a></li>
+          <li><a href="/page-about/page-about.tsx">Profile</a></li>
+          <li><a href="/page-layanan/page-layanan.tsx">Layanan</a></li>
           <li className="active"><a href="#portfolio">Portfolio</a></li>
-          <li><a href="/page-contact/index.html">Kontak</a></li>
+          <li><a href="/page-contact/page-contact.tsx">Kontak</a></li>
         </ul>
 
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
@@ -64,7 +64,7 @@ function App() {
                 <i className="fas fa-eye"></i>
                 Lihat Semua Karya
               </a>
-              <a href="/contact" className="btn btn-secondary">
+              <a href="../page-contact/page-contact.tsx" className="btn btn-secondary">
                 <i className="fas fa-arrow-up-right-from-square"></i>
                 Diskusi Proyek
               </a>
@@ -421,7 +421,7 @@ function App() {
             <h2>Tertarik dengan Karya Kami?</h2>
             <p>Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda</p>
             <div className="cta-buttons">
-              <a href="/contact" className="btn btn-primary-cta">
+              <a href="../page-contact/page-contact.tsx" className="btn btn-primary-cta">
                 <i className="fas fa-arrow-up-right-from-square"></i> Diskusi Proyek
               </a>
               <a href="#portfolio" className="btn btn-secondary-cta">
