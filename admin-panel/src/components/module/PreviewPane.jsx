@@ -18,7 +18,7 @@ export function PreviewPane({ fullWidth = false }) {
             id="tv-preview"
             title="Website Preview"
             src="http://localhost:3000/"
-            style={{ width: '100%', height: '500px', border: '1px solid #e2e8f0', borderRadius: '8px' }}
+            style={{ width: '100%', height: '500px', border: '1px solid hsl(var(--border))', borderRadius: '12px' }}
           />
         </ScrollArea>
       </CardContent>

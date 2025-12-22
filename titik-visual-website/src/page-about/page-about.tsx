@@ -1,5 +1,8 @@
 import React from 'react';
 import './style.css';
+import { useContent } from '../content/ContentContext';
+const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
+const getImg = (name: string) => images(`./${name}`);
 
 interface TimelineEntry {
   id: number;
@@ -34,7 +37,10 @@ interface Testimonial {
   authorImage: string;
 }
 
+// CTASection removed (using CSS-based CTA for current project setup)
+
 const AboutPage = () => {
+  const content = useContent();
   // Timeline data
   const timelineEntries: TimelineEntry[] = [
     {
@@ -92,39 +98,25 @@ const AboutPage = () => {
     {
       id: 1,
       title: 'Innovation',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <g transform="rotate(20 12 12)">
-            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5Z"/>
-          </g>
-          <g>
-            <path d="M19 4h1v3h-1z"/>
-            <path d="M18 5h3v1h-3z"/>
-          </g>
-          <g>
-            <path d="M5 18h1v3h-1z"/>
-            <path d="M4 19h3v1h-3z"/>
-          </g>
-        </svg>
-      ),
+      icon: <img src={getImg('icon-custom-merchandise.png')} alt="Innovation" />,
       description: 'Selalu menggunakan teknologi dan metodologi terdepan untuk hasil yang optimal'
     },
     {
       id: 2,
       title: 'Quality',
-      icon: <i className="fa-solid fa-medal"></i>,
+      icon: <img src={getImg('icon-corporate-gift.png')} alt="Quality" />,
       description: 'Komitmen pada kualitas tinggi di setiap aspek pekerjaan yang kami lakukan'
     },
     {
       id: 3,
       title: 'Collaboration',
-      icon: <i className="fa-solid fa-people-group"></i>,
+      icon: <img src={getImg('icon-logo dan brand.png')} alt="Collaboration" />,
       description: 'Bekerja sama dengan klien sebagai partner untuk mencapai tujuan bersama'
     },
     {
       id: 4,
       title: 'Integrity',
-      icon: <i className="fa-regular fa-heart"></i>,
+      icon: <i className="fa-regular fa-heart" aria-hidden="true"></i>,
       description: 'Transparansi dan kejujuran dalam setiap komunikasi dan proses kerja'
     }
   ];
@@ -136,7 +128,7 @@ const AboutPage = () => {
       name: 'Ahmad Rizki',
       role: 'Founder & Creative Director',
       description: '10+ tahun pengalaman di industri creative digital dengan expertise di UI/UX Design dan Brand Strategy',
-      image: '../img/team1.jpg',
+      image: 'team1.jpg',
       skills: ['UI/UX Design', 'Brand Strategy', 'Creative Direction']
     },
     {
@@ -144,7 +136,7 @@ const AboutPage = () => {
       name: 'Sarah Putri',
       role: 'Lead UI/UX Designer',
       description: 'Spesialis UI/UX dengan passion untuk menciptakan user experience yang memorable dan conversion-focused',
-      image: '../img/team1.jpg',
+      image: 'team1.jpg',
       skills: ['User Research', 'Prototyping', 'Design Systems']
     },
     {
@@ -152,7 +144,7 @@ const AboutPage = () => {
       name: 'Budi Santoso',
       role: 'Lead Developer',
       description: 'Full-stack developer dengan expertise di React, Next.js, dan modern web technologies',
-      image: '../img/team1.jpg',
+      image: 'team1.jpg',
       skills: ['React/Next.js', 'Node.js', 'Mobile Development']
     },
     {
@@ -160,7 +152,7 @@ const AboutPage = () => {
       name: 'Maya Sari',
       role: 'Digital Marketing Specialist',
       description: 'Expert dalam social media strategy, content marketing, dan digital campaign optimization',
-      image: '../img/team1.jpg',
+      image: 'team1.jpg',
       skills: ['Social Media', 'Content Strategy', 'SEO/SEM']
     }
   ];
@@ -172,21 +164,21 @@ const AboutPage = () => {
       text: '"Titik Visual tidak hanya memberikan hasil yang luar biasa, tapi juga proses kerja yang sangat profesional. Tim mereka benar-benar memahami kebutuhan bisnis kami."',
       authorName: 'Dr. Siti Nurhaliza',
       authorPosition: 'CEO at HealthTech Indonesia',
-      authorImage: '../img/img.png'
+      authorImage: 'img.png'
     },
     {
       id: 2,
       text: '"Dari UI/UX design hingga development, Titik Visual memberikan solusi end-to-end yang sangat memuaskan. Highly recommended untuk startup dan enterprise!"',
       authorName: 'Andi Wijaya',
       authorPosition: 'Founder at StartupHub Jakarta',
-      authorImage: '../img/img.png'
+      authorImage: 'img.png'
     },
     {
       id: 3,
       text: '"Social media management dan digital marketing campaign dari Titik Visual berhasil meningkatkan engagement kami hingga 300%. Luar biasa!"',
       authorName: 'Lisa Chen',
       authorPosition: 'Marketing Director at E-Commerce Plus',
-      authorImage: '../img/img.png'
+      authorImage: 'img.png'
     }
   ];
 
@@ -215,16 +207,16 @@ const AboutPage = () => {
       </div>
 
       {/* MAIN NAVBAR */}
-      <nav className="main-nav">
+      <nav className={`main-nav ${window.location && (window.location.pathname === '/about') ? 'about-nav' : ''}`}>
         <div className="nav-left">
-          <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
+          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx">Home</a></li>
-          <li><a href="#profile"><strong>Profile</strong></a></li>
-          <li><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
-          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about" className="active">Profile</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
         <div className="mobile-menu-toggle">
           <span></span>
@@ -243,8 +235,8 @@ const AboutPage = () => {
             </div>
             
             <h1 className="hero-title">
-              <span className="gradient-text">Digital Creative Studio</span><br />
-              yang Mengutamakan <br /> Kualitas
+              <span className="hero-title-line1">Digital Creative Studio</span>
+              <span className="hero-title-line2">yang Mengutamakan Kualitas</span>
             </h1>
             
             <p className="hero-desc">
@@ -254,10 +246,10 @@ const AboutPage = () => {
             </p>
             
             <div className="hero-buttons">
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn-primary">
+              <a href="#portfolio" className="btn-primary">
                 <i className="fa-solid fa-arrow-up-right-from-square"></i> Lihat Portfolio
               </a>
-              
+
               <a href="https://wa.me/6281804376001" className="btn-outline" target="_blank" rel="noopener noreferrer">
                 <i className="fa-regular fa-comment"></i> Hubungi Kami
               </a>
@@ -268,7 +260,7 @@ const AboutPage = () => {
           <div className="hero-right">
             <div className="hero-image-card">
               <div className="card-content">
-                <img src="../img/img2.png" alt="Titik Visual Logo" />
+                <img src={getImg('img2.png')} alt="Titik Visual Logo" />
               </div>
               {/* Badge Pengalaman */}
               <div className="experience-badge">
@@ -301,7 +293,7 @@ const AboutPage = () => {
 
           <div className="stat-card">
             <div className="icon-box">
-              <i className="fa-solid fa-clock"></i>
+              <i className="fa-regular fa-clock"></i>
             </div>
             <h2>5+</h2>
             <p>Tahun Pengalaman</p>
@@ -309,7 +301,7 @@ const AboutPage = () => {
 
           <div className="stat-card">
             <div className="icon-box">
-              <i className="fa-solid fa-award"></i>
+              <img src={getImg('icon-corporate-gift.png')} alt="Awards" />
             </div>
             <h2>50+</h2>
             <p>Awards & Recognition</p>
@@ -320,7 +312,7 @@ const AboutPage = () => {
       {/* TIMELINE SECTION */}
       <section className="timeline-section">
         <div className="container">
-          <h2>Perjalanan Kami</h2>
+          <h2><span className="gradient-text">Perjalanan Kami</span></h2>
           <p className="subtitle">Milestone penting dalam perjalanan Titik Visual</p>
 
           <div className="timeline">
@@ -366,7 +358,7 @@ const AboutPage = () => {
           <div className="team-grid">
             {teamMembers.map(member => (
               <div className="team-card" key={member.id}>
-                <img src={member.image} alt={member.name} />
+                <img src={getImg(member.image)} alt={member.name} />
                 <div className="team-card-content">
                   <h3>{member.name}</h3>
                   <p className="role">{member.role}</p>
@@ -386,7 +378,7 @@ const AboutPage = () => {
       {/* TESTIMONIALS */}
       <section id="testimonials" className="testimonials">
         <div className="container">
-          <h2>Apa Kata Klien Kami</h2>
+          <h2><span className="gradient-text">Apa Kata Klien Kami</span></h2>
           <p className="subtitle">Testimoni dari klien yang telah mempercayai kami</p>
           <div className="testimonials-grid">
             {testimonials.map(testimonial => (
@@ -401,7 +393,7 @@ const AboutPage = () => {
                 </div>
                 <p className="testimonial-text">{testimonial.text}</p>
                 <div className="testimonial-author">
-                  <img src={testimonial.authorImage} alt={testimonial.authorName} />
+                  <img src={getImg(testimonial.authorImage)} alt={testimonial.authorName} />
                   <div className="author-info">
                     <h4>{testimonial.authorName}</h4>
                     <span>{testimonial.authorPosition}</span>
@@ -414,15 +406,15 @@ const AboutPage = () => {
       </section>
 
       {/* CTA */}
-      <section id="cta" className="cta">
+      <section id="cta" className="cta" style={{ background: "linear-gradient(135deg, #A855F7 0%, #06B6D4 100%)" }}>
         <div className="container">
           <h2>Siap Berkolaborasi dengan Kami?</h2>
           <p>Mari wujudkan visi digital Anda bersama tim profesional Titik Visual</p>
-          <div className="cta-buttons">
-            <a href="../page-contact/page-contact.tsx" className="btn btn-cta-primary">
+          <div className="cta-buttons flex flex-row items-center gap-4">
+            <a href="../page-contact/page-contact.tsx" className="btn-cta-primary inline-flex w-fit whitespace-nowrap">
               <i className="far fa-comment"></i> Mulai Diskusi
             </a>
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-cta-outline-white">
+            <a href="../page-portfolio/page-portfolio.tsx" className="btn-cta-outline-white inline-flex w-fit px-4 whitespace-nowrap text-sm">
               <i className="fas fa-arrow-up-right-from-square"></i> Lihat Portfolio
             </a>
           </div>
@@ -431,11 +423,11 @@ const AboutPage = () => {
 
       {/* FOOTER */}
       <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
+        <div className="container max-w-7xl mx-auto">
+          <div className="footer-grid grid grid-cols-4 gap-8">
             <div className="footer-brand">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
-              <p>Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.</p>
+              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
+              <p>{content.get('page-about', 'footer_brand_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
             </div>
     
             <div className="footer-col">
@@ -469,8 +461,11 @@ const AboutPage = () => {
               </ul>
             </div>
           </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 Titik Visual. All rights reserved.</p>
+          <div className="footer-bottom flex justify-center" style={{ textAlign: 'right' }}>
+            <p className="text-center whitespace-nowrap">
+              {content.get('page-about', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
+              {content.get('page-about', 'footer_line1_bottom', 'All rights reserved.')}
+            </p>
           </div>
         </div>
       </footer>

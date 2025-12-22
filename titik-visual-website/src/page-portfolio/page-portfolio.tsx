@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './style.css';
+import { useContent } from '../content/ContentContext';
+import portfolioImage from '../img/portfolio.png';
+const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
+const getImg = (name: string) => images(`./${name}`);
 
 function App() {
+  const content = useContent();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -35,15 +40,15 @@ function App() {
       {/* Main Navbar */}
       <nav className="main-nav">
         <div className="nav-left">
-          <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
+          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
         </div>
 
         <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="/beranda/beranda.tsx">Home</a></li>
-          <li><a href="/page-about/page-about.tsx">Profile</a></li>
-          <li><a href="/page-layanan/page-layanan.tsx">Layanan</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Profile</a></li>
+          <li><a href="#services">Layanan</a></li>
           <li className="active"><a href="#portfolio">Portfolio</a></li>
-          <li><a href="/page-contact/page-contact.tsx">Kontak</a></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
 
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
@@ -57,16 +62,16 @@ function App() {
         {/* Portfolio Hero Section */}
         <section className="portfolio-hero-section">
           <div className="container">
-            <h1>Portfolio Kami</h1>
-            <p>Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.</p>
+            <h1>{content.get('page-portofolio', 'hero_title', 'Portfolio Kami')}</h1>
+            <p>{content.get('page-portofolio', 'hero_subtitle', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}</p>
             <div className="hero-buttons">
               <a href="#portfolio" className="btn btn-primary">
                 <i className="fas fa-eye"></i>
-                Lihat Semua Karya
+                {content.get('page-portofolio', 'cta_all_works_label', 'Lihat Semua Karya')}
               </a>
               <a href="../page-contact/page-contact.tsx" className="btn btn-secondary">
                 <i className="fas fa-arrow-up-right-from-square"></i>
-                Diskusi Proyek
+                {content.get('page-portofolio', 'cta_discuss_label', 'Diskusi Proyek')}
               </a>
             </div>
           </div>
@@ -75,14 +80,14 @@ function App() {
         {/* Portfolio Section */}
         <section id="portfolio" className="portfolio-section">
           <div className="container">
-            <h2 className="section-title">Featured Projects</h2>
-            <p className="section-subtitle">Karya-karya unggulan yang menjadi kebanggaan kami</p>
+            <h2 className="section-title">{content.get('page-portofolio', 'section_title', 'Featured Projects')}</h2>
+            <p className="section-subtitle">{content.get('page-portofolio', 'section_subtitle', 'Karya-karya unggulan yang menjadi kebanggaan kami')}</p>
 
             <div className="portfolio-grid">
               {/* Project Card 1 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="E-Commerce Mobile App" />
+                  <img src={portfolioImage} alt="E-Commerce Mobile App" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -111,7 +116,7 @@ function App() {
               {/* Project Card 2 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="SaaS Dashboard Design" />
+                  <img src={portfolioImage} alt="SaaS Dashboard Design" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -139,7 +144,7 @@ function App() {
               {/* Project Card 3 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Banking Mobile App" />
+                  <img src={portfolioImage} alt="Banking Mobile App" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -167,7 +172,7 @@ function App() {
               {/* Project Card 4 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="E-Commerce Mobile App" />
+                  <img src={portfolioImage} alt="E-Commerce Mobile App" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -196,7 +201,7 @@ function App() {
               {/* Project Card 5 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="SaaS Dashboard Design" />
+                  <img src={portfolioImage} alt="SaaS Dashboard Design" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -224,7 +229,7 @@ function App() {
               {/* Project Card 6 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Corporate Website" />
+                  <img src={portfolioImage} alt="Corporate Website" />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
@@ -251,7 +256,7 @@ function App() {
               {/* Project Card 7 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Banking Mobile App" />
+                  <img src={portfolioImage} alt="Banking Mobile App" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -279,7 +284,7 @@ function App() {
               {/* Project Card 8 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Brand Identity Package" />
+                  <img src={portfolioImage} alt="Brand Identity Package" />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
@@ -306,7 +311,7 @@ function App() {
               {/* Project Card 9 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Social Media Campaign" />
+                  <img src={portfolioImage} alt="Social Media Campaign" />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
@@ -333,7 +338,7 @@ function App() {
               {/* Project Card 10 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Restaurant Website" />
+                  <img src={portfolioImage} alt="Restaurant Website" />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
@@ -360,7 +365,7 @@ function App() {
               {/* Project Card 11 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="Fitness App UI/UX" />
+                  <img src={portfolioImage} alt="Fitness App UI/UX" />
                   <span className="project-tag">Featured</span>
                 </div>
                 <div className="card-content">
@@ -388,7 +393,7 @@ function App() {
               {/* Project Card 12 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src="../img/portfolio.png" alt="E-Learning Platform" />
+                  <img src={portfolioImage} alt="E-Learning Platform" />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
@@ -432,16 +437,16 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="footer">
-          <div className="container">
-            <div className="footer-grid">
-              <div className="footer-brand">
-                <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
-                <p>Portfolio lengkap karya digital creative yang telah membantu berbagai klien mencapai kesuksesan.</p>
-              </div>
-              <div className="footer-links">
-                <h4>Portfolio</h4>
-                <ul>
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
+              <p>{content.get('page-portofolio', 'footer_brand_desc', 'Portfolio lengkap karya digital creative yang telah membantu berbagai klien mencapai kesuksesan.')}</p>
+            </div>
+            <div className="footer-links">
+              <h4>Portfolio</h4>
+              <ul>
                   <li><a href="/portfolio/ui-ux">UI/UX Design</a></li>
                   <li><a href="/portfolio/web-development">Web Development</a></li>
                   <li><a href="/portfolio/mobile-app">Mobile App</a></li>
@@ -469,7 +474,10 @@ function App() {
               </div>
             </div>
             <div className="footer-bottom">
-              <p>© 2024 Titik Visual. All rights reserved.</p>
+              <p>
+                {content.get('page-portfolio', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
+                {content.get('page-portfolio', 'footer_line1_bottom', 'All rights reserved.')}
+              </p>
             </div>
           </div>
         </footer>

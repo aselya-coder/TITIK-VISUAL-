@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+﻿﻿import React, { useState } from 'react';
 import './style.css';
+import { useContent } from '../content/ContentContext';
+const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
+const getImg = (name: string) => images(`./${name}`);
 
 function App() {
+  const content = useContent();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -38,17 +42,24 @@ function App() {
       </div>
 
       {/* Main Navbar */}
-      <nav className="main-nav">
+      <nav
+        className="main-nav"
+        style={
+          window.location && window.location.pathname === '/layanan'
+            ? { background: 'linear-gradient(90deg, #A855F7, #06B6D4)' }
+            : undefined
+        }
+      >
         <div className="nav-left">
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
 
         <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="../beranda/beranda.tsx">Home</a></li>
-          <li><a href="../page-about/page-about.tsx">Profile</a></li>
-          <li className="active"><a href="#layanan">Layanan</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a> <i className="fas fa-chevron-down"></i></li>
-          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Profile</a></li>
+          <li className="active"><a href="#services">Layanan</a></li>
+          <li><a href="#portfolio">Portfolio</a> <i className="fas fa-chevron-down"></i></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
 
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
@@ -59,7 +70,7 @@ function App() {
       </nav>
 
       {/* Hero Section - Kategori Layanan */}
-      <main className="hero-section">
+      <main className="hero-section" style={{ backgroundColor: '#FFFFFF', backgroundImage: 'none' }}>
         <div className="container">
           <h1>Kategori Layanan Utama</h1>
           <p className="subtitle">Pilih kategori layanan yang sesuai dengan kebutuhan bisnis Anda</p>
@@ -68,60 +79,130 @@ function App() {
             {/* Card 1: UI/UX Design */}
             <div className="category-card">
               <div className="card-icon purple">
-                <img src="../img/ui-ux desain.png" alt="UI/UX Design Icon" />
+                <img
+                  src={getImg('ui-ux desain.png')}
+                  alt="UI/UX Design Icon"
+                  style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                />
               </div>
               <h3>UI/UX Design</h3>
               <p>Desain interface yang user-friendly dan menarik</p>
-              <a href="../page layanan detail ui_ux/layanan detail ui_ux.tsx" className="btn-detail btn-purple">
-                <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
+              <a
+                href="../page layanan detail ui_ux/layanan detail ui_ux.tsx"
+                className="btn-detail btn-purple"
+                style={{
+                  background: 'linear-gradient(90deg, #A855F7, #EC4899)',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
+                <span>Lihat Detail</span>
               </a>
             </div>
 
             {/* Card 2: Website & Aplikasi */}
             <div className="category-card">
               <div className="card-icon blue">
-                <img src="../img/website.png" alt="Website icon" />
+                <img
+                  src={getImg('website.png')}
+                  alt="Website icon"
+                  style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                />
               </div>
               <h3>Website & Aplikasi</h3>
               <p>Website responsif dan aplikasi mobile modern</p>
-              <a href="../page detail layanan web&apk/layanan detail web&apk.tsx" className="btn-detail btn-blue">
-                <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
+              <a
+                href="../page detail layanan web&apk/layanan detail web&apk.tsx"
+                className="btn-detail btn-blue"
+                style={{
+                  background: 'linear-gradient(90deg, #3B82F6, #06B6D4)',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
+                <span>Lihat Detail</span>
               </a>
             </div>
 
             {/* Card 3: Logo Design */}
             <div className="category-card">
               <div className="card-icon orange">
-                <img src="../img/logo desain.png" alt="Logo Desain icon" />
+                <img
+                  src={getImg('logo desain.png')}
+                  alt="Logo Desain icon"
+                  style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                />
               </div>
               <h3>Logo Design</h3>
               <p>Logo profesional untuk identitas brand Anda</p>
-              <a href="../Page Detail Layanan Logo Design/Layanan Logo Design.tsx" className="btn-detail btn-orange">
-                <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
+              <a
+                href="../Page Detail Layanan Logo Design/Layanan Logo Design.tsx"
+                className="btn-detail btn-orange"
+                style={{
+                  background: 'linear-gradient(90deg, #F97316, #EF4444)',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
+                <span>Lihat Detail</span>
               </a>
             </div>
 
             {/* Card 4: Social Media */}
             <div className="category-card">
               <div className="card-icon pink">
-                <img src="../img/sosial managemen.png" alt="Sosial managemen icon" />
+                <img
+                  src={getImg('sosial managemen.png')}
+                  alt="Sosial managemen icon"
+                  style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                />
               </div>
               <h3>Social Media</h3>
               <p>Kelola media sosial dengan strategi tepat</p>
-              <a href="../Page Detail layanan Social Media/Layanan Social Media.tsx" className="btn-detail btn-pink">
-                <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
+              <a
+                href="../Page Detail layanan Social Media/Layanan Social Media.tsx"
+                className="btn-detail btn-pink"
+                style={{
+                  background: 'linear-gradient(90deg, #EC4899, #F43F5E)',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
+                <span>Lihat Detail</span>
               </a>
             </div>
 
             {/* Card 5: Custom Merchandise */}
             <div className="category-card">
               <div className="card-icon green">
-                <img src="../img/custom mercandhise.png" alt="Custom Mercandhise icon" />
+                <img
+                  src={getImg('custom mercandhise.png')}
+                  alt="Custom Mercandhise icon"
+                  style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                />
               </div>
               <h3>Merchandise</h3>
               <p>Merchandise berkualitas untuk promosi brand</p>
-              <a href="../Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise.tsx" className="btn-detail btn-green">
-                <span>Lihat Detail</span> <i className="fas fa-arrow-right"></i>
+              <a
+                href="../Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise.tsx"
+                className="btn-detail btn-green"
+                style={{
+                  background: 'linear-gradient(90deg, #22C55E, #10B981)',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
+                <span>Lihat Detail</span>
               </a>
             </div>
           </div>
@@ -136,8 +217,8 @@ function App() {
           <div className="service-grid">
             {/* UI/UX Design */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/ui-ux.png" alt="UI/UX Design" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('ui-ux.png')} alt="UI/UX Design" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>UI/UX Design</h3>
                 <p className="description">Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile.</p>
                 <h4>Fitur Utama:</h4>
@@ -148,11 +229,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Usability Testing</li>
                   <li><i className="fas fa-check-circle"></i> Responsive Design</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 2.500.000</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 2.500.000</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>2-4 minggu</span>
                 </div>
@@ -162,8 +243,8 @@ function App() {
 
             {/* Website Development */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/web.png" alt="Website Development" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('web.png')} alt="Website Development" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Website Development</h3>
                 <p className="description">Website responsif dan modern dengan teknologi terdepan untuk bisnis Anda.</p>
                 <h4>Fitur Utama:</h4>
@@ -174,11 +255,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> SEO Optimization</li>
                   <li><i className="fas fa-check-circle"></i> Performance Optimization</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 3.500.000</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 3.500.000</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>3-6 minggu</span>
                 </div>
@@ -188,8 +269,8 @@ function App() {
 
             {/* Mobile App Development */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/Mobile.png" alt="Mobile App Development" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('Mobile.png')} alt="Mobile App Development" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Mobile App Development</h3>
                 <p className="description">Aplikasi mobile iOS dan Android dengan performa terbaik dan desain yang menarik.</p>
                 <h4>Fitur Utama:</h4>
@@ -200,11 +281,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Push Notifications</li>
                   <li><i className="fas fa-check-circle"></i> App Store Deployment</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 15.000.000</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 15.000.000</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>6-12 minggu</span>
                 </div>
@@ -214,8 +295,8 @@ function App() {
 
             {/* Logo Design */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/Logo Design.png" alt="Logo Design" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('Logo Design.png')} alt="Logo Design" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Logo Design</h3>
                 <p className="description">Logo profesional yang mencerminkan identitas dan nilai brand Anda.</p>
                 <h4>Fitur Utama:</h4>
@@ -226,11 +307,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> File Format Lengkap</li>
                   <li><i className="fas fa-check-circle"></i> Unlimited Revisions</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 500.000</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 500.000</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>1-2 minggu</span>
                 </div>
@@ -240,8 +321,8 @@ function App() {
 
             {/* Brand Identity */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/brand identity.png" alt="Brand Identity" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('brand identity.png')} alt="Brand Identity" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Brand Identity</h3>
                 <p className="description">Paket lengkap identitas visual untuk membangun brand yang kuat dan memorable.</p>
                 <h4>Fitur Utama:</h4>
@@ -252,11 +333,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Business Card Design</li>
                   <li><i className="fas fa-check-circle"></i> Letterhead & Stationery</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 2.000.000</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 2.000.000</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>2-3 minggu</span>
                 </div>
@@ -266,8 +347,8 @@ function App() {
 
             {/* Social Media Management */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/Social Media Management.png" alt="Social Media Management" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('Social Media Management.png')} alt="Social Media Management" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Social Media Management</h3>
                 <p className="description">Kelola dan kembangkan media sosial bisnis Anda dengan strategi yang tepat.</p>
                 <h4>Fitur Utama:</h4>
@@ -278,11 +359,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Analytics & Reporting</li>
                   <li><i className="fas fa-check-circle"></i> Paid Ads Management</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 1.500.000/bulan</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 800.000/bulan</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
@@ -292,8 +373,8 @@ function App() {
 
             {/* Digital Marketing */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/digital marketing.png" alt="Digital Marketing" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('digital marketing.png')} alt="Digital Marketing" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Digital Marketing</h3>
                 <p className="description">Strategi pemasaran digital yang komprehensif untuk meningkatkan brand awareness.</p>
                 <h4>Fitur Utama:</h4>
@@ -304,11 +385,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Content Marketing</li>
                   <li><i className="fas fa-check-circle"></i> Analytics & Optimization</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 2.000.000/bulan</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 2.000.000/bulan</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
@@ -318,8 +399,8 @@ function App() {
 
             {/* Social Media Feed Design */}
             <div className="service-card-v2">
-              <div className="card-image-container"><img src="../img/Social Media Feed Design.png" alt="Social Media Feed Design" /></div>
-              <div className="card-content-v2">
+              <div className="card-image-container"><img src={getImg('Social Media Feed Design.png')} alt="Social Media Feed Design" /></div>
+              <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Social Media Feed Design</h3>
                 <p className="description">Desain konten visual yang menarik dan konsisten untuk feed media sosial.</p>
                 <h4>Fitur Utama:</h4>
@@ -330,11 +411,11 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Post Carousel Design</li>
                   <li><i className="fas fa-check-circle"></i> Brand Consistency</li>
                 </ul>
-                <div className="info-row">
+                <div className="info-row" style={{ marginBottom: 0, paddingBottom: 0 }}>
                   <span>Harga:</span>
-                  <span className="price">Mulai dari Rp 800.000/bulan</span>
+                  <span style={{ color: '#9333EA' }}>Mulai dari Rp 800.000/bulan</span>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <span>Durasi:</span>
                   <span>Ongoing</span>
                 </div>
@@ -354,9 +435,9 @@ function App() {
             {/* Product Card 1: Botol Minum */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Botol Minum & Tumbler Custom.png" alt="Botol Minum & Tumbler Custom" />
+                <img src={getImg('Botol Minum & Tumbler Custom.png')} alt="Botol Minum & Tumbler Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Botol Minum & Tumbler Custom</h3>
                 <p className="product-description">Botol minum dan tumbler berkualitas tinggi dengan custom design sesuai brand Anda.</p>
                 <h4>Spesifikasi:</h4>
@@ -368,9 +449,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 25.000/pcs</span>
+                    <span style={{ color: '#0891B2' }}>Mulai dari Rp 25.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -386,9 +467,9 @@ function App() {
             {/* Product Card 2: Mug Custom */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/mug.png" alt="Mug Custom" />
+                <img src={getImg('mug.png')} alt="Mug Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Mug Custom</h3>
                 <p className="product-description">Mug ceramic dan stainless berkualitas premium dengan printing yang tahan lama.</p>
                 <h4>Spesifikasi:</h4>
@@ -400,9 +481,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 24 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 20.000/pcs</span>
+                    <span style={{ color: '#0891B2' }}>Mulai dari Rp 20.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -418,9 +499,9 @@ function App() {
             {/* Product Card 3: Gelas Kaca */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/gelas kaca.png" alt="Gelas Kaca Premium" />
+                <img src={getImg('gelas kaca.png')} alt="Gelas Kaca Premium" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Gelas Kaca Premium</h3>
                 <p className="product-description">Gelas kaca berkualitas tinggi untuk kebutuhan corporate dan event special.</p>
                 <h4>Spesifikasi:</h4>
@@ -432,9 +513,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 15.000/pcs</span>
+                    <span style={{ color: '#0891B2' }}>Mulai dari Rp 15.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -450,9 +531,9 @@ function App() {
             {/* Product Card 4: Drink Jar */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/drink jar.png" alt="Drink Jar & Gelas Cup" />
+                <img src={getImg('drink jar.png')} alt="Drink Jar & Gelas Cup" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Drink Jar & Gelas Cup</h3>
                 <p className="product-description">Drink jar unik dan gelas cup branded untuk promosi yang memorable.</p>
                 <h4>Spesifikasi:</h4>
@@ -464,9 +545,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 18.000/pcs</span>
+                    <span style={{ color: '#0891B2' }}>Mulai dari Rp 15.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -491,9 +572,9 @@ function App() {
             {/* Product Card 1: Totebag */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/tas canvas.png" alt="Totebag Canvas Premium" />
+                <img src={getImg('tas canvas.png')} alt="Totebag Canvas Premium" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Totebag Canvas Premium</h3>
                 <p className="product-description">Totebag canvas berkualitas tinggi dengan custom design yang tahan lama.</p>
                 <h4>Spesifikasi:</h4>
@@ -505,9 +586,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 15.000/pcs</span>
+                    <span style={{ color: '#DB2777' }}>Mulai dari Rp 15.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -523,9 +604,9 @@ function App() {
             {/* Product Card 2: Spunbond Bag */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Tas Furing Spunbond.png" alt="Tas Furing Spunbond" />
+                <img src={getImg('Tas Furing Spunbond.png')} alt="Tas Furing Spunbond" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Tas Furing Spunbond</h3>
                 <p className="product-description">Tas furing spunbond yang praktis dan ekonomis untuk promosi brand.</p>
                 <h4>Spesifikasi:</h4>
@@ -537,9 +618,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 100 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 8.000/pcs</span>
+                    <span style={{ color: '#DB2777' }}>Mulai dari Rp 8.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -555,9 +636,9 @@ function App() {
             {/* Product Card 3: Paper & Plastic Bag */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Tas Kertas & Plastik Custom.png" alt="Tas Kertas & Plastik Custom" />
+                <img src={getImg('Tas Kertas & Plastik Custom.png')} alt="Tas Kertas & Plastik Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Tas Kertas & Plastik Custom</h3>
                 <p className="product-description">Tas kertas dan plastik branded untuk packaging dan promosi yang efektif.</p>
                 <h4>Spesifikasi:</h4>
@@ -569,9 +650,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 500 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 3.000/pcs</span>
+                    <span style={{ color: '#DB2777' }}>Mulai dari Rp 3.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -596,9 +677,9 @@ function App() {
             {/* Product Card 1: Powerbank */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Powerbank Custom.png" alt="Powerbank Custom" />
+                <img src={getImg('Powerbank Custom.png')} alt="Powerbank Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Powerbank Custom</h3>
                 <p className="product-description">Powerbank berkualitas tinggi dengan custom design untuk corporate gifts.</p>
                 <h4>Spesifikasi:</h4>
@@ -610,9 +691,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 25 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 75.000/pcs</span>
+                    <span style={{ color: '#16A34A' }}>Mulai dari Rp 75.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -628,9 +709,9 @@ function App() {
             {/* Product Card 2: Flashdisk */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/placeholder.png" alt="Flashdisk Custom" />
+                <img src={getImg('placeholder.png')} alt="Flashdisk Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Flashdisk Custom</h3>
                 <p className="product-description">Flashdisk branded dengan berbagai kapasitas dan model unik.</p>
                 <h4>Spesifikasi:</h4>
@@ -642,9 +723,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 25 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 35.000/pcs</span>
+                    <span style={{ color: '#16A34A' }}>Mulai dari Rp 35.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -660,9 +741,9 @@ function App() {
             {/* Product Card 3: Seminar Kit */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Paket Seminar Kit.png" alt="Paket Seminar Kit" />
+                <img src={getImg('Paket Seminar Kit.png')} alt="Paket Seminar Kit" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Paket Seminar Kit</h3>
                 <p className="product-description">Paket lengkap seminar kit dengan custom branding untuk event corporate.</p>
                 <h4>Spesifikasi:</h4>
@@ -674,9 +755,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 set</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 45.000/set</span>
+                    <span style={{ color: '#16A34A' }}>Mulai dari Rp 45.000/set</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -701,9 +782,9 @@ function App() {
             {/* Product Card 1: Payung */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Payung Custom Premium.png" alt="Payung Custom Premium" />
+                <img src={getImg('Payung Custom Premium.png')} alt="Payung Custom Premium" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Payung Custom Premium</h3>
                 <p className="product-description">Payung berkualitas tinggi dengan custom design untuk promosi yang efektif.</p>
                 <h4>Spesifikasi:</h4>
@@ -715,9 +796,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 35.000/pcs</span>
+                    <span style={{ color: '#EA580C' }}>Mulai dari Rp 35.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -733,9 +814,9 @@ function App() {
             {/* Product Card 2: Jam Dinding */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Jam Dinding Custom.png" alt="Jam Dinding Custom" />
+                <img src={getImg('Jam Dinding Custom.png')} alt="Jam Dinding Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Jam Dinding Custom</h3>
                 <p className="product-description">Jam dinding custom dengan design unik untuk dekorasi dan promosi.</p>
                 <h4>Spesifikasi:</h4>
@@ -747,9 +828,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 25 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 45.000/pcs</span>
+                    <span style={{ color: '#EA580C' }}>Mulai dari Rp 45.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -765,9 +846,9 @@ function App() {
             {/* Product Card 3: Pulpen & Pin */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Pulpen & Pin Custom.png" alt="Pulpen & Pin Custom" />
+                <img src={getImg('Pulpen & Pin Custom.png')} alt="Pulpen & Pin Custom" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Pulpen & Pin Custom</h3>
                 <p className="product-description">Pulpen dan pin branded untuk promosi sehari-hari yang efektif.</p>
                 <h4>Spesifikasi:</h4>
@@ -779,9 +860,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 100 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 5.000/pcs</span>
+                    <span style={{ color: '#EA580C' }}>Mulai dari Rp 5.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -797,9 +878,9 @@ function App() {
             {/* Product Card 4: Asbak & Aksesoris */}
             <div className="product-card">
               <div className="product-image">
-                <img src="../img/Asbak & Aksesoris.png" alt="Asbak & Aksesoris" />
+                <img src={getImg('Asbak & Aksesoris.png')} alt="Asbak & Aksesoris" />
               </div>
-              <div className="product-content">
+              <div className="product-content" style={{ textAlign: 'left' }}>
                 <h3>Asbak & Aksesoris</h3>
                 <p className="product-description">Asbak custom dan berbagai aksesoris branded lainnya.</p>
                 <h4>Spesifikasi:</h4>
@@ -811,9 +892,9 @@ function App() {
                   <li><i className="fas fa-check-circle"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
-                  <div className="info-item">
+                  <div className="info-item" style={{ marginBottom: 0 }}>
                     <span>Harga:</span>
-                    <span className="price">Mulai dari Rp 25.000/pcs</span>
+                    <span style={{ color: '#EA580C' }}>Mulai dari Rp 25.000/pcs</span>
                   </div>
                   <div className="info-item">
                     <span>Produksi:</span>
@@ -837,7 +918,7 @@ function App() {
           <div className="work-process-timeline">
             <div className="timeline-item">
               <div className="timeline-icon">
-                <i className="fas fa-comments"></i>
+                <i className="fas fa-search"></i>
                 <span className="step-number">01</span>
               </div>
               <h3 className="timeline-title">Konsultasi</h3>
@@ -853,7 +934,7 @@ function App() {
             </div>
             <div className="timeline-item">
               <div className="timeline-icon">
-                <i className="fas fa-code"></i>
+                <i className="fas fa-play"></i>
                 <span className="step-number">03</span>
               </div>
               <h3 className="timeline-title">Eksekusi</h3>
@@ -861,7 +942,7 @@ function App() {
             </div>
             <div className="timeline-item">
               <div className="timeline-icon">
-                <i className="fas fa-check-circle"></i>
+                <i className="fas fa-clipboard-check"></i>
                 <span className="step-number">04</span>
               </div>
               <h3 className="timeline-title">Review & Revisi</h3>
@@ -869,7 +950,7 @@ function App() {
             </div>
             <div className="timeline-item">
               <div className="timeline-icon">
-                <i className="fas fa-award"></i>
+                <i className="fas fa-box"></i>
                 <span className="step-number">05</span>
               </div>
               <h3 className="timeline-title">Delivery</h3>
@@ -908,10 +989,9 @@ function App() {
               }
             ].map((faq, index) => (
               <div className={`faq-item ${activeFaq === index ? 'active' : ''}`} key={index}>
-                <button className="faq-question" onClick={() => toggleFaq(index)}>
+                <div className="faq-question">
                   <span>{faq.question}</span>
-                  <i className="fas fa-chevron-down"></i>
-                </button>
+                </div>
                 <div className="faq-answer">
                   <p>{faq.answer}</p>
                 </div>
@@ -924,14 +1004,14 @@ function App() {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <h2>Siap Memulai Project Anda?</h2>
-          <p>Hubungi kami sekarang untuk konsultasi gratis dan dapatkan penawaran terbaik</p>
+          <h2>Siap Memulai Proyek Anda?</h2>
+          <p>Konsultasikan kebutuhan digital creative dan custom merchandise Anda dengan tim ahli kami secara gratis</p>
           <div className="cta-buttons">
             <a href="https://wa.me/6281804376001" className="btn-cta primary" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-whatsapp"></i> Chat WhatsApp
+              <i className="fab fa-whatsapp"></i> WhatsApp Sekarang
             </a>
-            <a href="mailto:titikvisualjogja@gmail.com" className="btn-cta secondary">
-              <i className="far fa-envelope"></i> Kirim Email
+            <a href="tel:081804376001" className="btn-cta secondary">
+              <i className="fas fa-phone"></i> Telepon Langsung
             </a>
           </div>
         </div>
@@ -942,29 +1022,29 @@ function App() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <img className="footer-logo" src="../img/img.png" alt="Titik Visual" />
+              <img className="footer-logo" src={getImg('img.png')} alt="Titik Visual" />
               <p>Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.</p>
             </div>
 
             <div className="footer-col">
-              <h4 className="footer-title">Company</h4>
-              <ul className="footer-list">
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/layanan">Services</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/blog">Blog</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4 className="footer-title">Services</h4>
+              <h4 className="footer-title">Digital Services</h4>
               <ul className="footer-list">
                 <li><a href="/layanan/ui-ux">UI/UX Design</a></li>
                 <li><a href="/layanan/web-development">Web Development</a></li>
                 <li><a href="/layanan/mobile-app">Mobile App</a></li>
-                <li><a href="/layanan/branding">Branding</a></li>
-                <li><a href="/layanan/digital-marketing">Digital Marketing</a></li>
+                <li><a href="/layanan">Logo Design</a></li>
+                <li><a href="/layanan">Social Media</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h4 className="footer-title">Merchandise</h4>
+              <ul className="footer-list">
+                <li><a href="/layanan">Custom Drinkware</a></li>
+                <li><a href="/layanan">Custom Bags</a></li>
+                <li><a href="/layanan">Corporate Gifts</a></li>
+                <li><a href="/layanan">Lifestyle Products</a></li>
+                <li><a href="/layanan">Paket Seminar Kit</a></li>
               </ul>
             </div>
 
@@ -979,7 +1059,10 @@ function App() {
           </div>
 
           <div className="footer-bottom">
-            <p>© 2024 Titik Visual. All rights reserved.</p>
+            <p>
+              {content.get('page-layanan', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
+              {content.get('page-layanan', 'footer_line1_bottom', 'All rights reserved.')}
+            </p>
           </div>
         </div>
       </footer>

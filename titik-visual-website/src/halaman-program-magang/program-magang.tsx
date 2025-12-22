@@ -249,12 +249,12 @@ const InternshipPage = () => {
       <nav className="main-nav">
         <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx">Home</a></li>
-          <li><a href="../page-about/page-about.tsx">About</a></li>
-          <li><a href="../page-layanan/page-layanan.tsx">Services</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
-          <li><a href="../halaman-careers/careers.tsx">Careers</a></li>
-          <li><a href="../page-contact/page-contact.tsx">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
@@ -266,7 +266,7 @@ const InternshipPage = () => {
           <p>Mulai perjalanan kariermu di industri kreatif digital. Dapatkan pengalaman praktis, mentoring dari profesional, dan sertifikat yang diakui industri.</p>
           <div className="hero-buttons">
             <button className="btn btn-primary" onClick={() => window.location.href = '#register'}>Daftar Sekarang</button>
-            <a href="../halaman-careers/careers.tsx" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+            <a href="#careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
           </div>
         </div>
       </section>
@@ -365,7 +365,7 @@ const InternshipPage = () => {
           <h2>Siap Memulai Karier dari Sini?</h2>
           <p>Gabung dalam program magang di Titik Visual dan dapatkan pengalaman nyata bersama tim kreatif dan profesional kami.</p>
           <div className="cta-buttons">
-            <a href="../page-contact/page-contact.tsx" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> Konsultasi Sekarang</a>
+            <a href="#contact" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> Konsultasi Sekarang</a>
             <a href="https://wa.me/6281804376001" className="btn btn-cta-secondary" target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt"></i> Daftar Magang</a>
           </div>
         </div>
@@ -382,21 +382,21 @@ const InternshipPage = () => {
             <div className="footer-widget links-widget">
               <h4>Company</h4>
               <ul>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#blog">Blog</a></li>
               </ul>
             </div>
             <div className="footer-widget links-widget">
               <h4>Program Magang</h4>
               <ul>
-                <li><a href="/internships/ui-ux-design">UI/UX Design</a></li>
-                <li><a href="/internships/frontend-developer">FrontEnd Developer</a></li>
-                <li><a href="/internships/backend-developer">BackEnd Developer</a></li>
-                <li><a href="/internships/human-resource">Human Resource</a></li>
-                <li><a href="/internships/graphic-designer">Graphic Designer</a></li>
+                <li><a href="#careers">UI/UX Design</a></li>
+                <li><a href="#careers">FrontEnd Developer</a></li>
+                <li><a href="#careers">BackEnd Developer</a></li>
+                <li><a href="#careers">Human Resource</a></li>
+                <li><a href="#careers">Graphic Designer</a></li>
               </ul>
             </div>
             <div className="footer-widget contact-widget">

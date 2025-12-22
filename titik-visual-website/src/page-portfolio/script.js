@@ -68,7 +68,7 @@ function createProjectCard(project) {
     card.className = 'project-card';
     card.innerHTML = `
         <div class="card-image">
-            <img src="${project.images && project.images[0] ? project.images[0] : 'img/portfolio.png'}" alt="${project.title}">
+            <img src="${project.images && project.images[0] ? project.images[0] : '../img/portfolio.png'}" alt="${project.title}">
             ${project.featured ? '<span class="project-tag">Featured</span>' : ''}
         </div>
         <div class="card-content">

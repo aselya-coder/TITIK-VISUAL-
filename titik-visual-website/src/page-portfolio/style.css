@@ -11,8 +11,8 @@
     --primary-color: #8a2be2;
     --container: 1180px;
     --radius: 14px;
-    --gradient-start: #8e54e9;
-    --gradient-end: #48dbfb;
+  --gradient-start: #A855F7;
+  --gradient-end: #06B6D4;
     --text-light: #6b7280;
     --primary-purple: #8a2be2;
     --background-light: #f5f5f5;
@@ -92,15 +92,15 @@
   }
   
   /* ===== MAIN NAVBAR ===== */
-  .main-nav {
+.main-nav {
     width: 100%;
     padding: 15px 40px;
-    background: linear-gradient(90deg, #9150ff, #00bcd4);
+    background: linear-gradient(90deg, #A855F7, #06B6D4) !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-  }
+}
   
   .main-nav .logo {
     height: 60px;
@@ -113,17 +113,17 @@
     gap: 40px;
   }
   
-  .nav-right li a {
+.nav-right li a {
     text-decoration: none;
-    color: white;
+    color: #ffffff !important;
     font-size: 18px;
     font-weight: 500;
     transition: 0.3s;
-  }
-  
-  .nav-right li a:hover {
-    color: #ffe082;
-  }
+}
+
+.nav-right li a:hover {
+    color: #ffffff !important;
+}
   
   .nav-right li.active a {
     font-weight: 700;
@@ -171,9 +171,12 @@
 
 .portfolio-hero-section h1 {
     font-size: 52px;
-    color: var(--primary-purple);
     font-weight: 700;
     margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .portfolio-hero-section p {
@@ -201,6 +204,9 @@
     align-items: center;
     gap: 8px;
     border: 1px solid transparent;
+    width: auto;
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .portfolio-hero-section .btn-primary {
@@ -231,11 +237,14 @@
       background: var(--white);
   }
 
-  .section-title {
+.section-title {
     text-align: center;
     font-size: 36px;
-    color: var(--primary-purple);
     margin-bottom: 10px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .section-subtitle {
@@ -288,6 +297,7 @@
 
 .card-content {
     padding: 25px;
+    text-align: left;
 }
 
 .content-header {
@@ -312,6 +322,7 @@
     font-size: 22px;
     margin-bottom: 10px;
     color: var(--dark-blue);
+    text-align: left;
 }
 
 .project-description {
@@ -319,6 +330,7 @@
     color: var(--text-light);
     margin-bottom: 20px;
     min-height: 65px;
+    text-align: left;
 }
 
 .project-tech {
@@ -348,6 +360,7 @@
 .client-name {
     font-size: 14px;
     color: var(--text-light);
+    text-align: left;
 }
 
 .project-link {
@@ -401,6 +414,9 @@
     align-items: center;
     gap: 10px;
     border: 1px solid;
+    width: auto !important;
+    min-width: 0;
+    white-space: nowrap;
   }
   
   .btn-primary-cta {
@@ -433,17 +449,27 @@
       padding: 60px 0 0;
   }
   
-  .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 40px;
-  }
-  
-  .footer-logo {
-      height: 45px;
-      margin-bottom: 20px;
-  }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    column-gap: 60px;
+    row-gap: 0;
+    align-items: start;
+    padding-bottom: 40px;
+}
+
+.footer-brand,
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer-logo {
+    height: 45px;
+    margin-bottom: 20px;
+}
   
   .footer-brand p {
       max-width: 300px;
@@ -474,12 +500,12 @@
       color: var(--white);
   }
   
-  .footer-bottom {
-      border-top: 1px solid #3a4a5a;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-  }
+.footer-bottom {
+    border-top: 1px solid #3a4a5a;
+    padding: 20px 0;
+    text-align: right;
+    font-size: 14px;
+}
   
 
 /* RESPONSIVE */

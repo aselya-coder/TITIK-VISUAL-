@@ -19,6 +19,31 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              orange: {
+                50: '#fff7ed',
+                100: '#ffedd5',
+                200: '#fed7aa',
+                500: '#f97316',
+                600: '#ea580c',
+              },
+              green: {
+                50: '#f0fdf4',
+                100: '#dcfce7',
+                200: '#bbf7d0',
+                500: '#22c55e',
+                600: '#16a34a',
+              }
+            }
+          }
+        }
+      }
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

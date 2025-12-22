@@ -55,6 +55,8 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
+    position: relative;
+    z-index: 110;
 }
 
 .top-left {
@@ -102,6 +104,43 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    z-index: 100;
+}
+
+/* Force navbar visuals only within Careers page to avoid other pages' global overrides */
+.careers-page .main-nav {
+    background: #FFFFFF !important;
+    box-shadow: none;
+}
+.careers-page .nav-right li a {
+    color: #4B5563 !important;
+}
+.careers-page .nav-right li a:hover {
+    color: #374151 !important;
+}
+.careers-page .nav-right li.active a {
+    color: #374151 !important;
+    font-weight: 500 !important;
+}
+
+/* Normalize button in navbar to look like link on Careers page */
+.careers-page .nav-right li button.nav-link {
+    background: transparent !important;
+    border: none !important;
+    color: #4B5563 !important;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+.careers-page .nav-right li button.nav-link:hover {
+    color: #374151 !important;
+}
+.careers-page .nav-right li button.nav-link.active {
+    color: #374151 !important;
+    font-weight: 500 !important;
 }
 
 .main-nav .logo {
@@ -171,6 +210,9 @@ body {
     text-align: center;
     padding: 135px 0;
     position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero::before {
@@ -181,11 +223,12 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
+    z-index: 0;
 }
 
 .hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -211,6 +254,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .hero-buttons .btn {
@@ -239,8 +283,8 @@ body {
 
 .btn-secondary {
     background-color: transparent;
-    color: #C2410C;
-    border: 2px solid #FDBA74;
+    color: #F97316;
+    border: 2px solid #F97316;
     padding: 12px 30px;
     text-decoration: none;
     border-radius: 50px;
@@ -249,9 +293,29 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #FDBA74;
-    color: #fff;
-    border-color: #FDBA74;
+    background-color: rgba(249, 115, 22, 0.1);
+    color: #fb923c;
+    border-color: #fb923c;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 0;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }
 
 /* About Section */
@@ -470,6 +534,15 @@ body {
     padding: 40px;
     text-align: center;
     transition: all 0.3s ease;
+    background-color: #FFFFFF;
+}
+
+/* Stronger theme borders per card to match design */
+.careers-page .career-card.internship {
+    border-color: #FDBA74 !important; /* orange tint */
+}
+.careers-page .career-card.job {
+    border-color: #A7F3D0 !important; /* green tint */
 }
 
 .career-card:hover {
@@ -480,11 +553,12 @@ body {
 .career-card .card-icon {
     width: 64px;
     height: 64px;
-    border-radius: 12px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
 .career-card .card-icon img {
@@ -493,11 +567,11 @@ body {
 }
 
 .career-card.internship .card-icon {
-    background-color: #FFF7ED;
+    background-image: linear-gradient(135deg, #FFE9D1, #FFF7ED);
 }
 
 .career-card.job .card-icon {
-    background-color: #F0FDF4;
+    background-image: linear-gradient(135deg, #DCFCE7, #F0FDF4);
 }
 
 .career-card h3 {
@@ -522,8 +596,9 @@ body {
 
 .info-item {
     padding: 16px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
+    border: 1px solid transparent;
 }
 
 .info-item span {
@@ -541,6 +616,7 @@ body {
 
 .career-card.internship .info-item {
     background-color: #FFF7ED;
+    border-color: #FED7AA;
 }
 
 .career-card.internship .info-item span {
@@ -553,6 +629,7 @@ body {
 
 .career-card.job .info-item {
     background-color: #F0FDF4;
+    border-color: #A7F3D0;
 }
 
 .career-card.job .info-item span {
@@ -625,7 +702,7 @@ body {
 /*our program section*/
 .our-program-section {
     padding: 80px 0;
-    background-color: #FFEDD5;
+    background-color: #FFF7ED;
 }
 
 .our-program-section .section-header {
@@ -699,7 +776,7 @@ body {
 /*contact section*/
 .contact-section {
     padding: 80px 0;
-    background-color: #FFEDD5;
+    background-color: #FFF7ED;
 }
 
 .contact-section .section-header {
@@ -730,9 +807,10 @@ body {
 .contact-card {
     background-color: #FFFFFF;
     padding: 40px 30px;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid #F3E5D8;
     text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .contact-icon {
@@ -894,7 +972,7 @@ body {
 }
 
 .footer-bottom {
-    text-align: center;
+    text-align: right;
     font-size: 14px;
 }
 

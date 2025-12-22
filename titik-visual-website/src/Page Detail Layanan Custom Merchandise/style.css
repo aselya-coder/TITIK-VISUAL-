@@ -1445,6 +1445,10 @@ body {
   color: #fff;
 }
 
+.gradient-cta {
+  background: linear-gradient(90deg, #A855F7, #06B6D4);
+}
+
 .cta h2 {
   font-size: 36px;
   font-weight: 700;
@@ -1558,7 +1562,7 @@ body {
 }
 
 .footer-bottom {
-    text-align: center;
+    text-align: right;
     padding-top: 20px;
     border-top: 1px solid #3b465c;
     font-size: 14px;

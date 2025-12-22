@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './style.css';
+import { useContent } from '../content/ContentContext';
 
 interface ContactInfo {
   id: number;
@@ -27,6 +28,7 @@ interface FormData {
 }
 
 const ContactPage = () => {
+  const content = useContent();
   const [formData, setFormData] = useState<FormData>({
     nama: '',
     email: '',
@@ -39,6 +41,11 @@ const ContactPage = () => {
   });
 
   const [formAlert, setFormAlert] = useState<string>('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -58,16 +65,7 @@ const ContactPage = () => {
     }
     
     // Format pesan WhatsApp
-    const message = `Halo, saya ingin konsultasi tentang proyek dengan detail berikut:
-    
-Nama: ${formData.nama}
-Email: ${formData.email}
-WhatsApp: ${formData.whatsapp}
-Perusahaan: ${formData.perusahaan || 'Tidak diisi'}
-Layanan: ${formData.layanan}
-Timeline: ${formData.timeline}
-Budget: ${formData.budget}
-Detail: ${formData.detail}`;
+    const message = `Halo, saya ingin konsultasi tentang proyek dengan detail berikut:\n    \nNama: ${formData.nama}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nPerusahaan: ${formData.perusahaan || 'Tidak diisi'}\nLayanan: ${formData.layanan}\nTimeline: ${formData.timeline}\nBudget: ${formData.budget}\nDetail: ${formData.detail}`;
 
     // Buka WhatsApp dengan pesan yang sudah diformat
     window.open(`https://wa.me/6281804376001?text=${encodeURIComponent(message)}`, '_blank');
@@ -92,8 +90,8 @@ Detail: ${formData.detail}`;
   };
 
   // Fungsi untuk navigasi ke halaman lain
-  const navigateToPage = (page: string) => {
-    window.location.href = page;
+  const navigateToPage = (path: string) => {
+    window.location.href = path;
   };
 
   // Contact info data
@@ -179,34 +177,80 @@ Detail: ${formData.detail}`;
 
       {/* MAIN NAVBAR */}
       <nav className="main-nav">
-        <div className="nav-left">
+        <div className="nav-left" onClick={() => navigateToPage('/')} style={{ cursor: 'pointer' }}>
           <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx">Home</a></li>
-          <li><a href="../page-about/page-about.tsx">Profile</a></li>
-          <li><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
-          <li className="active"><a href="#contact">Kontak</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">Profile</a></li>
+          <li><a href="/layanan">Layanan</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li className="active"><a href="/contact">Kontak</a></li>
         </ul>
-        <div className="mobile-menu-toggle">
+        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
           <span></span>
           <span></span>
           <span></span>
         </div>
       </nav>
+      
+      {/* Mobile Navigation Menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
+          <nav className="mobile-nav" aria-label="Mobile navigation">
+            <a href="/" className="mobile-nav-link">Home</a>
+            <a href="/about" className="mobile-nav-link">About</a>
+            <a href="/layanan" className="mobile-nav-link">Services</a>
+            <a href="/portfolio" className="mobile-nav-link">Portfolio</a>
+            <a href="/contact" className="mobile-nav-link active">Contact</a>
+          </nav>
+      </div>
 
-      {/* HERO SECTION */}
-      <section className="hero-section">
-        <div className="container">
-          <span className="get-in-touch">
-            <i className="far fa-comment"></i> Get In Touch
+      <section
+        className="hero-section"
+        style={{
+          width: '100%',
+          padding: '110px 0 80px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          background:
+            'radial-gradient(800px circle at 80% 20%, rgba(238,242,255,1) 0, rgba(238,242,255,0) 60%), ' +
+            'radial-gradient(600px circle at 20% 30%, rgba(252,231,243,1) 0, rgba(252,231,243,0) 50%), ' +
+            'linear-gradient(to bottom, #ffffff, #f0faff)'
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: 860,
+            margin: '0 auto',
+            padding: '0 24px'
+          }}
+        >
+          <span className="get-in-touch" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 18, backgroundColor: '#E9D5FF', color: '#7E22CE', fontSize: 14, fontWeight: 500, marginBottom: 22 }}>
+            <i className="far fa-comment" style={{ fontSize: 14 }}></i> Get In Touch
           </span>
-          <h1>
-            <span className="highlight">Mari Diskusi</span><br />
-            Proyek Anda
+          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, lineHeight: 1.1 as any, margin: '0 0 20px', color: '#111827', letterSpacing: '-0.02em' }}>
+            <div style={{ background: 'linear-gradient(90deg, #4F46E5, #06B6D4)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', color: 'transparent', display: 'block', whiteSpace: 'nowrap' }}>
+              Mari Diskusi
+            </div>
+            <div style={{ display: 'block', whiteSpace: 'nowrap', marginTop: 6, color: '#000000' }}>
+              Proyek Anda
+            </div>
           </h1>
-          <p>Siap mewujudkan visi kreatif Anda? Tim ahli kami siap membantu dari konsultasi digital hingga produksi merchandise custom. Hubungi kami sekarang untuk konsultasi gratis!</p>
+          <p
+            style={{
+              maxWidth: 760,
+              margin: '0 auto',
+              fontSize: 18,
+              color: '#6B7280',
+              lineHeight: 1.65
+            }}
+          >
+            Siap mewujudkan visi kreatif Anda? Tim ahli kami siap membantu dari konsultasi digital hingga
+            produksi merchandise custom. Hubungi kami sekarang untuk konsultasi gratis!
+          </p>
         </div>
       </section>
 
@@ -260,6 +304,7 @@ Detail: ${formData.detail}`;
                   <input 
                     type="text" 
                     id="nama" 
+                    name="nama"
                     placeholder="Masukkan nama lengkap" 
                     value={formData.nama}
                     onChange={handleInputChange}
@@ -273,6 +318,7 @@ Detail: ${formData.detail}`;
                   <input 
                     type="email" 
                     id="email" 
+                    name="email"
                     placeholder="nama@email.com" 
                     value={formData.email}
                     onChange={handleInputChange}
@@ -288,6 +334,7 @@ Detail: ${formData.detail}`;
                   <input 
                     type="text" 
                     id="whatsapp" 
+                    name="whatsapp"
                     placeholder="08xxxxxxxxxx" 
                     value={formData.whatsapp}
                     onChange={handleInputChange}
@@ -301,6 +348,7 @@ Detail: ${formData.detail}`;
                   <input 
                     type="text" 
                     id="perusahaan" 
+                    name="perusahaan"
                     placeholder="PT. Nama Perusahaan" 
                     value={formData.perusahaan}
                     onChange={handleInputChange}
@@ -314,6 +362,7 @@ Detail: ${formData.detail}`;
                   </label>
                   <select 
                     id="layanan" 
+                    name="layanan"
                     value={formData.layanan}
                     onChange={handleInputChange}
                     required
@@ -333,13 +382,14 @@ Detail: ${formData.detail}`;
                   </label>
                   <select 
                     id="timeline" 
+                    name="timeline"
                     value={formData.timeline}
                     onChange={handleInputChange}
                   >
                     <option value="" disabled>Pilih timeline</option>
-                    <option value="Urgent (&lt; 1 bulan)">Urgent (&lt; 1 bulan)</option>
+                    <option value="Urgent (< 1 bulan)">Urgent (&lt; 1 bulan)</option>
                     <option value="Normal (1-3 bulan)">Normal (1-3 bulan)</option>
-                    <option value="Flexible (&gt; 3 bulan)">Flexible (&gt; 3 bulan)</option>
+                    <option value="Flexible (> 3 bulan)">Flexible (&gt; 3 bulan)</option>
                   </select>
                 </div>
               </div>
@@ -349,14 +399,15 @@ Detail: ${formData.detail}`;
                 </label>
                 <select 
                   id="budget" 
+                  name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
                 >
                   <option value="" disabled>Pilih budget range</option>
-                  <option value="&lt; Rp 5 juta">&lt; Rp 5 juta</option>
+                  <option value="< Rp 5 juta">&lt; Rp 5 juta</option>
                   <option value="Rp 5-10 juta">Rp 5-10 juta</option>
                   <option value="Rp 10-25 juta">Rp 10-25 juta</option>
-                  <option value="&gt; Rp 25 juta">&gt; Rp 25 juta</option>
+                  <option value="> Rp 25 juta">&gt; Rp 25 juta</option>
                 </select>
               </div>
               <div className="form-group full-width">
@@ -365,6 +416,7 @@ Detail: ${formData.detail}`;
                 </label>
                 <textarea 
                   id="detail" 
+                  name="detail"
                   rows={5} 
                   placeholder="Ceritakan detail proyek/kebutuhan merchandise Anda, tujuan bisnis, target audience, spesifikasi produk, quantity, referensi design, dll." 
                   value={formData.detail}
@@ -462,91 +514,21 @@ Detail: ${formData.detail}`;
             <div className="footer-col">
               <h4 className="footer-title">Quick Links</h4>
               <ul className="footer-list">
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('../page-about/page-about.tsx')} 
-                    className="link-button"
-                  >
-                    About Us
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('../page-portfolio/page-portfolio.tsx')} 
-                    className="link-button"
-                  >
-                    Portfolio
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('../page-layanan/page-layanan.tsx')} 
-                    className="link-button"
-                  >
-                    Services
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#careers')} 
-                    className="link-button"
-                  >
-                    Careers
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#blog')} 
-                    className="link-button"
-                  >
-                    Blog
-                  </button>
-                </li>
+                <li><a href="/about" className="link-button">About Us</a></li>
+                <li><a href="/portfolio" className="link-button">Portfolio</a></li>
+                <li><a href="/layanan" className="link-button">Services</a></li>
+                <li><a href="/careers" className="link-button">Careers</a></li>
+                <li><a href="/blog" className="link-button">Blog</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4 className="footer-title">Services</h4>
               <ul className="footer-list">
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#ui-ux')} 
-                    className="link-button"
-                  >
-                    UI/UX Design
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#web-development')} 
-                    className="link-button"
-                  >
-                    Web Development
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#mobile-app')} 
-                    className="link-button"
-                  >
-                    Mobile App
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#custom-merchandise')} 
-                    className="link-button"
-                  >
-                    Custom Merchandise
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => navigateToPage('#digital-marketing')} 
-                    className="link-button"
-                  >
-                    Digital Marketing
-                  </button>
-                </li>
+                <li><a href="/layanan/ui-ux" className="link-button">UI/UX Design</a></li>
+                <li><a href="/layanan/web-apk" className="link-button">Web Development</a></li>
+                <li><a href="/layanan/web-apk" className="link-button">Mobile App</a></li>
+                <li><a href="/layanan/merchandise" className="link-button">Custom Merchandise</a></li>
+                <li><a href="/layanan/social-media" className="link-button">Digital Marketing</a></li>
               </ul>
             </div>
             <div className="footer-col">
@@ -558,9 +540,12 @@ Detail: ${formData.detail}`;
               </ul>
             </div>
           </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 Titik Visual. All rights reserved.</p>
-          </div>
+        <div className="footer-bottom" style={{ textAlign: 'right' }}>
+          <p>
+            {content.get('page-contact', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
+            {content.get('page-contact', 'footer_line1_bottom', 'All rights reserved.')}
+          </p>
+        </div>
         </div>
       </footer>
     </div>

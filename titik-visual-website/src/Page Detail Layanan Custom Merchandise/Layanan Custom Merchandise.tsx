@@ -710,7 +710,7 @@ const CustomMerchandisePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta">
+      <section className="cta gradient-cta">
         <div className="container">
           <div data-aos="fade-up">
             <h2>Siap Order Merchandise Custom dari Titik Visual?</h2>
