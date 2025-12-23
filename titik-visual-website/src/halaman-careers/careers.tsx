@@ -145,7 +145,7 @@ const CareersPage: React.FC = () => {
               style={{ flexWrap: 'nowrap' }}
             >
               <a
-                href="../halaman-program-magang/program-magang.tsx"
+                href="/program-magang"
                 className="btn btn-primary inline-flex items-center justify-center"
                 style={{
                   background: 'linear-gradient(90deg, #F97316 0%, #DC2626 100%)',
@@ -165,7 +165,7 @@ const CareersPage: React.FC = () => {
                 <i className="fas fa-graduation-cap"></i> Lihat Program Magang
               </a>
               <a
-                href="../halaman-lowongan-kerja/lowongan-kerja.tsx"
+                href="/lowongan-kerja"
                 className="btn inline-flex items-center justify-center border"
                 style={{
                   borderColor: '#F97316',
@@ -282,7 +282,7 @@ const CareersPage: React.FC = () => {
 
                 {/* Button */}
                 <a 
-                  href="../halaman-program-magang/program-magang.tsx"
+                  href="/program-magang"
                   className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-orange-200"
                   style={{ background: 'linear-gradient(90deg, #F97316 0%, #EF4444 100%)' }}
                 >
@@ -324,7 +324,7 @@ const CareersPage: React.FC = () => {
 
                 {/* Button */}
                 <a 
-                  href="../halaman-lowongan-kerja/lowongan-kerja.tsx"
+                  href="/lowongan-kerja"
                   className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-green-200"
                   style={{ background: 'linear-gradient(90deg, #22c55e 0%, #16a34a 100%)' }}
                 >
@@ -484,14 +484,14 @@ const CareersPage: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="../halaman-program-magang/program-magang.tsx"
+                href="/program-magang"
                 className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
               >
                 <i className="fas fa-external-link-alt"></i>
                 Lihat Program Magang
               </a>
               <a
-                href="../halaman-lowongan-kerja/lowongan-kerja.tsx"
+                href="/lowongan-kerja"
                 className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
               >
                 <i className="fas fa-external-link-alt"></i>
@@ -561,7 +561,7 @@ const CareersPage: React.FC = () => {
                     Lowongan Kerja
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#internship'} 
+                  onClick={() => window.location.href = '#program-magang'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Program magang"
                   >

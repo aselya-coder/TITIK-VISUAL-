@@ -321,6 +321,9 @@ body {
     font-weight: 500;
     transition: all 0.3s;
     border: 1px solid transparent; /* Aturan umum */
+    flex: 0 0 auto;               /* Jangan melar, sesuai konten */
+    width: fit-content;           /* Lebar mengikuti teks */
+    white-space: nowrap;          /* Hindari teks terpotong ke bawah */
 }
 
 .contact-buttons .btn-whatsapp {
@@ -622,14 +625,34 @@ body {
 .footer {
     background-color: #1F2937;
     color: #E5E7EB;
-    padding-top: 70px;
+    padding: 80px 0;
 }
 
-.footer-container {
+.footer .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Footer Grid Layout */
+.footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 50px;
-    margin-bottom: 50px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 28px;
+}
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
+    }
+}
+@media (min-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 48px;
+    }
 }
 
 .footer-col h4 {
@@ -646,6 +669,10 @@ body {
 
 .footer-col ul li {
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .footer-col ul a {
@@ -656,6 +683,23 @@ body {
 
 .footer-col ul a:hover {
     color: var(--white);
+}
+
+.footer-col {
+    text-align: left;
+}
+.footer-col h4,
+.footer-title {
+    text-align: left;
+    margin-bottom: 16px; /* mb-4 */
+}
+
+/* Footer list layout */
+.footer-list {
+    display: flex;
+    flex-direction: column; /* flex-col */
+    gap: 8px; /* space-y-2 */
+    align-items: flex-start;
 }
 
 .footer-about .footer-logo {
@@ -674,10 +718,14 @@ body {
     text-align: center;
 }
 
+.footer-about {
+    text-align: left;
+}
+
 .footer-bottom {
     border-top: 1px solid #374151;
-    text-align: right;
-    padding: 25px 0;
+    text-align: center;
+    padding: 24px 0;
 }
 
 .footer-bottom p {

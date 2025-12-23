@@ -1,6 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
+const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
+const getImg = (name: string) => {
+  try {
+    return images(`./${name}`);
+  } catch {
+    return `/${name}`;
+  }
+};
 
 interface ContactInfo {
   id: number;
@@ -178,7 +186,7 @@ const ContactPage = () => {
       {/* MAIN NAVBAR */}
       <nav className="main-nav">
         <div className="nav-left" onClick={() => navigateToPage('/')} style={{ cursor: 'pointer' }}>
-          <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
+          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
           <li><a href="/">Home</a></li>
@@ -232,10 +240,10 @@ const ContactPage = () => {
             <i className="far fa-comment" style={{ fontSize: 14 }}></i> Get In Touch
           </span>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, lineHeight: 1.1 as any, margin: '0 0 20px', color: '#111827', letterSpacing: '-0.02em' }}>
-            <div style={{ background: 'linear-gradient(90deg, #4F46E5, #06B6D4)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', color: 'transparent', display: 'block', whiteSpace: 'nowrap' }}>
+            <div style={{ background: 'linear-gradient(90deg, #9333EA, #0891B2)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', color: 'transparent', display: 'block', whiteSpace: 'nowrap' }}>
               Mari Diskusi
             </div>
-            <div style={{ display: 'block', whiteSpace: 'nowrap', marginTop: 6, color: '#000000' }}>
+            <div style={{ display: 'block', whiteSpace: 'nowrap', marginTop: 6, color: '#000000', WebkitTextFillColor: '#000000', background: 'none' }}>
               Proyek Anda
             </div>
           </h1>
@@ -505,10 +513,10 @@ const ContactPage = () => {
 
       {/* FOOTER SECTION */}
       <footer className="footer">
-        <div className="container footer-container">
+        <div className="container max-w-7xl mx-auto">
           <div className="footer-grid">
             <div className="footer-col footer-about">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis digital creative dan custom merchandise yang berfokus pada kualitas dan kepuasan klien.</p>
             </div>
             <div className="footer-col">
@@ -540,7 +548,7 @@ const ContactPage = () => {
               </ul>
             </div>
           </div>
-        <div className="footer-bottom" style={{ textAlign: 'right' }}>
+        <div className="footer-bottom w-full text-center border-t">
           <p>
             {content.get('page-contact', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
             {content.get('page-contact', 'footer_line1_bottom', 'All rights reserved.')}

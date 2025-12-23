@@ -1,34 +1,250 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import './style.css';
+import logoImg from '../img/img.png';
 
-// --- PERBAIKAN: Import gambar secara statis untuk keandalan yang lebih baik ---
-// Pastikan jalur ini benar sesuai struktur folder Anda.
-import logoImage from '../img/img.png';
-import aboutImage from '../img/image.png';
+// Definisi tipe untuk posisi lowongan kerja
+interface JobPosition {
+  id: number;
+  title: string;
+  category: string; // Design, Engineering, Marketing, Creative, Management, Analytics
+  type: string; // Full-time, Contract
+  postedAt: string; // e.g., '2 hari lalu'
+  salary: string; // e.g., '8-12 juta'
+  location: string;
+  experience: string; // e.g., '3+ tahun'
+  description: string;
+  responsibilities?: string[]; // Optional
+  requirements: string[];
+  benefits: string[];
+  applyLink: string;
+}
 
-const CareersPage: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+const LowonganKerjaPage = () => {
+  const [activeFilter, setActiveFilter] = useState<string>('Semua');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  
+  const handleFilterClick = (filter: string) => {
+    setActiveFilter(filter);
+  };
+  
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+  const jobPositions: JobPosition[] = [
+    {
+      id: 1,
+      title: 'Senior UI/UX Designer',
+      category: 'Design',
+      type: 'Full-time',
+      postedAt: '< 2 hari lalu',
+      salary: '8-12 juta',
+      location: 'Yogyakarta',
+      experience: '3+ tahun',
+      description: 'Membuat high-fidelity design dan mengimplementasikan design system untuk produk digital perusahaan.',
+      responsibilities: [
+        'Lead design team',
+        'Create design system',
+        'User research',
+        'Prototype development'
+      ],
+      requirements: [
+        'S1 Desain/Terkait',
+        '3+ tahun experience',
+        'Leadership skills',
+        'Portfolio strong',
+        'Figma/Adobe XD expert'
+      ],
+      benefits: [
+        'BPJS Kesehatan',
+        'Bonus tahunan',
+        'Flexible working',
+        'Training budget'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    },
+    {
+      id: 2,
+      title: 'Full Stack Developer',
+      category: 'Engineering',
+      type: 'Full-time',
+      postedAt: '1 minggu lalu',
+      salary: '10-15 juta',
+      location: 'Yogyakarta',
+      experience: '3+ tahun',
+      description: 'Mengembangkan aplikasi web end-to-end dengan teknologi modern dan best practices.',
+      responsibilities: [
+        'Full stack development',
+        'Code review',
+        'System architecture',
+        'Performance optimization'
+      ],
+      requirements: [
+        'S1 Informatika',
+        'React/Vue + Node.js',
+        'Database design',
+        'API development',
+        'Git workflow'
+      ],
+      benefits: [
+        'BPJS Kesehatan',
+        'Laptop provided',
+        'Remote work option',
+        'Career development'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    },
+    {
+      id: 3,
+      title: 'Digital Marketing Manager',
+      category: 'Marketing',
+      type: 'Full-time',
+      postedAt: '3 hari lalu',
+      salary: '7-10 juta',
+      location: 'Yogyakarta',
+      experience: '2+ tahun',
+      description: 'Mengelola strategi digital marketing dan memimpin tim marketing digital untuk mencapai target bisnis.',
+      responsibilities: [
+        'Marketing strategy',
+        'Team leadership',
+        'Campaign management',
+        'ROI analysis'
+      ],
+      requirements: [
+        'S1 Marketing/Komunikasi',
+        'Google Ads certified',
+        'Team management',
+        'Data analysis',
+        'Social media expertise'
+      ],
+      benefits: [
+        'BPJS Kesehatan',
+        'Marketing budget',
+        'Conference attendance',
+        'Performance bonus'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    },
+    {
+      id: 4,
+      title: 'Content Creator',
+      category: 'Creative',
+      type: 'Contract',
+      postedAt: '5 hari lalu',
+      salary: '5-8 juta',
+      location: 'Yogyakarta',
+      experience: '1+ tahun',
+      description: 'Membuat konten kreatif untuk berbagai platform digital dan sosial media dengan konsistensi brand.',
+      responsibilities: [
+        'Content creation',
+        'Social media management',
+        'Brand storytelling',
+        'Trend analysis'
+      ],
+      requirements: [
+        'Portfolio konten',
+        'Video editing',
+        'Photography',
+        'Social media savvy',
+        'Creative thinking'
+      ],
+      benefits: [
+        'Equipment provided',
+        'Creative freedom',
+        'Flexible schedule',
+        'Portfolio building'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    },
+    {
+      id: 5,
+      title: 'Project Manager',
+      category: 'Management',
+      type: 'Full-time',
+      postedAt: '1 hari lalu',
+      salary: '9-13 juta',
+      location: 'Yogyakarta',
+      experience: '2+ tahun',
+      description: 'Mengelola proyek digital dari inisiasi hingga delivery dengan metodologi agile dan waterfall.',
+      responsibilities: [
+        'Project planning',
+        'Team coordination',
+        'Risk management',
+        'Stakeholder communication'
+      ],
+      requirements: [
+        'S1 Semua Jurusan',
+        'PMP/Scrum certified',
+        'Project management tools',
+        'Leadership',
+        'Communication skills'
+      ],
+      benefits: [
+        'BPJS Kesehatan',
+        'Certification support',
+        'Leadership training',
+        'Annual bonus'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    },
+    {
+      id: 6,
+      title: 'Data Analyst',
+      category: 'Analytics',
+      type: 'Full-time',
+      postedAt: '4 hari lalu',
+      salary: '6-9 juta',
+      location: 'Yogyakarta',
+      experience: '1+ tahun',
+      description: 'Menganalisis data bisnis dan memberikan insights untuk mendukung pengambilan keputusan strategis.',
+      responsibilities: [
+        'Data analysis',
+        'Report creation',
+        'Dashboard development',
+        'Business insights'
+      ],
+      requirements: [
+        'S1 Statistik/Matematika',
+        'SQL, Python/R',
+        'Data visualization',
+        'Statistical analysis',
+        'Business acumen'
+      ],
+      benefits: [
+        'BPJS Kesehatan',
+        'Learning budget',
+        'Data tools access',
+        'Flexible hours'
+      ],
+      applyLink: 'https://wa.me/6281804376001'
+    }
+  ];
+
+  const filteredPositions = jobPositions.filter(position => {
+    const matchesFilter = activeFilter === 'Semua' || position.category === activeFilter;
+    const matchesSearch = position.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          position.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  const getCategoryColor = (category: string) => {
+    switch(category) {
+      case 'Design': return 'tag-design';
+      case 'Engineering': return 'tag-programming'; // Reusing existing class or new one
+      case 'Marketing': return 'tag-marketing';
+      case 'Creative': return 'tag-creative';
+      case 'Management': return 'tag-management';
+      case 'Analytics': return 'tag-analytics';
+      default: return 'tag-default';
+    }
   };
 
-  useEffect(() => {
-    // Add page-loaded class to body for fade-in effect
-    document.body.classList.add("page-loaded");
-    
-    return () => {
-      document.body.classList.remove("page-loaded");
-    };
-  }, []);
+  const getTypeColor = (type: string) => {
+    return type === 'Full-time' ? 'tag-full-time' : 'tag-contract';
+  };
 
   return (
-    <div className="careers-page">
+    <div className="lowongan-kerja-page">
       {/* TOP BAR & NAVBAR */}
       <div className="top-bar">
         <div className="top-left">
@@ -36,378 +252,190 @@ const CareersPage: React.FC = () => {
           <div className="item"><i className="fa-solid fa-envelope"></i><span>titikvisualjogja@gmail.com</span></div>
         </div>
         <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
         </div>
       </div>
       <nav className="main-nav">
-        <div className="nav-left">
-          {/* --- PERBAIKAN: Gunakan variabel gambar yang sudah diimpor --- */}
-          <img src={logoImage} alt="Titik Visual Logo" className="logo" />
-        </div>
+        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx" className="nav-link">Home</a></li>
-          <li><a href="../page-about/page-about.tsx" className="nav-link">About</a></li>
-          <li><a href="../page-layanan/page-layanan.tsx" className="nav-link">Services</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx" className="nav-link">Portfolio</a></li>
-          <li><a href="#careers" className="nav-link active" onClick={() => scrollToSection('careers')}>Careers</a></li>
-          <li><a href="../page-contact/page-contact.tsx" className="nav-link">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-        <button 
-          className="mobile-menu-toggle" 
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-          aria-expanded={isMobileMenuOpen}
-        >
-          <span></span><span></span><span></span>
-        </button>
+        <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        <nav className="mobile-nav">
-          <a href="../beranda/beranda.tsx" className="mobile-nav-link">Home</a>
-          <a href="../page-about/page-about.tsx" className="mobile-nav-link">About</a>
-          <a href="../page-layanan/page-layanan.tsx" className="mobile-nav-link">Services</a>
-          <a href="../page-portfolio/page-porftolio.tsx" className="mobile-nav-link">Portfolio</a>
-          <a href="#careers" className="mobile-nav-link active" onClick={() => scrollToSection('careers')}>Careers</a>
-          <a href="../page-contact/page-contact.tsx" className="mobile-nav-link">Contact</a>
-        </nav>
-      </div>
-
-      <main>
-        {/* Hero Section */}
-        <section className="hero">
-          <div className="container">
-            <h1>Bergabunglah dengan Program <br /><span className="highlight">Titik Visual</span> Yogyakarta</h1>
-            <p>Tempat berkarya dan berkembang di industri kreatif. Kami menawarkan program magang dan kesempatan karir untuk talenta muda yang passionate di bidang digital dan creative industry.</p>
-            <div className="hero-buttons">
-              <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-primary">
-                <i className="fas fa-graduation-cap"></i> Lihat Program Magang
-              </a>
-              <a href="https://wa.me/6281804376001" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                <i className="fas fa-briefcase"></i> Cari Lowongan Kerja
-              </a>
-            </div>                
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="about-section">
-          <div className="container">
-            <div className="about-grid">
-              <div className="about-content">
-                <div className="section-header">
-                  <span className="section-line"></span>
-                  <h2>Tentang Titik Visual Yogyakarta</h2>
-                </div>
-                <div className="square"></div>
-                <p>Titik Visual adalah creative hub yang berlokasi di jantung kota Yogyakarta. Kami berfokus pada pengembangan talenta digital dan industri kreatif melalui program magang intensif dan kesempatan karir bagi individu yang ingin tumbuh dan berkontribusi di dunia kreatif. Bergabunglah bersama kami untuk memulai perjalanan karirmu di industri digital!</p>
-                <p>Dengan pengalaman lebih dari 5 tahun, Titik Visual telah membantu ratusan mahasiswa dan fresh graduate untuk memulai karier mereka melalui program magang yang terstruktur dan kesempatan kerja di industri kreatif digital.</p>
-                <div className="features">
-                  <div className="feature-item">
-                    <div className="feature-icon">
-                      <i className="fas fa-users"></i>
-                    </div>
-                    <div className="feature-text">
-                      <h4>Tim Berpengalaman</h4>
-                      <p>Mentor profesional</p>
-                    </div>
-                  </div>
-                  <div className="feature-item">
-                    <div className="feature-icon">
-                      <i className="fas fa-star"></i>
-                    </div>
-                    <div className="feature-text">
-                      <h4>Kualitas Terjamin</h4>
-                      <p>Program terstruktur</p>
-                    </div>
-                  </div>
-                </div>
-                <a href="../page-about/page-about.tsx" className="btn btn-learn-more">Pelajari Lebih Lanjut</a>
-              </div>
-              <div className="about-image">
-                <div className="image-card">
-                  {/* --- PERBAIKAN: Gunakan variabel gambar yang sudah diimpor --- */}
-                  <img src={aboutImage} alt="Tim Titik Visual" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Career Choice Section */}
-        <section className="career-choice-section">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Pilihan Karir Untukmu</h2>
-              <p className="section-subtitle">
-                Mulai perjalanan karirmu di industri kreatif digital bersama kami. Pilih jalur yang sesuai dengan passion dan tujuan karirmu.
-              </p>
-            </div>
-    
-            <div className="career-grid">
-              {/* Internship Card */}
-              <div className="career-card internship">
-                <div className="card-icon">
-                  <img src="https://api.iconify.design/ph:student.svg?color=%23f97316" alt="Icon Magang" />
-                </div>
-                <h3>Program Magang</h3>
-                <p>Dapatkan pengalaman praktis selama 3-6 bulan dengan bimbingan mentor berpengalaman. Tersedia 16 bidang keahlian dari design hingga programming.</p>
-                <div className="info-grid">
-                  <div className="info-item">
-                    <span>Durasi</span>
-                    <strong>3-6 Bulan</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Posisi</span>
-                    <strong>16 Bidang</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Benefit</span>
-                    <strong>Sertifikat + Uang Saku</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Target</span>
-                    <strong>Mahasiswa</strong>
-                  </div>
-                </div>
-                <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-magang">Lihat Program Magang &rarr;</a>
-              </div>
-    
-              {/* Job Vacancy Card */}
-              <div className="career-card job">
-                <div className="card-icon">
-                  <img src="https://api.iconify.design/ph:briefcase.svg?color=%2322c55e" alt="Icon Lowongan" />
-                </div>
-                <h3>Lowongan Pekerjaan</h3>
-                <p>Bergabunglah dengan tim profesional kami sebagai karyawan full-time atau kontrak. Kesempatan karir dengan gaji kompetitif dan benefit menarik.</p>
-                <div className="info-grid">
-                  <div className="info-item">
-                    <span>Tipe</span>
-                    <strong>Full-time & Kontrak</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Gaji</span>
-                    <strong>5-15 Juta</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Benefit</span>
-                    <strong>BPJS + Bonus</strong>
-                  </div>
-                  <div className="info-item">
-                    <span>Target</span>
-                    <strong>Fresh Graduate+</strong>
-                  </div>
-                </div>
-                <a href="../halaman-lowongan-kerja/lowongan-kerja.tsx" className="btn btn-lowongan">Lihat Lowongan Kerja &rarr;</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="stats-section">
-          <div className="container">
-            <div className="stats-grid">
-              <div className="stat-item">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Alumni Magang</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Proyek Selesai</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">15+</span>
-                <span className="stat-label">Bidang Keahlian</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">95%</span>
-                <span className="stat-label">Tingkat Kepuasan</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Program Section */}
-        <section className="our-program-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Our Program</h2>
-              <p>Magangjogja.com - Platform komprehensif untuk pengembangan karir dan pendidikan di Yogyakarta</p>
-            </div>
-            <div className="program-grid">
-              <div className="program-item">
-                <div className="program-number">1</div>
-                <div className="program-content">
-                  <h4>Dosen & Guru Tamu</h4>
-                  <p>Program yang dimana perusahaan menunjuk langsung praktisi mentor untuk memberikan pembelajaran ke siswa/mahasiswa.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">2</div>
-                <div className="program-content">
-                  <h4>Seminar, Workshop, & Pelatihan</h4>
-                  <p>Program yang dirancang memberikan pelatihan softskill dan hardskill secara online/offline ke siswa/mahasiswa/freshgraduate/umum.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">3</div>
-                <div className="program-content">
-                  <h4>Pembekalan Magang & PKL</h4>
-                  <p>Program yang dirancang memberikan pembekalan magang atau pkl ke siswa ataupun mahasiswa sebelum terjun ke perusahaan yang dituju.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">4</div>
-                <div className="program-content">
-                  <h4>Penyusunan Kurikulum</h4>
-                  <p>Program yang dirancang sebagai upaya menyusun kurikulum dengan kebutuhan dunia industri.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">5</div>
-                <div className="program-content">
-                  <h4>Teaching Factory</h4>
-                  <p>Program yang dirancang sebagai bentuk proses pembelajaran siswa dengan mengerjakan project langsung oleh perusahaan di ruang lingkup sekolah.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">6</div>
-                <div className="program-content">
-                  <h4>Kelas Industri</h4>
-                  <p>Program untuk meningkatkan hardskill siswa dengan pembelajaran langsung dari praktisi industri.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">7</div>
-                <div className="program-content">
-                  <h4>Mentor Lomba LKS</h4>
-                  <p>Program intensif yang dirancang untuk menyiapkan siswa agar siap mengikuti perlombaan tingkat nasional.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">8</div>
-                <div className="program-content">
-                  <h4>Juri Lomba LKS</h4>
-                  <p>Program penyediaan juri profesional untuk kompetisi LKS tingkat regional dan nasional.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">9</div>
-                <div className="program-content">
-                  <h4>Akreditasi Kampus/Sekolah</h4>
-                  <p>Kerjasama antara industri dan pihak Universitas untuk menunjang penilaian akreditasi sekolah/kampus.</p>
-                </div>
-              </div>
-              <div className="program-item">
-                <div className="program-number">10</div>
-                <div className="program-content">
-                  <h4>Jobfair Sekolah/Universitas</h4>
-                  <p>Program kerjasama sebagai bentuk rekrutmen karyawan di sekolah/kampus untuk memenuhi kebutuhan SDM di perusahaan.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="contact-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Hubungi Kami</h2>
-              <p>Ada pertanyaan tentang program magang atau lowongan kerja? Jangan ragu untuk menghubungi kami.</p>
-            </div>
-            <div className="contact-grid">
-              <div className="contact-card">
-                <div className="contact-icon">
-                  <i className="fas fa-map-marker-alt"></i>
-                </div>
-                <h4>Alamat</h4>
-                <p>Jl. Malioboro No. 123<br />Yogyakarta 55271<br />Indonesia</p>
-              </div>
-              <div className="contact-card">
-                <div className="contact-icon">
-                  <i className="fas fa-phone-alt"></i>
-                </div>
-                <h4>Telepon</h4>
-                <p>+62 274 123 4567<br />+62 812 3456 7890</p>
-              </div>
-              <div className="contact-card">
-                <div className="contact-icon">
-                  <i className="fas fa-envelope"></i>
-                </div>
-                <h4>Email</h4>
-                <p>info@titikvisual.com<br />career@titikvisual.com</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* CTA Section */}
-        <section className="cta-section">
+      {/* Hero Section */}
+      <section className="hero-section">
         <div className="container">
-            <h2>Tertarik Bergabung Bersama Kami?</h2>
-            <p>Mari tumbuh dan berkarya bersama tim profesional Titik Visual dalam menciptakan solusi digital yang berdampak.</p>
-            <div className="cta-buttons">
-              <a href="../halaman-program-magang/program-magang.tsx" className="btn btn-outline">
-                <i className="fas fa-external-link-alt"></i> Lihat Program Magang
-              </a>
-              <a href="../halaman-lowongan-kerja/lowongan-kerja.tsx" className="btn btn-outline">
-                <i className="fas fa-external-link-alt"></i> Lihat Lowongan Kerja
-              </a>
-            </div>
+          <h1><i className="fas fa-briefcase"></i> Lowongan Kerja <strong>Titik Visual</strong></h1>
+          <p>Bergabunglah dengan tim profesional kami dan kembangkan karier di industri kreatif digital. Kami menawarkan lingkungan kerja yang supportif dengan benefit menarik.</p>
+          <div className="hero-buttons">
+            <button className="btn btn-primary" onClick={() => document.getElementById('job-listings')?.scrollIntoView({ behavior: 'smooth' })}>Lamar Sekarang</button>
+            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+          </div>
         </div>
-        </section>
-      </main>
+      </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-grid">
-            <div className="footer-about">
-              {/* --- PERBAIKAN: Gunakan variabel gambar yang sudah diimpor --- */}
-              <img src={logoImage} alt="Titik Visual Logo" className="footer-logo" />
+      {/* Filter and Search Section */}
+      <section className="filter-search-section">
+        <div className="container">
+          <div className="filter-controls">
+            <span>Filter Posisi:</span>
+            <button className={`filter-btn ${activeFilter === 'Semua' ? 'active' : ''}`} onClick={() => handleFilterClick('Semua')}>Semua</button>
+            <button className={`filter-btn ${activeFilter === 'Design' ? 'active' : ''}`} onClick={() => handleFilterClick('Design')}>Design</button>
+            <button className={`filter-btn ${activeFilter === 'Engineering' ? 'active' : ''}`} onClick={() => handleFilterClick('Engineering')}>Engineering</button>
+            <button className={`filter-btn ${activeFilter === 'Marketing' ? 'active' : ''}`} onClick={() => handleFilterClick('Marketing')}>Marketing</button>
+            <button className={`filter-btn ${activeFilter === 'Creative' ? 'active' : ''}`} onClick={() => handleFilterClick('Creative')}>Creative</button>
+            <button className={`filter-btn ${activeFilter === 'Management' ? 'active' : ''}`} onClick={() => handleFilterClick('Management')}>Management</button>
+          </div>
+          <div className="search-bar">
+            <i className="fas fa-search"></i>
+            <input 
+              type="text" 
+              placeholder="Cari lowongan kerja..." 
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Job Listings Section */}
+      <section className="job-listings-section" id="job-listings">
+        <div className="container">
+          <div className="section-header">
+            <h2>{filteredPositions.length} Lowongan Tersedia</h2>
+            <p>Temukan posisi yang sesuai dengan keahlian dan pengalaman kerjamu.</p>
+          </div>
+          
+          <div className="job-listings-container">
+            {filteredPositions.map(position => (
+              <div className="job-card" key={position.id}>
+                {/* Header: Tags & Salary info */}
+                <div className="job-card-top">
+                  <div className="job-tags">
+                    <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
+                    <span className={`tag ${getTypeColor(position.type)}`}>{position.type}</span>
+                    <span className="tag tag-time"><i className="far fa-clock"></i> {position.postedAt}</span>
+                  </div>
+                  <div className="job-salary-info">
+                    <div className="salary">Rp {position.salary}</div>
+                    <div className="salary-period">per bulan</div>
+                    <div className="job-meta-right">
+                       <span><i className="fas fa-map-marker-alt"></i> {position.location}</span>
+                       <span><i className="fas fa-briefcase"></i> {position.experience}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Title & Description */}
+                <div className="job-main-info">
+                  <h3>{position.title}</h3>
+                  <p className="job-description">{position.description}</p>
+                </div>
+
+                {/* Details Columns */}
+                <div className="job-details-grid">
+                  <div className="job-details-column">
+                    <h4>Persyaratan:</h4>
+                    <ul>
+                      {position.requirements.map((req, index) => (
+                        <li key={index}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {position.responsibilities && (
+                    <div className="job-details-column">
+                      <h4>Tanggung Jawab:</h4>
+                      <ul>
+                        {position.responsibilities.map((resp, index) => (
+                          <li key={index}>{resp}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="job-details-column">
+                    <h4>Benefit & Fasilitas:</h4>
+                    <ul className="benefit-list">
+                      {position.benefits.map((benefit, index) => (
+                        <li key={index}>{benefit}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="job-card-actions">
+                  <a href={position.applyLink} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">Lamar Sekarang</a>
+                  <button className="btn btn-outline btn-block">Detail Lengkap</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <h2>Bersiap untuk Tantangan Baru?</h2>
+          <p>Mari bergabung dengan tim Titik Visual dan wujudkan karya digital yang berdampak bersama para profesional terbaik.</p>
+          <div className="cta-buttons">
+            <button className="btn btn-cta-primary" onClick={() => window.location.reload()}>
+               <i className="fas fa-search"></i> Lihat Lowongan
+            </button>
+            <a href="mailto:titikvisualjogja@gmail.com" className="btn btn-cta-secondary">
+               <i className="fas fa-paper-plane"></i> Kirim Lamaran
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="site-footer">
+        <div className="container">
+          <div className="footer-widgets">
+            <div className="footer-widget footer-about">
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.</p>
             </div>
-            <div className="footer-links">
+            <div className="footer-widget footer-links">
               <h4>Company</h4>
               <ul>
-                {/* --- PERBAIKAN: Ubah <a href="#"> menjadi <button> untuk aksesibilitas --- */}
-                <li><button type="button" className="footer-link-button">About Us</button></li>
-                <li><button type="button" className="footer-link-button">Portfolio</button></li>
-                <li><button type="button" className="footer-link-button">Services</button></li>
-                <li><button type="button" className="footer-link-button">Careers</button></li>
-                <li><button type="button" className="footer-link-button">Blog</button></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#blog">FAQ</a></li>
               </ul>
             </div>
-            <div className="footer-links">
-              <h4>Careers</h4>
+            <div className="footer-widget footer-links">
+              <h4>Lowongan Kerja</h4>
               <ul>
-                {/* --- PERBAIKAN: Ubah <a href="#"> menjadi <button> untuk aksesibilitas --- */}
-                <li><button type="button" className="footer-link-button">Lowongan Kerja</button></li>
-                <li><button type="button" className="footer-link-button">Program magang</button></li>
-                <li><button type="button" className="footer-link-button">Full Time Jobs</button></li>
-                <li><button type="button" className="footer-link-button">Remote Work</button></li>
-                <li><button type="button" className="footer-link-button">Contract Work</button></li>
+                <li><a href="#careers">Design & Creative</a></li>
+                <li><a href="#careers">Engineering</a></li>
+                <li><a href="#careers">Marketing & Sales</a></li>
+                <li><a href="#careers">Management</a></li>
               </ul>
             </div>
-            <div className="footer-links">
+            <div className="footer-widget footer-contact">
               <h4>Contact</h4>
-              <ul className="footer-contact">
-                <li><i className="fas fa-phone-alt"></i> 081804376001</li>
+              <ul>
+                <li><i className="fas fa-phone"></i> 081804376001</li>
                 <li><i className="fas fa-envelope"></i> titikvisualjogja@gmail.com</li>
                 <li><i className="fas fa-map-marker-alt"></i> Yogyakarta, Indonesia</li>
               </ul>
             </div>
           </div>
-          <hr className="footer-divider" />
           <div className="footer-bottom">
+            <hr />
             <p>&copy; 2024 Titik Visual. All rights reserved.</p>
           </div>
         </div>
@@ -416,4 +444,4 @@ const CareersPage: React.FC = () => {
   );
 };
 
-export default CareersPage;
+export default LowonganKerjaPage;

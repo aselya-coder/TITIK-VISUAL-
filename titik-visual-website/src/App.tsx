@@ -8,6 +8,7 @@ import ContactPage from './page-contact/page-contact';
 import CareersPage from './halaman-careers/careers';
 import CustomMerchandisePage from './Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise';
 import InternshipPage from './halaman-program-magang/program-magang';
+import LowonganKerjaPage from './halaman-lowongan-kerja/lowongan-kerja';
 import CareersFooter from './halaman-careers/CareersFooter.jsx';
 // custom lightweight router without external wrappers
 const images: any = (require as any).context('./img', false, /\.(png|jpe?g|svg)$/);
@@ -67,7 +68,7 @@ function App() {
         '#contact': '/contact',
         '#careers': '/careers',
         '#custom-merchandise': '/custom-merchandise',
-        '#internship': '/internship'
+        '#program-magang': '/program-magang'
       };
       return map[h] || normalize(window.location.pathname || '/');
     }
@@ -90,45 +91,59 @@ function App() {
   }, [path]);
   useEffect(() => {
     if (path !== '/contact') return;
-    const reapply = () => {
-      const heroes = Array.from(document.querySelectorAll('.hero-section, .hero')) as HTMLElement[];
-      heroes.forEach(el => {
-        el.style.setProperty('background', '#FFFFFF', 'important');
-        el.style.setProperty('backgroundImage', 'none', 'important');
-        el.style.setProperty('backgroundColor', '#FFFFFF', 'important');
-        const h1 = el.querySelector('h1') as HTMLElement | null;
-        if (!h1) return;
-        h1.style.display = 'block';
-        h1.style.textAlign = 'center';
-        h1.style.removeProperty('background');
-        h1.style.removeProperty('background-image');
-        h1.style.removeProperty('-webkit-background-clip');
-        h1.style.removeProperty('background-clip');
-        h1.style.removeProperty('-webkit-text-fill-color');
-        h1.style.color = '';
-        const line1 = document.createElement('span');
-        line1.textContent = 'Mari Diskusi';
-        line1.style.display = 'block';
-        line1.style.whiteSpace = 'nowrap';
-        line1.style.background = 'linear-gradient(90deg, #4F46E5, #06B6D4)';
-        (line1.style as any).WebkitBackgroundClip = 'text';
-        (line1.style as any).backgroundClip = 'text';
-        (line1.style as any).WebkitTextFillColor = 'transparent';
-        line1.style.color = 'transparent';
-        const line2 = document.createElement('span');
-        line2.textContent = 'Proyek Anda';
-        line2.style.display = 'block';
-        line2.style.whiteSpace = 'nowrap';
-        line2.style.marginTop = '6px';
-        line2.style.color = '#000000';
-        h1.innerHTML = '';
-        h1.appendChild(line1);
-        h1.appendChild(line2);
-      });
+    const hero = document.querySelector('.hero-section, .hero') as HTMLElement | null;
+    if (!hero) return;
+    const apply = () => {
+      hero.style.setProperty('background', '#FFFFFF', 'important');
+      hero.style.setProperty('backgroundImage', 'none', 'important');
+      hero.style.setProperty('backgroundColor', '#FFFFFF', 'important');
+      const h1 = hero.querySelector('h1') as HTMLElement | null;
+      if (!h1) return;
+      if (h1.getAttribute('data-contact-heading') === 'true') return;
+      h1.setAttribute('data-contact-heading', 'true');
+      h1.style.display = 'block';
+      h1.style.textAlign = 'center';
+      h1.style.removeProperty('background');
+      h1.style.removeProperty('background-image');
+      h1.style.removeProperty('-webkit-background-clip');
+      h1.style.removeProperty('background-clip');
+      h1.style.removeProperty('-webkit-text-fill-color');
+      h1.style.color = '';
+      const line1 = document.createElement('span');
+      line1.textContent = 'Mari Diskusi';
+      line1.style.display = 'block';
+      line1.style.whiteSpace = 'nowrap';
+      line1.style.background = 'linear-gradient(90deg, #9333EA, #0891B2)';
+      (line1.style as any).WebkitBackgroundClip = 'text';
+      (line1.style as any).backgroundClip = 'text';
+      (line1.style as any).WebkitTextFillColor = 'transparent';
+      line1.style.color = 'transparent';
+      const line2 = document.createElement('span');
+      line2.textContent = 'Proyek Anda';
+      line2.style.display = 'block';
+      line2.style.whiteSpace = 'nowrap';
+      line2.style.marginTop = '6px';
+      line2.style.color = '#000000';
+      line2.style.background = 'none';
+      line2.style.removeProperty('background-image');
+      (line2.style as any).WebkitBackgroundClip = '';
+      (line2.style as any).backgroundClip = '';
+      (line2.style as any).WebkitTextFillColor = '#000000';
+      h1.innerHTML = '';
+      h1.appendChild(line1);
+      h1.appendChild(line2);
     };
-    reapply();
-    const observer = new MutationObserver(() => reapply());
-    observer.observe(document.body, { childList: true, subtree: true });
+    apply();
+    let scheduled = false;
+    const observer = new MutationObserver(() => {
+      if (scheduled) return;
+      scheduled = true;
+      setTimeout(() => {
+        scheduled = false;
+        apply();
+      }, 50);
+    });
+    observer.observe(hero, { childList: true, subtree: true });
     return () => observer.disconnect();
   }, [path]);
   useEffect(() => {
@@ -151,47 +166,6 @@ function App() {
     };
     forceHeroWhite();
     const t = setTimeout(forceHeroWhite, 0);
-    return () => clearTimeout(t);
-  }, [path]);
-  useEffect(() => {
-    if (path !== '/contact') return;
-    const applyHeading = () => {
-      const heroes = Array.from(document.querySelectorAll('.hero-section, .hero')) as HTMLElement[];
-      heroes.forEach(el => {
-        const h1 = el.querySelector('h1') as HTMLElement | null;
-        if (!h1) return;
-        if (h1.getAttribute('data-contact-heading') === 'true') return;
-        h1.setAttribute('data-contact-heading', 'true');
-        h1.style.display = 'block';
-        h1.style.textAlign = 'center';
-        h1.style.removeProperty('background');
-        h1.style.removeProperty('background-image');
-        h1.style.removeProperty('-webkit-background-clip');
-        h1.style.removeProperty('background-clip');
-        h1.style.removeProperty('-webkit-text-fill-color');
-        h1.style.color = '';
-        const line1 = document.createElement('span');
-        line1.textContent = 'Mari Diskusi';
-        line1.style.display = 'block';
-        line1.style.whiteSpace = 'nowrap';
-        line1.style.background = 'linear-gradient(90deg, #4F46E5, #06B6D4)';
-        (line1.style as any).WebkitBackgroundClip = 'text';
-        (line1.style as any).backgroundClip = 'text';
-        (line1.style as any).WebkitTextFillColor = 'transparent';
-        line1.style.color = 'transparent';
-        const line2 = document.createElement('span');
-        line2.textContent = 'Proyek Anda';
-        line2.style.display = 'block';
-        line2.style.whiteSpace = 'nowrap';
-        line2.style.marginTop = '6px';
-        line2.style.color = '#000000';
-        h1.innerHTML = '';
-        h1.appendChild(line1);
-        h1.appendChild(line2);
-      });
-    };
-    applyHeading();
-    const t = setTimeout(applyHeading, 0);
     return () => clearTimeout(t);
   }, [path]);
   useEffect(() => {
@@ -347,7 +321,9 @@ function App() {
         { test: (s) => s === '#services' || pathname === '/services' || pathname.startsWith('/layanan') || s.endsWith('/services'), to: '/services' },
         { test: (s) => s === '#portfolio' || pathname === '/portfolio' || s.includes('page-porfolio'), to: '/portfolio' },
         { test: (s) => s === '#contact' || pathname === '/contact' || s.endsWith('/contact'), to: '/contact' },
-        { test: () => pathname === '/careers' || href.endsWith('/careers'), to: '/careers' }
+        { test: () => pathname === '/careers' || href.endsWith('/careers'), to: '/careers' },
+        { test: () => pathname === '/program-magang' || href.endsWith('/program-magang'), to: '/program-magang' },
+        { test: () => pathname === '/lowongan-kerja' || href.endsWith('/lowongan-kerja'), to: '/lowongan-kerja' }
       ];
       for (const m of map2) {
         if (m.test(href)) {
@@ -451,8 +427,11 @@ function App() {
     case '/custom-merchandise':
       element = <CustomMerchandisePage />;
       break;
-    case '/internship':
+    case '/program-magang':
       element = <InternshipPage />;
+      break;
+    case '/lowongan-kerja':
+      element = <LowonganKerjaPage />;
       break;
     default:
       element = <TitikVisualWebsite />;

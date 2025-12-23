@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import './style.css';
+import logoImg from '../img/img.png';
 
 // Definisi tipe untuk posisi magang
 interface InternshipPosition {
@@ -233,9 +234,23 @@ const InternshipPage = () => {
     }
   };
 
+  React.useEffect(() => {
+    const nav = document.querySelector('.main-nav') as HTMLElement | null;
+    if (!nav) return;
+    nav.style.background = '';
+    nav.classList.remove('layanan-nav');
+    const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
+    links.forEach(a => a.style.color = '');
+    const icons = Array.from(nav.querySelectorAll('.nav-right i')) as HTMLElement[];
+    icons.forEach(i => i.style.color = '');
+    const logo = nav.querySelector('img.logo') as HTMLImageElement | null;
+    if (logo) {
+      logo.style.height = '50px';
+      logo.style.opacity = '1';
+    }
+  }, []);
   return (
     <div className="internship-page">
-      {/* TOP BAR & NAVBAR */}
       <div className="top-bar">
         <div className="top-left">
           <div className="item"><i className="fa-solid fa-phone"></i><span>081804376001</span></div>
@@ -246,15 +261,17 @@ const InternshipPage = () => {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
         </div>
       </div>
-      <nav className="main-nav">
-        <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
+      <nav className="main-nav internship-nav">
+        <div className="nav-left">
+          <img src={logoImg} alt="Titik Visual Logo" className="logo" />
+        </div>
         <ul className="nav-right">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
@@ -262,11 +279,11 @@ const InternshipPage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
-          <h1><i className="fas fa-graduation-cap"></i> Program Magang <strong>Titik Visual</strong></h1>
+          <h1><i className="fas fa-graduation-cap hero-icon"></i> <span className="title-main">Program Magang</span> <strong>Titik Visual</strong></h1>
           <p>Mulai perjalanan kariermu di industri kreatif digital. Dapatkan pengalaman praktis, mentoring dari profesional, dan sertifikat yang diakui industri.</p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => window.location.href = '#register'}>Daftar Sekarang</button>
-            <a href="#careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+            <button className="btn btn-primary" onClick={() => document.getElementById('internship-grid')?.scrollIntoView({ behavior: 'smooth' })}>Daftar Sekarang</button>
+            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
           </div>
         </div>
       </section>
@@ -376,7 +393,7 @@ const InternshipPage = () => {
         <div className="container">
           <div className="footer-widgets">
             <div className="footer-widget about-widget">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.</p>
             </div>
             <div className="footer-widget links-widget">
