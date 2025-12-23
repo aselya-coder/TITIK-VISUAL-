@@ -1010,6 +1010,10 @@ body {
     font-size: 13px;
     color: #9fb2c8;
 }
+.footer .footer-logo {
+    filter: none !important;
+    opacity: 1 !important;
+}
 
 /* =========================================================
    RESPONSIVE
