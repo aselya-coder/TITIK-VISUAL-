@@ -256,7 +256,7 @@ const LowonganKerjaPage = () => {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
         </div>
       </div>
-      <nav className="main-nav" style={{ background: '#FFFFFF', borderBottom: '1px solid #f1f5f9' }}>
+      <nav className="main-nav">
         <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
           <li><a href="#home">Home</a></li>
@@ -316,60 +316,65 @@ const LowonganKerjaPage = () => {
           <div className="job-listings-container">
             {filteredPositions.map(position => (
               <div className="job-card" key={position.id}>
-                <div className="job-card-row">
-                  <div className="job-left">
-                    <div className="job-header">
-                      <div className="badge-row">
-                        <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
-                        <span className={`tag ${getTypeColor(position.type)}`}>{position.type}</span>
-                        <span className="tag tag-time"><i className="far fa-clock"></i> {position.postedAt}</span>
-                      </div>
-                      <h3 className="job-title">{position.title}</h3>
-                      <p className="job-description">{position.description}</p>
-                    </div>
-                    <div className="job-content-row">
-                      <div className="job-details-group">
-                        <h4>Persyaratan:</h4>
-                        <ul className="requirements-list">
-                          {position.requirements.map((req, index) => (
-                            <li key={index}>{req}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      {position.responsibilities && (
-                        <div className="job-details-group">
-                          <h4>Tanggung Jawab:</h4>
-                          <ul className="responsibilities-list">
-                            {position.responsibilities.map((resp, index) => (
-                              <li key={index}>{resp}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                {/* Header: Tags & Salary info */}
+                <div className="job-card-top">
+                  <div className="job-tags">
+                    <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
+                    <span className={`tag ${getTypeColor(position.type)}`}>{position.type}</span>
+                    <span className="tag tag-time"><i className="far fa-clock"></i> {position.postedAt}</span>
+                  </div>
+                  <div className="job-salary-info">
+                    <div className="salary">Rp {position.salary}</div>
+                    <div className="salary-period">per bulan</div>
+                    <div className="job-meta-right">
+                       <span><i className="fas fa-map-marker-alt"></i> {position.location}</span>
+                       <span><i className="fas fa-briefcase"></i> {position.experience}</span>
                     </div>
                   </div>
-                  <div className="job-right">
-                    <div className="job-salary-info">
-                      <div className="salary">Rp {position.salary}</div>
-                      <div className="salary-period">per bulan</div>
-                    </div>
-                    <div className="job-meta-right">
-                      <span><i className="fas fa-map-marker-alt"></i> {position.location}</span>
-                      <span><i className="fas fa-briefcase"></i> {position.experience}</span>
-                    </div>
-                    <div className="job-benefits">
-                      <h4>Benefit & Fasilitas:</h4>
-                      <ul className="benefit-list">
-                        {position.benefits.map((benefit, index) => (
-                          <li key={index}>{benefit}</li>
+                </div>
+
+                {/* Title & Description */}
+                <div className="job-main-info">
+                  <h3>{position.title}</h3>
+                  <p className="job-description">{position.description}</p>
+                </div>
+
+                {/* Details Columns */}
+                <div className="job-details-grid">
+                  <div className="job-details-column">
+                    <h4>Persyaratan:</h4>
+                    <ul>
+                      {position.requirements.map((req, index) => (
+                        <li key={index}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {position.responsibilities && (
+                    <div className="job-details-column">
+                      <h4>Tanggung Jawab:</h4>
+                      <ul>
+                        {position.responsibilities.map((resp, index) => (
+                          <li key={index}>{resp}</li>
                         ))}
                       </ul>
                     </div>
-                    <div className="job-actions-row">
-                      <a href={position.applyLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Lamar Sekarang</a>
-                      <button className="btn btn-outline">Detail Lengkap</button>
-                    </div>
+                  )}
+
+                  <div className="job-details-column">
+                    <h4>Benefit & Fasilitas:</h4>
+                    <ul className="benefit-list">
+                      {position.benefits.map((benefit, index) => (
+                        <li key={index}>{benefit}</li>
+                      ))}
+                    </ul>
                   </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="job-card-actions">
+                  <a href={position.applyLink} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">Lamar Sekarang</a>
+                  <button className="btn btn-outline btn-block">Detail Lengkap</button>
                 </div>
               </div>
             ))}

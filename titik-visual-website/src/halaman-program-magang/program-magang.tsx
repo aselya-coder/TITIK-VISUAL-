@@ -337,7 +337,7 @@ const InternshipPage = () => {
       </section>
 
       {/* Internship Grid Section */}
-      <section id="internship-grid" className="internship-grid">
+      <section className="internship-grid">
         <div className="container">
           <h2>{filteredPositions.length} Posisi Magang Tersedia</h2>
           <p className="section-subtitle">Pilih bidang yang sesuai dengan passion dan minat kariermu</p>
@@ -345,11 +345,9 @@ const InternshipPage = () => {
             {filteredPositions.map(position => (
               <div className="internship-card" key={position.id}>
                 <div className="card-header">
-                  <div className="card-header-left">
-                    <div className="card-tags">
-                      <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
-                      <span className={`tag ${getLevelColor(position.level)}`}>{position.level}</span>
-                    </div>
+                  <div className="card-tags">
+                    <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
+                    <span className={`tag ${getLevelColor(position.level)}`}>{position.level}</span>
                   </div>
                   <div className="card-duration"><i className="far fa-clock"></i> {position.duration}</div>
                 </div>

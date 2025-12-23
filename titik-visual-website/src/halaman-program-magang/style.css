@@ -235,15 +235,15 @@ body {
 }
 
 .hero-section .btn-primary {
-    background: linear-gradient(90deg, #F97316 0%, #DC2626 100%);
+    background: linear-gradient(90deg, #ff6b00 0%, #ff4500 100%);
     color: #FFFFFF;
     border: none;
-    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
 }
 
 .hero-section .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 6px 15px rgba(255, 107, 0, 0.4);
 }
 
 .hero-section .btn-secondary {
@@ -337,7 +337,7 @@ body {
 /* ===== INTERNSHIP GRID ===== */
 .internship-grid {
     padding: 60px 0;
-    background-color: #FFFFFF;
+    background-color: #f8fafc;
 }
 
 .internship-grid h2 {
@@ -356,20 +356,18 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 320px);
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .internship-card {
     background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
     padding: 25px;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .internship-card:hover {
@@ -381,68 +379,41 @@ body {
 .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    min-height: 60px;
+    align-items: flex-start;
     margin-bottom: 15px;
 }
 
-.card-header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.card-header .card-tags {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-}
 .card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.internship-page .tag {
-    display: inline-block !important;
-    padding: 6px 12px !important;
-    border-radius: 9999px !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    text-transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04) !important;
-    position: static !important;
-    border: 1px solid rgba(0,0,0,0.06) !important;
-    background: none !important;
-    background-image: none !important;
-}
-.card-body .card-tags .tag + .tag {
-    margin-top: 6px !important;
+.tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.internship-page .tag-design { background-color: #ffedd5 !important; color: #b45309 !important; border-color: #fed7aa !important; }
-.internship-page .tag-programming { background-color: #dbeafe !important; color: #1e40af !important; border-color: #bfdbfe !important; }
-.internship-page .tag-marketing { background-color: #f3e8ff !important; color: #7e22ce !important; border-color: #e9d5ff !important; }
-.internship-page .tag-creative { background-color: #fee2e2 !important; color: #b91c1c !important; border-color: #fecaca !important; }
-.internship-page .tag-management { background-color: #dcfce7 !important; color: #166534 !important; border-color: #bbf7d0 !important; }
-.internship-page .tag-communication { background-color: #fdf2f8 !important; color: #db2777 !important; border-color: #fbcfe8 !important; }
+.tag-design { background-color: #eff6ff; color: #2563eb; }
+.tag-programming { background-color: #f0fdf4; color: #16a34a; }
+.tag-marketing { background-color: #fff7ed; color: #c2410c; }
+.tag-creative { background-color: #faf5ff; color: #9333ea; }
+.tag-management { background-color: #fefce8; color: #ca8a04; }
+.tag-communication { background-color: #fdf2f8; color: #db2777; }
 
-.internship-page .tag-level-beginner { background-color: #ecfccb !important; color: #4d7c0f !important; border-color: #d9f99d !important; }
-.internship-page .tag-level-intermediate { background-color: #fef9c3 !important; color: #a16207 !important; border-color: #fde68a !important; }
-.internship-page .tag-level-advanced { background-color: #fee2e2 !important; color: #b91c1c !important; border-color: #fecaca !important; }
+.tag-level-beginner { background-color: #ecfccb; color: #4d7c0f; }
+.tag-level-intermediate { background-color: #dbeafe; color: #1e40af; }
+.tag-level-advanced { background-color: #fee2e2; color: #b91c1c; }
 
 .card-duration {
     font-size: 12px;
     color: #64748b;
     display: flex;
     align-items: center;
-    gap: 6px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 9999px;
-    padding: 6px 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    gap: 5px;
 }
 
 .card-body h3 {
@@ -450,13 +421,6 @@ body {
     font-weight: 700;
     color: var(--dark-blue);
     margin-bottom: 10px;
-}
-.card-body .card-tags {
-    margin-bottom: 10px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
 }
 
 .card-body p {
@@ -497,18 +461,16 @@ body {
 .benefit-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
     margin-bottom: 20px;
 }
 
 .benefit-tag {
-    background: #fff0e6;
-    color: #c2410c;
-    font-size: 12px;
-    padding: 6px 12px;
-    border-radius: 9999px;
-    border: 1px solid #fed7aa;
-    box-shadow: 0 2px 4px rgba(253, 176, 120, 0.2);
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
 }
 
 .card-footer {
@@ -517,34 +479,30 @@ body {
 
 .card-footer .btn {
     width: 100%;
-    background: linear-gradient(90deg, #F97316 0%, #DC2626 100%);
+    background: var(--dark-blue);
     color: white;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 6px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     transition: 0.3s;
 }
 
 .card-footer .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(249, 115, 22, 0.35);
+    background: var(--primary-orange);
 }
 
 /* ===== CTA SECTION ===== */
 .cta-section {
-    background: linear-gradient(90deg, #F97316 0%, #DC2626 100%);
+    background: linear-gradient(135deg, #ff6b00 0%, #ff4500 100%);
     padding: 80px 20px;
     text-align: center;
     color: white;
-}
-.internship-page .cta-section {
-    background: linear-gradient(90deg, #F97316 0%, #DC2626 100%) !important;
 }
 
 .cta-section h2 {
@@ -568,21 +526,11 @@ body {
 
 .btn-cta-primary {
     background: white;
-    color: #9333EA;
+    color: #ff4500;
     padding: 12px 25px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-}
-.btn-cta-primary i {
-    color: #9333EA;
-    margin-right: 8px;
-}
-.internship-page .btn-cta-primary {
-    color: #9333EA !important;
-}
-.internship-page .btn-cta-primary i {
-    color: #9333EA !important;
 }
 
 .btn-cta-secondary {
@@ -647,10 +595,6 @@ body {
     padding-top: 20px;
     font-size: 13px;
 }
-.site-footer .footer-logo {
-    filter: none !important;
-    opacity: 1 !important;
-}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -678,25 +622,5 @@ body {
     
     .mobile-menu-toggle {
         display: flex;
-    }
-}
-
-/* GRID RESPONSIVE */
-@media (max-width: 1200px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 320px);
-        justify-content: center;
-    }
-}
-@media (max-width: 992px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 320px);
-        justify-content: center;
-    }
-}
-@media (max-width: 640px) {
-    .grid-container {
-        grid-template-columns: repeat(1, 320px);
-        justify-content: center;
     }
 }
