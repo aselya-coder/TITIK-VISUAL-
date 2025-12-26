@@ -7,6 +7,10 @@ import PortfolioPage from './page-portfolio/page-portfolio';
 import ContactPage from './page-contact/page-contact';
 import CareersPage from './halaman-careers/careers';
 import CustomMerchandisePage from './Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise';
+import UIUXPage from './page layanan detail ui_ux/layanan detail ui_ux';
+import WebsiteAppPage from './page detail layanan web&apk/layanan web&apk';
+import LogoDesignPage from './Page Detail Layanan Logo Design/Layanan Logo Design';
+import SocialMediaPage from './Page Detail layanan Social Media/Layanan Social Media';
 import InternshipPage from './halaman-program-magang/program-magang';
 import LowonganKerjaPage from './halaman-lowongan-kerja/lowongan-kerja';
 import CareersFooter from './halaman-careers/CareersFooter.jsx';
@@ -183,6 +187,8 @@ function App() {
     const isLayanan =
       (window.location && window.location.pathname && window.location.pathname.includes('layanan')) ||
       path === '/services';
+    const isLowonganKerja = path === '/lowongan-kerja';
+
     if (nav) {
       if (isLayanan) {
         nav.classList.add('layanan-nav');
@@ -210,9 +216,35 @@ function App() {
           logo.style.display = 'block';
           logo.style.opacity = '1';
         }
+      } else if (isLowonganKerja) {
+        nav.classList.remove('layanan-nav');
+        nav.style.setProperty('background', '#FFFFFF', 'important');
+        nav.style.setProperty('background-image', 'none', 'important');
+        nav.style.setProperty('box-shadow', '0 2px 10px rgba(0,0,0,0.05)', 'important');
+        
+        const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
+        links.forEach(a => {
+          a.classList.remove('text-white');
+          a.style.setProperty('color', '#4B5563', 'important');
+          const li = a.closest('li');
+          if (li) li.classList.remove('active');
+        });
+        const icons = Array.from(nav.querySelectorAll('.nav-right i')) as HTMLElement[];
+        icons.forEach(i => {
+          i.classList.remove('fa-white');
+          i.style.setProperty('color', '#4B5563', 'important');
+        });
+        const logo = nav.querySelector('img.logo') as HTMLImageElement | null;
+        if (logo) {
+          logo.style.height = '';
+          logo.style.width = '';
+          logo.style.display = '';
+          logo.style.opacity = '';
+        }
       } else {
         nav.classList.remove('layanan-nav');
         nav.style.background = '';
+        nav.style.boxShadow = '';
         const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
         links.forEach(a => {
           a.classList.remove('text-white');
@@ -414,6 +446,18 @@ function App() {
       break;
     case '/services':
       element = <ServicesPage />;
+      break;
+    case '/ui-ux':
+      element = <UIUXPage />;
+      break;
+    case '/web-apk':
+      element = <WebsiteAppPage />;
+      break;
+    case '/logo-design':
+      element = <LogoDesignPage />;
+      break;
+    case '/social-media':
+      element = <SocialMediaPage />;
       break;
     case '/portfolio':
       element = <PortfolioPage />;

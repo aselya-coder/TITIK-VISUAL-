@@ -208,6 +208,11 @@ body.page-loaded{
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .badge.pill-shape {
   display: inline-flex;

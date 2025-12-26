@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
+const getImg = (name: string) => images(`./${name}`);
 
 interface Offering {
   id: number;
@@ -254,7 +256,7 @@ const UIUXPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-contact/page-contact.tsx">Services</a> / <span>UI/UX Design</span>
+          <a href="../beranda/beranda.tsx">Home</a> / <a href="/services">Services</a> / <span>UI/UX Design</span>
         </div>
       </section>
 
@@ -263,7 +265,7 @@ const UIUXPage = () => {
         <div className="container hero-container">
           <div className="hero-content">
             <span className="subtitle">
-              <img src="../img/ui-ux desain.png" alt="UI/UX Icon" style={{width: '20px', height: '20px', marginRight: '8px'}} />
+              <img src={getImg('ui-ux desain.png')} alt="UI/UX Icon" style={{width: '20px', height: '20px', marginRight: '8px'}} />
               UI/UX Design Service
             </span>
             <h1>
@@ -282,7 +284,7 @@ const UIUXPage = () => {
           </div>
           <div className="hero-image-wrapper">
             <div className="hero-image">
-              <img src="../img/ui_ux.png" alt="UI/UX Design Illustration" />
+              <img src={getImg('ui_ux.png')} alt="UI/UX Design Illustration" />
             </div>
           </div>
         </div>

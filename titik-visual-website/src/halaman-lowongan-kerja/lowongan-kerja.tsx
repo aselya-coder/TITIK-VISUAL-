@@ -245,26 +245,30 @@ const LowonganKerjaPage = () => {
 
   return (
     <div className="lowongan-kerja-page">
-      {/* TOP BAR & NAVBAR */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item"><i className="fa-solid fa-phone"></i><span>081804376001</span></div>
-          <div className="item"><i className="fa-solid fa-envelope"></i><span>titikvisualjogja@gmail.com</span></div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+      {/* TOP BAR */}
+       <div className="top-bar">
+         <div className="container">
+           <div className="top-bar-left">
+             <span><i className="fas fa-phone"></i> 081804376001</span>
+             <span><i className="fas fa-envelope"></i> titikvisualjogja@gmail.com</span>
+           </div>
+           <div className="top-bar-right">
+             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
+
+      {/* MAIN NAVBAR */}
       <nav className="main-nav">
         <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
       </nav>
@@ -321,7 +325,7 @@ const LowonganKerjaPage = () => {
                   <div className="job-tags">
                     <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
                     <span className={`tag ${getTypeColor(position.type)}`}>{position.type}</span>
-                    <span className="tag tag-time"><i className="far fa-clock"></i> {position.postedAt}</span>
+                    <span className="tag-time">• {position.postedAt}</span>
                   </div>
                   <div className="job-salary-info">
                     <div className="salary">Rp {position.salary}</div>
@@ -341,41 +345,40 @@ const LowonganKerjaPage = () => {
 
                 {/* Details Columns */}
                 <div className="job-details-grid">
-                  <div className="job-details-column">
+                  <div className="job-details-left job-details-column">
                     <h4>Persyaratan:</h4>
                     <ul>
                       {position.requirements.map((req, index) => (
                         <li key={index}>{req}</li>
                       ))}
                     </ul>
+
+                    {position.responsibilities && (
+                      <>
+                        <h4>Tanggung Jawab:</h4>
+                        <ul className="responsibilities-list">
+                          {position.responsibilities.map((resp, index) => (
+                            <li key={index}>{resp}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </div>
 
-                  {position.responsibilities && (
-                    <div className="job-details-column">
-                      <h4>Tanggung Jawab:</h4>
-                      <ul>
-                        {position.responsibilities.map((resp, index) => (
-                          <li key={index}>{resp}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  <div className="job-details-column">
+                  <div className="job-details-right job-details-column">
                     <h4>Benefit & Fasilitas:</h4>
                     <ul className="benefit-list">
                       {position.benefits.map((benefit, index) => (
                         <li key={index}>{benefit}</li>
                       ))}
                     </ul>
+                    <div className="job-card-actions in-right">
+                      <a href={position.applyLink} className="btn btn-primary btn-apply" target="_blank" rel="noopener noreferrer">Lamar Sekarang</a>
+                      <button className="btn btn-outline btn-detail">Detail Lengkap</button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="job-card-actions">
-                  <a href={position.applyLink} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">Lamar Sekarang</a>
-                  <button className="btn btn-outline btn-block">Detail Lengkap</button>
-                </div>
               </div>
             ))}
           </div>
@@ -389,10 +392,10 @@ const LowonganKerjaPage = () => {
           <p>Mari bergabung dengan tim Titik Visual dan wujudkan karya digital yang berdampak bersama para profesional terbaik.</p>
           <div className="cta-buttons">
             <button className="btn btn-cta-primary" onClick={() => window.location.reload()}>
-               <i className="fas fa-search"></i> Lihat Lowongan
+               <i className="far fa-comment"></i> Lihat Lowongan
             </button>
             <a href="mailto:titikvisualjogja@gmail.com" className="btn btn-cta-secondary">
-               <i className="fas fa-paper-plane"></i> Kirim Lamaran
+               <i className="fas fa-arrow-up-right-from-square"></i> Kirim Lamaran
             </a>
           </div>
         </div>

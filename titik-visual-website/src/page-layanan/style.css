@@ -194,15 +194,26 @@ body {
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 10px;
-    background: linear-gradient(90deg, #7C3AED, #8B5CF6);
+    background: linear-gradient(90deg, #9333EA, #0891B2);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent !important;
+}
+
+/* Scoped override to ensure gradient shows only on Services page
+   and wins over global resets with !important from other pages */
+.services-page .hero-section h1 {
+    background: linear-gradient(90deg, #9333EA, #0891B2) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
 }
 
 .hero-section .subtitle {
     font-size: 16px;
-    color: #666;
+    color: #9CA3AF;
     margin-bottom: 50px;
 }
 
@@ -350,6 +361,30 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.custom-bags-section .section-title {
+    background: linear-gradient(90deg, #DB2777, #E11D48);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.corporate-gifts .section-title {
+    background: linear-gradient(90deg, #16A34A, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.lifestyle-merch .section-title {
+    background: linear-gradient(90deg, #EA580C, #DC2626);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .section-subtitle {

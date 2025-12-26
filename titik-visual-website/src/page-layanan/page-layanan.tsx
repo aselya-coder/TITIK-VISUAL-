@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App services-page">
       {/* Top Bar */}
       <div className="top-bar">
         <div className="top-left">
@@ -86,9 +86,9 @@ function App() {
                 />
               </div>
               <h3>UI/UX Design</h3>
-              <p>Desain interface yang user-friendly dan menarik</p>
+              <p>Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile</p>
               <a
-                href="../page layanan detail ui_ux/layanan detail ui_ux.tsx"
+                href="/ui-ux"
                 className="btn-detail btn-purple"
                 style={{
                   background: 'linear-gradient(90deg, #A855F7, #EC4899)',
@@ -112,9 +112,9 @@ function App() {
                 />
               </div>
               <h3>Website & Aplikasi</h3>
-              <p>Website responsif dan aplikasi mobile modern</p>
+              <p>Website responsif dan aplikasi mobile dengan teknologi terdepan</p>
               <a
-                href="../page detail layanan web&apk/layanan detail web&apk.tsx"
+                href="/web-apk"
                 className="btn-detail btn-blue"
                 style={{
                   background: 'linear-gradient(90deg, #3B82F6, #06B6D4)',
@@ -138,9 +138,9 @@ function App() {
                 />
               </div>
               <h3>Logo Design</h3>
-              <p>Logo profesional untuk identitas brand Anda</p>
+              <p>Logo profesional yang mencerminkan identitas dan nilai brand Anda</p>
               <a
-                href="../Page Detail Layanan Logo Design/Layanan Logo Design.tsx"
+                href="/logo-design"
                 className="btn-detail btn-orange"
                 style={{
                   background: 'linear-gradient(90deg, #F97316, #EF4444)',
@@ -163,10 +163,10 @@ function App() {
                   style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
                 />
               </div>
-              <h3>Social Media</h3>
-              <p>Kelola media sosial dengan strategi tepat</p>
+              <h3>Social Media Management</h3>
+              <p>Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat</p>
               <a
-                href="../Page Detail layanan Social Media/Layanan Social Media.tsx"
+                href="/social-media"
                 className="btn-detail btn-pink"
                 style={{
                   background: 'linear-gradient(90deg, #EC4899, #F43F5E)',
@@ -189,10 +189,10 @@ function App() {
                   style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
                 />
               </div>
-              <h3>Merchandise</h3>
-              <p>Merchandise berkualitas untuk promosi brand</p>
+              <h3>Custom Merchandise</h3>
+              <p>Merchandise berkualitas tinggi untuk promosi dan corporate branding</p>
               <a
-                href="../Page Detail Layanan Custom Merchandise/Layanan Custom Merchandise.tsx"
+                href="/custom-merchandise"
                 className="btn-detail btn-green"
                 style={{
                   background: 'linear-gradient(90deg, #22C55E, #10B981)',
@@ -774,7 +774,7 @@ function App() {
       </section>
 
       {/* Lifestyle Merchandise */}
-      <section className="products-section bg-light">
+      <section className="products-section bg-light lifestyle-merch">
         <div className="container">
           <h2 className="section-title">Lifestyle Merchandise</h2>
           <p className="section-subtitle">Merchandise lifestyle untuk branding dan promosi yang efektif sehari-hari</p>
