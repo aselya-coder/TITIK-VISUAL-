@@ -517,21 +517,21 @@ body {
     margin-bottom: 16px;
 }
 
-.process-duration {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #F3E8FF;
-    color: #69359c;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    align-self: flex-start; /* Rata kiri */
+.uiux-page .process-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F3E8FF !important;
+  color: #7E22CE !important;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  align-self: flex-start; /* Rata kiri */
 }
 
-.process-duration i {
-    font-size: 16px;
+.uiux-page .process-duration i {
+  font-size: 16px;
 }
 
 /* ------------------- */
