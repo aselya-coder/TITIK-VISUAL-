@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import clientAvatar from '../img/Website Development Mockup.png';
+import logoImg from '../img/img.png';
 import WebApkDetail from './WebApkDetail';
 import WhyChooseWebsite from './WhyChooseWebsite';
 import TechStackSection from './TechStackSection';
@@ -90,14 +92,14 @@ const WebsiteAppPage = () => {
       text: '"Website yang dibuat Titik Visual sangat profesional dan user-friendly. Traffic website kami meningkat 200% setelah redesign!"',
       clientName: 'Budi Santoso',
       clientPosition: 'Marketing Director at PT. Maju Bersama',
-      clientImage: '../img/Website Development Mockup.png'
+      clientImage: clientAvatar
     },
     {
       id: 2,
       text: '"E-commerce platform yang dibuat sangat membantu bisnis online kami. Penjualan meningkat drastis!"',
       clientName: 'Sari Dewi',
       clientPosition: 'Owner at Toko Online Fashionista',
-      clientImage: '../img/Website Development Mockup.png'
+      clientImage: clientAvatar
     }
   ];
 
@@ -115,7 +117,7 @@ const WebsiteAppPage = () => {
         </div>
       </div>
       <nav className="main-nav">
-        <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
+        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
           <li><a href="../beranda/beranda.tsx">Home</a></li>
           <li><a href="../page-about/page-about.tsx">Profile</a></li>
@@ -175,14 +177,17 @@ const WebsiteAppPage = () => {
       {/* TESTIMONIALS SECTION */}
       <section id="testimonials" className="testimonials">
         <div className="container">
+          {/* Header Testimoni */}
           <div className="section-title">
             <h2>Apa Kata Klien Kami</h2>
             <p>Testimoni dari klien yang puas dengan website kami</p>
           </div>
 
+          {/* Container Card */}
           <div className="testimonial-grid">
             {testimonials.map(testimonial => (
               <div className="testimonial-card" key={testimonial.id}>
+                {/* Rating (5 star) */}
                 <div className="rating">
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
@@ -190,7 +195,11 @@ const WebsiteAppPage = () => {
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                 </div>
+
+                {/* Text Testimoni */}
                 <p className="text">{testimonial.text}</p>
+
+                {/* Info Klien */}
                 <div className="author">
                   <img src={testimonial.clientImage} alt={testimonial.clientName} />
                   <div className="info">
@@ -222,7 +231,7 @@ const WebsiteAppPage = () => {
           <div className="footer-grid">
             {/* Footer Column 1: About */}
             <div className="footer-col">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis website development yang berfokus pada performa, SEO, dan user experience.</p>
             </div>
 

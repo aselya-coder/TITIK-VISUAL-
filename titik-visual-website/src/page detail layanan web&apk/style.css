@@ -479,17 +479,17 @@ body {
 
 
 /* ===== Pricing Section ===== */
-.pricing {
+.website-app-page .pricing {
   padding: 80px 0;
   background-color: #fff;
 }
 
-.pricing .section-title {
+.website-app-page .pricing .section-title {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.pricing .section-title h2 {
+.website-app-page .pricing .section-title h2 {
   font-weight: 700;
   background: linear-gradient(135deg, #2563EB, #0891B2);
   -webkit-background-clip: text;
@@ -500,21 +500,24 @@ body {
   margin-bottom: 16px;
 }
 
-.pricing .section-title p {
+.website-app-page .pricing .section-title p {
   font-size: 18px;
-  color: #6b7280;
+  color: #6b7280 !important;
+  font-weight: 400 !important;
   max-width: 600px;
   margin: 0 auto;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
 }
 
-.pricing-grid {
+.website-app-page .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   align-items: flex-start;
 }
 
-.pricing-card {
+.website-app-page .pricing-card {
   background-color: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -526,20 +529,20 @@ body {
   height: 100%;
 }
 
-.pricing-card.featured {
+.website-app-page .pricing-card.featured {
   border-color: #2563EB;
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
 }
 
-.pricing-card .plan-name {
+.website-app-page .pricing-card .plan-name {
   font-weight: 600;
   color: #111827;
   font-size: 22px;
   text-align: center;
 }
 
-.pricing-card .price {
+.website-app-page .pricing-card .price {
   font-size: 36px;
   font-weight: 700;
   color: #2563EB;
@@ -547,7 +550,7 @@ body {
   text-align: center;
 }
 
-.pricing-card .duration {
+.website-app-page .pricing-card .duration {
   color: #6b7280;
   font-size: 14px;
   margin-bottom: 16px;
@@ -555,20 +558,26 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  background: transparent;
+  font-weight: 400;
+  padding: 0;
+  border-radius: 0;
 }
 
-.pricing-card .best-for {
+.website-app-page .pricing-card .best-for {
   background-color: #e0e7ff;
-  color: #3730a3;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 9999px;
-  display: inline-block;
-  margin: 0 auto 24px;
+  color: #2563EB;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 24px;
 }
 
-.features-list {
+.website-app-page .features-list {
   list-style: none;
   padding: 0;
   margin: 0 0 24px;
@@ -576,20 +585,20 @@ body {
   flex-grow: 1;
 }
 
-.features-list li {
+.website-app-page .features-list li {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   color: #4b5563;
 }
 
-.features-list i {
+.website-app-page .features-list i {
   color: #10b981;
   margin-right: 10px;
   font-size: 18px;
 }
 
-.pricing-card .btn {
+.website-app-page .pricing-card .btn {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -602,55 +611,59 @@ body {
   transition: all 0.3s ease;
 }
 
-.pricing-card .btn.btn-light {
+.website-app-page .pricing-card .btn.btn-light {
   background-color: #f3f4f6;
   color: #4b5563;
   border: 1px solid #f3f4f6;
 }
 
-.pricing-card .btn.btn-light:hover {
+.website-app-page .pricing-card .btn.btn-light:hover {
   background-color: #e5e7eb;
   border-color: #e5e7eb;
 }
 
-.pricing-card .btn.btn-gradient {
+.website-app-page .pricing-card .btn.btn-gradient {
   background: linear-gradient(90deg, #3B82F6, #0891B2);
   color: #fff;
   border: none;
 }
 
-.pricing-card .btn.btn-gradient:hover {
+.website-app-page .pricing-card .btn.btn-gradient:hover {
   opacity: 0.9;
 }
 
 
 /* ===== Testimonials Section ===== */
-.testimonials {
+.website-app-page .testimonials {
   padding: 80px 0;
   background-color: #f9fafb;
 }
 
-.testimonials .section-title {
+.website-app-page .testimonials .section-title {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.testimonials .section-title h2 {
+.website-app-page .testimonials .section-title h2 {
   font-weight: 700;
-  background: linear-gradient(135deg, #2563EB, #0891B2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  background: linear-gradient(135deg, #2563EB, #0891B2) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-fill-color: transparent !important;
   display: inline-block;
   margin-bottom: 16px;
+  color: transparent; /* Fallback/Requirement for text-fill-color */
 }
 
-.testimonials .section-title p {
+.website-app-page .testimonials .section-title p {
   font-size: 18px;
-  color: #6b7280;
+  color: #6b7280 !important;
+  font-weight: 400 !important;
   max-width: 600px;
   margin: 0 auto;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
 }
 
 .testimonial-grid {
@@ -684,11 +697,12 @@ body {
   align-items: center;
 }
 
-.testimonial-card .author img {
+.website-app-page .testimonial-card .author img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 16px;
+  object-fit: cover;
 }
 
 .testimonial-card .author .info h4 {
@@ -844,6 +858,7 @@ body {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
+  text-transform: none;
 }
 
 .footer-links, .footer-contact {

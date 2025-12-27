@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import heroImage from '../img/Page Detail Layanan Logo Design.png';
+import logoImg from '../img/img.png';
 
 interface PortfolioItem {
   id: number;
@@ -199,7 +201,7 @@ const LogoDesignPage = () => {
         </div>
       </div>
       <nav className="main-nav">
-        <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
+        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
           <li><a href="../beranda/beranda.tsx">Home</a></li>
           <li><a href="../page-about/page-about.tsx">Profile</a></li>
@@ -220,23 +222,39 @@ const LogoDesignPage = () => {
       {/* HERO SECTION */}
       <section className="hero">
         <div className="container hero-container">
-          <div className="hero-content">
-            <span className="subtitle"><i className="fa-solid fa-palette"></i>Professional Logo Design</span>
-            <h1>
-              <span className="gradient-text">Logo yang Memorable</span>
-              <span className="subtitle-text">untuk Brand Anda</span>
-            </h1>
-            <p>Ciptakan identitas visual yang kuat dengan logo profesional yang
+          {/* hero-left (TEXT AREA) */}
+          <div className="hero-left">
+            <div className="badge">
+              <span className="subtitle">Professional Logo Design</span>
+            </div>
+            <div className="hero-title">
+              <h1>
+                <span className="gradient-text">Logo yang Memorable</span>
+                <span className="subtitle-text">untuk Brand Anda</span>
+              </h1>
+            </div>
+            <p className="hero-desc">
+              Ciptakan identitas visual yang kuat dengan logo profesional yang
               mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga
-              eksekusi, kami pastikan logo Anda memorable dan timeless.</p>
-            <div className="hero-buttons">
-              <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
+              eksekusi, kami pastikan logo Anda memorable dan timeless.
+            </p>
+            <div className="hero-actions hero-buttons">
+              <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer">
+                Konsultasi Gratis
+              </a>
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline">
+                Lihat Portfolio
+              </a>
             </div>
           </div>
-          <div className="hero-image-wrapper">
-            <div className="hero-image">
-              <img src="../img/Page Detail Layanan Logo Design.png" alt="UI/UX Design Illustration" />
+
+          {/* hero-right (IMAGE AREA) */}
+          <div className="hero-right">
+            <div className="image-wrapper hero-image-wrapper">
+              <div className="image-card hero-image">
+                <img src={heroImage} alt="Logo Design Mockup" />
+              </div>
+              <div className="decorative-circle"></div>
             </div>
           </div>
         </div>
