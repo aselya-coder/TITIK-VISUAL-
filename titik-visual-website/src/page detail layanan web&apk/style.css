@@ -478,223 +478,6 @@ body {
 .tech-item .icon.icon-orange i { color: #F97316; }
 
 
-/* ===== Process Section ===== */
-.process {
-  background-color: #fff;
-  padding: 80px 0;
-}
-
-.process .section-title {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.process .section-title h2 {
-  display: inline-block;
-  background: linear-gradient(90deg, #2563EB, #0891B2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.process-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 32px;
-  gap: 24px;
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.process-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.process-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #3B82F6, #14B8A6);
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  border-radius: 50%;
-}
-
-.process-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.process-content h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.process-content p {
-  color: #6b7280;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex-grow: 1;
-}
-
-.time-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #F3E8FF;
-  color: #7E22CE;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.time-badge i {
-  font-size: 14px;
-}
-
-
-/* ===== Portfolio Section ===== */
-.portfolio {
-  padding: 80px 0;
-  background-color: #f9fafb;
-}
-
-.portfolio .section-title {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.portfolio .section-title h2 {
-  font-weight: 700;
-  background: linear-gradient(135deg, #2563EB, #0891B2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  margin-bottom: 16px;
-}
-
-.portfolio .section-title p {
-  font-size: 18px;
-  color: #6b7280;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.portfolio-item {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.portfolio-content {
-  padding: 24px;
-}
-
-.portfolio-category {
-  display: inline-block;
-  background-color: #e0e7ff;
-  color: #4f46e5;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.portfolio-content h3 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 8px;
-}
-
-.portfolio-content p {
-  color: #6b7280;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.portfolio-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.portfolio-tags span {
-  background-color: #f3f4f6;
-  color: #4b5563;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 12px;
-}
-
-.portfolio-cta {
-  text-align: center;
-  margin-top: 48px;
-}
-
-.portfolio-cta .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 24px;
-  background-color: #fff;
-  color: #2563EB;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.portfolio-cta .btn-secondary:hover {
-  background-color: #f9fafb;
-  border-color: #9ca3af;
-}
-
-.portfolio-cta .btn-secondary i {
-  margin-right: 8px;
-}
-
-
 /* ===== Pricing Section ===== */
 .pricing {
   padding: 80px 0;
@@ -753,6 +536,7 @@ body {
   font-weight: 600;
   color: #111827;
   font-size: 22px;
+  text-align: center;
 }
 
 .pricing-card .price {
@@ -760,12 +544,17 @@ body {
   font-weight: 700;
   color: #2563EB;
   margin: 16px 0 4px;
+  text-align: center;
 }
 
 .pricing-card .duration {
   color: #6b7280;
   font-size: 14px;
   margin-bottom: 16px;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-card .best-for {

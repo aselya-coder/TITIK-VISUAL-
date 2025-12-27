@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import UiUxSection from './UiUxSection';
 const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
 const getImg = (name: string) => images(`./${name}`);
 
@@ -122,21 +123,21 @@ const UIUXPage = () => {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      image: '../img/portfolio.png',
+      image: getImg('portfolio_UI_UX.png'),
       tag: 'Mobile App UI/UX',
       title: 'E-Commerce Mobile App',
       description: 'Complete mobile app design untuk platform e-commerce dengan user experience yang optimal.'
     },
     {
       id: 2,
-      image: '../img/portfolio.png',
+      image: getImg('portfolio_UI_UX.png'),
       tag: 'Web App UI/UX',
       title: 'SaaS Dashboard',
       description: 'Dashboard design untuk SaaS platform dengan data visualization yang clear.'
     },
     {
       id: 3,
-      image: '../img/portfolio.png',
+      image: getImg('portfolio_UI_UX.png'),
       tag: 'Mobile App UI/UX',
       title: 'Banking Mobile App',
       description: 'Secure dan user-friendly banking app dengan modern interface.'
@@ -199,14 +200,14 @@ const UIUXPage = () => {
       text: '"Tim Titik Visual berhasil menciptakan UI/UX yang luar biasa untuk aplikasi kami. User engagement meningkat 40% setelah redesign!"',
       authorName: 'Sarah Johnson',
       authorPosition: 'Product Manager at TechStart Indonesia',
-      authorImage: '../img/ui_ux.png'
+      authorImage: getImg('ui_ux.png')
     },
     {
       id: 2,
       text: '"Proses kerja yang sangat profesional dan hasil yang melampaui ekspektasi. Highly recommended!"',
       authorName: 'Ahmad Rizki',
       authorPosition: 'CEO at Digital Commerce',
-      authorImage: '../img/ui_ux.png'
+      authorImage: getImg('ui_ux.png')
     }
   ];
 
@@ -237,7 +238,7 @@ const UIUXPage = () => {
       {/* MAIN NAVBAR */}
       <nav className="main-nav">
         <div className="nav-left">
-          <img src="../img/img.png" alt="Titik Visual Logo" className="logo" />
+          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
         </div>
         <ul className="nav-right">
           <li><a href="../beranda/beranda.tsx">Home</a></li>
@@ -260,35 +261,7 @@ const UIUXPage = () => {
         </div>
       </section>
 
-      {/* HERO SECTION */}
-      <section className="hero">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <span className="subtitle">
-              <img src={getImg('ui-ux desain.png')} alt="UI/UX Icon" style={{width: '20px', height: '20px', marginRight: '8px'}} />
-              UI/UX Design Service
-            </span>
-            <h1>
-              <span className="gradient-text">UI/UX Design</span>
-              <span className="subtitle-text">yang User-Centered</span>
-            </h1>
-            <p>Ciptakan pengalaman digital yang luar biasa dengan desain interface yang intuitif, menarik, dan berfokus pada kebutuhan pengguna. Dari riset hingga prototype, kami pastikan setiap elemen mendukung tujuan bisnis Anda.</p>
-            <div className="hero-buttons">
-              <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer">
-                <i className="far fa-comment"></i> Konsultasi Gratis
-              </a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline">
-                <i className="far fa-eye"></i> Lihat Portfolio
-              </a>
-            </div>
-          </div>
-          <div className="hero-image-wrapper">
-            <div className="hero-image">
-              <img src={getImg('ui_ux.png')} alt="UI/UX Design Illustration" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <UiUxSection iconSrc={getImg('ui-ux desain.png')} imageSrc={getImg('ui_ux.png')} />
 
       {/* OFFERINGS SECTION */}
       <section className="offerings">
@@ -367,16 +340,16 @@ const UIUXPage = () => {
           <p className="section-subtitle">Pilih paket yang sesuai dengan kebutuhan proyek Anda</p>
           <div className="pricing-grid">
             {pricingPlans.map(plan => (
-              <div className={`pricing-card ${plan.featured ? 'featured' : ''}`} key={plan.id}>
+              <div className={`pricing-card ${plan.featured ? 'featured' : ''} ${plan.id === 1 ? 'basic' : ''} ${plan.id === 2 ? 'professional' : ''} ${plan.id === 3 ? 'enterprise' : ''}`} key={plan.id}>
                 <h3>{plan.name}</h3>
-                <div className="price">{plan.price}</div>
+                {(plan.id === 1 || plan.id === 2 || plan.id === 3) && <div className="price">{plan.price}</div>}
                 <div className="duration">{plan.duration}</div>
                 <ul>
                   {plan.features.map((feature, index) => (
                     <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="../page-contact/page-contact.tsx" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-outline-dark'}`}>
+                <a href="../page-contact/page-contact.tsx" className={`btn ${plan.featured ? 'btn-gradient-blue' : 'btn-light'}`}>
                   <i className="fas fa-arrow-right"></i> Pilih Paket
                 </a>
               </div>
@@ -435,7 +408,7 @@ const UIUXPage = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-column about">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis UI/UX Design yang berfokus pada user experience dan business goals.</p>
             </div>
             <div className="footer-column">

@@ -192,7 +192,7 @@ body {
 /* -- HERO SECTION -- */
 /* ------------------- */
 .hero {
-    padding: 80px 0 60px;
+    padding: 24px 0 60px;
     background: linear-gradient(90deg, #F9FAFB, #ECFDF5);
     text-align: left;
     min-height: 100vh;
@@ -205,21 +205,36 @@ body {
 }
 .uiux-page .hero-container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: center;
-    justify-items: center;
-    gap: 40px;
-    min-height: calc(100vh - 140px);
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    align-content: start;
+    gap: 36px;
+    min-height: 100vh;
 }
 .uiux-page .hero-content {
     order: 1;
     width: 100%;
     max-width: 680px;
     justify-self: start;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: flex-start;
+    margin-top: -48px;
+}
+.uiux-page .hero-text-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    align-self: auto;
+}
+.uiux-page .hero-text-wrapper h1 {
+    margin-top: 0;
+}
+.uiux-page .hero-text-wrapper > *:first-child {
+    margin-top: 0 !important;
 }
 .uiux-page .hero-image-wrapper {
     order: 2;
@@ -228,15 +243,32 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    align-self: center;
 }
 .uiux-page .hero-image {
     background-color: var(--white);
     border-radius: 20px;
-    padding: 20px;
+    padding: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-    border: 1px solid #F3E8FF;
+    border: 1px solid #E5E7EB;
     width: 100%;
-    max-width: 520px;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.uiux-page .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #FB923C, #F472B6);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 12px 28px rgba(244, 114, 182, 0.35);
+    pointer-events: none;
 }
 .uiux-page .hero-image img {
     max-width: 100%;
@@ -245,41 +277,33 @@ body {
     object-fit: contain;
 }
 .uiux-page .hero-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #FB923C, #F472B6);
-    border-radius: 50%;
-    z-index: 2;
-    pointer-events: none;
+    display: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .uiux-page .hero-container {
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-  }
-  .uiux-page .hero-content {
-      max-width: 680px;
-      grid-column: 1;
-      justify-self: start;
-      padding-right: 20px;
+      grid-template-columns: 1fr;
   }
   .uiux-page .hero-image-wrapper {
-      max-width: none;
-      grid-column: 2;
       justify-self: center;
   }
+}
+@media (min-width: 768px) {
+  .uiux-page .hero-content { grid-column: 1; }
+  .uiux-page .hero-image-wrapper { grid-column: 2; }
+  .uiux-page .hero-content {
+      max-width: 680px;
+      padding-right: 20px;
+      justify-self: start;
+  }
   .uiux-page .hero-image {
-      max-width: clamp(380px, 38vw, 520px);
+      max-width: clamp(340px, 30vw, 420px);
   }
 }
 
 @media (min-width: 1024px) {
   .uiux-page .hero-content {
-    margin-top: -24px;
+    margin-top: 0;
   }
 }
 
@@ -299,7 +323,7 @@ body {
 }
 .hero h1 {
     margin-bottom: 20px;
-    font-size: 60px;
+    font-size: 56px;
     font-weight: 800;
     line-height: 1.15;
 }
@@ -315,7 +339,7 @@ body {
     color: #111827;
     font-weight: 800;
     margin-top: 0.25em;
-    font-size: 48px;
+    font-size: 40px;
 }
 .hero p {
     color: var(--text-light);
@@ -363,6 +387,11 @@ body {
     border-color: rgba(139, 92, 246, 0.6);
     color: #7C3AED;
     box-shadow: 0 0 16px rgba(139, 92, 246, 0.25);
+}
+
+/* khusus hero primary button gradient biru */
+.hero-buttons .btn-gradient {
+    background: linear-gradient(90deg, #3B82F6, #06B6D4);
 }
 
 /* ------------------- */
@@ -552,7 +581,7 @@ body {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
     margin-top: 48px;
     text-align: left;
@@ -575,7 +604,7 @@ body {
 .portfolio-image {
     width: 100%;
     height: auto;
-    object-fit:cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -665,29 +694,30 @@ body {
     align-items: stretch;
 }
 .pricing-card {
-    padding: 30px;
+    padding: 24px;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    text-align: center;
+    text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: #ffffff;
     display:flex;
     flex-direction: column;
+    height: 100%;
 }
 .pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    color: var(--text-light);
-    font-size: 14px;
-    margin-bottom:25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
 }
 .pricing-card.featured {
-    border-color: var(--primary-color);
-    border-width: 2px;
+    border: 2px solid transparent;
     position: relative;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(90deg, #A855F7, #8B5CF6) border-box;
+    border-radius: 12px;
 }
 .pricing-card.featured:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(139, 92, 246, 0.2);
 }
 .featured-tag {
     position: absolute;
@@ -702,19 +732,33 @@ body {
     font-weight: 600;
 }
 .pricing-card h3 {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--text-dark);
+    margin-bottom: 6px;
 }
-.price {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 10px 0;
+.pricing-card .price {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 6px 0 8px;
+    background: linear-gradient(90deg, #9333EA, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.1;
+    position: static !important;
+    left: auto !important;
+    bottom: auto !important;
+    display: block;
 }
 .duration {
-    color: var(--text-light);
+    color: #10B981;
     font-size: 14px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background-color: #DCFCE7;
+    font-weight: 600;
 }
 .pricing-card ul {
     list-style: none;
@@ -738,6 +782,102 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
+}
+.pricing-card .btn.btn-light {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+.pricing-card .btn.btn-light:hover {
+    background-color: #E5E7EB; 
+    border-color: #E5E7EB;
+}
+.pricing-card .btn.btn-gradient-blue {
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+.pricing-card .btn.btn-gradient-blue:hover {
+    opacity: 0.92;
+}
+
+/* ===== BASIC CARD CUSTOM (sesuai mockup) ===== */
+.pricing-card.basic {
+    text-align: center;
+}
+.pricing-card.basic h3,
+.pricing-card.basic .price,
+.pricing-card.basic .duration {
+    display: block;
+    text-align: center;
+}
+.pricing-card.basic .duration {
+    background: none;
+    color: var(--text-light);
+    font-weight: 400;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 24px;
+}
+.pricing-card.basic .price {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #9333EA;
+}
+
+/* ===== PROFESSIONAL CARD CUSTOM (sesuai mockup) ===== */
+.pricing-card.professional {
+    text-align: center;
+}
+.pricing-card.professional h3,
+.pricing-card.professional .price,
+.pricing-card.professional .duration {
+    display: block;
+    text-align: center;
+}
+.pricing-card.professional .price {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #9333EA;
+}
+.pricing-card.professional .duration {
+    background: none;
+    color: var(--text-light);
+    font-weight: 400;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 24px;
+}
+
+/* ===== ENTERPRISE CARD CUSTOM (sesuai mockup) ===== */
+.pricing-card.enterprise {
+    text-align: center;
+}
+.pricing-card.enterprise h3,
+.pricing-card.enterprise .price,
+.pricing-card.enterprise .duration {
+    display: block;
+    text-align: center;
+}
+.pricing-card.enterprise .price {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #9333EA;
+}
+.pricing-card.enterprise .duration {
+    background: none;
+    color: var(--text-light);
+    font-weight: 400;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 24px;
 }
 .pricing-card .btn.btn-outline-dark {
     background-color: #F3F4F6;

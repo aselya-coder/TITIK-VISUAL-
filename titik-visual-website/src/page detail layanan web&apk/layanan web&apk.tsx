@@ -1,29 +1,10 @@
 import React from 'react';
 import './style.css';
-
-interface Technology {
-  id: number;
-  name: string;
-  icon: string;
-  iconClass: string;
-}
-
-interface ProcessStep {
-  id: number;
-  stepNumber: string;
-  title: string;
-  description: string;
-  duration: string;
-}
-
-interface PortfolioItem {
-  id: number;
-  category: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-}
+import WebApkDetail from './WebApkDetail';
+import WhyChooseWebsite from './WhyChooseWebsite';
+import TechStackSection from './TechStackSection';
+import ProcessSection from './ProcessSection';
+import PortfolioWebsiteSection from './PortfolioWebsiteSection';
 
 interface PricingPlan {
   id: number;
@@ -44,148 +25,7 @@ interface Testimonial {
 }
 
 const WebsiteAppPage = () => {
-  // Technology data
-  const technologies: Technology[] = [
-    {
-      id: 1,
-      name: 'React/Next.js',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-blue'
-    },
-    {
-      id: 2,
-      name: 'Vue.js/Nuxt.js',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-green'
-    },
-    {
-      id: 3,
-      name: 'Angular',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-red'
-    },
-    {
-      id: 4,
-      name: 'WordPress',
-      icon: 'fa-solid fa-globe',
-      iconClass: 'icon-blue'
-    },
-    {
-      id: 5,
-      name: 'Laravel/PHP',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-red'
-    },
-    {
-      id: 6,
-      name: 'Node.js',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-green'
-    },
-    {
-      id: 7,
-      name: 'Python/Django',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-blue'
-    },
-    {
-      id: 8,
-      name: 'Shopify',
-      icon: 'fa-solid fa-mobile-screen-button',
-      iconClass: 'icon-green'
-    },
-    {
-      id: 9,
-      name: 'Flutter',
-      icon: 'fa-solid fa-mobile-screen-button',
-      iconClass: 'icon-blue'
-    },
-    {
-      id: 10,
-      name: 'React Native',
-      icon: 'fa-solid fa-mobile-screen-button',
-      iconClass: 'icon-purple'
-    },
-    {
-      id: 11,
-      name: 'MySQL/PostgreSQL',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-orange'
-    },
-    {
-      id: 12,
-      name: 'MongoDB',
-      icon: 'fa-solid fa-code',
-      iconClass: 'icon-green'
-    }
-  ];
-
-  // Process steps data
-  const processSteps: ProcessStep[] = [
-    {
-      id: 1,
-      stepNumber: '01',
-      title: 'Discovery & Planning',
-      description: 'Analisis kebutuhan, target audience, dan goals bisnis',
-      duration: '1-2 hari'
-    },
-    {
-      id: 2,
-      stepNumber: '02',
-      title: 'Design & Wireframe',
-      description: 'Pembuatan wireframe dan design mockup',
-      duration: '3-5 hari'
-    },
-    {
-      id: 3,
-      stepNumber: '03',
-      title: 'Development',
-      description: 'Coding dan development website dengan teknologi modern',
-      duration: '2-4 minggu'
-    },
-    {
-      id: 4,
-      stepNumber: '04',
-      title: 'Testing & QA',
-      description: 'Testing functionality, responsiveness, dan performance',
-      duration: '2-3 hari'
-    },
-    {
-      id: 5,
-      stepNumber: '05',
-      title: 'Launch & Support',
-      description: 'Deploy website dan training penggunaan CMS',
-      duration: '1-2 hari'
-    }
-  ];
-
-  // Portfolio data
-  const portfolioItems: PortfolioItem[] = [
-    {
-      id: 1,
-      category: 'Business Website',
-      title: 'Corporate Website',
-      description: 'Website corporate modern dengan CMS integration dan multi-language support',
-      image: '../img/portfolio website.png',
-      tags: ['Multi-page', 'CMS', 'Contact Forms', 'Gallery']
-    },
-    {
-      id: 2,
-      category: 'Online Store',
-      title: 'E-Commerce Platform',
-      description: 'Platform e-commerce lengkap dengan payment gateway dan inventory management',
-      image: '../img/portfolio website.png',
-      tags: ['Shopping Cart', 'Payment Gateway', 'Admin Panel', 'Analytics']
-    },
-    {
-      id: 3,
-      category: 'Marketing Landing',
-      title: 'Landing Page Campaign',
-      description: 'Landing page high-converting untuk campaign marketing dan lead generation',
-      image: '../img/portfolio website.png',
-      tags: ['Lead Forms', 'A/B Testing', 'Analytics', 'Mobile Optimized']
-    }
-  ];
+  // Process steps and portfolio data moved to dedicated components; removed local duplicates.
 
   // Pricing plans data
   const pricingPlans: PricingPlan[] = [
@@ -293,153 +133,15 @@ const WebsiteAppPage = () => {
         </div>
       </section>
 
-      {/* HERO SECTION */}
-      <section className="hero">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <span className="subtitle"><i className="fa-solid fa-globe"></i>Website & Aplikasi Development</span>
-            <h1>
-              <span className="gradient-text">Website & Aplikasi</span>
-              <span className="gradient-text">Professional</span>
-              <span className="subtitle-text">yang Convert</span>
-            </h1>
-            <p>Bangun presence online yang kuat dengan website responsif, cepat, dan
-              SEO-friendly. Dari landing page high-converting hingga e-commerce
-              platform lengkap, kami ciptakan website yang mendorong pertumbuhan
-              bisnis Anda. Selain itu, kami juga mengembangkan aplikasi mobile yang
-              inovatif dan user-friendly.</p>
-            <div className="hero-buttons">
-              <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
-            </div>
-          </div>
-          <div className="hero-image-wrapper">
-            <div className="hero-image">
-              <img src="../img/Website Development Mockup.png" alt="Website Development Mockup" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <WebApkDetail />
 
-      {/* FEATURES SECTION */}
-      <section className="features">
-        <div className="container">
-          <div className="section-title">
-            <h2>Mengapa Pilih Website Kami?</h2>
-            <p>Website yang kami buat tidak hanya cantik, tapi juga powerful dan result-oriented</p>
-          </div>
-          <div className="features-grid">
-            <div className="feature-item">
-              <div className="icon">
-                <i className="fa-solid fa-display"></i>
-              </div>
-              <h3>Responsive Design</h3>
-              <p>Website yang tampil sempurna di semua device</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <h3>SEO Optimized</h3>
-              <p>Optimasi SEO untuk ranking Google yang lebih baik</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <i className="fa-solid fa-bolt"></i>
-              </div>
-              <h3>Fast Loading</h3>
-              <p>Performa website yang cepat dan optimal</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <i className="fa-solid fa-shield-halved"></i>
-              </div>
-              <h3>Secure & Reliable</h3>
-              <p>Keamanan tingkat tinggi dengan SSL certificate</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseWebsite />
 
-      {/* TECHNOLOGY SECTION */}
-      <section className="technologies">
-        <div className="container">
-          <div className="section-title">
-            <h2>Teknologi yang Kami Gunakan untuk Website & Aplikasi</h2>
-            <p>Platform dan teknologi terdepan untuk hasil yang optimal</p>
-          </div>
-          <div className="tech-grid">
-            {technologies.map(tech => (
-              <div className="tech-item" key={tech.id}>
-                <div className={`icon ${tech.iconClass}`}>
-                  <i className={tech.icon}></i>
-                </div>
-                <h3>{tech.name}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TechStackSection />
+      <ProcessSection />
+      <PortfolioWebsiteSection />
 
-      {/* PROCESS SECTION */}
-      <section className="process">
-        <div className="container">
-          <div className="section-title">
-            <h2>Proses Development</h2>
-            <p>Metodologi yang terbukti untuk website berkualitas tinggi</p>
-          </div>
-          <div className="process-grid">
-            {processSteps.map(step => (
-              <div className="process-item" key={step.id}>
-                <div className="process-number">{step.stepNumber}</div>
-                <div className="process-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  <div className="time-badge">
-                    <i className="fa-regular fa-clock"></i> {step.duration}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PORTFOLIO SECTION */}
-      <section id="portfolio" className="portfolio">
-        <div className="container">
-          <div className="section-title">
-            <h2>Portfolio Website</h2>
-            <p>Beberapa website terbaik yang telah kami kembangkan</p>
-          </div>
-
-          <div className="portfolio-grid">
-            {portfolioItems.map(item => (
-              <div className="portfolio-item" key={item.id}>
-                <div className="portfolio-img">
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className="portfolio-content">
-                  <span className="portfolio-category">{item.category}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <div className="portfolio-tags">
-                    {item.tags.map((tag, index) => (
-                      <span key={index}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="portfolio-cta">
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn-secondary">
-              <i className="fa-solid fa-eye"></i> Lihat Semua Portfolio
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Duplicated process and portfolio sections removed; using dedicated components above */}
 
       {/* PRICING SECTION */}
       <section id="pricing" className="pricing">
