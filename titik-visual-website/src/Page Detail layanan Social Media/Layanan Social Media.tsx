@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import socialHeroImg from '../img/Social Media Management Dashboard.png';
+import logoImg from '../img/img.png';
 
 interface Platform {
   id: number;
@@ -317,7 +319,7 @@ const SocialMediaPage = () => {
         </div>
       </div>
       <nav className="main-nav">
-        <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
+        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
           <li><a href="../beranda/beranda.tsx">Home</a></li>
           <li><a href="../page-about/page-about.tsx">Profile</a></li>
@@ -344,9 +346,11 @@ const SocialMediaPage = () => {
               <span className="gradient-text">Grow Your Brand</span>
               <span className="subtitle-text">di Social Media</span>
             </h1>
-            <p>Bangun komunitas yang engaged dan tingkatkan brand awareness
-              dengan strategi social media yang tepat. Dari content creation hingga
-              paid ads, kami kelola semua aspek social media bisnis Anda.</p>
+            <p>
+              Bangun komunitas yang engaged dan tingkatkan brand awareness<br/>
+              dengan strategi social media yang tepat. Dari content creation hingga<br/>
+              paid ads, kami kelola semua aspek social media bisnis Anda.
+            </p>
             <div className="hero-buttons">
               <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
               <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
@@ -354,7 +358,7 @@ const SocialMediaPage = () => {
           </div>
           <div className="hero-image-wrapper">
             <div className="hero-image">
-              <img src="../img/Social Media Management Dashboard.png" alt="Social Media Management Dashboard" />
+              <img src={socialHeroImg} alt="Social Media Management Dashboard" />
             </div>
           </div>
         </div>

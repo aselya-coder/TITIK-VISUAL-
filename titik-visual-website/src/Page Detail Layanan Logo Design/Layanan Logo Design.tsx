@@ -7,6 +7,7 @@ import iconMultiple from '../img/icon multiple.png';
 import iconFile from '../img/icon file.png';
 import iconUnlimited from '../img/icon unlimited.png';
 import jenisLogoImg from '../img/jenis logo.png';
+import portfolioImg from '../img/portfolio logo desain.png';
 
 interface PortfolioItem {
   id: number;
@@ -44,7 +45,7 @@ const LogoDesignPage = () => {
       style: 'Minimalist',
       title: 'Tech Startup Logo',
       description: 'Logo modern untuk startup teknologi dengan konsep minimalis dan futuristik',
-      image: '../img/portfolio logo desain.png'
+      image: portfolioImg
     },
     {
       id: 2,
@@ -52,7 +53,7 @@ const LogoDesignPage = () => {
       style: 'Classic',
       title: 'Restaurant Brand',
       description: 'Logo restaurant dengan nuansa warm dan appetizing untuk brand makanan',
-      image: '../img/portfolio logo desain.png'
+      image: portfolioImg
     },
     {
       id: 3,
@@ -60,7 +61,7 @@ const LogoDesignPage = () => {
       style: 'Elegant',
       title: 'Fashion Brand Logo',
       description: 'Logo fashion brand dengan typography elegant dan sophisticated',
-      image: '../img/portfolio logo desain.png'
+      image: portfolioImg
     }
   ];
 
@@ -71,14 +72,14 @@ const LogoDesignPage = () => {
       text: '"Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!"',
       clientName: 'Ahmad Rizki',
       clientPosition: 'Founder at StartupHub Jakarta',
-      clientImage: '../img/Page Detail Layanan Logo Design.png'
+      clientImage: heroImage
     },
     {
       id: 2,
       text: '"Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!"',
       clientName: 'Maya Sari',
       clientPosition: 'Owner at Boutique Fashion',
-      clientImage: '../img/Page Detail Layanan Logo Design.png'
+      clientImage: heroImage
     }
   ];
 
@@ -428,10 +429,10 @@ const LogoDesignPage = () => {
             {processSteps.map((step, index) => (
               <div className="process-item" key={index} data-aos="fade-up" data-aos-delay={`${(index + 1) * 100}`}>
                 <div className="process-step">{step.step}</div>
-                <div className="process-item-content">
+                <div className="process-item-content" style={{ textAlign: 'left', flex: 1 }}>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                  <div className="process-duration">
+                  <div className="process-duration" style={{ display: 'inline-flex' }}>
                     <i className="fa-regular fa-clock"></i> {step.duration}
                   </div>
                 </div>
@@ -445,8 +446,16 @@ const LogoDesignPage = () => {
       <section className="portfolio section-padding" data-aos="fade-up">
         <div className="container">
           <div className="section-title">
-            <h2>Portfolio Logo Design</h2>
-            <p>Beberapa logo terbaik yang telah kami ciptakan</p>
+            <h2 style={{
+              background: 'linear-gradient(90deg, #EA580C, #DB2777)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              fontWeight: 800,
+              textAlign: 'center'
+            }}>Portfolio Logo Design</h2>
+            <p className="portfolio-subtitle-text" style={{ color: '#4B5563', textAlign: 'center', fontWeight: 500, fontSize: '18px' }}>Beberapa logo terbaik yang telah kami ciptakan</p>
           </div>
           <div className="portfolio-grid">
             {portfolioItems.map(item => (
@@ -477,8 +486,24 @@ const LogoDesignPage = () => {
       <section className="pricing section-padding" data-aos="fade-up">
         <div className="container">
           <div className="section-title">
-            <h2>Paket Logo Design</h2>
-            <p>Pilih paket yang sesuai dengan kebutuhan brand Anda</p>
+            <h2 style={{
+              color: '#EF4444',
+              textAlign: 'center',
+              fontWeight: 800,
+              fontSize: '36px',
+              marginBottom: '10px',
+              background: 'none',
+              WebkitBackgroundClip: 'initial',
+              WebkitTextFillColor: 'initial'
+            }}>Paket Logo Design</h2>
+            <p className="pricing-subtitle-text" style={{
+               color: '#000000',
+               textAlign: 'center',
+               fontSize: '18px',
+               fontWeight: 500,
+               maxWidth: '600px',
+               margin: '0 auto'
+             }}>Pilih paket yang sesuai dengan kebutuhan brand Anda</p>
           </div>
           <div className="pricing-grid">
             {pricingPlans.map((plan, index) => (
@@ -531,7 +556,7 @@ const LogoDesignPage = () => {
       </section>
 
       {/* CTA SECTION */}
-      <section className="cta">
+      <section className="cta" style={{ background: 'linear-gradient(90deg, #F97316, #EC4899)', color: '#ffffff' }}>
         <div className="container">
           <div data-aos="fade-up">
             <h2>Siap Membuat Logo yang Memorable?</h2>
@@ -549,7 +574,7 @@ const LogoDesignPage = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis logo design dan brand identity yang berfokus pada kreativitas dan makna brand.</p>
             </div>
             <div className="footer-col">

@@ -626,6 +626,16 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+@media (max-width: 991px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .process-item {
   display: flex;
   align-items: flex-start;
@@ -652,6 +662,10 @@ body {
 }
 .process-item:hover {
   border-color: #FDE68A;
+}
+.process-item-content {
+  flex: 1;
+  text-align: left;
 }
 .process-item-content h3 {
   font-size: 18px;
@@ -691,12 +705,33 @@ body {
 }
 
 .portfolio .section-title h2 {
-  color: #EF4444;
+  background: linear-gradient(90deg, #EA580C, #DB2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   text-align: center;
+  font-weight: 800;
+  font-size: 36px;
+  margin-bottom: 12px;
 }
 
 .portfolio .section-title p {
   text-align: center;
+  color: #4B5563 !important;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.logo-design-page .portfolio .section-title p,
+.portfolio-subtitle-text {
+  color: #4B5563 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #4B5563 !important;
+  fill: #4B5563 !important;
+  opacity: 1 !important;
 }
 
 .portfolio-grid {
@@ -807,6 +842,12 @@ body {
 
 .pricing .section-title p {
   text-align: center;
+  color: #000000 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  opacity: 1 !important;
 }
 
 .pricing-grid {
@@ -820,58 +861,71 @@ body {
   background-color: var(--white);
   border: 1px solid #E5E7EB;
   border-radius: 12px;
-  padding: 30px;
+  padding: 40px 30px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .pricing-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .pricing-card.recommended {
   border: 2px solid #F97316;
+  position: relative;
 }
 
 .pricing-card h3 {
-  font-size: 22px;
-  color: var(--dark-blue);
-  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .pricing-card .price {
-  font-size: 32px;
-  font-weight: 700;
-  color: #F97316;
-  margin: 10px 0 5px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #EA580C;
+  margin: 0 0 5px;
+  text-align: center;
 }
 
 .pricing-card .duration {
   font-size: 14px;
-  color: var(--gray);
-  margin-bottom: 20px;
+  color: #6B7280;
+  margin-bottom: 25px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  background: none !important;
+  border: none !important;
+  padding: 0;
 }
 
 .pricing-card .best-for {
-  display: inline-block;
-  background-color: #FFEDD5;
-  color: #F97316;
-  padding: 6px 12px;
+  display: block;
+  background-color: #FFF7ED;
+  color: #C2410C;
+  padding: 8px 15px;
   border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: left;
+  width: 100%;
 }
 
 .features-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px;
+  margin: 0 0 35px;
   text-align: left;
   flex-grow: 1;
 }
@@ -879,60 +933,102 @@ body {
 .features-list li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  font-size: 15px;
-  color: var(--dark-blue);
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  color: #374151;
 }
 
 .features-list li i {
   color: #10B981;
-  font-size: 20px;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 
 .btn-pricing {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
   background-color: #F3F4F6;
-  color: var(--dark-blue);
+  color: #1F2937;
+  gap: 8px;
 }
 
 .btn-pricing i {
-  margin-right: 8px;
+  margin-right: 0;
 }
 
 .btn-pricing:hover {
   background-color: #E5E7EB;
 }
 
+.pricing-card:not(.recommended) .btn-pricing {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background-color: #F3F4F6;
+}
+
 .pricing-card.recommended .btn-pricing {
-  background: linear-gradient(90deg, #F97316, #EF4444);
+  background: linear-gradient(90deg, #F97316 0%, #EC4899 100%);
   color: var(--white);
+  border: none;
 }
 
 .pricing-card.recommended .btn-pricing:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
 }
 
 
 /* ===== Testimonials Section ===== */
 .testimonials {
   padding: 80px 0;
-  background-color: #F8FAFC;
+  background-color: #F9FAFB;
 }
 
 .testimonials .section-title h2 {
   color: #EF4444;
   text-align: center;
+  font-weight: 800;
+  font-size: 32px;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  margin-bottom: 10px;
 }
 
 .testimonials .section-title p {
   text-align: center;
+  color: #6B7280;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Scoped strong override for this page to avoid global gradient interference */
+.logo-design-page .testimonials {
+  background-color: #F9FAFB !important;
+}
+.logo-design-page .testimonials .section-title h2 {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: #EF4444 !important;
+  font-weight: 800 !important;
+}
+.logo-design-page .testimonials .section-title p {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: #6B7280 !important;
+  font-weight: 400 !important;
 }
 
 .testimonial-grid {
@@ -997,9 +1093,17 @@ body {
 /* ===== CTA Section ===== */
 .cta {
   padding: 80px 0;
-  background: linear-gradient(90deg, #F97316, #F43F5E);
+  background: linear-gradient(90deg, #F97316, #EC4899);
   text-align: center;
   color: var(--white);
+}
+
+.logo-design-page .cta {
+  background: linear-gradient(90deg, #F97316, #EC4899) !important;
+}
+.logo-design-page .cta .btn-light {
+  color: #EA580C !important;
+  -webkit-text-fill-color: #EA580C !important;
 }
 
 .cta h2 {
@@ -1052,7 +1156,7 @@ body {
 
 .cta .btn-outline-light:hover {
   background-color: var(--white);
-  color: #F43F5E;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
