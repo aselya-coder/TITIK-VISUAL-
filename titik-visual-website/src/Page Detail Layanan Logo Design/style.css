@@ -189,20 +189,44 @@ body {
 /* ===== Hero Section ===== */
 .hero {
     padding: 60px 0;
-    background: linear-gradient(90deg, #F9FAFB, #ECFDF5);
+    background: #FFFFFF;
 }
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: center;
+    align-items: start;
+}
+/* Scope tinggi untuk menetralkan CSS global yang memaksa center/flex */
+.logo-design-page .hero .container.hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: start;
 }
 .hero-content {
     /* Grid item */
+    text-align: left;
 }
-.hero-image-wrapper {
+.logo-design-page .hero .hero-left,
+.logo-design-page .hero .hero-right,
+.logo-design-page .hero .hero-content {
+    text-align: left;
+    display: block;
+    position: static;
+}
+.logo-design-page .hero .hero-title,
+.logo-design-page .hero .hero-desc,
+.logo-design-page .hero .hero-buttons {
+    text-align: left;
+}
+/* Image wrapper (kanan) mengikuti grid normal, tanpa absolute */
+.hero-image-wrapper,
+.image-wrapper {
+    justify-self: start;
     position: relative;
-    justify-self: center; /* Center the image wrapper in its grid cell */
+    display: inline-block;
+    overflow: visible;
 }
 .hero-image {
     background-color: var(--white);
@@ -210,7 +234,6 @@ body {
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.07);
     position: relative;
-    z-index: 1;
     border: 1px solid #F3E8FF;
     max-width: 100%;
 }
@@ -219,27 +242,42 @@ body {
     border-radius: 12px;
     display: block;
 }
-.hero-image-wrapper::after {
-    content: '';
+/* Image card (kanan) mengikuti grid normal, tanpa absolute/z-index */
+.image-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    border: 1px solid #F3E8FF;
+    max-width: 100%;
+    position: relative;
+    z-index: auto;
+}
+
+/* Decorative circle menempel pada card, tidak mempengaruhi layout utama */
+.decorative-circle {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 12px;
+    right: 12px;
     width: 100px;
     height: 100px;
     background: linear-gradient(135deg, #60A5FA, #22D3EE);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
+    pointer-events: none;
 }
+
+/* TEST VISUAL (sementara untuk verifikasi CSS aktif) */
 
 /* Responsive Hero */
 @media (max-width: 768px) {
     .hero-container {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center;
+        text-align: left;
     }
     .hero-content {
-        text-align: center;
+        text-align: left;
     }
     .hero h1 {
         font-size: 36px;
@@ -248,35 +286,48 @@ body {
         font-size: 15px;
     }
     .hero-buttons {
-        justify-content: center;
+        justify-content: flex-start;
     }
-    .hero-image-wrapper {
-        justify-self: center;
+    .hero-image-wrapper,
+    .image-wrapper {
+        justify-self: start;
     }
 }
 
-.hero .subtitle {
+/* Scoped subtitle badge styling for Logo Design page only */
+.logo-design-page .hero .subtitle {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     color: #C2410C;
-    background: #FED7AA;
+    background: #FFEDD5;
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 20px;
     margin-bottom: 15px;
     font-size: 14px;
 }
+.logo-design-page .hero .subtitle i {
+    color: #C2410C;
+}
+/* Netralisasi badge hijau global hanya untuk section ini */
+.logo-design-page .hero .badge {
+    background: transparent !important;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
 .hero h1 {
     margin-bottom: 20px;
     font-size: 42px;
 }
-.gradient-text {
-    background: linear-gradient(90deg, #EA580C, #DB2777 );
+/* Gradient heading khusus untuk halaman Logo Design */
+.logo-design-page .gradient-text {
+    background: linear-gradient(90deg, #EA580C, #DB2777);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    color: transparent;
 }
 .hero-content h1 .subtitle-text {
     display: block;
@@ -293,18 +344,30 @@ body {
     display: flex;
     gap: 15px;
 }
+.logo-design-page .hero .hero-buttons {
+    justify-content: flex-start;
+    margin-left: 0;
+}
+.logo-design-page .hero .hero-buttons .btn,
+.logo-design-page .hero .hero-buttons .btn-outline,
+.logo-design-page .hero .hero-buttons .btn-gradient {
+    border-radius: 12px;
+}
 .hero-buttons .btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    border-radius: 14px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
     transition: 0.3s ease;
     border: none;
     cursor: pointer;
+}
+.logo-design-page .hero .hero-buttons .btn {
+    border-radius: 8px;
 }
 .btn-gradient {
     background: linear-gradient(90deg, #F97316, #EC4899);
@@ -320,7 +383,7 @@ body {
   background-color: transparent;
   color: #EA580C;
   border: 2px solid rgba(235, 86, 31, 0.45);
-  border-radius: 14px;
+  border-radius: 8px;
   font-weight: 500;
   transition: 0.3s ease;
   box-shadow: 0 0 12px rgba(235, 86, 37, 0.18);
@@ -357,12 +420,30 @@ body {
   text-align: center;
 }
 
-.features-grid {
+/* Force plain text for Logo Design features header/subtitle */
+.logo-design-page .features .section-title h2 {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: #EF4444;
+}
+.logo-design-page .features .section-title p {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.logo-design-page .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 35px;
 }
-.feature-item {
+.logo-design-page .features .feature-item {
+    display: block;
     text-align: center;
     padding: 30px 25px;
     background-color: var(--white);
@@ -373,19 +454,19 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07);
 }
-.feature-item .icon {
+.logo-design-page .features .feature-item .icon {
     width: 64px;
     height: 64px;
-    border-radius: 12px; /* Rounded square */
+    border-radius: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 15px auto;
     font-size: 28px;
-    background-color: #ECFDF5; /* Light green background */
-    color: #F97316; /* Orange icon color */
+    background-color: #ECFDF5;
+    color: #F97316;
 }
-.feature-item .icon img {
+.logo-design-page .features .feature-item .icon img {
     width: 36px;
     height: 36px;
 }
@@ -412,13 +493,29 @@ body {
     margin-bottom: 50px;
 }
 .logo-types .section-title h2 {
-    color: #EF4444;
+    background: linear-gradient(90deg, #F87171, #EF4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+    font-size: 32px;
     margin-bottom: 10px;
 }
 .logo-types .section-title p {
     max-width: 600px;
     margin: 0 auto;
+    color: #6B7280;
+    font-weight: 500;
+    font-size: 16px;
     text-align: center;
+}
+.logo-design-page .logo-types .section-title p {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+    color: #000000;
 }
 .logo-types-grid {
     display: grid;
@@ -475,13 +572,17 @@ body {
     justify-content: flex-start;
 }
 .brand-tags .tag {
-    background-color: var(--off-white);
+    position: static !important;
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    background-color: #F3F4F6;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 12px;
-    border: 1px solid var(--border-color);
-    color: #000000;
-    font-weight: 700;
+    border: 1px solid #E5E7EB;
+    color: #374151;
+    font-weight: 600;
 }
 
 
@@ -494,14 +595,30 @@ body {
   margin-bottom: 60px;
 }
 .process .section-title h2 {
-  color: #EF4444;
+  background: linear-gradient(90deg, #F87171, #EF4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 800;
+  font-size: 32px;
   text-align: center;
   margin-bottom: 10px;
 }
 .process .section-title p {
   text-align: center;
+  color: #6B7280;
+  font-weight: 500;
+  font-size: 16px;
   max-width: 600px;
   margin: 0 auto;
+}
+.logo-design-page .process .section-title p {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: #374151 !important;
 }
 
 .process-grid {
@@ -514,10 +631,11 @@ body {
   align-items: flex-start;
   gap: 20px;
   background-color: var(--white);
-  padding: 30px;
+  padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 .process-step {
   flex-shrink: 0;
@@ -532,13 +650,19 @@ body {
   font-weight: 600;
   font-size: 18px;
 }
-.process-content h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.process-item:hover {
+  border-color: #FDE68A;
 }
-.process-content p {
-  color: var(--text-color);
+.process-item-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+.process-item-content p {
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 1.6;
   margin-bottom: 12px;
 }
 .process-duration {
@@ -547,9 +671,10 @@ body {
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background-color: #FFEDD5;
-  color: #F97316;
-  border-radius: 5px;
+  background-color: #FFF7ED;
+  color: #EA580C;
+  border-radius: 16px;
+  border: 1px solid #FCD34D;
   font-size: 12px;
   font-weight: 500;
 }

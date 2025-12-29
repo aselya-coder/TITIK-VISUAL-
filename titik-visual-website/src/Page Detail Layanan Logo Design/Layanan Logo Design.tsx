@@ -2,6 +2,11 @@ import React from 'react';
 import './style.css';
 import heroImage from '../img/Page Detail Layanan Logo Design.png';
 import logoImg from '../img/img.png';
+import iconKonsep from '../img/icon konsep unik .png';
+import iconMultiple from '../img/icon multiple.png';
+import iconFile from '../img/icon file.png';
+import iconUnlimited from '../img/icon unlimited.png';
+import jenisLogoImg from '../img/jenis logo.png';
 
 interface PortfolioItem {
   id: number;
@@ -187,6 +192,47 @@ const LogoDesignPage = () => {
     }
   ];
 
+  const WhyChooseLogoSection: React.FC = () => (
+    <section className="features section-padding" data-aos="fade-up">
+      <div className="container">
+        <div className="section-title">
+          <h2>Mengapa Pilih Logo Design Kami?</h2>
+          <p>Logo yang kami buat tidak hanya indah, tapi juga strategis dan meaningful.</p>
+        </div>
+        <div className="features-grid">
+          <div className="feature-item">
+            <div className="icon">
+              <img src={iconKonsep} alt="Konsep Unik Icon" />
+            </div>
+            <h3>Konsep Unik</h3>
+            <p>Logo original yang mencerminkan identitas brand Anda.</p>
+          </div>
+          <div className="feature-item">
+            <div className="icon">
+              <img src={iconMultiple} alt="Multiple Variations Icon" />
+            </div>
+            <h3>Multiple Variations</h3>
+            <p>Berbagai variasi logo untuk berbagai kebutuhan.</p>
+          </div>
+          <div className="feature-item">
+            <div className="icon">
+              <img src={iconFile} alt="File Format Lengkap Icon" />
+            </div>
+            <h3>File Format Lengkap</h3>
+            <p>AI, EPS, PNG, JPG, SVG untuk semua keperluan.</p>
+          </div>
+          <div className="feature-item">
+            <div className="icon">
+              <img src={iconUnlimited} alt="Unlimited Revisions Icon" />
+            </div>
+            <h3>Unlimited Revisions</h3>
+            <p>Revisi tanpa batas hingga Anda puas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <div className="logo-design-page">
       {/* TOP BAR & NAVBAR */}
@@ -220,85 +266,127 @@ const LogoDesignPage = () => {
       </section>
 
       {/* HERO SECTION */}
-      <section className="hero">
-        <div className="container hero-container">
+      <section
+        className="hero"
+        style={{
+          background: '#FFFFFF',
+          padding: '80px 0'
+        }}
+      >
+        <div
+          className="container hero-container"
+        >
           {/* hero-left (TEXT AREA) */}
-          <div className="hero-left">
-            <div className="badge">
-              <span className="subtitle">Professional Logo Design</span>
+          <div className="hero-left hero-content" style={{ textAlign: 'left' }}>
+            <div className="badge" style={{ marginBottom: 16 }}>
+              <span className="subtitle" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                <i className="fa-solid fa-palette"></i>
+                Professional Logo Design
+              </span>
             </div>
-            <div className="hero-title">
-              <h1>
+            <div className="hero-title" style={{ marginBottom: 16 }}>
+              <h1 style={{ fontWeight: 800, lineHeight: 1.15 }}>
                 <span className="gradient-text">Logo yang Memorable</span>
-                <span className="subtitle-text">untuk Brand Anda</span>
+                <span className="subtitle-text" style={{ display: 'block', color: '#111827', fontWeight: 800 }}>
+                  untuk Brand Anda
+                </span>
               </h1>
             </div>
-            <p className="hero-desc">
+            <p
+              className="hero-desc"
+              style={{ maxWidth: 720, color: '#6b7280', marginBottom: 28 }}
+            >
               Ciptakan identitas visual yang kuat dengan logo profesional yang
               mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga
               eksekusi, kami pastikan logo Anda memorable dan timeless.
             </p>
             <div className="hero-actions hero-buttons">
-              <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer">
-                Konsultasi Gratis
+              <a
+                href="https://wa.me/6281804376001"
+                className="btn btn-gradient"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  borderRadius: 12,
+                  padding: '14px 28px',
+                  background: 'linear-gradient(90deg, #F97316, #EC4899)',
+                  color: '#ffffff'
+                }}
+              >
+                <i className="fa-regular fa-comment"></i>
+                <span>Konsultasi Gratis</span>
               </a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline">
-                Lihat Portfolio
+              <a
+                href="../page-portfolio/page-portfolio.tsx"
+                className="btn btn-outline"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: 12,
+                  padding: '14px 28px',
+                  borderWidth: 2,
+                  borderStyle: 'solid',
+                  borderColor: 'rgba(235, 86, 31, 0.45)',
+                  color: '#EA580C'
+                }}
+              >
+                <i className="far fa-eye"></i>
+                <span>Lihat Portfolio</span>
               </a>
             </div>
           </div>
-
           {/* hero-right (IMAGE AREA) */}
           <div className="hero-right">
-            <div className="image-wrapper hero-image-wrapper">
-              <div className="image-card hero-image">
-                <img src={heroImage} alt="Logo Design Mockup" />
+            <div
+              className="image-wrapper"
+              style={{
+                position: 'relative',
+                justifySelf: 'center'
+              }}
+            >
+              <div
+                className="image-card"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: 20,
+                  padding: 20,
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.07)',
+                  position: 'relative',
+                  zIndex: 1,
+                  border: '1px solid #F3E8FF',
+                  maxWidth: '100%'
+                }}
+              >
+                <img
+                  src={heroImage}
+                  alt="Logo Preview"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    borderRadius: 12,
+                    display: 'block'
+                  }}
+                />
               </div>
-              <div className="decorative-circle"></div>
+              <div
+                className="decorative-circle"
+                style={{
+                  position: 'absolute',
+                  top: -20,
+                  right: -20,
+                  width: 100,
+                  height: 100,
+                  background: 'linear-gradient(135deg, #60A5FA, #22D3EE)',
+                  borderRadius: '50%',
+                  zIndex: 2
+                }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
-      <section className="features section-padding" data-aos="fade-up">
-        <div className="container">
-          <div className="section-title">
-            <h2>Mengapa Pilih Logo Design Kami?</h2>
-            <p>Logo yang kami buat tidak hanya indah, tapi juga strategis dan meaningful.</p>
-          </div>
-          <div className="features-grid">
-            <div className="feature-item">
-              <div className="icon">
-                <img src="../img/icon konsep unik .png" alt="Konsep Unik Icon" />
-              </div>
-              <h3>Konsep Unik</h3>
-              <p>Logo original yang mencerminkan identitas brand Anda.</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <img src="../img/icon multiple.png" alt="Multiple Variations Icon" />
-              </div>
-              <h3>Multiple Variations</h3>
-              <p>Berbagai variasi logo untuk berbagai kebutuhan.</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <img src="../img/icon file.png" alt="File Format Lengkap Icon" />
-              </div>
-              <h3>File Format Lengkap</h3>
-              <p>AI, EPS, PNG, JPG, SVG untuk semua keperluan.</p>
-            </div>
-            <div className="feature-item">
-              <div className="icon">
-                <img src="../img/icon unlimited.png" alt="Unlimited Revisions Icon" />
-              </div>
-              <h3>Unlimited Revisions</h3>
-              <p>Revisi tanpa batas hingga Anda puas.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseLogoSection />
 
       {/* LOGO TYPES SECTION */}
       <section className="logo-types section-padding" data-aos="fade-up">
@@ -311,7 +399,7 @@ const LogoDesignPage = () => {
             {logoTypes.map((type, index) => (
               <div className="logo-type-item" key={index}>
                 <div className="logo-type-img">
-                  <img src="../img/jenis logo.png" alt={`Contoh ${type.name}`} />
+                  <img src={jenisLogoImg} alt={`Contoh ${type.name}`} />
                 </div>
                 <h3>{type.name}</h3>
                 <p>{type.description}</p>
