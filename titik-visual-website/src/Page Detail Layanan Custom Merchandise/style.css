@@ -538,6 +538,16 @@ section#why-us .section-title.text-center p {
     box-shadow: 0 4px 16px rgba(59,130,246,0.12);
 }
 
+/* Override khusus untuk Thermos & Vacuum Flask (theme-blue):
+   Hanya card yang diberi class 'highlighted' yang punya border */
+.product-collection.theme-blue .product-card {
+    border: 2px solid transparent;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.product-collection.theme-blue .product-card.highlighted {
+    border-color: #3B82F6;
+}
+
 /* ================================
    IMAGE
 ================================ */
@@ -777,6 +787,13 @@ section#why-us .section-title.text-center p {
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
+}
+
+.product-collection.theme-orange .product-card {
+    border: 2px solid transparent;
+}
+.product-collection.theme-orange .product-card.highlighted {
+    border-color: #F97316;
 }
 
 .product-collection.theme-orange h5 {
@@ -1073,6 +1090,7 @@ section#why-us .section-title.text-center p {
     border-radius: 14px;
     padding: 18px; /* card lebih besar */
     box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    border: 2px solid transparent; /* default tanpa border */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1080,6 +1098,10 @@ section#why-us .section-title.text-center p {
     width: 100%;         /* full width */
     max-width: 100%;     /* hilangkan batas sebelumnya */
     margin: 0 auto;
+}
+
+.theme-bluewave .product-card.highlighted {
+    border-color: #2563EB; /* tampilkan border hanya untuk highlighted */
 }
 
 .theme-bluewave .product-card:hover {
@@ -1362,7 +1384,7 @@ section#why-us .section-title.text-center p {
     margin-bottom: 5px;
   }
   
-  .process-subtitle {
+.process-subtitle {
     font-size: 20px;
     color: #6B7280;
     margin-bottom: 20px;
@@ -1374,22 +1396,34 @@ section#why-us .section-title.text-center p {
     color: #4B5563;
   }
   
-  .process-grid {
+.process-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
   
-  .process-card {
-        background: #ffffff;
-        padding: 25px;
-        border-radius: 16px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-        text-align: left;
-        transition: 0.3s ease;
-        border: 2px solid #E4E4E7;
-        position: relative;
-        padding-left: 75px; 
+.process-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  text-align: left;
+  transition: 0.3s ease;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
 }
     
   
@@ -1398,47 +1432,65 @@ section#why-us .section-title.text-center p {
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   }
   
-  .step-number {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(90deg, #22C55E, #10B981);
-    color: white;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    position: absolute;
-    left: 25px;
-    top: 25px;
-  }
-  
-  .process-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 0;
-  }
+.process-card .step-number {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(90deg, #22C55E, #10B981);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex: 0 0 52px;
+}
+
+.process-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.process-card p {
+  margin: 0 0 12px 0;
+  color: #4B5563;
+}
   
 .duration {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: #D4EDDA;
-    color: #155724;
-    padding: 6px 12px;
-    border-radius: 20px;
-    width: fit-content;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: arial, sans-serif;
-  
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #E6F4EA;
+  color: #166534;
+  padding: 6px 12px;
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 /* ===== Testimonials Section ===== */
 .testimonials {
   background-color: #f9f9f9;
   padding: 80px 0;
+}
+
+.testimonials .section-title h2 {
+  background: linear-gradient(90deg, #16A34A, #059669);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .testimonial-grid {
@@ -1506,14 +1558,22 @@ section#why-us .section-title.text-center p {
 
 /* ===== CTA Section ===== */
 .cta {
-  background: linear-gradient(to right, #28a745, #20c997);
+  background: linear-gradient(90deg, #22C55E, #10B981);
   padding: 80px 0;
   text-align: center;
   color: #fff;
 }
 
 .gradient-cta {
-  background: linear-gradient(90deg, #A855F7, #06B6D4);
+  background: linear-gradient(90deg, #22C55E, #10B981);
+}
+
+/* Override khusus halaman Custom Merchandise untuk memastikan warna CTA hijau */
+.custom-merchandise-page .cta {
+  background: linear-gradient(90deg, #22C55E, #10B981) !important;
+}
+.custom-merchandise-page .gradient-cta {
+  background: linear-gradient(90deg, #22C55E, #10B981) !important;
 }
 
 .cta h2 {
@@ -1535,6 +1595,37 @@ section#why-us .section-title.text-center p {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.custom-merchandise-page .cta .cta-buttons .btn,
+.custom-merchandise-page .cta .cta-buttons .btn i,
+.custom-merchandise-page .cta .cta-buttons .btn * {
+  color: #16A34A !important;
+}
+
+.custom-merchandise-page .cta .cta-buttons .btn.btn-outline-light,
+.custom-merchandise-page .cta .cta-buttons .btn.btn-outline-light i,
+.custom-merchandise-page .cta .cta-buttons .btn.btn-outline-light * {
+  color: #FFFFFF !important;
+}
+
+.gradient-green {
+  background: linear-gradient(90deg, #16A34A, #059669);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Paksa override di halaman Custom Merchandise agar tidak ikut aturan halaman lain */
+.custom-merchandise-page .testimonials .section-title h2 {
+  background: linear-gradient(90deg, #16A34A, #059669) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
 }
 
 .cta .btn {

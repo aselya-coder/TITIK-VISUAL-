@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import merchandiseImg from '../img/merchandise custom.png';
+import logoImg from '../img/img.png';
 import vacuumFlaskOffice from '../img/vacuum flask office.png';
 import vacuumFlaskSport from '../img/Vacuum Flask Sport.png';
 import bottleAluminum from '../img/Bottle Sport Aluminum.png';
@@ -86,7 +87,7 @@ const CustomMerchandisePage = () => {
       id: 5,
       name: 'Bottle Sport Ace',
       description: 'Botol minum olahraga dengan material Tritan yang aman',
-      image: bottleAce,
+      image: merchandiseImg,
       size: '23cm x 6.5cm',
       volume: '750ml',
       material: 'Tritan BPA-Free',
@@ -98,7 +99,7 @@ const CustomMerchandisePage = () => {
       id: 6,
       name: 'Tumbler Sport',
       description: 'Design sporty dengan kapasitas 600ml untuk aktivitas harian',
-      image: tumblerSport,
+      image: merchandiseImg,
       size: '20.5cm x 8cm',
       volume: '600ml',
       material: 'Stainless Steel',
@@ -139,7 +140,7 @@ const CustomMerchandisePage = () => {
       id: 9,
       name: 'Bottle Sport Ace',
       description: 'Design sporty dengan kapasitas 630ml untuk aktivitas harian',
-      image: bottleAce,
+      image: merchandiseImg,
       size: '21cm x 7.2cm',
       volume: '630ml',
       material: 'Premium Aluminum',
@@ -193,7 +194,7 @@ const CustomMerchandisePage = () => {
       id: 13,
       name: 'Tumbler Livina',
       description: 'Tumbler compact dengan design modern',
-      image: tumblerSport,
+      image: bottleAce,
       size: '19.5cm x 6.5cm',
       volume: '300ml',
       material: '304# SUS',
@@ -205,7 +206,7 @@ const CustomMerchandisePage = () => {
       id: 14,
       name: 'Tumbler Sport',
       description: 'Tumbler sport dengan material premium 304# stainless steel',
-      image: vacuumFlaskSport,
+      image: merchandiseImg,
       size: '22.5cm x 6cm',
       volume: '500ml',
       material: '304# SUS',
@@ -229,7 +230,7 @@ const CustomMerchandisePage = () => {
       features: ['Clear Design', 'Insert Paper Compatible'],
       price: 'Rp 25.000/pcs',
       productionTime: '5-7 hari',
-      highlighted: false
+      highlighted: true
     },
     {
       id: 16,
@@ -255,7 +256,7 @@ const CustomMerchandisePage = () => {
       features: ['Include Straw', 'Summer Design'],
       price: 'Rp 28.000/pcs',
       productionTime: '5-7 hari',
-      highlighted: false
+      highlighted: true
     }
   ];
 
@@ -265,7 +266,7 @@ const CustomMerchandisePage = () => {
       id: 18,
       name: 'Notebook Colorful + Post It',
       description: 'Notebook warna-warni dengan post it terintegrasi',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '14cm x 17.2cm',
       volume: '',
       material: '',
@@ -278,7 +279,7 @@ const CustomMerchandisePage = () => {
       id: 19,
       name: 'Notebook Superior + Post It',
       description: 'Notebook premium dengan post it dan design superior',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '15cm x 18cm',
       volume: '',
       material: '',
@@ -290,7 +291,7 @@ const CustomMerchandisePage = () => {
       id: 20,
       name: 'Notebook Recycle + Post It',
       description: 'Notebook ramah lingkungan dari material recycle',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '14cm x 18cm',
       volume: '',
       material: '',
@@ -303,7 +304,7 @@ const CustomMerchandisePage = () => {
       id: 21,
       name: 'Notebook Formal',
       description: 'Notebook formal untuk kebutuhan bisnis',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '14cm x 18cm',
       volume: '',
       material: '',
@@ -315,7 +316,7 @@ const CustomMerchandisePage = () => {
       id: 22,
       name: 'Memo Leather + Post It + Pen',
       description: 'Memo lengkap dengan bahan kulit & pena',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '13.5cm x 10.5cm',
       volume: '',
       material: '',
@@ -328,7 +329,7 @@ const CustomMerchandisePage = () => {
       id: 23,
       name: 'Umbrella Sakura Premium',
       description: 'Payung premium dengan desain sakura',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '21 inch',
       volume: '',
       material: 'Silver Plasters',
@@ -476,7 +477,7 @@ const CustomMerchandisePage = () => {
         </div>
       </div>
       <nav className="main-nav">
-        <div className="nav-left"><img src="../img/img.png" alt="Titik Visual Logo" className="logo" /></div>
+        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
         <ul className="nav-right">
           <li><a href="../beranda/beranda.tsx">Home</a></li>
           <li><a href="../page-about/page-about.tsx">Profile</a></li>
@@ -655,7 +656,7 @@ const CustomMerchandisePage = () => {
               <StationeryCard 
                 key={product.id} 
                 product={product} 
-                hasLine={index % 2 === 0} // Alternating hasLine property
+                hasLine={index % 2 === 0 || index === 5}
               />
             ))}
           </div>
@@ -672,10 +673,12 @@ const CustomMerchandisePage = () => {
             {processSteps.map((step, index) => (
               <div className="process-card" key={index}>
                 <div className="step-number">{step.step}</div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-                <div className="duration">
-                  <i className="fa-regular fa-clock"></i> {step.duration}
+                <div className="process-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <div className="duration">
+                    <i className="fa-regular fa-clock"></i> {step.duration}
+                  </div>
                 </div>
               </div>
             ))}
@@ -687,7 +690,7 @@ const CustomMerchandisePage = () => {
       <section className="testimonials" id="testimonials">
         <div className="container">
           <div className="section-title" data-aos="fade-up">
-            <h2>Testimoni Klien Titik Visual</h2>
+            <h2 className="gradient-green">Testimoni Klien Titik Visual</h2>
             <p>Testimoni dari klien yang puas dengan merchandise Titik Visual</p>
           </div>
           <div className="testimonial-grid" data-aos="fade-up" data-aos-delay="200">
@@ -735,7 +738,7 @@ const CustomMerchandisePage = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis custom merchandise berkualitas premium untuk kebutuhan promosi dan corporate branding.</p>
             </div>
             <div className="footer-col">

@@ -620,7 +620,7 @@ body.page-loaded{
   margin: 8px 0 20px;
 }
 
-.price {
+.service-card .price {
   font-weight: 700;
   color: #9333EA;
   position: absolute;
