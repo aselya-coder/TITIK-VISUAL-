@@ -1868,3 +1868,7 @@ grid-template-columns: 1fr;
   }
   
 }
+
+.titik-visual-website *, .titik-visual-website *::before, .titik-visual-website *::after { box-sizing: border-box; }
+.titik-visual-website img, .titik-visual-website video, .titik-visual-website iframe { max-width: 100%; height: auto; }
+.titik-visual-website { overflow-x: hidden; }

@@ -1115,3 +1115,7 @@ body {
         justify-content: center;
     }
 }
+
+.services-page *, .services-page *::before, .services-page *::after { box-sizing: border-box; }
+.services-page img, .services-page video, .services-page iframe { max-width: 100%; height: auto; }
+.services-page { overflow-x: hidden; }

@@ -6,7 +6,6 @@ import vacuumFlaskOffice from '../img/vacuum flask office.png';
 import vacuumFlaskSport from '../img/Vacuum Flask Sport.png';
 import bottleAluminum from '../img/Bottle Sport Aluminum.png';
 import bottleAce from '../img/Bottle Sport Ace.png';
-import tumblerSport from '../img/Tumbler Sport.png';
 
 interface Product {
   id: number;

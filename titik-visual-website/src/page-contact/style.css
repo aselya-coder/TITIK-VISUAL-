@@ -781,3 +781,7 @@ body {
         text-align: center;
     }
 }
+
+.contact-page *, .contact-page *::before, .contact-page *::after { box-sizing: border-box; }
+.contact-page img, .contact-page video, .contact-page iframe { max-width: 100%; height: auto; }
+.contact-page { overflow-x: hidden; }

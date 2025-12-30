@@ -186,6 +186,10 @@ body {
     font-size: 14px;
 }
 
+.website-app-page *, .website-app-page *::before, .website-app-page *::after { box-sizing: border-box; }
+.website-app-page img, .website-app-page video, .website-app-page iframe { max-width: 100%; height: auto; }
+.website-app-page { overflow-x: hidden; }
+
 /* ===== Hero Section ===== */
 .hero {
     padding: 60px 0;

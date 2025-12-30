@@ -382,6 +382,10 @@ body {
     box-shadow: 0 0 12px rgba(139, 92, 246, 0.15);
 }
 
+.uiux-page *, .uiux-page *::before, .uiux-page *::after { box-sizing: border-box; }
+.uiux-page img, .uiux-page video, .uiux-page iframe { max-width: 100%; height: auto; }
+.uiux-page { overflow-x: hidden; }
+
 .hero-buttons .btn-outline:hover {
     background-color: #F3E8FF;
     border-color: rgba(139, 92, 246, 0.6);

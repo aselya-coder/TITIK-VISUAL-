@@ -37,11 +37,15 @@
     line-height: 1.5;
   }
   
-  .container {
+.container {
     max-width: var(--container);
     margin: 0 auto;
     padding: 0 20px;
   }
+  
+.App *, .App *::before, .App *::after { box-sizing: border-box; }
+.App img, .App video, .App iframe { max-width: 100%; height: auto; }
+.App { overflow-x: hidden; }
   
   /* ===== TOP BAR ===== */
   .top-bar {

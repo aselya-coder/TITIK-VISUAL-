@@ -45,6 +45,10 @@ body {
     padding: 0 20px;
 }
 
+.careers-page *, .careers-page *::before, .careers-page *::after { box-sizing: border-box; }
+.careers-page img, .careers-page video, .careers-page iframe { max-width: 100%; height: auto; }
+.careers-page { overflow-x: hidden; }
+
 /* ===== TOP BAR ===== */
 .top-bar {
     width: 100%;

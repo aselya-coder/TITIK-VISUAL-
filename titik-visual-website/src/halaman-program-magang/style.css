@@ -34,6 +34,10 @@ body {
     padding: 0 20px;
 }
 
+.internship-page *, .internship-page *::before, .internship-page *::after { box-sizing: border-box; }
+.internship-page img, .internship-page video, .internship-page iframe { max-width: 100%; height: auto; }
+.internship-page { overflow-x: hidden; }
+
 .top-bar {
     width: 100%;
     background: #1d2b3a;

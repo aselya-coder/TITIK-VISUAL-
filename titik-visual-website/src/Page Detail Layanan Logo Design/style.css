@@ -626,6 +626,10 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+
+.logo-design-page *, .logo-design-page *::before, .logo-design-page *::after { box-sizing: border-box; }
+.logo-design-page img, .logo-design-page video, .logo-design-page iframe { max-width: 100%; height: auto; }
+.logo-design-page { overflow-x: hidden; }
 @media (max-width: 991px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);

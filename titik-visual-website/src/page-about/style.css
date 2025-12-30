@@ -1161,6 +1161,10 @@ body {
 .about-page .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 .about-page .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
 .about-page .gap-8 { gap: 2rem !important; }
+
+.about-page *, .about-page *::before, .about-page *::after { box-sizing: border-box; }
+.about-page img, .about-page video, .about-page iframe { max-width: 100%; height: auto; }
+.about-page { overflow-x: hidden; }
 .about-page .max-w-7xl { max-width: 80rem !important; }
 .about-page .mx-auto { margin-left: auto !important; margin-right: auto !important; }
 .about-page .justify-center { justify-content: center !important; }

@@ -45,6 +45,10 @@ body {
     padding: 0 20px;
 }
 
+.social-media-page *, .social-media-page *::before, .social-media-page *::after { box-sizing: border-box; }
+.social-media-page img, .social-media-page video, .social-media-page iframe { max-width: 100%; height: auto; }
+.social-media-page { overflow-x: hidden; }
+
 /* ===== TOP BAR ===== */
 .top-bar {
     width: 100%;
