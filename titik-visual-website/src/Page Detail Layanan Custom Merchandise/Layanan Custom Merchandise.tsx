@@ -1,5 +1,11 @@
 import React from 'react';
 import './style.css';
+import merchandiseImg from '../img/merchandise custom.png';
+import vacuumFlaskOffice from '../img/vacuum flask office.png';
+import vacuumFlaskSport from '../img/Vacuum Flask Sport.png';
+import bottleAluminum from '../img/Bottle Sport Aluminum.png';
+import bottleAce from '../img/Bottle Sport Ace.png';
+import tumblerSport from '../img/Tumbler Sport.png';
 
 interface Product {
   id: number;
@@ -30,7 +36,7 @@ const CustomMerchandisePage = () => {
       id: 1,
       name: 'Vacuum Flask Office Series',
       description: 'Thermos office premium dengan double wall 304# stainless steel',
-      image: '../img/vacuum flask office.png',
+      image: vacuumFlaskOffice,
       size: '15cm x 9.5cm',
       volume: '500ml',
       material: 'Double Wall 304# SUS',
@@ -43,7 +49,7 @@ const CustomMerchandisePage = () => {
       id: 2,
       name: 'Vacuum Flask Coffee II + LED',
       description: 'Thermos coffee dengan LED indicator dan teknologi vacuum',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '15cm x 7.2cm',
       volume: '500ml',
       material: 'Double Wall 304# SUS',
@@ -55,7 +61,7 @@ const CustomMerchandisePage = () => {
       id: 3,
       name: 'Vacuum Flask Gifts 3 in 1',
       description: 'Paket gift set thermos dengan 3 fungsi dalam 1 produk',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '24cm x 7.3cm',
       volume: '500ml',
       material: 'Double Wall 304# SUS',
@@ -67,7 +73,7 @@ const CustomMerchandisePage = () => {
       id: 4,
       name: 'Vacuum Flask Sport',
       description: 'Thermos sport dengan design ergonomis untuk aktivitas outdoor',
-      image: '../img/Vacuum Flask Sport.png',
+      image: vacuumFlaskSport,
       size: '25cm x 7cm',
       volume: '500ml',
       material: 'Double Wall 304# SUS',
@@ -80,7 +86,7 @@ const CustomMerchandisePage = () => {
       id: 5,
       name: 'Bottle Sport Ace',
       description: 'Botol minum olahraga dengan material Tritan yang aman',
-      image: '../img/merchandise custom.png',
+      image: bottleAce,
       size: '23cm x 6.5cm',
       volume: '750ml',
       material: 'Tritan BPA-Free',
@@ -92,7 +98,7 @@ const CustomMerchandisePage = () => {
       id: 6,
       name: 'Tumbler Sport',
       description: 'Design sporty dengan kapasitas 600ml untuk aktivitas harian',
-      image: '../img/merchandise custom.png',
+      image: tumblerSport,
       size: '20.5cm x 8cm',
       volume: '600ml',
       material: 'Stainless Steel',
@@ -108,7 +114,7 @@ const CustomMerchandisePage = () => {
       id: 7,
       name: 'Bottle Sport Aluminum',
       description: 'Botol aluminum sport dengan design yang ringan dan tahan lama',
-      image: '../img/Bottle Sport Aluminum.png',
+      image: bottleAluminum,
       size: '20.5cm x 6.5cm',
       volume: '500ml',
       material: 'Premium Aluminum',
@@ -121,7 +127,7 @@ const CustomMerchandisePage = () => {
       id: 8,
       name: 'Bottle Sport Large',
       description: 'Botol aluminum berkapasitas besar untuk kebutuhan outdoor',
-      image: '../img/Bottle Sport Ace.png',
+      image: bottleAce,
       size: '24.5cm x 7.2cm',
       volume: '750ml',
       material: 'Premium Aluminum',
@@ -133,7 +139,7 @@ const CustomMerchandisePage = () => {
       id: 9,
       name: 'Bottle Sport Ace',
       description: 'Design sporty dengan kapasitas 630ml untuk aktivitas harian',
-      image: '../img/Bottle Sport Ace.png',
+      image: bottleAce,
       size: '21cm x 7.2cm',
       volume: '630ml',
       material: 'Premium Aluminum',
@@ -145,7 +151,7 @@ const CustomMerchandisePage = () => {
       id: 10,
       name: 'Bottle Sport King',
       description: 'Premium aluminum bottle dengan design yang elegan',
-      image: '../img/Bottle Sport Aluminum.png',
+      image: bottleAluminum,
       size: '22cm x 7.5cm',
       volume: '600ml',
       material: 'Premium Aluminum',
@@ -162,7 +168,7 @@ const CustomMerchandisePage = () => {
       id: 11,
       name: 'Office Cup Premium',
       description: 'Tumbler office premium dengan material 304# stainless steel',
-      image: '../img/Bottle Sport Ace.png',
+      image: bottleAce,
       size: '12cm x 8cm',
       volume: '500ml',
       material: '304# SUS',
@@ -175,7 +181,7 @@ const CustomMerchandisePage = () => {
       id: 12,
       name: 'Office Cup Standard',
       description: 'Tumbler office dengan kombinasi stainless steel dan PP',
-      image: '../img/Bottle Sport Ace.png',
+      image: bottleAce,
       size: '13cm x 7.5cm',
       volume: '350ml',
       material: '304# SUS / PP',
@@ -187,7 +193,7 @@ const CustomMerchandisePage = () => {
       id: 13,
       name: 'Tumbler Livina',
       description: 'Tumbler compact dengan design modern',
-      image: '../img/Bottle Sport Ace.png',
+      image: tumblerSport,
       size: '19.5cm x 6.5cm',
       volume: '300ml',
       material: '304# SUS',
@@ -199,7 +205,7 @@ const CustomMerchandisePage = () => {
       id: 14,
       name: 'Tumbler Sport',
       description: 'Tumbler sport dengan material premium 304# stainless steel',
-      image: '../img/Vacuum Flask Sport.png',
+      image: vacuumFlaskSport,
       size: '22.5cm x 6cm',
       volume: '500ml',
       material: '304# SUS',
@@ -216,39 +222,40 @@ const CustomMerchandisePage = () => {
       id: 15,
       name: 'Tumbler Insert Paper AS',
       description: 'Water bottle dengan material AS dan insert paper',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '20cm x 6cm',
       volume: '500ml',
       material: 'AS (Acrylonitrile Styrene)',
       features: ['Clear Design', 'Insert Paper Compatible'],
       price: 'Rp 25.000/pcs',
       productionTime: '5-7 hari',
-      highlighted: true
+      highlighted: false
     },
     {
       id: 16,
       name: 'Water Bottle Cruise',
       description: 'Water bottle berkapasitas besar untuk traveling',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '24.3cm x 7cm',
       volume: '750ml',
       material: 'AS',
       features: ['Large Capacity', 'Travel Friendly'],
       price: 'Rp 30.000/pcs',
-      productionTime: '5-7 hari'
+      productionTime: '5-7 hari',
+      highlighted: false
     },
     {
       id: 17,
       name: 'Tumbler Straw Summer',
       description: 'Tumbler dengan straw untuk musim panas',
-      image: '../img/merchandise custom.png',
+      image: merchandiseImg,
       size: '22cm x 7.2cm',
       volume: '500ml',
       material: 'AS',
       features: ['Include Straw', 'Summer Design'],
       price: 'Rp 28.000/pcs',
       productionTime: '5-7 hari',
-      highlighted: true
+      highlighted: false
     }
   ];
 
@@ -387,37 +394,35 @@ const CustomMerchandisePage = () => {
   // Product Card Component
   const ProductCard = ({ product }: { product: Product }) => {
     return (
-      <div className={`col-lg-4 col-md-6 d-flex align-items-stretch ${product.highlighted ? 'highlighted' : ''}`}>
-        <div className={`product-card ${product.highlighted ? 'highlighted' : ''}`}>
-          <div className="product-image">
-            <img src={product.image} alt={product.name} />
+      <div className={`product-card ${product.highlighted ? 'highlighted' : ''}`}>
+        <div className="product-image">
+          <img src={product.image} alt={product.name} />
+        </div>
+        <div className="product-content">
+          <h4 className="product-name">{product.name}</h4>
+          <p className="product-description">{product.description}</p>
+          <h5>Spesifikasi:</h5>
+          <ul className="product-specs">
+            <li><i className="far fa-check-circle"></i> Product Size: {product.size}</li>
+            {product.volume && <li><i className="far fa-check-circle"></i> Volume: {product.volume}</li>}
+            {product.material && <li><i className="far fa-check-circle"></i> Material: {product.material}</li>}
+            {product.features.map((feature, index) => (
+              <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="product-footer">
+          <div className="price-info">
+            <span className="label">Harga:</span>
+            <span className="price">Mulai dari {product.price}</span>
           </div>
-          <div className="product-content">
-            <h4 className="product-name">{product.name}</h4>
-            <p className="product-description">{product.description}</p>
-            <h5>Spesifikasi:</h5>
-            <ul className="product-specs">
-              <li><i className="far fa-check-circle"></i> Product Size: {product.size}</li>
-              {product.volume && <li><i className="far fa-check-circle"></i> Volume: {product.volume}</li>}
-              {product.material && <li><i className="far fa-check-circle"></i> Material: {product.material}</li>}
-              {product.features.map((feature, index) => (
-                <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
-              ))}
-            </ul>
+          <div className="production-info">
+            <span className="label">Produksi:</span>
+            <span className="time">{product.productionTime}</span>
           </div>
-          <div className="product-footer">
-            <div className="price-info">
-              <span className="label">Harga:</span>
-              <span className="price">Mulai dari {product.price}</span>
-            </div>
-            <div className="production-info">
-              <span className="label">Produksi:</span>
-              <span className="time">{product.productionTime}</span>
-            </div>
-            <a href="../page-contact/page-contact.tsx" className="btn-order">
-              <i className="fas fa-arrow-right"></i> Order Sekarang
-            </a>
-          </div>
+          <a href="../page-contact/page-contact.tsx" className="btn-order">
+            <i className="fas fa-arrow-right"></i> Order Sekarang
+          </a>
         </div>
       </div>
     );
@@ -495,22 +500,22 @@ const CustomMerchandisePage = () => {
           <div className="hero-content">
             <span className="subtitle"><i className="fas fa-gift"></i>Custom Merchandise Premium Titik Visual</span>
             <h1>
-              <span className="gradient-text">Merchandise Custom</span>
+              <span className="gradient-text-green">Merchandise Custom</span>
               <span className="subtitle-text">Berkualitas Premium</span>
             </h1>
-            <p>Titik Visual menyediakan berbagai pilihan merchandise custom
-              berkualitas tinggi. Dari thermos premium, tumbler stainless, aluminum
-              bottles, hingga notebook dan payung custom. Semua produk dapat
-              disesuaikan dengan brand identity Anda.</p>
+            <p>
+              Titik Visual menyediakan berbagai pilihan merchandise custom berkualitas tinggi.<br />
+              Dari thermos premium, tumbler stainless, aluminum bottles,<br />
+              hingga notebook dan payung custom.<br />
+              Semua produk dapat disesuaikan dengan brand identity Anda.
+            </p>
             <div className="hero-buttons">
-              <a href="../page-contact/page-contact.tsx" className="btn btn-gradient"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
+              <a href="https://wa.me/6281804376001" className="btn btn-green" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
+              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-green"><i className="far fa-eye"></i> Lihat Katalog Lengkap</a>
             </div>
           </div>
           <div className="hero-image-wrapper">
-            <div className="hero-image">
-              <img src="../img/merchandise custom.png" alt="UI/UX Design Illustration" />
-            </div>
+            <img src={merchandiseImg} alt="Merchandise Custom" />
           </div>
         </div>
       </section>
@@ -520,7 +525,7 @@ const CustomMerchandisePage = () => {
         <div className="container">
           <div className="section-title text-center">
             <h2>Mengapa Pilih Merchandise Titik Visual?</h2>
-            <p>Komitmen Titik Visual pada kualitas dan kepuasan pelanggan dalam setiap produk yang kami hasilkan</p>
+            <p>Komitmen Titik Visual pada kualitas dan kepuasan pelanggan<br />dalam setiap produk yang kami hasilkan</p>
           </div>
           <div className="row">
             <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
@@ -530,7 +535,7 @@ const CustomMerchandisePage = () => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">Premium Quality</h5>
-                  <p className="card-text">Material berkualitas tinggi dengan standar internasional.</p>
+                  <p className="card-text">Material berkualitas tinggi dengan standar internasional</p>
                 </div>
               </div>
             </div>
@@ -542,7 +547,7 @@ const CustomMerchandisePage = () => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">Custom Design</h5>
-                  <p className="card-text">Design sepenuhnya custom sesuai brand identity Anda.</p>
+                  <p className="card-text">Design sepenuhnya custom sesuai brand identity Anda</p>
                 </div>
               </div>
             </div>
@@ -554,7 +559,7 @@ const CustomMerchandisePage = () => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">Fast Production</h5>
-                  <p className="card-text">Proses produksi cepat dengan quality control ketat.</p>
+                  <p className="card-text">Proses produksi cepat dengan quality control ketat</p>
                 </div>
               </div>
             </div>
@@ -566,7 +571,7 @@ const CustomMerchandisePage = () => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">Competitive Price</h5>
-                  <p className="card-text">Harga kompetitif dengan kualitas yang tidak dikompromikan.</p>
+                  <p className="card-text">Harga kompetitif dengan kualitas yang tidak dikompromikan</p>
                 </div>
               </div>
             </div>
@@ -589,7 +594,7 @@ const CustomMerchandisePage = () => {
               <p>Koleksi thermos premium dengan teknologi vacuum dan material 304# stainless steel</p>
             </div>
 
-            <div className="row product-grid">
+            <div className="product-grid">
               {thermosProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -602,7 +607,7 @@ const CustomMerchandisePage = () => {
               <h3>Aluminum Bottles Collection</h3>
               <p>Botol aluminum premium yang ringan dan tahan lama untuk aktivitas outdoor</p>
             </div>
-            <div className="row product-grid">
+            <div className="product-grid">
               {aluminumProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -615,7 +620,7 @@ const CustomMerchandisePage = () => {
               <h3>Tumbler Stainless Collection</h3>
               <p>Tumbler stainless steel berkualitas tinggi untuk kebutuhan harian dan office</p>
             </div>
-            <div className="row product-grid">
+            <div className="product-grid">
               {tumblerProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -628,7 +633,7 @@ const CustomMerchandisePage = () => {
               <h3>Water Bottles Collection</h3>
               <p>Water bottles dengan material AS berkualitas tinggi dan design yang menarik</p>
             </div>
-            <div className="row product-grid">
+            <div className="product-grid">
               {waterBottleProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}

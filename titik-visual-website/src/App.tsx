@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './App.css';
 import TitikVisualWebsite from './beranda/beranda';
 import AboutPage from './page-about/page-about';
@@ -47,7 +47,7 @@ function HashRedirector() {
 }
 
 function App() {
-  const normalize = (p: string) => {
+  const normalize = useCallback((p: string) => {
     if (!p) return '/';
     if (p.includes('/page-about')) return '/about';
     if (p.includes('/page-layanan')) return '/services';
@@ -60,8 +60,8 @@ function App() {
       return p.slice(0, -1);
     }
     return p;
-  };
-  const resolvePath = () => {
+  }, []);
+  const resolvePath = useCallback(() => {
     const h = window.location.hash;
     if (h) {
       const map: Record<string, string> = {
@@ -77,18 +77,18 @@ function App() {
       return map[h] || normalize(window.location.pathname || '/');
     }
     return normalize(window.location.pathname || '/');
-  };
+  }, [normalize]);
   const [path, setPath] = React.useState<string>(resolvePath());
   useEffect(() => {
     const onPop = () => setPath(resolvePath());
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, []);
+  }, [resolvePath]);
   useEffect(() => {
     const onHash = () => setPath(resolvePath());
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
-  }, []);
+  }, [resolvePath]);
   useEffect(() => {
     document.body.classList.add('page-loaded');
     setTimeout(() => document.body.classList.add('page-loaded'), 0);
@@ -397,7 +397,7 @@ function App() {
     };
     nodes.forEach(n => n.addEventListener('click', directHandler));
     return () => document.removeEventListener('click', onClick, true);
-  }, []);
+  }, [normalize]);
   useEffect(() => {
     const anchors = Array.from(
       document.querySelectorAll('a[href="#home"], a[href="#about"], a[href="#services"], a[href="#portfolio"], a[href="#contact"], a[href="#careers"]')

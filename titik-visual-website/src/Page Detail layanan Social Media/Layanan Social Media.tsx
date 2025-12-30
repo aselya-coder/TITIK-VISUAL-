@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import socialHeroImg from '../img/Social Media Management Dashboard.png';
 import logoImg from '../img/img.png';
+import successStoriesImg from '../img/succes stories.png';
 
 interface Platform {
   id: number;
@@ -199,7 +200,7 @@ const SocialMediaPage = () => {
       category: 'Fashion & Lifestyle',
       title: 'Fashion Brand Campaign',
       description: 'Kampanye social media untuk fashion brand dengan engagement rate 8.5%',
-      image: '../img/succes stories.png',
+      image: successStoriesImg,
       metrics: {
         followers: '+150%',
         engagement: '8.5%',
@@ -211,7 +212,7 @@ const SocialMediaPage = () => {
       category: 'Food & Beverage',
       title: 'Restaurant Social Media',
       description: 'Pengelolaan social media restaurant dengan fokus visual appetizing',
-      image: '../img/succes stories.png',
+      image: successStoriesImg,
       metrics: {
         followers: '+200%',
         engagement: '12.3%',
@@ -223,7 +224,7 @@ const SocialMediaPage = () => {
       category: 'Technology',
       title: 'Tech Startup Growth',
       description: 'Growth hacking social media untuk startup teknologi B2B',
-      image: '../img/succes stories.png',
+      image: successStoriesImg,
       metrics: {
         followers: '+300%',
         engagement: '6.8%',
@@ -294,14 +295,14 @@ const SocialMediaPage = () => {
       text: '"Social media management dari Titik Visual luar biasa! Engagement kami meningkat 300% dan penjualan online naik drastis."',
       clientName: 'Lisa Chen',
       clientPosition: 'Marketing Manager at Boutique Fashion',
-      clientImage: '../img/Social Media Management Dashboard.png'
+      clientImage: socialHeroImg
     },
     {
       id: 2,
       text: '"Tim sangat kreatif dalam membuat konten. Followers kami bertambah pesat dan customer baru terus berdatangan!"',
       clientName: 'Andi Wijaya',
       clientPosition: 'Owner at Cafe Nusantara',
-      clientImage: '../img/Social Media Management Dashboard.png'
+      clientImage: socialHeroImg
     }
   ];
 
@@ -484,12 +485,14 @@ const SocialMediaPage = () => {
           </div>
           <div className="workflow-grid">
             {workflowSteps.map(step => (
-              <div className="workflow-step" key={step.id}>
-                <div className="step-number">{step.stepNumber}</div>
-                <div className="step-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  <div className="step-duration">
+              <div className="workflow-step-card" key={step.id}>
+                <div className="step-number-circle">
+                  <span>{step.stepNumber}</span>
+                </div>
+                <div className="step-content-wrapper">
+                  <h3 className="step-title">{step.title}</h3>
+                  <p className="step-description">{step.description}</p>
+                  <div className="step-time-badge">
                     <i className="far fa-clock"></i>
                     <span>{step.duration}</span>
                   </div>
@@ -510,7 +513,9 @@ const SocialMediaPage = () => {
           <div className="stories-grid">
             {successStories.map(story => (
               <div className="story-card" key={story.id}>
-                <div className="story-image">
+                <div className="story-image-collage">
+                  <img src={story.image} alt={story.title} />
+                  <img src={story.image} alt={story.title} />
                   <img src={story.image} alt={story.title} />
                 </div>
                 <div className="story-content">
@@ -621,7 +626,7 @@ const SocialMediaPage = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
+              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis social media management yang berfokus pada engagement dan growth yang terukur.</p>
             </div>
             <div className="footer-col">
