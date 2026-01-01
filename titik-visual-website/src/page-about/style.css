@@ -159,7 +159,7 @@ body {
 ========================================================= */
 .about-page .hero-container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 520px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
@@ -460,7 +460,7 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 35px;
 }
 
@@ -695,7 +695,7 @@ body {
 .values-grid {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 .value-card {
@@ -764,32 +764,26 @@ body {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     align-items: stretch;
 }
 
 .team-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-}
-
-@media (max-width: 1200px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
     }
-}
 
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
     }
-}
 
 .team-card:hover {
     transform: translateY(-10px);
@@ -1025,7 +1019,7 @@ body {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     align-items: start;
 }

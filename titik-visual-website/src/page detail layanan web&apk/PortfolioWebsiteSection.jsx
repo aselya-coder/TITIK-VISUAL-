@@ -1,7 +1,12 @@
 import React from 'react';
 
-const images = require.context('../img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name) => images(`./${name}`);
+const getImg = (name) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 const PortfolioCard = ({ category, title, description, tags }) => (
   <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">

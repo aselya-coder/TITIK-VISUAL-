@@ -1,8 +1,13 @@
 import React from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
-const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name: string) => images(`./${name}`);
+const getImg = (name: string) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 interface TimelineEntry {
   id: number;
@@ -184,47 +189,6 @@ const AboutPage = () => {
 
   return (
     <div className="about-page">
-      {/* TOP BAR */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item">
-            <i className="fa-solid fa-phone"></i>
-            <span>081804376001</span>
-          </div>
-          <div className="item">
-            <i className="fa-solid fa-envelope"></i>
-            <span>titikvisualjogja@gmail.com</span>
-          </div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
-        </div>
-      </div>
-
-      {/* MAIN NAVBAR */}
-      <nav className={`main-nav ${window.location && (window.location.pathname === '/about') ? 'about-nav' : ''}`}>
-        <div className="nav-left">
-          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
-        </div>
-        <ul className="nav-right">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about" className="active">Profile</a></li>
-          <li><a href="#services">Layanan</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-        <div className="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-
       {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-container">

@@ -1,7 +1,12 @@
 import React from 'react';
 
-const images = require.context('../img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name) => images(`./${name}`);
+const getImg = (name) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 const WebApkDetail = () => {
   return (

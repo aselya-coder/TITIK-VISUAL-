@@ -144,17 +144,34 @@ body {
 .hero-section h1 {
     font-size: 42px;
     font-weight: 800;
-    color: var(--dark-blue);
+    color: #000000;
     margin-bottom: 20px;
 }
 
+.lowongan-kerja-page .hero-section h1 {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
+}
+
 .hero-section h1 i {
-    color: var(--primary-orange);
+    color: #EA580C;
     margin-right: 15px;
 }
 
+.lowongan-kerja-page .hero-section h1 i {
+    color: #EA580C !important;
+    -webkit-text-fill-color: #EA580C !important;
+}
+
 .hero-section h1 strong {
-    color: var(--primary-orange);
+    background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-red) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .hero-section p {
@@ -168,7 +185,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 12px;
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -437,7 +454,7 @@ body {
 /* Job Details Grid */
 .job-details-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-bottom: 10px;
 }
@@ -541,6 +558,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn-cta-primary {
@@ -586,7 +604,7 @@ body {
 
 .footer-widgets {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     margin-bottom: 50px;
 }
@@ -653,10 +671,7 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
-    .job-card-top {
-        flex-direction: column;
-        gap: 15px;
-    }
+    /* .job-card-top flex-direction handled by flex-wrap */
     
     .job-salary-info {
         text-align: left;
@@ -666,9 +681,7 @@ body {
         justify-content: flex-start;
     }
     
-    .footer-widgets {
-        grid-template-columns: 1fr 1fr;
-    }
+    /* .footer-widgets handled by auto-fit */
 }
 
 @media (max-width: 768px) {

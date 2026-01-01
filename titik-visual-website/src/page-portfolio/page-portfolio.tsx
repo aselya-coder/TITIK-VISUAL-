@@ -1,62 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
 import portfolioImage from '../img/portfolio.png';
-const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name: string) => images(`./${name}`);
+const getImg = (name: string) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 function App() {
   const content = useContent();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <div className="App">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item">
-            <i className="fa-solid fa-phone"></i>
-            <span>081804376001</span>
-          </div>
-          <div className="item">
-            <i className="fa-solid fa-envelope"></i>
-            <span>titikvisualjogja@gmail.com</span>
-          </div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
-        </div>
-      </div>
 
-      {/* Main Navbar */}
-      <nav className="main-nav">
-        <div className="nav-left">
-          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
-        </div>
 
-        <ul className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Profile</a></li>
-          <li><a href="#services">Layanan</a></li>
-          <li className="active"><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
 
-        <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
 
       <main>
         {/* Portfolio Hero Section */}

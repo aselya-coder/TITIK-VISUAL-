@@ -143,7 +143,7 @@ body {
 }
 
 /* ===== HERO SECTION ===== */
-.hero-section {
+.internship-page .hero-section {
     position: relative;
     width: 100%;
     /* Gradient overlay + Image */
@@ -160,7 +160,7 @@ body {
     text-align: center;
 }
 
-.hero-section h1 {
+.internship-page .hero-section h1 {
     font-size: 48px;
     font-weight: 800;
     margin-bottom: 20px;
@@ -174,23 +174,23 @@ body {
     background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
 }
-.hero-section .hero-icon {
+.internship-page .hero-section .hero-icon {
     font-size: 40px;
     color: #EA580C;
     line-height: 1;
 }
-.hero-section .title-main {
+.internship-page .hero-section .title-main {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
     background: none !important;
 }
 
-.hero-section h1 i {
+.internship-page .hero-section h1 i {
     color: #EA580C;
     font-size: 40px;
 }
 
-.hero-section h1 strong {
+.internship-page .hero-section h1 strong {
     color: var(--primary-red); /* Or orange-red gradient */
     background: linear-gradient(to right, #ff6b00, #e63946);
     -webkit-background-clip: text;
@@ -213,14 +213,14 @@ body {
 }
 .internship-page .hero-buttons {
     display: flex;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
 }
 .internship-page .hero-buttons .btn {
     flex: 0 0 auto;
-    width: auto !important;
+    width: auto;
     min-width: 0;
     white-space: nowrap;
 }
@@ -360,7 +360,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -393,6 +393,19 @@ body {
     gap: 5px;
 }
 
+.internship-page .card-tags .tag {
+    display: inline-block;
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    background-image: none !important;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 .tag {
     padding: 4px 10px;
     border-radius: 6px;
@@ -401,16 +414,16 @@ body {
     text-transform: uppercase;
 }
 
-.tag-design { background-color: #eff6ff; color: #2563eb; }
-.tag-programming { background-color: #f0fdf4; color: #16a34a; }
-.tag-marketing { background-color: #fff7ed; color: #c2410c; }
-.tag-creative { background-color: #faf5ff; color: #9333ea; }
-.tag-management { background-color: #fefce8; color: #ca8a04; }
-.tag-communication { background-color: #fdf2f8; color: #db2777; }
+.tag-design { background-color: #eff6ff !important; color: #2563eb; }
+.tag-programming { background-color: #f0fdf4 !important; color: #16a34a; }
+.tag-marketing { background-color: #fff7ed !important; color: #c2410c; }
+.tag-creative { background-color: #faf5ff !important; color: #9333ea; }
+.tag-management { background-color: #fefce8 !important; color: #ca8a04; }
+.tag-communication { background-color: #fdf2f8 !important; color: #db2777; }
 
-.tag-level-beginner { background-color: #ecfccb; color: #4d7c0f; }
-.tag-level-intermediate { background-color: #dbeafe; color: #1e40af; }
-.tag-level-advanced { background-color: #fee2e2; color: #b91c1c; }
+.tag-level-beginner { background-color: #ecfccb !important; color: #4d7c0f; }
+.tag-level-intermediate { background-color: #dbeafe !important; color: #1e40af; }
+.tag-level-advanced { background-color: #fee2e2 !important; color: #b91c1c; }
 
 .card-duration {
     font-size: 12px;
@@ -473,9 +486,21 @@ body {
     background: #f1f5f9;
     color: #475569;
     font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
 }
+
+.benefit-yellow { background-color: #FEF9C3; color: #A16207; }
+.benefit-orange { background-color: #FFEDD5; color: #C2410C; }
+.benefit-purple { background-color: #F3E8FF; color: #7E22CE; }
+.benefit-blue { background-color: #DBEAFE; color: #1E40AF; }
+.benefit-green { background-color: #DCFCE7; color: #166534; }
+.benefit-teal { background-color: #CCFBF1; color: #115E59; }
+.benefit-slate { background-color: #E2E8F0; color: #334155; }
+.benefit-pink { background-color: #FCE7F3; color: #BE185D; }
+.benefit-rose { background-color: #FFE4E6; color: #9F1239; }
+.benefit-lime { background-color: #ECFCCB; color: #4D7C0F; }
 
 .card-footer {
     margin-top: auto;
@@ -483,10 +508,10 @@ body {
 
 .card-footer .btn {
     width: 100%;
-    background: var(--dark-blue);
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
+    background: linear-gradient(90deg, #EA580C 0%, #EF4444 100%);
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -494,11 +519,13 @@ body {
     gap: 8px;
     font-size: 14px;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.2s ease;
+    box-shadow: 0 6px 15px rgba(234, 88, 12, 0.25);
 }
 
 .card-footer .btn:hover {
-    background: var(--primary-orange);
+    filter: brightness(1.05);
+    transform: translateY(-1px);
 }
 
 /* ===== CTA SECTION ===== */
@@ -560,7 +587,7 @@ body {
 
 .footer-widgets {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     margin-bottom: 40px;
 }

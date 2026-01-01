@@ -7,8 +7,13 @@ import { useContent } from '../content/ContentContext';
 const PhoneIcon = FaPhone as unknown as React.ComponentType;
 const EmailIcon = MdEmail as unknown as React.ComponentType;
 
-const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name: string) => images(`./${name}`);
+const getImg = (name: string) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 // Definisikan tipe untuk parameter fungsi
 type Direction = 'prev' | 'next';
@@ -124,13 +129,10 @@ const ContactCTASection: React.FC = () => {
 
 const TitikVisualWebsite: React.FC = () => {
   const content = useContent();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activePortfolioIndex, setActivePortfolioIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+
 
   const handlePortfolioNavigation = (direction: Direction) => {
     if (direction === 'prev') {
@@ -154,50 +156,7 @@ const TitikVisualWebsite: React.FC = () => {
   /* dynamic content for hero disabled to ensure design consistency */
   return (
     <div className={`titik-visual-website ${loaded ? 'page-loaded' : ''}`}>
-      {/* Navigation Bar */}
-      <header className="site-header">
-        <div className="container header-inner">
-          {/* Logo */}
-          <div className="logo-wrapper" onClick={() => navigateToPage('/')} style={{ cursor: 'pointer' }}>
-            <img src={getImg('img.png')} alt="Titik Visual" className="logo" />
-          </div>
-          
-          {/* Desktop Navigation */}
-          <nav className="nav" aria-label="Primary navigation">
-            <a href="/" className="nav-link active">Home</a>
-            <a href="/about" className="nav-link">About</a>
-            <a href="/services" className="nav-link">Services</a>
-            <a href="/portfolio" className="nav-link">Portfolio</a>
-            <a href="/careers" className="nav-link">Careers</a>
-            <a href="/contact" className="nav-link">Contact</a>
-          </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="mobile-menu-toggle" 
-            type="button" 
-            aria-label="Toggle mobile menu" 
-            aria-expanded={isMobileMenuOpen}
-            onClick={toggleMobileMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        
-          {/* Mobile Navigation Menu */}
-          <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
-            <nav className="mobile-nav" aria-label="Mobile navigation">
-            <a href="/" className="mobile-nav-link active">Home</a>
-            <a href="/about" className="mobile-nav-link">About</a>
-            <a href="/services" className="mobile-nav-link">Services</a>
-            <a href="/portfolio" className="mobile-nav-link">Portfolio</a>
-            <a href="/careers" className="mobile-nav-link">Careers</a>
-            <a href="/contact" className="mobile-nav-link">Contact</a>
-            </nav>
-          </div>
-      </header>
 
       <main>
         {/* Hero Section */}

@@ -14,9 +14,9 @@ import SocialMediaPage from './Page Detail layanan Social Media/Layanan Social M
 import InternshipPage from './halaman-program-magang/program-magang';
 import LowonganKerjaPage from './halaman-lowongan-kerja/lowongan-kerja';
 import CareersFooter from './halaman-careers/CareersFooter.jsx';
+import Navbar from './components/Navbar';
+
 // custom lightweight router without external wrappers
-const images: any = (require as any).context('./img', false, /\.(png|jpe?g|svg)$/);
-const getImg = (name: string) => images(`./${name}`);
 
 function HashRedirector() {
 
@@ -182,91 +182,7 @@ function App() {
       }
     });
   }, [path]);
-  useEffect(() => {
-    const nav = document.querySelector('.main-nav') as HTMLElement | null;
-    const isLayanan =
-      (window.location && window.location.pathname && window.location.pathname.includes('layanan')) ||
-      path === '/services';
-    const isLowonganKerja = path === '/lowongan-kerja';
 
-    if (nav) {
-      if (isLayanan) {
-        nav.classList.add('layanan-nav');
-        nav.style.background = 'linear-gradient(90deg, #A855F7, #06B6D4)';
-        const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
-        links.forEach(a => {
-          const text = (a.textContent || '').toLowerCase().trim();
-          if (text.includes('layanan') || text.includes('services')) {
-            const li = a.closest('li');
-            if (li) li.classList.add('active');
-          }
-          a.style.color = '#ffffff';
-        });
-        const icons = Array.from(nav.querySelectorAll('.nav-right i')) as HTMLElement[];
-        icons.forEach(i => {
-          i.style.color = '#ffffff';
-        });
-        const logo = nav.querySelector('img.logo') as HTMLImageElement | null;
-        if (logo) {
-          try {
-            logo.src = getImg('img.png');
-          } catch {}
-          logo.style.height = '60px';
-          logo.style.width = 'auto';
-          logo.style.display = 'block';
-          logo.style.opacity = '1';
-        }
-      } else if (isLowonganKerja) {
-        nav.classList.remove('layanan-nav');
-        nav.style.setProperty('background', '#FFFFFF', 'important');
-        nav.style.setProperty('background-image', 'none', 'important');
-        nav.style.setProperty('box-shadow', '0 2px 10px rgba(0,0,0,0.05)', 'important');
-        
-        const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
-        links.forEach(a => {
-          a.classList.remove('text-white');
-          a.style.setProperty('color', '#4B5563', 'important');
-          const li = a.closest('li');
-          if (li) li.classList.remove('active');
-        });
-        const icons = Array.from(nav.querySelectorAll('.nav-right i')) as HTMLElement[];
-        icons.forEach(i => {
-          i.classList.remove('fa-white');
-          i.style.setProperty('color', '#4B5563', 'important');
-        });
-        const logo = nav.querySelector('img.logo') as HTMLImageElement | null;
-        if (logo) {
-          logo.style.height = '';
-          logo.style.width = '';
-          logo.style.display = '';
-          logo.style.opacity = '';
-        }
-      } else {
-        nav.classList.remove('layanan-nav');
-        nav.style.background = '';
-        nav.style.boxShadow = '';
-        const links = Array.from(nav.querySelectorAll('.nav-right a')) as HTMLAnchorElement[];
-        links.forEach(a => {
-          a.classList.remove('text-white');
-          a.style.color = '';
-          const li = a.closest('li');
-          if (li) li.classList.remove('active');
-        });
-        const icons = Array.from(nav.querySelectorAll('.nav-right i')) as HTMLElement[];
-        icons.forEach(i => {
-          i.classList.remove('fa-white');
-          i.style.color = '';
-        });
-        const logo = nav.querySelector('img.logo') as HTMLImageElement | null;
-        if (logo) {
-          logo.style.height = '';
-          logo.style.width = '';
-          logo.style.display = '';
-          logo.style.opacity = '';
-        }
-      }
-    }
-  }, [path]);
   useEffect(() => {
     const routeTo = (p: string) => {
       if (window.location.pathname !== p) {
@@ -483,6 +399,7 @@ function App() {
   }
   return (
     <>
+      <Navbar currentPath={path} />
       <HashRedirector />
       {element}
       {path === '/careers' ? <CareersFooter /> : null}

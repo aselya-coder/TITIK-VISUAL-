@@ -287,7 +287,7 @@ body.page-loaded{
   display: flex;
   gap: 12px;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -539,7 +539,7 @@ body.page-loaded{
 /* Grid */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
@@ -706,7 +706,7 @@ a.price {
 /* GRID */
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
@@ -846,10 +846,10 @@ a.price {
   font-size: 16px;
 }
 .contact-cta-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 28px;
-  align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 28px;
+    align-items: start;
 }
 .contact-list-title {
   font-size: 18px;
@@ -961,9 +961,7 @@ a.price {
   font-size: 16px;
 }
 @media (max-width: 992px) {
-  .contact-cta-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Removed redundant contact-cta-grid query */
 }
 /*hero slider*/
 .hero-slider {
@@ -1146,7 +1144,7 @@ color: #6b7280;
 .achievements-grid {
 margin-top: 80px; /* jarak besar agar card tidak menempel bagian atas */
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 gap: 30px;
 }
 
@@ -1202,18 +1200,7 @@ font-size: 15px;
 
 
 /* Responsive */
-@media (max-width: 992px) {
-.achievements-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-}
-
-
-@media (max-width: 576px) {
-.achievements-grid {
-grid-template-columns: 1fr;
-}
-}
+/* Removed redundant media queries for achievements-grid as auto-fit handles it */
 
 /* Portfolio Section */
 .portfolio-section {
@@ -1477,7 +1464,7 @@ grid-template-columns: 1fr;
     align-items: stretch;
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 28px;
     margin-bottom: 0 !important;
 }
@@ -1702,7 +1689,7 @@ grid-template-columns: 1fr;
 /* Grid */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
   align-items: start;
 }

@@ -219,7 +219,7 @@ body {
 
 .category-grid-main {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 40px;
 }
@@ -272,6 +272,10 @@ body {
     background: linear-gradient(135deg, #e8fff0, #d1ffe3);
 }
 
+.card-icon.teal {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+}
+
 .card-icon img {
     width: 50px;
     height: 50px;
@@ -297,6 +301,10 @@ body {
 
 .card-icon.green i {
     color: #28a745;
+}
+
+.card-icon.teal i {
+    color: #0ea5e9;
 }
 
 .category-card h3 {
@@ -422,7 +430,7 @@ body {
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     max-width: 1000px;
     margin: 0 auto;
@@ -579,18 +587,24 @@ body {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
 }
 
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
 .custom-bags-section .products-grid,
 .corporate-gifts .products-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .custom-drinkware .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
 }
 
@@ -964,8 +978,9 @@ body {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     column-gap: 60px;
+    row-gap: 40px;
     align-items: start;
 }
 
@@ -1053,11 +1068,7 @@ body {
     .category-grid-main {
         grid-template-columns: repeat(3, 1fr);
     }
-    
-    .service-grid,
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* service-grid and products-grid handled by auto-fit */
 }
 
 @media (max-width: 768px) {

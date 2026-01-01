@@ -191,16 +191,16 @@ body {
     padding: 60px 0;
     background: #FFFFFF;
 }
-.hero-container {
+.logo-design-page .hero .container.hero-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 60px;
     align-items: start;
 }
 /* Scope tinggi untuk menetralkan CSS global yang memaksa center/flex */
 .logo-design-page .hero .container.hero-container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 60px;
     align-items: start;
 }
@@ -439,7 +439,7 @@ body {
 
 .logo-design-page .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 35px;
 }
 .logo-design-page .features .feature-item {
@@ -519,7 +519,7 @@ body {
 }
 .logo-types-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
 }
 .logo-type-item {
@@ -623,23 +623,16 @@ body {
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
 .logo-design-page *, .logo-design-page *::before, .logo-design-page *::after { box-sizing: border-box; }
 .logo-design-page img, .logo-design-page video, .logo-design-page iframe { max-width: 100%; height: auto; }
 .logo-design-page { overflow-x: hidden; }
-@media (max-width: 991px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 768px) {
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-}
+
+/* Redundant media queries removed - handled by auto-fit */
+
 .process-item {
   display: flex;
   align-items: flex-start;
@@ -740,7 +733,7 @@ body {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
@@ -856,7 +849,7 @@ body {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   align-items: start;
 }
@@ -1174,8 +1167,8 @@ body {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
-  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
   margin-bottom: 48px;
 }
 

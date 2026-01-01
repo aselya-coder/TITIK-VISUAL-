@@ -308,28 +308,7 @@ const SocialMediaPage = () => {
 
   return (
     <div className="social-media-page">
-      {/* TOP BAR & NAVBAR */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item"><i className="fa-solid fa-phone"></i><span>081804376001</span></div>
-          <div className="item"><i className="fa-solid fa-envelope"></i><span>titikvisualjogja@gmail.com</span></div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-      <nav className="main-nav">
-        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
-        <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx">Home</a></li>
-          <li><a href="../page-about/page-about.tsx">Profile</a></li>
-          <li className="active"><a href="../page-layanan/page-layanan.tsx">Layanan</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx">Portfolio</a></li>
-          <li><a href="../page-contact/page-contact.tsx">Kontak</a></li>
-        </ul>
-        <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
-      </nav>
+      
 
       {/* BREADCRUMB */}
       <section className="breadcrumb">

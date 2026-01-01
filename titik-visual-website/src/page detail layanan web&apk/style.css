@@ -197,7 +197,7 @@ body {
 }
 .hero-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 60px;
     align-items: center;
 }
@@ -430,7 +430,7 @@ body {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 24px;
 }
 
@@ -516,7 +516,7 @@ body {
 
 .website-app-page .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
   align-items: flex-start;
 }
@@ -672,7 +672,7 @@ body {
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
 }
 
@@ -841,7 +841,7 @@ body {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 48px;
   margin-bottom: 48px;
 }

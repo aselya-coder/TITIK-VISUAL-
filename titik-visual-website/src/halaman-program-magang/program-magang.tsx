@@ -233,6 +233,30 @@ const InternshipPage = () => {
       default: return '';
     }
   };
+ 
+   const getBenefitClass = (benefit: string) => {
+     const b = benefit.toLowerCase();
+     if (b.includes('sertifikat')) return 'benefit-yellow';
+     if (b.includes('uang saku')) return 'benefit-orange';
+     if (b.includes('mentoring')) return 'benefit-purple';
+     if (b.includes('portfolio')) return 'benefit-blue';
+     if (b.includes('network')) return 'benefit-green';
+     if (b.includes('hr')) return 'benefit-teal';
+     if (b.includes('office')) return 'benefit-slate';
+     if (b.includes('digital marketing')) return 'benefit-pink';
+     if (b.includes('equipment')) return 'benefit-rose';
+     if (b.includes('seo')) return 'benefit-lime';
+     if (b.includes('certification')) return 'benefit-yellow';
+     if (b.includes('experience')) return 'benefit-teal';
+     if (b.includes('skills')) return 'benefit-slate';
+     if (b.includes('planning')) return 'benefit-blue';
+     if (b.includes('strategy')) return 'benefit-blue';
+     if (b.includes('leadership')) return 'benefit-teal';
+     if (b.includes('communication')) return 'benefit-pink';
+     if (b.includes('speaking')) return 'benefit-pink';
+     if (b.includes('branding')) return 'benefit-pink';
+     return '';
+   };
 
   React.useEffect(() => {
     const nav = document.querySelector('.main-nav') as HTMLElement | null;
@@ -251,30 +275,7 @@ const InternshipPage = () => {
   }, []);
   return (
     <div className="internship-page">
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item"><i className="fa-solid fa-phone"></i><span>081804376001</span></div>
-          <div className="item"><i className="fa-solid fa-envelope"></i><span>titikvisualjogja@gmail.com</span></div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-      <nav className="main-nav internship-nav">
-        <div className="nav-left">
-          <img src={logoImg} alt="Titik Visual Logo" className="logo" />
-        </div>
-        <ul className="nav-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-        <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
-      </nav>
+      
 
       {/* Hero Section */}
       <section className="hero-section">
@@ -363,7 +364,7 @@ const InternshipPage = () => {
                   <h4>Benefit:</h4>
                   <div className="benefit-tags">
                     {position.benefits.map((benefit, index) => (
-                      <span className="benefit-tag" key={index}>{benefit}</span>
+                      <span className={`benefit-tag ${getBenefitClass(benefit)}`} key={index}>{benefit}</span>
                     ))}
                   </div>
                 </div>

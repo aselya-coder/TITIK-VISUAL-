@@ -245,33 +245,7 @@ const LowonganKerjaPage = () => {
 
   return (
     <div className="lowongan-kerja-page">
-      {/* TOP BAR */}
-       <div className="top-bar">
-         <div className="container">
-           <div className="top-bar-left">
-             <span><i className="fas fa-phone"></i> 081804376001</span>
-             <span><i className="fas fa-envelope"></i> titikvisualjogja@gmail.com</span>
-           </div>
-           <div className="top-bar-right">
-             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
-             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-
-      {/* MAIN NAVBAR */}
-      <nav className="main-nav">
-        <div className="nav-left"><img src={logoImg} alt="Titik Visual Logo" className="logo" /></div>
-        <ul className="nav-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-        <div className="mobile-menu-toggle"><span></span><span></span><span></span></div>
-      </nav>
+      
 
       {/* Hero Section */}
       <section className="hero-section">

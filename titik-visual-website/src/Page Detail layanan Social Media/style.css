@@ -197,8 +197,8 @@ body {
 }
 .hero-container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
     align-items: start;
 }
 .hero-content {
@@ -388,13 +388,8 @@ body {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 36px;
-}
-@media (min-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .feature-item {
@@ -497,11 +492,6 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 24px;
     margin-top: 32px;
-}
-@media (min-width: 1024px) {
-  .platforms-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .platform-card {
@@ -848,26 +838,25 @@ body {
 
 .workflow-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* First row: 3 cards */
+/* Grid positioning handled by auto-fit */
 .workflow-grid .workflow-step-card:nth-child(1),
 .workflow-grid .workflow-step-card:nth-child(2),
 .workflow-grid .workflow-step-card:nth-child(3) {
-    grid-column: span 1;
+    grid-column: auto;
 }
 
-/* Second row: 2 cards aligned under first two */
 .workflow-grid .workflow-step-card:nth-child(4) {
-    grid-column: 1;
+    grid-column: auto;
 }
 
 .workflow-grid .workflow-step-card:nth-child(5) {
-    grid-column: 2;
+    grid-column: auto;
 }
 
 .workflow-step-card {
@@ -953,21 +942,6 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-    .workflow-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .workflow-grid .workflow-step-card:nth-child(3) {
-        grid-column: span 2;
-    }
-    
-    .workflow-grid .workflow-step-card:nth-child(4),
-    .workflow-grid .workflow-step-card:nth-child(5) {
-        grid-column: span 1;
-    }
-}
-
 @media (max-width: 768px) {
     .workflow-grid {
         grid-template-columns: 1fr;
@@ -1028,7 +1002,7 @@ body {
 
 .stories-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
@@ -1166,9 +1140,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .stories-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* stories-grid handled by auto-fit */
 }
 
 @media (max-width: 768px) {
@@ -1229,7 +1201,7 @@ body {
 
 .package-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
@@ -1367,9 +1339,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .package-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* package-grid handled by auto-fit */
     
     .package-card.recommended {
         transform: none;
@@ -1431,7 +1401,7 @@ body {
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;

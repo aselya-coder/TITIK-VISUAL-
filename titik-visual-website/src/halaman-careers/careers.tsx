@@ -1,125 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import careersImg from '../img/carreers.png';
 import logoImage from '../img/image.png';
-import navbarLogo from '../img/img.png';
 
 const CareersPage: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   useEffect(() => {
     // Add page-loaded class to body for fade-in effect
     document.body.classList.add("page-loaded");
     
-    // Ensure navbar looks correct specifically on Careers
-    const nav = document.querySelector('.main-nav') as HTMLElement | null;
-    const links = Array.from(document.querySelectorAll('.main-nav .nav-right a')) as HTMLAnchorElement[];
-    const icons = Array.from(document.querySelectorAll('.main-nav .nav-right i')) as HTMLElement[];
-    const prev: { bg?: string; shadow?: string; colors: string[]; iconColors: string[] } = { colors: [], iconColors: [] };
-    if (nav) {
-      prev.bg = nav.style.background;
-      prev.shadow = nav.style.boxShadow;
-      links.forEach(a => prev.colors.push(a.style.color));
-      icons.forEach(i => prev.iconColors.push(i.style.color));
-      nav.classList.remove('layanan-nav');
-      nav.style.background = '#FFFFFF';
-      nav.style.boxShadow = '';
-      links.forEach(a => {
-        a.classList.remove('text-white');
-        a.style.color = '#4B5563';
-      });
-      icons.forEach(i => {
-        i.classList.remove('fa-white');
-        i.style.color = '#4B5563';
-      });
-    }
     return () => {
       document.body.classList.remove("page-loaded");
-      // restore previous navbar inline styles when leaving Careers
-      if (nav) {
-        nav.style.background = prev.bg || '';
-        nav.style.boxShadow = prev.shadow || '';
-      }
-      links.forEach((a, idx) => {
-        a.style.color = prev.colors[idx] || '';
-      });
-      icons.forEach((i, idx) => {
-        i.style.color = prev.iconColors[idx] || '';
-      });
     };
   }, []);
 
   return (
     <div className="careers-page">
-      {/* TOP BAR & NAVBAR */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item"><i className="fa-solid fa-phone"></i><span>081804376001</span></div>
-          <div className="item"><i className="fa-solid fa-envelope"></i><span>titikvisualjogja@gmail.com</span></div>
-        </div>
-        <div className="top-right">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
-        </div>
-      </div>
-      <nav className="main-nav">
-        <div className="nav-left">
-          <img src={navbarLogo} alt="Titik Visual Logo" className="logo" />
-        </div>
-        <ul className="nav-right">
-          <li><a href="../beranda/beranda.tsx" className="nav-link">Home</a></li>
-          <li><a href="../page-about/page-about.tsx" className="nav-link">About</a></li>
-          <li><a href="../page-layanan/page-layanan.tsx" className="nav-link">Services</a></li>
-          <li><a href="../page-portfolio/page-portfolio.tsx" className="nav-link">Portfolio</a></li>
-          <li><button 
-            onClick={() => scrollToSection('careers')} 
-            className="nav-link active"
-            aria-label="Careers section"
-          >
-            Careers
-          </button></li>
-          <li><a href="../page-contact/page-contact.tsx" className="nav-link">Contact</a></li>
-        </ul>
-        <button 
-          className="mobile-menu-toggle" 
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-          aria-expanded={isMobileMenuOpen}
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
 
-      {/* Mobile Navigation Menu */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        <nav className="mobile-nav">
-          <a href="../beranda/beranda.tsx" className="mobile-nav-link">Home</a>
-          <a href="../page-about/page-about.tsx" className="mobile-nav-link">About</a>
-          <a href="../page-layanan/page-layanan.tsx" className="mobile-nav-link">Services</a>
-          <a href="../page-portfolio/page-porfolio.tsx" className="mobile-nav-link">Portfolio</a>
-          <button 
-            onClick={() => scrollToSection('careers')} 
-            className="mobile-nav-link active"
-            aria-label="Careers section"
-          >
-            Careers
-          </button>
-          <a href="../page-contact/page-contact.tsx" className="mobile-nav-link">Contact</a>
-        </nav>
-      </div>
+
 
       <main>
         {/* Hero Section */}
@@ -247,7 +145,7 @@ const CareersPage: React.FC = () => {
             </div>
 
             {/* Cards Layout */}
-            <div className="grid grid-cols-2 gap-4 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
               {/* Card 1: Program Magang */}
               <div className="bg-white rounded-[2.5rem] border border-orange-200 p-8 md:p-10 flex flex-col items-center hover:shadow-xl transition-all duration-300 h-full">
                 {/* Icon */}

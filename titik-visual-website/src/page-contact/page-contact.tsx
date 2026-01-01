@@ -1,10 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
-const images: any = (require as any).context('../img', false, /\.(png|jpe?g|svg)$/);
 const getImg = (name: string) => {
   try {
-    return images(`./${name}`);
+    return require(`../img/${name}`);
   } catch {
     return `/${name}`;
   }
@@ -49,11 +48,6 @@ const ContactPage = () => {
   });
 
   const [formAlert, setFormAlert] = useState<string>('');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -95,11 +89,6 @@ const ContactPage = () => {
     
     // Hapus pesan setelah 5 detik
     setTimeout(() => setFormAlert(''), 5000);
-  };
-
-  // Fungsi untuk navigasi ke halaman lain
-  const navigateToPage = (path: string) => {
-    window.location.href = path;
   };
 
   // Contact info data
@@ -155,63 +144,9 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
-      {/* TOP BAR */}
-      <div className="top-bar">
-        <div className="top-left">
-          <div className="item">
-            <i className="fa-solid fa-phone"></i>
-            <span>081804376001</span>
-          </div>
-          <div className="item">
-            <i className="fa-solid fa-envelope"></i>
-            <span>titikvisualjogja@gmail.com</span>
-          </div>
-        </div>
-        <div className="top-right">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <i className="fab fa-twitter"></i>
-          </a>
-        </div>
-      </div>
 
-      {/* MAIN NAVBAR */}
-      <nav className="main-nav">
-        <div className="nav-left" onClick={() => navigateToPage('/')} style={{ cursor: 'pointer' }}>
-          <img src={getImg('img.png')} alt="Titik Visual Logo" className="logo" />
-        </div>
-        <ul className="nav-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">Profile</a></li>
-          <li><a href="/layanan">Layanan</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li className="active"><a href="/contact">Kontak</a></li>
-        </ul>
-        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-      
-      {/* Mobile Navigation Menu */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
-          <nav className="mobile-nav" aria-label="Mobile navigation">
-            <a href="/" className="mobile-nav-link">Home</a>
-            <a href="/about" className="mobile-nav-link">About</a>
-            <a href="/layanan" className="mobile-nav-link">Services</a>
-            <a href="/portfolio" className="mobile-nav-link">Portfolio</a>
-            <a href="/contact" className="mobile-nav-link active">Contact</a>
-          </nav>
-      </div>
+
+
 
       <section
         className="hero-section"
