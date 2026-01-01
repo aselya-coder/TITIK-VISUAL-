@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import heroImage from '../img/Page Detail Layanan Logo Design.png';
 import logoImg from '../img/img.png';
 import iconKonsep from '../img/icon konsep unik .png';
 import iconMultiple from '../img/icon multiple.png';
@@ -8,6 +7,14 @@ import iconFile from '../img/icon file.png';
 import iconUnlimited from '../img/icon unlimited.png';
 import jenisLogoImg from '../img/jenis logo.png';
 import portfolioImg from '../img/portfolio logo desain.png';
+
+const getImg = (name: string) => {
+  try {
+    return require(`../img/${name}`);
+  } catch {
+    return '';
+  }
+};
 
 interface PortfolioItem {
   id: number;
@@ -72,14 +79,14 @@ const LogoDesignPage = () => {
       text: '"Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!"',
       clientName: 'Ahmad Rizki',
       clientPosition: 'Founder at StartupHub Jakarta',
-      clientImage: heroImage
+      clientImage: getImg('team1.jpg')
     },
     {
       id: 2,
       text: '"Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!"',
       clientName: 'Maya Sari',
       clientPosition: 'Owner at Boutique Fashion',
-      clientImage: heroImage
+      clientImage: getImg('team1.jpg')
     }
   ];
 
@@ -89,7 +96,7 @@ const LogoDesignPage = () => {
       id: 1,
       name: 'Logo Basic',
       price: 'Rp 500.000',
-      duration: '3-5 hari',
+      duration: '3 Hari',
       bestFor: 'Best for: Startup & UKM',
       features: [
         '3 Konsep Logo',
@@ -103,7 +110,7 @@ const LogoDesignPage = () => {
       id: 2,
       name: 'Logo Professional',
       price: 'Rp 1.200.000',
-      duration: '5-7 hari',
+      duration: '5-7 Hari',
       bestFor: 'Best for: Business & Corporate',
       features: [
         '5 Konsep Logo',
@@ -120,7 +127,7 @@ const LogoDesignPage = () => {
       id: 3,
       name: 'Brand Identity Package',
       price: 'Rp 2.500.000',
-      duration: '1-2 minggu',
+      duration: '1-2 Minggu',
       bestFor: 'Best for: Complete Branding',
       features: [
         'Logo Professional Package',
@@ -249,8 +256,10 @@ const LogoDesignPage = () => {
       <section
         className="hero"
         style={{
-          background: '#FFFFFF',
-          padding: '80px 0'
+          background: '#E0F2FE',
+          padding: '100px 0',
+          position: 'relative',
+          overflow: 'hidden'
         }}
       >
         <div
@@ -258,29 +267,36 @@ const LogoDesignPage = () => {
         >
           {/* hero-left (TEXT AREA) */}
           <div className="hero-left hero-content" style={{ textAlign: 'left' }}>
-            <div className="badge" style={{ marginBottom: 16 }}>
-              <span className="subtitle" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                <i className="fa-solid fa-palette"></i>
+            <div className="badge" style={{ marginBottom: 20 }}>
+              <span className="subtitle" style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: 8,
+                backgroundColor: '#F97316',
+                color: '#ffffff',
+                padding: '8px 16px',
+                borderRadius: '20px',
+                fontSize: '14px',
+                fontWeight: 600
+              }}>
+                <i className="fa-solid fa-palette" style={{ color: '#ffffff' }}></i>
                 Professional Logo Design
               </span>
             </div>
-            <div className="hero-title" style={{ marginBottom: 16 }}>
-              <h1 style={{ fontWeight: 800, lineHeight: 1.15 }}>
-                <span className="gradient-text">Logo yang Memorable</span>
-                <span className="subtitle-text" style={{ display: 'block', color: '#111827', fontWeight: 800 }}>
-                  untuk Brand Anda
-                </span>
+            <div className="hero-title" style={{ marginBottom: 20 }}>
+              <h1 style={{ fontWeight: 800, lineHeight: 1.2, color: '#1e293b', fontSize: '48px' }}>
+                Logo yang <span style={{ color: '#DB2777' }}>Memorable</span> untuk Brand Anda
               </h1>
             </div>
             <p
               className="hero-desc"
-              style={{ maxWidth: 720, color: '#6b7280', marginBottom: 28 }}
+              style={{ maxWidth: 600, color: '#475569', marginBottom: 32, fontSize: '16px', lineHeight: '1.7' }}
             >
               Ciptakan identitas visual yang kuat dengan logo profesional yang
               mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga
               eksekusi, kami pastikan logo Anda memorable dan timeless.
             </p>
-            <div className="hero-actions hero-buttons">
+            <div className="hero-actions hero-buttons" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a
                 href="https://wa.me/6281804376001"
                 className="btn btn-gradient"
@@ -290,14 +306,20 @@ const LogoDesignPage = () => {
                   borderRadius: 12,
                   padding: '14px 28px',
                   background: 'linear-gradient(90deg, #F97316, #EC4899)',
-                  color: '#ffffff'
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textDecoration: 'none',
+                  border: 'none'
                 }}
               >
-                <i className="fa-regular fa-comment"></i>
+                <i className="fa-regular fa-comment" style={{ color: '#ffffff' }}></i>
                 <span>Konsultasi Gratis</span>
               </a>
               <a
-                href="../page-portfolio/page-portfolio.tsx"
+                href="/portfolio"
                 className="btn btn-outline"
                 style={{
                   backgroundColor: '#ffffff',
@@ -305,16 +327,21 @@ const LogoDesignPage = () => {
                   padding: '14px 28px',
                   borderWidth: 2,
                   borderStyle: 'solid',
-                  borderColor: 'rgba(235, 86, 31, 0.45)',
-                  color: '#EA580C'
+                  borderColor: '#F97316',
+                  color: '#F97316',
+                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textDecoration: 'none'
                 }}
               >
-                <i className="far fa-eye"></i>
+                <i className="far fa-eye" style={{ color: '#F97316' }}></i>
                 <span>Lihat Portfolio</span>
               </a>
             </div>
           </div>
-          {/* hero-right (IMAGE AREA) */}
+          {/* hero-right (LOGO PREVIEW CARD) */}
           <div className="hero-right">
             <div
               className="image-wrapper"
@@ -324,29 +351,58 @@ const LogoDesignPage = () => {
               }}
             >
               <div
-                className="image-card"
+                className="image-card logo-preview-card"
                 style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: 20,
-                  padding: 20,
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.07)',
+                  backgroundColor: '#1e293b',
+                  borderRadius: 16,
+                  padding: '50px 40px',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
                   position: 'relative',
                   zIndex: 1,
-                  border: '1px solid #F3E8FF',
-                  maxWidth: '100%'
+                  maxWidth: '100%',
+                  minHeight: '450px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <img
-                  src={heroImage}
-                  alt="Logo Preview"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'cover',
-                    borderRadius: 12,
-                    display: 'block'
-                  }}
-                />
+                <div style={{ marginBottom: '40px' }}>
+                  <img
+                    src={getImg('Page Detail Layanan Logo Design.png')}
+                    alt="Logo Preview"
+                    style={{
+                      width: '150px',
+                      height: '150px',
+                      objectFit: 'contain',
+                      filter: 'brightness(0) saturate(100%) invert(77%) sepia(47%) saturate(2000%) hue-rotate(5deg) brightness(105%) contrast(95%)'
+                    }}
+                  />
+                </div>
+                <h2 style={{ 
+                  color: '#FCD34D', 
+                  fontSize: '36px', 
+                  fontWeight: 800, 
+                  marginBottom: '12px',
+                  letterSpacing: '3px',
+                  textTransform: 'uppercase',
+                  fontFamily: 'sans-serif'
+                }}>
+                  COMPANY NAME
+                </h2>
+                <p style={{ 
+                  color: '#FCD34D', 
+                  fontSize: '16px', 
+                  fontWeight: 600,
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  opacity: 0.9,
+                  fontFamily: 'sans-serif'
+                }}>
+                  SLOGAN HERE
+                </p>
               </div>
               <div
                 className="decorative-circle"
@@ -358,7 +414,8 @@ const LogoDesignPage = () => {
                   height: 100,
                   background: 'linear-gradient(135deg, #60A5FA, #22D3EE)',
                   borderRadius: '50%',
-                  zIndex: 2
+                  zIndex: 2,
+                  boxShadow: '0 4px 20px rgba(96, 165, 250, 0.4)'
                 }}
               />
             </div>
@@ -404,15 +461,18 @@ const LogoDesignPage = () => {
             <h2>Proses Design Logo</h2>
             <p>Metodologi yang terbukti untuk logo yang powerful</p>
           </div>
-          <div className="process-grid">
+          <div className="process-grid-cards">
             {processSteps.map((step, index) => (
-              <div className="process-item" key={index} data-aos="fade-up" data-aos-delay={`${(index + 1) * 100}`}>
-                <div className="process-step">{step.step}</div>
-                <div className="process-item-content" style={{ textAlign: 'left', flex: 1 }}>
+              <div className="process-card" key={index}>
+                <div className="process-step-circle">
+                  <span className="step-number">{step.step}</span>
+                </div>
+                <div className="process-card-content">
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                  <div className="process-duration" style={{ display: 'inline-flex' }}>
-                    <i className="fa-regular fa-clock"></i> {step.duration}
+                  <div className="process-duration-pill">
+                    <i className="fa-regular fa-clock"></i>
+                    <span>{step.duration}</span>
                   </div>
                 </div>
               </div>
@@ -541,8 +601,9 @@ const LogoDesignPage = () => {
             <h2>Siap Membuat Logo yang Memorable?</h2>
             <p>Konsultasikan kebutuhan logo dan brand identity Anda dengan tim designer ahli kami secara gratis</p>
             <div className="cta-buttons">
-              <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> WhatsApp Sekarang</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-light"><i className="fas fa-download"></i> Download Portfolio</a>
+              <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer">
+                <i className="fa-regular fa-comment"></i> Konsultasi Sekarang
+              </a>
             </div>
           </div>
         </div>
@@ -559,25 +620,15 @@ const LogoDesignPage = () => {
             <div className="footer-col">
               <h4>Logo Services</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#logo-design'} className="link-button">Logo Design</button></li>
-                <li><button onClick={() => window.location.href = '#brand-identity'} className="link-button">Brand Identity</button></li>
-                <li><button onClick={() => window.location.href = '#logo-redesign'} className="link-button">Logo Redesign</button></li>
-                <li><button onClick={() => window.location.href = '#brand-guidelines'} className="link-button">Brand Guidelines</button></li>
-                <li><button onClick={() => window.location.href = '#stationery-design'} className="link-button">Stationery Design</button></li>
+                <li><a href="#logo-design">Logo Custom</a></li>
+                <li><a href="#brand-identity">Brand Identity</a></li>
+                <li><a href="#logo-redesign">Logo Redesign</a></li>
+                <li><a href="#brand-guidelines">Brand Guidelines</a></li>
+                <li><a href="#stationery-design">Stationery Design</a></li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4>Logo Types</h4>
-              <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#wordmark'} className="link-button">Wordmark</button></li>
-                <li><button onClick={() => window.location.href = '#pictorial'} className="link-button">Pictorial</button></li>
-                <li><button onClick={() => window.location.href = '#combination'} className="link-button">Combination</button></li>
-                <li><button onClick={() => window.location.href = '#emblem'} className="link-button">Emblem</button></li>
-                <li><button onClick={() => window.location.href = '#abstract'} className="link-button">Abstract</button></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Kontak</h4>
+              <h4>KONTAK</h4>
               <ul className="footer-contact">
                 <li>081804376001</li>
                 <li>titikvisualjogja@gmail.com</li>
@@ -586,7 +637,7 @@ const LogoDesignPage = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            © 2024 Titik Visual. All rights reserved.
+            <p>© 2024 Titik Visual. All rights reserved.</p>
           </div>
         </div>
       </footer>

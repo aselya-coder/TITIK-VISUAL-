@@ -189,7 +189,11 @@ body {
 /* ===== Hero Section ===== */
 .hero {
     padding: 60px 0;
-    background: #FFFFFF;
+    background: #E0F2FE;
+}
+
+.logo-preview-card {
+    background: linear-gradient(135deg, #1e293b, #0f172a) !important;
 }
 .logo-design-page .hero .container.hero-container {
     display: grid;
@@ -291,6 +295,16 @@ body {
     .hero-image-wrapper,
     .image-wrapper {
         justify-self: start;
+    }
+    .process-grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .process-grid-cards {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -595,20 +609,20 @@ body {
   margin-bottom: 60px;
 }
 .process .section-title h2 {
-  background: linear-gradient(90deg, #F87171, #EF4444);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #EF4444;
   font-weight: 800;
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
   margin-bottom: 10px;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
 }
 .process .section-title p {
   text-align: center;
-  color: #6B7280;
-  font-weight: 500;
+  color: #111827;
+  font-weight: 400;
   font-size: 16px;
   max-width: 600px;
   margin: 0 auto;
@@ -618,13 +632,107 @@ body {
   -webkit-background-clip: initial;
   background-clip: initial;
   -webkit-text-fill-color: initial;
-  color: #374151 !important;
+  color: #111827 !important;
 }
 
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+}
+
+.process-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.process-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.process-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.process-step-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F97316, #EC4899);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+  position: relative;
+}
+
+.process-step-circle .step-number {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.process-card-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.process-card-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.process-card-content p {
+  color: #111827;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 280px;
+}
+
+.process-duration-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #FFF7ED;
+  color: #EA580C;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #FED7AA;
+  margin-top: auto;
+}
+
+.process-duration-pill i {
+  font-size: 14px;
+  color: #EA580C;
 }
 
 .logo-design-page *, .logo-design-page *::before, .logo-design-page *::after { box-sizing: border-box; }
@@ -874,8 +982,18 @@ body {
 }
 
 .pricing-card.recommended {
-  border: 2px solid #F97316;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #F97316, #EC4899) border-box;
   position: relative;
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2);
+}
+
+@media (max-width: 768px) {
+  .pricing-card.recommended {
+    transform: scale(1);
+  }
 }
 
 .pricing-card h3 {
@@ -1213,6 +1331,11 @@ body {
 .footer-bottom {
   border-top: 1px solid #374151;
   padding-top: 24px;
-  text-align: right;
+  text-align: center;
   font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #9ca3af;
 }

@@ -1062,6 +1062,416 @@ body {
 }
 
 /* =========================================================
+   SERVICES LIST SECTION
+========================================================= */
+.services-list-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.section-header-v2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header-v2 h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #3B82F6, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.section-header-v2 p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.section-header-v2.centered {
+    text-align: center;
+}
+
+.services-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* =========================================================
+   PRODUCT SECTIONS
+========================================================= */
+.custom-drinkware .section-title {
+    background: linear-gradient(90deg, #3B82F6, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-bags-section .section-title {
+    background: linear-gradient(90deg, #DB2777, #E11D48);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.corporate-gifts .section-title {
+    background: linear-gradient(90deg, #16A34A, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lifestyle-merch .section-title {
+    background: linear-gradient(90deg, #EA580C, #DC2626);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+}
+
+/* =========================================================
+   WORK PROCESS SECTION
+========================================================= */
+.work-process-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.work-process-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 60px;
+    padding: 0 20px;
+}
+
+.work-process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, #A855F7, #3B82F6);
+    z-index: 0;
+}
+
+.timeline-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #A855F7, #3B82F6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    background: linear-gradient(135deg, #3B82F6, #06B6D4);
+}
+
+.timeline-icon i {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.step-number {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background-color: #F97316;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.timeline-description {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 200px;
+}
+
+/* =========================================================
+   FAQ SECTION UPDATES
+========================================================= */
+.faq-grid {
+    max-width: 900px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-icon {
+    font-size: 24px;
+    font-weight: 300;
+    color: #A855F7;
+    transition: transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3e7ff;
+}
+
+.toggle-icon.active {
+    transform: rotate(45deg);
+    background: #A855F7;
+    color: white;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 0;
+}
+
+.faq-answer.open {
+    max-height: 500px;
+    padding: 15px 0 0 0;
+}
+
+/* =========================================================
+   CTA SECTION V2
+========================================================= */
+.cta-section-v2 {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #A855F7, #3B82F6);
+    text-align: center;
+    color: white;
+}
+
+.cta-content-v2 h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.cta-content-v2 p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.cta-buttons-v2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-v2 {
+    background: white;
+    color: #A855F7;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary-v2:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary-v2 {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-secondary-v2:hover {
+    background: white;
+    color: #3B82F6;
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER UPDATES
+========================================================= */
+.footer {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #cbd5e1;
+    padding: 60px 20px 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    column-gap: 60px;
+    row-gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #e3e8ef;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #9fb2c8;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #A855F7;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 14px;
+}
+
+.footer-list a:hover {
+    color: #ffffff;
+}
+
+.footer-list.contact-info li {
+    color: #9fb2c8;
+    font-size: 14px;
+}
+
+.footer-list.contact-info i {
+    color: #A855F7;
+    font-size: 14px;
+    width: 20px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+    color: #9fb2c8;
+}
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 @media (max-width: 1024px) {
@@ -1077,13 +1487,24 @@ body {
     }
     
     .service-grid,
-    .products-grid {
+    .products-grid,
+    .services-grid-v2 {
         grid-template-columns: 1fr;
     }
     
-    .process-timeline {
+    .work-process-timeline {
         flex-direction: column;
         align-items: center;
+        gap: 40px;
+    }
+    
+    .work-process-timeline::before {
+        display: none;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        max-width: 300px;
     }
     
     .footer-grid {
@@ -1098,6 +1519,25 @@ body {
     .mobile-menu-toggle {
         display: flex;
     }
+    
+    .section-header-v2 h2 {
+        font-size: 28px;
+    }
+    
+    .cta-content-v2 h2 {
+        font-size: 28px;
+    }
+    
+    .cta-buttons-v2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary-v2,
+    .btn-secondary-v2 {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1109,21 +1549,33 @@ body {
         font-size: 28px;
     }
     
-    .section-title {
-        font-size: 26px;
+    .section-title,
+    .section-header-v2 h2 {
+        font-size: 24px;
     }
     
     .footer-grid {
         grid-template-columns: 1fr;
     }
     
-    .cta-buttons {
+    .cta-buttons,
+    .cta-buttons-v2 {
         flex-direction: column;
     }
     
-    .btn-cta {
+    .btn-cta,
+    .btn-primary-v2,
+    .btn-secondary-v2 {
         width: 100%;
         justify-content: center;
+    }
+    
+    .work-process-timeline {
+        padding: 0 10px;
+    }
+    
+    .timeline-description {
+        max-width: 100%;
     }
 }
 
