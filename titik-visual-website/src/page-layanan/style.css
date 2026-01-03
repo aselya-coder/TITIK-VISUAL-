@@ -428,6 +428,35 @@ body {
     margin-bottom: 50px;
 }
 
+.section-header-v2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-header-v2 h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #A855F7, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.section-header-v2 p {
+    font-size: 16px;
+    color: #666;
+}
+
+.services-list-section {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.services-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+}
+
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -452,19 +481,21 @@ body {
 }
 
 .service-card-v2 .card-image-container {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 0;
     text-align: center;
-    height: 180px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .service-card-v2 .card-image-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .service-card-v2 .card-content-v2 {
@@ -487,6 +518,7 @@ body {
     color: #718096;
     margin-bottom: 20px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .service-card-v2 h4 {
@@ -526,9 +558,7 @@ body {
     border-top: 1px solid #e2e8f0;
 }
 
-.service-card-v2 .info-row:first-of-type {
-    margin-top: auto; /* Push to bottom */
-}
+/* removed auto push to ensure duration always visible */
 
 .service-card-v2 .info-row span:first-child {
     color: #718096;
@@ -540,8 +570,21 @@ body {
 }
 
 .service-card-v2 .info-row .price {
-    color: #8a2be2;
     font-weight: 700;
+    color: #1f2937;
+}
+
+/* Card accent-specific price colors */
+.service-card-v2.accent-purple .info-row .price { color: #A855F7; }
+.service-card-v2.accent-blue .info-row .price { color: #3B82F6; }
+.service-card-v2.accent-green .info-row .price { color: #22C55E; }
+.service-card-v2.accent-orange .info-row .price { color: #F97316; }
+.service-card-v2.accent-pink .info-row .price { color: #EC4899; }
+
+/* Emphasize duration value */
+.service-card-v2 .info-row:last-of-type span:last-child {
+    font-weight: 700;
+    color: #111827;
 }
 
 .service-card-v2 .btn-pesan {
@@ -655,6 +698,7 @@ body {
     color: #6b7280;
     margin-bottom: 20px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .product-content h4 {
@@ -711,6 +755,101 @@ body {
 .info-item .price {
     color: var(--primary-color);
     font-weight: 700;
+}
+
+.custom-bags-section .product-card.accent-pink .info-item .price {
+    color: #EC4899;
+}
+.custom-bags-section .product-card.accent-blue .info-item .price {
+    color: #3B82F6;
+}
+.custom-bags-section .product-card.accent-green .info-item .price {
+    color: #16A34A;
+}
+
+.custom-drinkware .product-card.accent-blue .info-item .price {
+    color: #3B82F6;
+}
+.custom-drinkware .product-card.accent-orange .info-item .price {
+    color: #F97316;
+}
+.custom-drinkware .product-card.accent-pink .info-item .price {
+    color: #EC4899;
+}
+.custom-drinkware .product-card.accent-green .info-item .price {
+    color: #16A34A;
+}
+
+.corporate-gifts .product-card.accent-green .info-item .price {
+    color: #16A34A;
+}
+.corporate-gifts .product-card.accent-pink .info-item .price {
+    color: #EC4899;
+}
+.corporate-gifts .product-card.accent-purple .info-item .price {
+    color: #8B5CF6;
+}
+
+.lifestyle-merch .product-card.accent-blue .info-item .price {
+    color: #3B82F6;
+}
+.lifestyle-merch .product-card.accent-orange .info-item .price {
+    color: #F97316;
+}
+.lifestyle-merch .product-card.accent-pink .info-item .price {
+    color: #EC4899;
+}
+.lifestyle-merch .product-card.accent-slate .info-item .price {
+    color: #64748B;
+}
+
+.custom-drinkware .section-header-v2 .section-subtitle {
+    text-align: center !important;
+}
+
+.custom-drinkware .section-header-v2 {
+    text-align: center !important;
+}
+.custom-drinkware .section-header-v2 p.section-subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-bags-section .section-header-v2 {
+    text-align: center !important;
+}
+.custom-bags-section .section-header-v2 .section-subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.corporate-gifts .section-header-v2 {
+    text-align: center !important;
+}
+.corporate-gifts .section-header-v2 .section-subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lifestyle-merch .section-header-v2 {
+    text-align: center !important;
+}
+.lifestyle-merch .section-header-v2 .section-subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-info-grid .info-item .duration {
+    font-weight: 700;
+    color: #111827;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
 }
 
 .product-price {
@@ -1075,14 +1214,14 @@ body {
 }
 
 .section-header-v2 h2 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #3B82F6, #06B6D4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #A855F7, #06B6D4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .section-header-v2 p {
@@ -1211,7 +1350,7 @@ body {
     color: #ffffff;
 }
 
-.step-number {
+.work-process-section .step-number {
     position: absolute;
     top: -12px;
     left: 50%;
@@ -1299,7 +1438,7 @@ body {
 ========================================================= */
 .cta-section-v2 {
     padding: 80px 0;
-    background: linear-gradient(135deg, #A855F7, #3B82F6);
+    background: linear-gradient(90deg, #A855F7, #06B6D4);
     text-align: center;
     color: white;
 }
@@ -1328,7 +1467,7 @@ body {
     background: white;
     color: #A855F7;
     padding: 15px 35px;
-    border-radius: 30px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
@@ -1349,7 +1488,7 @@ body {
     color: white;
     border: 2px solid white;
     padding: 15px 35px;
-    border-radius: 30px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
@@ -1361,7 +1500,7 @@ body {
 
 .btn-secondary-v2:hover {
     background: white;
-    color: #3B82F6;
+    color: #06B6D4;
     transform: translateY(-3px);
 }
 

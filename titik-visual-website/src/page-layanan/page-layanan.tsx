@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 const getImg = (name: string) => {
   try {
@@ -168,12 +168,12 @@ function ServicesPage() {
         <div className="container">
           <div className="section-header-v2">
             <h2>Digital Creative Services</h2>
-            <p>Layanan digital unggulan yang siap membantu pertumbuhan bisnis Anda.</p>
+            <p>Layanan digital lengkap untuk mengembangkan presence online bisnis Anda</p>
           </div>
 
           <div className="services-grid-v2">
             {/* UI/UX */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-purple">
               <div className="card-image-container"><img src={getImg('ui_ux.png')} alt="UI/UX Design" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>UI/UX Design</h3>
@@ -187,13 +187,14 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> UX Writing</li>
                   <li><i className="fas fa-check-circle"></i> Design System Catalog</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 1.500.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 1.500.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>2-4 minggu</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-purple"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Web Dev */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-blue">
               <div className="card-image-container"><img src={getImg('web.png')} alt="Web Development" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Website Development</h3>
@@ -206,13 +207,14 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> Custom Features</li>
                   <li><i className="fas fa-check-circle"></i> Maintenance & Support</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 2.500.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 2.500.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>3-6 minggu</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-blue"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Mobile App */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-green">
               <div className="card-image-container"><img src={getImg('Mobile.png')} alt="Mobile App Development" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Mobile App Development</h3>
@@ -225,13 +227,14 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> API Integration</li>
                   <li><i className="fas fa-check-circle"></i> Maintenance & Support</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 3.500.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 3.500.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>6-12 minggu</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-green"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Logo Design */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-orange">
               <div className="card-image-container"><img src={getImg('Logo Design.png')} alt="Logo Design" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Logo Design</h3>
@@ -244,33 +247,35 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> Brand Guideline</li>
                   <li><i className="fas fa-check-circle"></i> Hak Cipta</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 500.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 500.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>1-2 minggu</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-orange"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Jasa Desain & Merchandise */}
-            <div className="service-card-v2">
-              <div className="card-image-container"><img src={getImg('custom mercandhise.png')} alt="Jasa Desain & Merchandise" /></div>
+            <div className="service-card-v2 accent-purple">
+              <div className="card-image-container"><img src={getImg('img2.png')} alt="Jasa Desain & Merchandise" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
-                <h3>Jasa Desain & Merchandise</h3>
-                <p className="description">Layanan desain grafis dan merchandise custom untuk kebutuhan branding Anda.</p>
+                <h3>Brand Identity</h3>
+                <p className="description">Paket lengkap identitas visual untuk membangun brand yang kuat dan memorable</p>
                 <h4>Fitur Utama:</h4>
                 <ul className="features-list">
-                  <li><i className="fas fa-check-circle"></i> Desain Grafis</li>
-                  <li><i className="fas fa-check-circle"></i> Desain Produk</li>
-                  <li><i className="fas fa-check-circle"></i> Desain Kemasan</li>
-                  <li><i className="fas fa-check-circle"></i> Desain Promosi</li>
-                  <li><i className="fas fa-check-circle"></i> Desain Ilustrasi</li>
+                  <li><i className="fas fa-check-circle"></i> Logo Design</li>
+                  <li><i className="fas fa-check-circle"></i> Color Palette</li>
+                  <li><i className="fas fa-check-circle"></i> Typography System</li>
+                  <li><i className="fas fa-check-circle"></i> Business Card Design</li>
+                  <li><i className="fas fa-check-circle"></i> Letterhead & Stationery</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 300.000</span></div>
-                <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-purple"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 2.000.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>2-3 minggu</span></div>
+                <a href="https://wa.me/6281804376001" className="btn-pesan" style={{ background: 'linear-gradient(90deg, #A855F7, #06B6D4)' }}><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Social Media Management */}
-            <div className="service-card-v2">
-              <div className="card-image-container"><img src={getImg('sosial managemen.png')} alt="Social Media Management" /></div>
+            <div className="service-card-v2 accent-pink">
+              <div className="card-image-container"><img src={getImg('Social Media Management.png')} alt="Social Media Management" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Social Media Management</h3>
                 <p className="description">Pengelolaan konten, kalender, dan engagement untuk channel sosial Anda.</p>
@@ -282,13 +287,14 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> Analisis Kinerja</li>
                   <li><i className="fas fa-check-circle"></i> Laporan Bulanan</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 1.000.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 1.000.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>1 bulan</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-pink"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Digital Marketing */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-purple">
               <div className="card-image-container"><img src={getImg('digital marketing.png')} alt="Digital Marketing" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Digital Marketing</h3>
@@ -301,13 +307,14 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> Content Marketing</li>
                   <li><i className="fas fa-check-circle"></i> Analisis & Laporan</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 1.500.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 1.500.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>1 bulan</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-purple"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
 
             {/* Social Media Post Design */}
-            <div className="service-card-v2">
+            <div className="service-card-v2 accent-blue">
               <div className="card-image-container"><img src={getImg('Social Media Feed Design.png')} alt="Social Media Post Design" /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
                 <h3>Social Media Post Design</h3>
@@ -320,7 +327,8 @@ function ServicesPage() {
                   <li><i className="fas fa-check-circle"></i> Infographic Design</li>
                   <li><i className="fas fa-check-circle"></i> Motion Graphic</li>
                 </ul>
-                <div className="info-row"><span>Mulai dari</span><span className="price">Rp 150.000</span></div>
+                <div className="info-row"><span>Harga:</span><span className="price">Mulai dari Rp 150.000</span></div>
+                <div className="info-row"><span>Durasi:</span><span>1 minggu</span></div>
                 <a href="https://wa.me/6281804376001" className="btn-pesan btn-grad-blue"><i className="fas fa-shopping-cart"></i> Pesan Sekarang</a>
               </div>
             </div>
@@ -336,7 +344,7 @@ function ServicesPage() {
             <p className="section-subtitle">Kami menyediakan drinkware custom dengan berbagai pilihan model dan warna.</p>
           </div>
           <div className="products-grid">
-            <div className="product-card">
+            <div className="product-card accent-blue">
               <div className="product-image">
                 <img src={getImg('Botol Minum & Tumbler Custom.png')} alt="Botol Minum & Tumbler Custom" />
               </div>
@@ -344,16 +352,20 @@ function ServicesPage() {
                 <h3>Botol Minum & Tumbler Custom</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Stainless Steel</li>
-                  <li><i className="fas fa-check"></i> Kapasitas Beragam</li>
-                  <li><i className="fas fa-check"></i> Pilihan Warna</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Tahan Panas/Dingin</li>
+                  <li><i className="fas fa-check"></i> Material Stainless Steel/Plastik</li>
+                  <li><i className="fas fa-check"></i> Berbagai ukuran (350ml–1000ml)</li>
+                  <li><i className="fas fa-check"></i> Custom Logo & Design</li>
+                  <li><i className="fas fa-check"></i> Packaging Eksklusif</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 50.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 25.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #3B82F6, #06B6D4)' }}>
@@ -362,7 +374,7 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-orange">
               <div className="product-image">
                 <img src={getImg('mug.png')} alt="Mug Custom" />
               </div>
@@ -370,16 +382,20 @@ function ServicesPage() {
                 <h3>Mug Custom</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Keramik</li>
-                  <li><i className="fas fa-check"></i> Kapasitas Standar</li>
-                  <li><i className="fas fa-check"></i> Desain Full Color</li>
-                  <li><i className="fas fa-check"></i> Tahan Microwave</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Souvenir</li>
+                  <li><i className="fas fa-check"></i> Ceramic & Stainless Options</li>
+                  <li><i className="fas fa-check"></i> Full Color Printing</li>
+                  <li><i className="fas fa-check"></i> Heat-resistant Design</li>
+                  <li><i className="fas fa-check"></i> Custom Packaging</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 24 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 25.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 20.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-10 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #F97316, #EF4444)' }}>
@@ -388,7 +404,7 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-pink">
               <div className="product-image">
                 <img src={getImg('gelas kaca.png')} alt="Gelas Kaca Premium" />
               </div>
@@ -396,16 +412,20 @@ function ServicesPage() {
                 <h3>Gelas Kaca Premium</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Kaca Tebal</li>
-                  <li><i className="fas fa-check"></i> Desain Elegan</li>
-                  <li><i className="fas fa-check"></i> Kapasitas Beragam</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Restoran</li>
-                  <li><i className="fas fa-check"></i> Custom Logo/Tulisan</li>
+                  <li><i className="fas fa-check"></i> Material Kaca Berkualitas</li>
+                  <li><i className="fas fa-check"></i> Berbagai Model & Ukuran</li>
+                  <li><i className="fas fa-check"></i> Etching & Printing Options</li>
+                  <li><i className="fas fa-check"></i> Elegant Packaging</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 30.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 15.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">10-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #A855F7, #EC4899)' }}>
@@ -414,24 +434,28 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-green">
               <div className="product-image">
-                <img src={getImg('drink jar.png')} alt="Dispenser & Galon Custom" />
+                <img src={getImg('drink jar.png')} alt="Drink Jar & Gelas Cup" />
               </div>
               <div className="product-content">
-                <h3>Dispenser & Galon Custom</h3>
+                <h3>Drink Jar & Gelas Cup</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Stainless Steel/Plastik</li>
-                  <li><i className="fas fa-check"></i> Kapasitas Besar</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Kantor</li>
-                  <li><i className="fas fa-check"></i> Tahan Lama</li>
+                  <li><i className="fas fa-check"></i> Mason Jar Style</li>
+                  <li><i className="fas fa-check"></i> Custom Cup Design</li>
+                  <li><i className="fas fa-check"></i> Food Grade Material</li>
+                  <li><i className="fas fa-check"></i> Creative Packaging</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 250.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 18.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-12 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #16A34A, #059669)' }}>
@@ -451,7 +475,7 @@ function ServicesPage() {
             <p className="section-subtitle">Berbagai jenis tas custom yang dapat disesuaikan dengan kebutuhan branding Anda.</p>
           </div>
           <div className="products-grid">
-            <div className="product-card">
+            <div className="product-card accent-pink">
               <div className="product-image">
                 <img src={getImg('tas canvas.png')} alt="Totebag Kanvas Custom" />
               </div>
@@ -467,8 +491,12 @@ function ServicesPage() {
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 35.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 35.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #DB2777, #E11D48)' }}>
@@ -477,7 +505,7 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-blue">
               <div className="product-image">
                 <img src={getImg('Tas Furing Spunbond.png')} alt="Tas Spunbond Custom" />
               </div>
@@ -493,8 +521,12 @@ function ServicesPage() {
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 15.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 15.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">5-10 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #3B82F6, #06B6D4)' }}>
@@ -503,7 +535,7 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-green">
               <div className="product-image">
                 <img src={getImg('Tas Kertas & Plastik Custom.png')} alt="Tas Belanja/Paper Bag Custom" />
               </div>
@@ -519,8 +551,12 @@ function ServicesPage() {
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 10.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 10.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #16A34A, #059669)' }}>
@@ -540,7 +576,7 @@ function ServicesPage() {
             <p className="section-subtitle">Pilihan hadiah korporat dan merchandise teknologi yang inovatif dan berkualitas.</p>
           </div>
           <div className="products-grid">
-            <div className="product-card">
+            <div className="product-card accent-green">
               <div className="product-image">
                 <img src={getImg('Powerbank Custom.png')} alt="Powerbank Custom" />
               </div>
@@ -548,16 +584,20 @@ function ServicesPage() {
                 <h3>Powerbank Custom</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Kapasitas Beragam</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Material Premium</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Hadiah</li>
-                  <li><i className="fas fa-check"></i> Garansi Produk</li>
+                  <li><i className="fas fa-check"></i> Kapasitas 5000–20000 mAh</li>
+                  <li><i className="fas fa-check"></i> Fast Charging Support</li>
+                  <li><i className="fas fa-check"></i> Custom Logo Engraving</li>
+                  <li><i className="fas fa-check"></i> Premium Packaging</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 25 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 100.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 75.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">10-21 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #16A34A, #059669)' }}>
@@ -566,24 +606,28 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-purple">
               <div className="product-image">
-                <img src={getImg('icon file.png')} alt="Flashdisk Custom" />
+                <img src={getImg('placeholder.png')} alt="Flashdisk Custom" />
               </div>
               <div className="product-content">
                 <h3>Flashdisk Custom</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Kapasitas Beragam</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Material Metal/Plastik</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Souvenir</li>
-                  <li><i className="fas fa-check"></i> Garansi Produk</li>
+                  <li><i className="fas fa-check"></i> Kapasitas 4GB–128GB</li>
+                  <li><i className="fas fa-check"></i> Custom Shape & Design</li>
+                  <li><i className="fas fa-check"></i> Logo Engraving/Printing</li>
+                  <li><i className="fas fa-check"></i> Data Preload Available</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 50.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 35.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #A855F7, #EC4899)' }}>
@@ -592,7 +636,7 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-green">
               <div className="product-image">
                 <img src={getImg('Paket Seminar Kit.png')} alt="Paket Seminar Kit" />
               </div>
@@ -600,16 +644,20 @@ function ServicesPage() {
                 <h3>Paket Seminar Kit</h3>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Isi Paket Lengkap</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Material Berkualitas</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Event</li>
-                  <li><i className="fas fa-check"></i> Harga Fleksibel</li>
+                  <li><i className="fas fa-check"></i> Tas Seminar + Isi Lengkap</li>
+                  <li><i className="fas fa-check"></i> Notebook & Pulpen Custom</li>
+                  <li><i className="fas fa-check"></i> ID Card Holder</li>
+                  <li><i className="fas fa-check"></i> Custom Packaging</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 25 set</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 75.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 45.000/set</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">10-21 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #A855F7, #EC4899)' }}>
@@ -629,24 +677,29 @@ function ServicesPage() {
             <p className="section-subtitle">Merchandise gaya hidup yang unik dan personal untuk kebutuhan promosi atau pribadi.</p>
           </div>
           <div className="products-grid">
-            <div className="product-card">
+            <div className="product-card accent-blue">
               <div className="product-image">
                 <img src={getImg('Payung Custom Premium.png')} alt="Payung Custom/Promosi" />
               </div>
               <div className="product-content">
-                <h3>Payung Custom/Promosi</h3>
+                <h3>Payung Custom Premium</h3>
+                <p className="product-description">Payung berkualitas tinggi dengan custom design untuk promosi yang efektif</p>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Kuat</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Ukuran Standar</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Promosi</li>
-                  <li><i className="fas fa-check"></i> Tahan Angin</li>
+                  <li><i className="fas fa-check"></i> Material Berkualitas Tinggi</li>
+                  <li><i className="fas fa-check"></i> Tahan Angin & Air</li>
+                  <li><i className="fas fa-check"></i> Custom Print Full Color</li>
+                  <li><i className="fas fa-check"></i> Berbagai Ukuran</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 40.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 35.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">10-21 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #3B82F6, #06B6D4)' }}>
@@ -655,24 +708,29 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-orange">
               <div className="product-image">
                 <img src={getImg('Jam Dinding Custom.png')} alt="Jam Dinding Custom" />
               </div>
               <div className="product-content">
                 <h3>Jam Dinding Custom</h3>
+                <p className="product-description">Jam dinding custom dengan design unik untuk dekorasi dan promosi</p>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Plastik/Kayu</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Ukuran Beragam</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Kantor</li>
-                  <li><i className="fas fa-check"></i> Mesin Quartz</li>
+                  <li><i className="fas fa-check"></i> Berbagai Bentuk & Ukuran</li>
+                  <li><i className="fas fa-check"></i> Mesin Jam Berkualitas</li>
+                  <li><i className="fas fa-check"></i> Custom Design & Logo</li>
+                  <li><i className="fas fa-check"></i> Silent Movement</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 25 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 30.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 45.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">14-21 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #EA580C, #DC2626)' }}>
@@ -681,24 +739,29 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-pink">
               <div className="product-image">
                 <img src={getImg('Pulpen & Pin Custom.png')} alt="Pulpen & Pen Custom" />
               </div>
               <div className="product-content">
-                <h3>Pulpen & Pen Custom</h3>
+                <h3>Pulpen & Pin Custom</h3>
+                <p className="product-description">Pulpen dan pin branded untuk promosi sehari-hari yang efektif</p>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Plastik/Metal</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Tinta Berkualitas</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Souvenir</li>
-                  <li><i className="fas fa-check"></i> Harga Ekonomis</li>
+                  <li><i className="fas fa-check"></i> Berbagai Model Pulpen</li>
+                  <li><i className="fas fa-check"></i> Pin Enamel/Metal</li>
+                  <li><i className="fas fa-check"></i> Custom Logo & Warna</li>
+                  <li><i className="fas fa-check"></i> Packaging Menarik</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 100 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 5.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 5.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">7-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #DB2777, #E11D48)' }}>
@@ -707,24 +770,29 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="product-card">
+            <div className="product-card accent-slate">
               <div className="product-image">
                 <img src={getImg('Asbak & Aksesoris.png')} alt="Asbak & Aksesoris" />
               </div>
               <div className="product-content">
                 <h3>Asbak & Aksesoris</h3>
+                <p className="product-description">Asbak custom dan berbagai aksesoris branded lainnya</p>
                 <h4>Spesifikasi:</h4>
                 <ul className="product-features">
-                  <li><i className="fas fa-check"></i> Material Keramik/Kaca</li>
-                  <li><i className="fas fa-check"></i> Desain Custom</li>
-                  <li><i className="fas fa-check"></i> Ukuran Beragam</li>
-                  <li><i className="fas fa-check"></i> Cocok untuk Cafe</li>
-                  <li><i className="fas fa-check"></i> Mudah Dibersihkan</li>
+                  <li><i className="fas fa-check"></i> Material Berkualitas</li>
+                  <li><i className="fas fa-check"></i> Custom Shape & Design</li>
+                  <li><i className="fas fa-check"></i> Logo Engraving</li>
+                  <li><i className="fas fa-check"></i> Packaging Eksklusif</li>
+                  <li><i className="fas fa-check"></i> Minimum Order 50 pcs</li>
                 </ul>
                 <div className="product-info-grid">
                   <div className="info-item">
-                    <span>Mulai dari</span>
-                    <span className="price">Rp 15.000</span>
+                    <span>Harga:</span>
+                    <span className="price">Mulai dari Rp 25.000/pcs</span>
+                  </div>
+                  <div className="info-item">
+                    <span>Produksi:</span>
+                    <span className="duration">10-14 hari</span>
                   </div>
                 </div>
                 <a href="https://wa.me/6281804376001" className="btn-product" style={{ background: 'linear-gradient(90deg, #475569, #334155)' }}>
@@ -855,13 +923,13 @@ function ServicesPage() {
         <div className="container">
           <div className="cta-content-v2">
             <h2>Siap Memulai Proyek Anda?</h2>
-            <p>Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau ingin memulai proyek baru.</p>
+            <p>Konsultasikan kebutuhan digital creative dan custom merchandise Anda dengan tim ahli kami secara gratis</p>
             <div className="cta-buttons-v2">
-              <a href="/contact" className="btn-primary-v2">
-                Hubungi Kami
+              <a href="https://wa.me/6281804376001" className="btn-primary-v2" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-whatsapp"></i> WhatsApp Sekarang
               </a>
-              <a href="https://wa.me/6281804376001" className="btn-secondary-v2">
-                Mulai Proyek
+              <a href="tel:081804376001" className="btn-secondary-v2">
+                <i className="fa-solid fa-phone"></i> Telepon Langsung
               </a>
             </div>
           </div>

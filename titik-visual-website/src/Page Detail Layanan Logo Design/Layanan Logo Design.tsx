@@ -79,14 +79,14 @@ const LogoDesignPage = () => {
       text: '"Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!"',
       clientName: 'Ahmad Rizki',
       clientPosition: 'Founder at StartupHub Jakarta',
-      clientImage: getImg('team1.jpg')
+      clientImage: getImg('Page Detail Layanan Logo Design.png')
     },
     {
       id: 2,
       text: '"Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!"',
       clientName: 'Maya Sari',
       clientPosition: 'Owner at Boutique Fashion',
-      clientImage: getImg('team1.jpg')
+      clientImage: getImg('Page Detail Layanan Logo Design.png')
     }
   ];
 
@@ -253,170 +253,54 @@ const LogoDesignPage = () => {
       </section>
 
       {/* HERO SECTION */}
-      <section
-        className="hero"
-        style={{
-          background: '#E0F2FE',
-          padding: '100px 0',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <div
-          className="container hero-container"
-        >
+      <section className="logo-design-hero">
+        <div className="container hero-container">
           {/* hero-left (TEXT AREA) */}
-          <div className="hero-left hero-content" style={{ textAlign: 'left' }}>
-            <div className="badge" style={{ marginBottom: 20 }}>
-              <span className="subtitle" style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: 8,
-                backgroundColor: '#F97316',
-                color: '#ffffff',
-                padding: '8px 16px',
-                borderRadius: '20px',
-                fontSize: '14px',
-                fontWeight: 600
-              }}>
-                <i className="fa-solid fa-palette" style={{ color: '#ffffff' }}></i>
-                Professional Logo Design
-              </span>
+          <div className="hero-left hero-content">
+            <div className="logo-badge">
+              <i className="fa-solid fa-palette"></i>
+              Professional Logo Design
             </div>
-            <div className="hero-title" style={{ marginBottom: 20 }}>
-              <h1 style={{ fontWeight: 800, lineHeight: 1.2, color: '#1e293b', fontSize: '48px' }}>
-                Logo yang <span style={{ color: '#DB2777' }}>Memorable</span> untuk Brand Anda
-              </h1>
-            </div>
-            <p
-              className="hero-desc"
-              style={{ maxWidth: 600, color: '#475569', marginBottom: 32, fontSize: '16px', lineHeight: '1.7' }}
-            >
+            
+            <h1 className="logo-title">
+              <span className="text-gradient-pink">Logo yang Memorable</span><br />
+              untuk Brand Anda
+            </h1>
+            
+            <p className="logo-desc">
               Ciptakan identitas visual yang kuat dengan logo profesional yang
               mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga
               eksekusi, kami pastikan logo Anda memorable dan timeless.
             </p>
-            <div className="hero-actions hero-buttons" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            
+            <div className="hero-actions">
               <a
                 href="https://wa.me/6281804376001"
-                className="btn btn-gradient"
+                className="btn-consult"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  borderRadius: 12,
-                  padding: '14px 28px',
-                  background: 'linear-gradient(90deg, #F97316, #EC4899)',
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  textDecoration: 'none',
-                  border: 'none'
-                }}
               >
-                <i className="fa-regular fa-comment" style={{ color: '#ffffff' }}></i>
+                <i className="fa-regular fa-comment"></i>
                 <span>Konsultasi Gratis</span>
               </a>
               <a
                 href="/portfolio"
-                className="btn btn-outline"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: 12,
-                  padding: '14px 28px',
-                  borderWidth: 2,
-                  borderStyle: 'solid',
-                  borderColor: '#F97316',
-                  color: '#F97316',
-                  fontWeight: 600,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  textDecoration: 'none'
-                }}
+                className="btn-portfolio-outline"
               >
-                <i className="far fa-eye" style={{ color: '#F97316' }}></i>
+                <i className="far fa-eye"></i>
                 <span>Lihat Portfolio</span>
               </a>
             </div>
           </div>
+          
           {/* hero-right (LOGO PREVIEW CARD) */}
           <div className="hero-right">
-            <div
-              className="image-wrapper"
-              style={{
-                position: 'relative',
-                justifySelf: 'center'
-              }}
-            >
-              <div
-                className="image-card logo-preview-card"
-                style={{
-                  backgroundColor: '#1e293b',
-                  borderRadius: 16,
-                  padding: '50px 40px',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                  position: 'relative',
-                  zIndex: 1,
-                  maxWidth: '100%',
-                  minHeight: '450px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <div style={{ marginBottom: '40px' }}>
-                  <img
-                    src={getImg('Page Detail Layanan Logo Design.png')}
-                    alt="Logo Preview"
-                    style={{
-                      width: '150px',
-                      height: '150px',
-                      objectFit: 'contain',
-                      filter: 'brightness(0) saturate(100%) invert(77%) sepia(47%) saturate(2000%) hue-rotate(5deg) brightness(105%) contrast(95%)'
-                    }}
-                  />
-                </div>
-                <h2 style={{ 
-                  color: '#FCD34D', 
-                  fontSize: '36px', 
-                  fontWeight: 800, 
-                  marginBottom: '12px',
-                  letterSpacing: '3px',
-                  textTransform: 'uppercase',
-                  fontFamily: 'sans-serif'
-                }}>
-                  COMPANY NAME
-                </h2>
-                <p style={{ 
-                  color: '#FCD34D', 
-                  fontSize: '16px', 
-                  fontWeight: 600,
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  opacity: 0.9,
-                  fontFamily: 'sans-serif'
-                }}>
-                  SLOGAN HERE
-                </p>
-              </div>
-              <div
-                className="decorative-circle"
-                style={{
-                  position: 'absolute',
-                  top: -20,
-                  right: -20,
-                  width: 100,
-                  height: 100,
-                  background: 'linear-gradient(135deg, #60A5FA, #22D3EE)',
-                  borderRadius: '50%',
-                  zIndex: 2,
-                  boxShadow: '0 4px 20px rgba(96, 165, 250, 0.4)'
-                }}
+            <div className="preview-card-wrapper">
+              <div className="decorative-circle"></div>
+              <img
+                src={getImg('Page Detail Layanan Logo Design.png')}
+                alt="Logo Design Preview"
+                className="hero-right-img"
               />
             </div>
           </div>
@@ -602,7 +486,10 @@ const LogoDesignPage = () => {
             <p>Konsultasikan kebutuhan logo dan brand identity Anda dengan tim designer ahli kami secara gratis</p>
             <div className="cta-buttons">
               <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer">
-                <i className="fa-regular fa-comment"></i> Konsultasi Sekarang
+                <i className="fa-regular fa-comment"></i> WhatsApp Sekarang
+              </a>
+              <a href="/portfolio" className="btn btn-outline-light">
+                <i className="fa-solid fa-download"></i> Download Portfolio
               </a>
             </div>
           </div>
@@ -613,7 +500,7 @@ const LogoDesignPage = () => {
       <footer className="footer">
         <div className="container">
           <div className="footer-grid">
-            <div className="footer-col">
+            <div className="footer-col footer-brand">
               <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
               <p>Spesialis logo design dan brand identity yang berfokus pada kreativitas dan makna brand.</p>
             </div>
@@ -625,6 +512,16 @@ const LogoDesignPage = () => {
                 <li><a href="#logo-redesign">Logo Redesign</a></li>
                 <li><a href="#brand-guidelines">Brand Guidelines</a></li>
                 <li><a href="#stationery-design">Stationery Design</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Logo Types</h4>
+              <ul className="footer-links">
+                <li><a href="#wordmark">Wordmark</a></li>
+                <li><a href="#pictorial">Pictorial</a></li>
+                <li><a href="#combination">Combination</a></li>
+                <li><a href="#emblem">Emblem</a></li>
+                <li><a href="#abstract">Abstract</a></li>
               </ul>
             </div>
             <div className="footer-col">
