@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import clientAvatar from '../img/Website Development Mockup.png';
 import logoImg from '../img/img.png';
@@ -30,59 +30,64 @@ interface Testimonial {
 const WebsiteAppPage = () => {
   const content = useContent();
   // Process steps and portfolio data moved to dedicated components; removed local duplicates.
+  const handleConsultation = (e: React.MouseEvent, message: string) => {
+    e.preventDefault();
+    const base = content.get('page detail layanan web&apk', 'cta_whatsapp_href', 'https://wa.me/6281804376001');
+    window.open(`${base}?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   // Pricing plans data
   const pricingPlans: PricingPlan[] = [
     {
       id: 1,
-      name: 'Landing Page',
-      price: 'Rp 3.500.000',
-      duration: '1-2 minggu',
-      bestFor: 'Best for: Campaign Marketing',
+      name: content.get('page detail layanan web&apk', 'pricing_plan_1_name', 'Landing Page'),
+      price: content.get('page detail layanan web&apk', 'pricing_plan_1_price', 'Rp 3.500.000'),
+      duration: content.get('page detail layanan web&apk', 'pricing_plan_1_duration', '1-2 minggu'),
+      bestFor: content.get('page detail layanan web&apk', 'pricing_plan_1_bestFor', 'Best for: Campaign Marketing'),
       features: [
-        'Single Page Design',
-        'Responsive Layout',
-        'Contact Form',
-        'SEO Basic',
-        'Google Analytics',
-        '2x Revisions',
-        '1 Bulan Support'
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_1', 'Single Page Design'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_2', 'Responsive Layout'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_3', 'Contact Form'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_4', 'SEO Basic'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_5', 'Google Analytics'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_6', '2x Revisions'),
+        content.get('page detail layanan web&apk', 'pricing_plan_1_feature_7', '1 Bulan Support')
       ]
     },
     {
       id: 2,
-      name: 'Business Website',
-      price: 'Rp 7.500.000',
-      duration: '3-4 minggu',
-      bestFor: 'Best for: Corporate & SME',
+      name: content.get('page detail layanan web&apk', 'pricing_plan_2_name', 'Business Website'),
+      price: content.get('page detail layanan web&apk', 'pricing_plan_2_price', 'Rp 7.500.000'),
+      duration: content.get('page detail layanan web&apk', 'pricing_plan_2_duration', '3-4 minggu'),
+      bestFor: content.get('page detail layanan web&apk', 'pricing_plan_2_bestFor', 'Best for: Corporate & SME'),
       features: [
-        'Multi-page Website (5-10 pages)',
-        'CMS Integration',
-        'Contact Forms',
-        'Gallery & Portfolio',
-        'SEO Optimization',
-        'Google Analytics',
-        '3x Revisions',
-        '3 Bulan Support'
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_1', 'Multi-page Website (5-10 pages)'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_2', 'CMS Integration'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_3', 'Contact Forms'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_4', 'Gallery & Portfolio'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_5', 'SEO Optimization'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_6', 'Google Analytics'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_7', '3x Revisions'),
+        content.get('page detail layanan web&apk', 'pricing_plan_2_feature_8', '3 Bulan Support')
       ],
       featured: true
     },
     {
       id: 3,
-      name: 'E-Commerce',
-      price: 'Rp 15.000.000',
-      duration: '4-6 minggu',
-      bestFor: 'Best for: Online Store',
+      name: content.get('page detail layanan web&apk', 'pricing_plan_3_name', 'E-Commerce'),
+      price: content.get('page detail layanan web&apk', 'pricing_plan_3_price', 'Rp 15.000.000'),
+      duration: content.get('page detail layanan web&apk', 'pricing_plan_3_duration', '4-6 minggu'),
+      bestFor: content.get('page detail layanan web&apk', 'pricing_plan_3_bestFor', 'Best for: Online Store'),
       features: [
-        'Full E-commerce Platform',
-        'Product Management',
-        'Shopping Cart & Checkout',
-        'Payment Gateway Integration',
-        'Admin Dashboard',
-        'Inventory Management',
-        'SEO & Analytics',
-        'Unlimited Revisions',
-        '6 Bulan Support'
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_1', 'Full E-commerce Platform'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_2', 'Product Management'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_3', 'Shopping Cart & Checkout'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_4', 'Payment Gateway Integration'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_5', 'Admin Dashboard'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_6', 'Inventory Management'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_7', 'SEO & Analytics'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_8', 'Unlimited Revisions'),
+        content.get('page detail layanan web&apk', 'pricing_plan_3_feature_9', '6 Bulan Support')
       ]
     }
   ];
@@ -91,16 +96,16 @@ const WebsiteAppPage = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      text: '"Website yang dibuat Titik Visual sangat profesional dan user-friendly. Traffic website kami meningkat 200% setelah redesign!"',
-      clientName: 'Budi Santoso',
-      clientPosition: 'Marketing Director at PT. Maju Bersama',
+      text: content.get('page detail layanan web&apk', 'testimonial_1_text', '"Website yang dibuat Titik Visual sangat profesional dan user-friendly. Traffic website kami meningkat 200% setelah redesign!"'),
+      clientName: content.get('page detail layanan web&apk', 'testimonial_1_clientName', 'Budi Santoso'),
+      clientPosition: content.get('page detail layanan web&apk', 'testimonial_1_clientPosition', 'Marketing Director at PT. Maju Bersama'),
       clientImage: clientAvatar
     },
     {
       id: 2,
-      text: '"E-commerce platform yang dibuat sangat membantu bisnis online kami. Penjualan meningkat drastis!"',
-      clientName: 'Sari Dewi',
-      clientPosition: 'Owner at Toko Online Fashionista',
+      text: content.get('page detail layanan web&apk', 'testimonial_2_text', '"E-commerce platform yang dibuat sangat membantu bisnis online kami. Penjualan meningkat drastis!"'),
+      clientName: content.get('page detail layanan web&apk', 'testimonial_2_clientName', 'Sari Dewi'),
+      clientPosition: content.get('page detail layanan web&apk', 'testimonial_2_clientPosition', 'Owner at Toko Online Fashionista'),
       clientImage: clientAvatar
     }
   ];
@@ -112,7 +117,7 @@ const WebsiteAppPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">Home</a> / <a href="/services">Services</a> / <span>Website & Aplikasi</span>
+          <a href="/">{content.get('page detail layanan web&apk', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('page detail layanan web&apk', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('page detail layanan web&apk', 'breadcrumb_current', 'Website & Aplikasi')}</span>
         </div>
       </section>
 
@@ -122,7 +127,9 @@ const WebsiteAppPage = () => {
 
       <TechStackSection />
       <ProcessSection />
-      <PortfolioWebsiteSection />
+      <div id="portfolio">
+        <PortfolioWebsiteSection />
+      </div>
 
       {/* Duplicated process and portfolio sections removed; using dedicated components above */}
 
@@ -130,8 +137,8 @@ const WebsiteAppPage = () => {
       <section id="pricing" className="pricing">
         <div className="container">
           <div className="section-title">
-            <h2>Paket Website</h2>
-            <p>Pilih paket yang sesuai dengan kebutuhan bisnis Anda</p>
+            <h2>{content.get('page detail layanan web&apk', 'pricing_title', 'Paket Website')}</h2>
+            <p>{content.get('page detail layanan web&apk', 'pricing_subtitle', 'Pilih paket yang sesuai dengan kebutuhan bisnis Anda')}</p>
           </div>
 
           <div className="pricing-grid">
@@ -160,8 +167,8 @@ const WebsiteAppPage = () => {
         <div className="container">
           {/* Header Testimoni */}
           <div className="section-title">
-            <h2>Apa Kata Klien Kami</h2>
-            <p>Testimoni dari klien yang puas dengan website kami</p>
+            <h2>{content.get('page detail layanan web&apk', 'testimonials_title', 'Apa Kata Klien Kami')}</h2>
+            <p>{content.get('page detail layanan web&apk', 'testimonials_subtitle', 'Testimoni dari klien yang puas dengan website kami')}</p>
           </div>
 
           {/* Container Card */}
@@ -200,8 +207,25 @@ const WebsiteAppPage = () => {
           <h2>{content.get('page detail layanan web&apk', 'cta_title', 'Siap Membuat Website & Aplikasi Impian Anda?')}</h2>
           <p>{content.get('page detail layanan web&apk', 'cta_subtitle', 'Konsultasikan kebutuhan website dan aplikasi Anda dengan tim developer ahli kami secara gratis')}</p>
           <div className="actions">
-            <a href={content.get('page detail layanan web&apk', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} className="btn btn-light" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> {content.get('page detail layanan web&apk', 'cta_whatsapp_label', 'WhatsApp Sekarang')}</a>
-            <a href={content.get('page detail layanan web&apk', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light"><i className="fa-solid fa-download"></i> {content.get('page detail layanan web&apk', 'cta_portfolio_label', 'Download Portfolio')}</a>
+            <a 
+              href={content.get('page detail layanan web&apk', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} 
+              className="btn btn-light" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => handleConsultation(e, 'Halo, saya ingin konsultasi tentang website & aplikasi')}
+            >
+              <i className="fa-regular fa-comment"></i> {content.get('page detail layanan web&apk', 'cta_whatsapp_label', 'WhatsApp Sekarang')}
+            </a>
+            <a 
+              href={content.get('page detail layanan web&apk', 'cta_portfolio_href', '/portfolio')} 
+              className="btn btn-outline-light"
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Portfolio download akan segera tersedia. Silakan hubungi kami untuk informasi lebih lanjut.');
+              }}
+            >
+              <i className="fa-solid fa-download"></i> {content.get('page detail layanan web&apk', 'cta_portfolio_label', 'Download Portfolio')}
+            </a>
           </div>
         </div>
       </section>
@@ -212,48 +236,48 @@ const WebsiteAppPage = () => {
           <div className="footer-grid">
             {/* Footer Column 1: About */}
             <div className="footer-col">
-              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
-              <p>Spesialis website development yang berfokus pada performa, SEO, dan user experience.</p>
+              <img src={logoImg} alt={content.get('page detail layanan web&apk', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
+              <p>{content.get('page detail layanan web&apk', 'footer_about_text', 'Spesialis website development yang berfokus pada performa, SEO, dan user experience.')}</p>
             </div>
 
             {/* Footer Column 2: Services */}
             <div className="footer-col">
-              <h4>Website & App Services</h4>
+              <h4>{content.get('page detail layanan web&apk', 'footer_services_title', 'Website & App Services')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#landing-page'} className="link-button">Landing Page</button></li>
-                <li><button onClick={() => window.location.href = '#business-website'} className="link-button">Business Website</button></li>
-                <li><button onClick={() => window.location.href = '#ecommerce'} className="link-button">E-Commerce</button></li>
-                <li><button onClick={() => window.location.href = '#web-application'} className="link-button">Web Application</button></li>
-                <li><button onClick={() => window.location.href = '#mobile-applications'} className="link-button">Mobile Applications</button></li>
-                <li><button onClick={() => window.location.href = '#progressive-web-apps'} className="link-button">Progressive Web Apps</button></li>
-                <li><button onClick={() => window.location.href = '#cms-integration'} className="link-button">CMS Integration</button></li>
+                <li><button onClick={() => window.location.href = '#landing-page'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_1', 'Landing Page')}</button></li>
+                <li><button onClick={() => window.location.href = '#business-website'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_2', 'Business Website')}</button></li>
+                <li><button onClick={() => window.location.href = '#ecommerce'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_3', 'E-Commerce')}</button></li>
+                <li><button onClick={() => window.location.href = '#web-application'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_4', 'Web Application')}</button></li>
+                <li><button onClick={() => window.location.href = '#mobile-applications'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_5', 'Mobile Applications')}</button></li>
+                <li><button onClick={() => window.location.href = '#progressive-web-apps'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_6', 'Progressive Web Apps')}</button></li>
+                <li><button onClick={() => window.location.href = '#cms-integration'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_7', 'CMS Integration')}</button></li>
               </ul>
             </div>
 
             {/* Footer Column 3: Technologies */}
             <div className="footer-col">
-              <h4>Technologies</h4>
+              <h4>{content.get('page detail layanan web&apk', 'footer_tech_title', 'Technologies')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#react-nextjs'} className="link-button">React/Next.js</button></li>
-                <li><button onClick={() => window.location.href = '#wordpress'} className="link-button">WordPress</button></li>
-                <li><button onClick={() => window.location.href = '#shopify'} className="link-button">Shopify</button></li>
-                <li><button onClick={() => window.location.href = '#custom-php'} className="link-button">Custom PHP</button></li>
-                <li><button onClick={() => window.location.href = '#seo-optimization'} className="link-button">SEO Optimization</button></li>
+                <li><button onClick={() => window.location.href = '#react-nextjs'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_1', 'React/Next.js')}</button></li>
+                <li><button onClick={() => window.location.href = '#wordpress'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_2', 'WordPress')}</button></li>
+                <li><button onClick={() => window.location.href = '#shopify'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_3', 'Shopify')}</button></li>
+                <li><button onClick={() => window.location.href = '#custom-php'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_4', 'Custom PHP')}</button></li>
+                <li><button onClick={() => window.location.href = '#seo-optimization'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_5', 'SEO Optimization')}</button></li>
               </ul>
             </div>
 
             {/* Footer Column 4: Contact */}
             <div className="footer-col">
-              <h4>Kontak</h4>
+              <h4>{content.get('page detail layanan web&apk', 'footer_contact_title', 'Kontak')}</h4>
               <ul className="footer-contact">
-                <li>081804376001</li>
-                <li>titikvisualjogja@gmail.com</li>
-                <li>Yogyakarta, Indonesia</li>
+                <li>{content.get('page detail layanan web&apk', 'footer_contact_phone', '081804376001')}</li>
+                <li>{content.get('page detail layanan web&apk', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</li>
+                <li>{content.get('page detail layanan web&apk', 'footer_contact_address', 'Yogyakarta, Indonesia')}</li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 Titik Visual. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} {content.get('page detail layanan web&apk', 'footer_copyright', 'Titik Visual. All rights reserved.')}</p>
           </div>
         </div>
       </footer>

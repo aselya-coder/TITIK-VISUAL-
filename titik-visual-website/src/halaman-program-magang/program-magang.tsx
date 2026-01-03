@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import './style.css';
 import logoImg from '../img/img.png';
+import { useContent } from '../content/ContentContext';
 
 // Definisi tipe untuk posisi magang
 interface InternshipPosition {
@@ -16,6 +17,7 @@ interface InternshipPosition {
 }
 
 const InternshipPage = () => {
+  const content = useContent();
   const [activeFilter, setActiveFilter] = useState<string>('Semua');
   const [searchTerm, setSearchTerm] = useState<string>('');
   
@@ -30,179 +32,291 @@ const InternshipPage = () => {
   const internshipPositions: InternshipPosition[] = [
     {
       id: 1,
-      title: 'UI/UX Designer',
+      title: content.get('halaman-program-magang', 'position_1_title', 'UI/UX Designer'),
       category: 'Design',
       level: 'Beginner',
-      duration: '3-6 bulan',
-      description: 'Merancang antarmuka pengguna yang intuitif dan pengalaman pengguna yang optimal untuk berbagai platform digital.',
-      requirements: ['Mahasiswa Desain/Informatika', 'Menguasai Figma/Adobe XD'],
-      benefits: ['Sertifikat', 'Uang saku', 'Mentoring'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_1_desc', 'Merancang antarmuka pengguna yang intuitif dan pengalaman pengguna yang optimal untuk berbagai platform digital.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_1_req_1', 'Mahasiswa Desain/Informatika'),
+        content.get('halaman-program-magang', 'position_1_req_2', 'Menguasai Figma/Adobe XD')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_allowance', 'Uang saku'),
+        content.get('halaman-program-magang', 'benefit_mentoring', 'Mentoring')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 2,
-      title: 'Frontend Developer',
+      title: content.get('halaman-program-magang', 'position_2_title', 'Frontend Developer'),
       category: 'Programming',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Mengembangkan tampilan website dan aplikasi menggunakan teknologi modern seperti React, Vue, atau Angular.',
-      requirements: ['Mahasiswa Informatika/Teknik', 'HTML, CSS, JavaScript'],
-      benefits: ['Sertifikat', 'Uang saku', 'Project portfolio'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_2_desc', 'Mengembangkan tampilan website dan aplikasi menggunakan teknologi modern seperti React, Vue, atau Angular.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_2_req_1', 'Mahasiswa Informatika/Teknik'),
+        content.get('halaman-program-magang', 'position_2_req_2', 'HTML, CSS, JavaScript')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_allowance', 'Uang saku'),
+        content.get('halaman-program-magang', 'benefit_project_portfolio', 'Project portfolio')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 3,
-      title: 'Backend Developer',
+      title: content.get('halaman-program-magang', 'position_3_title', 'Backend Developer'),
       category: 'Programming',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Membangun sistem backend, API, dan database untuk mendukung aplikasi web dan mobile.',
-      requirements: ['Mahasiswa Informatika', 'PHP/Python/Node.js'],
-      benefits: ['Sertifikat', 'Uang saku', 'Technical mentoring'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_3_desc', 'Membangun sistem backend, API, dan database untuk mendukung aplikasi web dan mobile.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_3_req_1', 'Mahasiswa Informatika'),
+        content.get('halaman-program-magang', 'position_3_req_2', 'PHP/Python/Node.js')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_allowance', 'Uang saku'),
+        content.get('halaman-program-magang', 'benefit_technical_mentoring', 'Technical mentoring')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 4,
-      title: 'Human Resource',
+      title: content.get('halaman-program-magang', 'position_4_title', 'Human Resource'),
       category: 'Management',
       level: 'Beginner',
-      duration: '3-4 bulan',
-      description: 'Mengelola rekrutmen, administrasi karyawan, dan pengembangan sumber daya manusia.',
-      requirements: ['Mahasiswa Psikologi/Manajemen', 'Komunikasi baik'],
-      benefits: ['Sertifikat', 'Networking', 'HR experience'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_4_months', '3-4 bulan'),
+      description: content.get('halaman-program-magang', 'position_4_desc', 'Mengelola rekrutmen, administrasi karyawan, dan pengembangan sumber daya manusia.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_4_req_1', 'Mahasiswa Psikologi/Manajemen'),
+        content.get('halaman-program-magang', 'position_4_req_2', 'Komunikasi baik')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_networking', 'Networking'),
+        content.get('halaman-program-magang', 'benefit_hr_experience', 'HR experience')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 5,
-      title: 'Administrasi',
+      title: content.get('halaman-program-magang', 'position_5_title', 'Administrasi'),
       category: 'Management',
       level: 'Beginner',
-      duration: '3-4 bulan',
-      description: 'Mengelola dokumen, data entry, dan mendukung operasional kantor sehari-hari.',
-      requirements: ['Mahasiswa semua jurusan', 'MS Office'],
-      benefits: ['Sertifikat', 'Uang saku', 'Office skills'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_4_months', '3-4 bulan'),
+      description: content.get('halaman-program-magang', 'position_5_desc', 'Mengelola dokumen, data entry, dan mendukung operasional kantor sehari-hari.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_5_req_1', 'Mahasiswa semua jurusan'),
+        content.get('halaman-program-magang', 'position_5_req_2', 'MS Office')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_allowance', 'Uang saku'),
+        content.get('halaman-program-magang', 'benefit_office_skills', 'Office skills')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 6,
-      title: 'Social Media Specialist',
+      title: content.get('halaman-program-magang', 'position_6_title', 'Social Media Specialist'),
       category: 'Marketing',
       level: 'Beginner',
-      duration: '3-6 bulan',
-      description: 'Mengelola konten media sosial, engagement, dan strategi digital marketing di berbagai platform.',
-      requirements: ['Mahasiswa Komunikasi/Marketing', 'Kreatif'],
-      benefits: ['Sertifikat', 'Portfolio', 'Digital marketing skills'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_6_desc', 'Mengelola konten media sosial, engagement, dan strategi digital marketing di berbagai platform.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_6_req_1', 'Mahasiswa Komunikasi/Marketing'),
+        content.get('halaman-program-magang', 'position_6_req_2', 'Kreatif')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_portfolio', 'Portfolio'),
+        content.get('halaman-program-magang', 'benefit_digital_marketing_skills', 'Digital marketing skills')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 7,
-      title: 'Photographer/Videographer',
+      title: content.get('halaman-program-magang', 'position_7_title', 'Photographer/Videographer'),
       category: 'Creative',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Mengambil foto dan video untuk kebutuhan konten, dokumentasi, dan promosi perusahaan.',
-      requirements: ['Portfolio foto/video', 'Kamera DSLR/Mirrorless'],
-      benefits: ['Sertifikat', 'Equipment access', 'Creative portfolio'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_7_desc', 'Mengambil foto dan video untuk kebutuhan konten, dokumentasi, dan promosi perusahaan.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_7_req_1', 'Portfolio foto/video'),
+        content.get('halaman-program-magang', 'position_7_req_2', 'Kamera DSLR/Mirrorless')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_equipment_access', 'Equipment access'),
+        content.get('halaman-program-magang', 'benefit_creative_portfolio', 'Creative portfolio')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 8,
-      title: 'Content Writer',
+      title: content.get('halaman-program-magang', 'position_8_title', 'Content Writer'),
       category: 'Creative',
       level: 'Beginner',
-      duration: '3-6 bulan',
-      description: 'Menulis artikel, blog, caption, dan berbagai konten kreatif untuk website dan media sosial.',
-      requirements: ['Mahasiswa Sastra/Komunikasi', 'Writing skills'],
-      benefits: ['Sertifikat', 'Writing portfolio', 'SEO training'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_8_desc', 'Menulis artikel, blog, caption, dan berbagai konten kreatif untuk website dan media sosial.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_8_req_1', 'Mahasiswa Sastra/Komunikasi'),
+        content.get('halaman-program-magang', 'position_8_req_2', 'Writing skills')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_writing_portfolio', 'Writing portfolio'),
+        content.get('halaman-program-magang', 'benefit_seo_training', 'SEO training')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 9,
-      title: 'Graphic Designer',
+      title: content.get('halaman-program-magang', 'position_9_title', 'Graphic Designer'),
       category: 'Design',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Membuat desain grafis untuk keperluan branding, promosi, dan komunikasi visual.',
-      requirements: ['Portfolio desain', 'Adobe Creative Suite'],
-      benefits: ['Sertifikat', 'Design portfolio', 'Creative mentoring'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_9_desc', 'Membuat desain grafis untuk keperluan branding, promosi, dan komunikasi visual.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_9_req_1', 'Portfolio desain'),
+        content.get('halaman-program-magang', 'position_9_req_2', 'Adobe Creative Suite')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_design_portfolio', 'Design portfolio'),
+        content.get('halaman-program-magang', 'benefit_creative_mentoring', 'Creative mentoring')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 10,
-      title: 'Digital Marketing',
+      title: content.get('halaman-program-magang', 'position_10_title', 'Digital Marketing'),
       category: 'Marketing',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Mengelola kampanye digital, SEO, SEM, dan analisis performa marketing online.',
-      requirements: ['Mahasiswa Marketing/Komunikasi', 'Google Ads/Analytics'],
-      benefits: ['Sertifikat', 'Google certification', 'Marketing experience'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_10_desc', 'Mengelola kampanye digital, SEO, SEM, dan analisis performa marketing online.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_10_req_1', 'Mahasiswa Marketing/Komunikasi'),
+        content.get('halaman-program-magang', 'position_10_req_2', 'Google Ads/Analytics')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_google_certification', 'Google certification'),
+        content.get('halaman-program-magang', 'benefit_marketing_experience', 'Marketing experience')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 11,
-      title: 'Marcomm/Public Relations',
+      title: content.get('halaman-program-magang', 'position_11_title', 'Marcomm/Public Relations'),
       category: 'Communication',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Mengelola komunikasi eksternal, press release, dan membangun hubungan dengan media.',
-      requirements: ['Mahasiswa Komunikasi/PR', 'Writing skills'],
-      benefits: ['Sertifikat', 'Media relations', 'Communication skills'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_11_desc', 'Mengelola komunikasi eksternal, press release, dan membangun hubungan dengan media.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_11_req_1', 'Mahasiswa Komunikasi/PR'),
+        content.get('halaman-program-magang', 'position_11_req_2', 'Writing skills')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_media_relations', 'Media relations'),
+        content.get('halaman-program-magang', 'benefit_communication_skills', 'Communication skills')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 12,
-      title: 'Host/Presenter',
+      title: content.get('halaman-program-magang', 'position_12_title', 'Host/Presenter'),
       category: 'Communication',
       level: 'Beginner',
-      duration: '3-6 bulan',
-      description: 'Menjadi pembawa acara untuk event, webinar, dan konten video perusahaan.',
-      requirements: ['Public speaking', 'Confident'],
-      benefits: ['Sertifikat', 'Speaking experience', 'Personal branding'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_12_desc', 'Menjadi pembawa acara untuk event, webinar, dan konten video perusahaan.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_12_req_1', 'Public speaking'),
+        content.get('halaman-program-magang', 'position_12_req_2', 'Confident')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_speaking_experience', 'Speaking experience'),
+        content.get('halaman-program-magang', 'benefit_personal_branding', 'Personal branding')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 13,
-      title: 'TikTok Creator',
+      title: content.get('halaman-program-magang', 'position_13_title', 'TikTok Creator'),
       category: 'Creative',
       level: 'Beginner',
-      duration: '3-6 bulan',
-      description: 'Membuat konten kreatif dan viral untuk platform TikTok sesuai dengan brand guidelines.',
-      requirements: ['Kreatif', 'Familiar dengan TikTok'],
-      benefits: ['Sertifikat', 'Content portfolio', 'Social media growth'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_13_desc', 'Membuat konten kreatif dan viral untuk platform TikTok sesuai dengan brand guidelines.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_13_req_1', 'Kreatif'),
+        content.get('halaman-program-magang', 'position_13_req_2', 'Familiar dengan TikTok')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_content_portfolio', 'Content portfolio'),
+        content.get('halaman-program-magang', 'benefit_social_media_growth', 'Social media growth')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 14,
-      title: 'Content Planner',
+      title: content.get('halaman-program-magang', 'position_14_title', 'Content Planner'),
       category: 'Marketing',
       level: 'Intermediate',
-      duration: '3-6 bulan',
-      description: 'Merencanakan strategi konten, editorial calendar, dan koordinasi tim kreatif.',
-      requirements: ['Strategic thinking', 'Project management'],
-      benefits: ['Sertifikat', 'Planning skills', 'Strategy experience'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_14_desc', 'Merencanakan strategi konten, editorial calendar, dan koordinasi tim kreatif.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_14_req_1', 'Strategic thinking'),
+        content.get('halaman-program-magang', 'position_14_req_2', 'Project management')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_planning_skills', 'Planning skills'),
+        content.get('halaman-program-magang', 'benefit_strategy_experience', 'Strategy experience')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 15,
-      title: 'Project Manager',
+      title: content.get('halaman-program-magang', 'position_15_title', 'Project Manager'),
       category: 'Management',
       level: 'Advanced',
-      duration: '4-6 bulan',
-      description: 'Mengelola proyek dari perencanaan hingga eksekusi, koordinasi tim, dan monitoring progress.',
-      requirements: ['Leadership skills', 'Project management tools'],
-      benefits: ['Sertifikat', 'PM certification', 'Leadership experience'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_4_6_months', '4-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_15_desc', 'Mengelola proyek dari perencanaan hingga eksekusi, koordinasi tim, dan monitoring progress.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_15_req_1', 'Leadership skills'),
+        content.get('halaman-program-magang', 'position_15_req_2', 'Project management tools')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_pm_certification', 'PM certification'),
+        content.get('halaman-program-magang', 'benefit_leadership_experience', 'Leadership experience')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     },
     {
       id: 16,
-      title: 'Animator',
+      title: content.get('halaman-program-magang', 'position_16_title', 'Animator'),
       category: 'Creative',
       level: 'Advanced',
-      duration: '3-6 bulan',
-      description: 'Membuat animasi 2D/3D untuk keperluan promosi, explainer video, dan konten digital.',
-      requirements: ['Portfolio animasi', 'After Effects/Blender'],
-      benefits: ['Sertifikat', 'Animation portfolio', 'Technical skills'],
-      applyLink: 'https://wa.me/6281804376001'
+      duration: content.get('halaman-program-magang', 'duration_3_6_months', '3-6 bulan'),
+      description: content.get('halaman-program-magang', 'position_16_desc', 'Membuat animasi 2D/3D untuk keperluan promosi, explainer video, dan konten digital.'),
+      requirements: [
+        content.get('halaman-program-magang', 'position_16_req_1', 'Portfolio animasi'),
+        content.get('halaman-program-magang', 'position_16_req_2', 'After Effects/Blender')
+      ],
+      benefits: [
+        content.get('halaman-program-magang', 'benefit_certificate', 'Sertifikat'),
+        content.get('halaman-program-magang', 'benefit_animation_portfolio', 'Animation portfolio'),
+        content.get('halaman-program-magang', 'benefit_technical_skills', 'Technical skills')
+      ],
+      applyLink: content.get('halaman-program-magang', 'apply_link_whatsapp', 'https://wa.me/6281804376001')
     }
   ];
 
@@ -280,11 +394,11 @@ const InternshipPage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
-          <h1><i className="fas fa-graduation-cap hero-icon"></i> <span className="title-main">Program Magang</span> <strong>Titik Visual</strong></h1>
-          <p>Mulai perjalanan kariermu di industri kreatif digital. Dapatkan pengalaman praktis, mentoring dari profesional, dan sertifikat yang diakui industri.</p>
+          <h1><i className="fas fa-graduation-cap hero-icon"></i> <span className="title-main">{content.get('halaman-program-magang', 'hero_title', 'Program Magang')}</span> <strong>Titik Visual</strong></h1>
+          <p>{content.get('halaman-program-magang', 'hero_subtitle', 'Mulai perjalanan kariermu di industri kreatif digital. Dapatkan pengalaman praktis, mentoring dari profesional, dan sertifikat yang diakui industri.')}</p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => document.getElementById('internship-grid')?.scrollIntoView({ behavior: 'smooth' })}>Daftar Sekarang</button>
-            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+            <button className="btn btn-primary" onClick={() => document.getElementById('internship-grid')?.scrollIntoView({ behavior: 'smooth' })}>{content.get('halaman-program-magang', 'hero_cta_register', 'Daftar Sekarang')}</button>
+            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> {content.get('halaman-program-magang', 'hero_cta_back', 'Kembali ke Beranda')}</a>
           </div>
         </div>
       </section>
@@ -293,43 +407,55 @@ const InternshipPage = () => {
       <section className="filter-search-section">
         <div className="container">
           <div className="filter-controls">
-            <span>Filter Posisi:</span>
+            <span>{content.get('halaman-program-magang', 'filter_label', 'Filter Posisi:')}</span>
             <button 
               className={`filter-btn ${activeFilter === 'Semua' ? 'active' : ''}`} 
               onClick={() => handleFilterClick('Semua')}
             >
-              Semua
+              {content.get('halaman-program-magang', 'filter_all', 'Semua')}
             </button>
             <button 
               className={`filter-btn ${activeFilter === 'Design' ? 'active' : ''}`} 
               onClick={() => handleFilterClick('Design')}
             >
-              Design
+              {content.get('halaman-program-magang', 'filter_design', 'Design')}
             </button>
             <button 
               className={`filter-btn ${activeFilter === 'Programming' ? 'active' : ''}`} 
               onClick={() => handleFilterClick('Programming')}
             >
-              Programming
+              {content.get('halaman-program-magang', 'filter_programming', 'Programming')}
             </button>
             <button 
               className={`filter-btn ${activeFilter === 'Marketing' ? 'active' : ''}`} 
               onClick={() => handleFilterClick('Marketing')}
             >
-              Marketing
+              {content.get('halaman-program-magang', 'filter_marketing', 'Marketing')}
             </button>
             <button 
               className={`filter-btn ${activeFilter === 'Creative' ? 'active' : ''}`} 
               onClick={() => handleFilterClick('Creative')}
             >
-              Creative
+              {content.get('halaman-program-magang', 'filter_creative', 'Creative')}
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'Management' ? 'active' : ''}`} 
+              onClick={() => handleFilterClick('Management')}
+            >
+              {content.get('halaman-program-magang', 'filter_management', 'Management')}
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'Communication' ? 'active' : ''}`} 
+              onClick={() => handleFilterClick('Communication')}
+            >
+              {content.get('halaman-program-magang', 'filter_communication', 'Communication')}
             </button>
           </div>
           <div className="search-bar">
             <i className="fas fa-search"></i>
             <input 
               type="text" 
-              placeholder="Cari posisi magang..." 
+              placeholder={content.get('halaman-program-magang', 'search_placeholder', 'Cari posisi magang...')}
               value={searchTerm}
               onChange={handleSearchChange}
             />
@@ -338,30 +464,30 @@ const InternshipPage = () => {
       </section>
 
       {/* Internship Grid Section */}
-      <section className="internship-grid">
+      <section className="internship-grid" id="internship-grid">
         <div className="container">
-          <h2>{filteredPositions.length} Posisi Magang Tersedia</h2>
-          <p className="section-subtitle">Pilih bidang yang sesuai dengan passion dan minat kariermu</p>
+          <h2>{filteredPositions.length} {content.get('halaman-program-magang', 'positions_available', 'Posisi Magang Tersedia')}</h2>
+          <p className="section-subtitle">{content.get('halaman-program-magang', 'positions_subtitle', 'Pilih bidang yang sesuai dengan passion dan minat kariermu')}</p>
           <div className="grid-container">
             {filteredPositions.map(position => (
               <div className="internship-card" key={position.id}>
                 <div className="card-header">
                   <div className="card-tags">
-                    <span className={`tag ${getCategoryColor(position.category)}`}>{position.category}</span>
-                    <span className={`tag ${getLevelColor(position.level)}`}>{position.level}</span>
+                    <span className={`tag ${getCategoryColor(position.category)}`}>{content.get('halaman-program-magang', `category_${position.category.toLowerCase()}`, position.category)}</span>
+                    <span className={`tag ${getLevelColor(position.level)}`}>{content.get('halaman-program-magang', `level_${position.level.toLowerCase()}`, position.level)}</span>
                   </div>
                   <div className="card-duration"><i className="far fa-clock"></i> {position.duration}</div>
                 </div>
                 <div className="card-body">
                   <h3>{position.title}</h3>
                   <p>{position.description}</p>
-                  <h4>Persyaratan:</h4>
+                  <h4>{content.get('halaman-program-magang', 'label_requirements', 'Persyaratan:')}</h4>
                   <ul>
                     {position.requirements.map((req, index) => (
                       <li key={index}>{req}</li>
                     ))}
                   </ul>
-                  <h4>Benefit:</h4>
+                  <h4>{content.get('halaman-program-magang', 'label_benefits', 'Benefit:')}</h4>
                   <div className="benefit-tags">
                     {position.benefits.map((benefit, index) => (
                       <span className={`benefit-tag ${getBenefitClass(benefit)}`} key={index}>{benefit}</span>
@@ -369,7 +495,7 @@ const InternshipPage = () => {
                   </div>
                 </div>
                 <div className="card-footer">
-                  <a href={position.applyLink} className="btn" target="_blank" rel="noopener noreferrer">Daftar Sekarang <i className="fas fa-arrow-right"></i></a>
+                  <a href={position.applyLink} className="btn" target="_blank" rel="noopener noreferrer">{content.get('halaman-program-magang', 'card_cta_apply', 'Daftar Sekarang')} <i className="fas fa-arrow-right"></i></a>
                 </div>
               </div>
             ))}
@@ -380,11 +506,11 @@ const InternshipPage = () => {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <h2>Siap Memulai Karier dari Sini?</h2>
-          <p>Gabung dalam program magang di Titik Visual dan dapatkan pengalaman nyata bersama tim kreatif dan profesional kami.</p>
+          <h2>{content.get('halaman-program-magang', 'cta_title', 'Siap Memulai Karier dari Sini?')}</h2>
+          <p>{content.get('halaman-program-magang', 'cta_desc', 'Gabung dalam program magang di Titik Visual dan dapatkan pengalaman nyata bersama tim kreatif dan profesional kami.')}</p>
           <div className="cta-buttons">
-            <a href="#contact" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> Konsultasi Sekarang</a>
-            <a href="https://wa.me/6281804376001" className="btn btn-cta-secondary" target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt"></i> Daftar Magang</a>
+            <a href="#contact" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> {content.get('halaman-program-magang', 'cta_consult', 'Konsultasi Sekarang')}</a>
+            <a href="https://wa.me/6281804376001" className="btn btn-cta-secondary" target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt"></i> {content.get('halaman-program-magang', 'cta_register', 'Daftar Magang')}</a>
           </div>
         </div>
       </section>
@@ -395,39 +521,39 @@ const InternshipPage = () => {
           <div className="footer-widgets">
             <div className="footer-widget about-widget">
               <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
-              <p>Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.</p>
+              <p>{content.get('halaman-program-magang', 'footer_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
             </div>
             <div className="footer-widget links-widget">
-              <h4>Company</h4>
+              <h4>{content.get('halaman-program-magang', 'footer_col_1', 'Company')}</h4>
               <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#about">{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
+                <li><a href="#portfolio">{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
+                <li><a href="#services">{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
+                <li><a href="#blog">{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
               </ul>
             </div>
             <div className="footer-widget links-widget">
-              <h4>Program Magang</h4>
+              <h4>{content.get('halaman-program-magang', 'footer_col_2', 'Program Magang')}</h4>
               <ul>
-                <li><a href="#careers">UI/UX Design</a></li>
-                <li><a href="#careers">FrontEnd Developer</a></li>
-                <li><a href="#careers">BackEnd Developer</a></li>
-                <li><a href="#careers">Human Resource</a></li>
-                <li><a href="#careers">Graphic Designer</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_uiux', 'UI/UX Design')}</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_frontend', 'FrontEnd Developer')}</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_backend', 'BackEnd Developer')}</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_hr', 'Human Resource')}</a></li>
+                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_graphic', 'Graphic Designer')}</a></li>
               </ul>
             </div>
             <div className="footer-widget contact-widget">
-              <h4>Contact</h4>
+              <h4>{content.get('halaman-program-magang', 'footer_col_3', 'Contact')}</h4>
               <ul>
-                <li><i className="fas fa-phone"></i> 081804376001</li>
-                <li><i className="fas fa-envelope"></i> titikvisualjogja@gmail.com</li>
-                <li><i className="fas fa-map-marker-alt"></i> Yogyakarta, Indonesia</li>
+                <li><i className="fas fa-phone"></i> {content.get('halaman-program-magang', 'footer_phone', '081804376001')}</li>
+                <li><i className="fas fa-envelope"></i> {content.get('halaman-program-magang', 'footer_email', 'titikvisualjogja@gmail.com')}</li>
+                <li><i className="fas fa-map-marker-alt"></i> {content.get('halaman-program-magang', 'footer_address', 'Yogyakarta, Indonesia')}</li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 Titik Visual. All rights reserved.</p>
+            <p>{content.get('halaman-program-magang', 'footer_copyright', '© 2025 Titik Visual. All rights reserved.')}</p>
           </div>
         </div>
       </footer>

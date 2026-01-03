@@ -1,13 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // Pastikan elemennya ada sebelum menambahkan event listener
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            // Toggle class 'active' pada menu dan ikon
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-});
+// Script neutralized as logic has been moved to React components
+// Kept empty file to prevent 404s if referenced by build system
+console.log('Script loaded (functionality moved to React)');

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContent } from '../content/ContentContext';
 
 const getImg = (name) => {
   try {
@@ -33,27 +34,40 @@ const PortfolioCard = ({ category, title, description, tags }) => (
 );
 
 const PortfolioWebsiteSection = () => {
+  const content = useContent();
   const items = [
     {
-      category: 'Business Website',
-      title: 'Corporate Website',
-      description:
-        'Website corporate modern dengan CMS integration dan multi-language support',
-      tags: ['Multi-page', 'CMS', 'Contact Forms', 'Gallery'],
+      category: content.get('page detail layanan web&apk', 'portfolio_item_1_category', 'Business Website'),
+      title: content.get('page detail layanan web&apk', 'portfolio_item_1_title', 'Corporate Website'),
+      description: content.get('page detail layanan web&apk', 'portfolio_item_1_desc', 'Website corporate modern dengan CMS integration dan multi-language support'),
+      tags: [
+        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_1', 'Multi-page'),
+        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_2', 'CMS'),
+        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_3', 'Contact Forms'),
+        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_4', 'Gallery')
+      ],
     },
     {
-      category: 'Online Store',
-      title: 'E-Commerce Platform',
-      description:
-        'Platform e-commerce lengkap dengan payment gateway dan inventory management',
-      tags: ['Shopping Cart', 'Payment Gateway', 'Admin Panel', 'Analytics'],
+      category: content.get('page detail layanan web&apk', 'portfolio_item_2_category', 'Online Store'),
+      title: content.get('page detail layanan web&apk', 'portfolio_item_2_title', 'E-Commerce Platform'),
+      description: content.get('page detail layanan web&apk', 'portfolio_item_2_desc', 'Platform e-commerce lengkap dengan payment gateway dan inventory management'),
+      tags: [
+        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_1', 'Shopping Cart'),
+        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_2', 'Payment Gateway'),
+        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_3', 'Admin Panel'),
+        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_4', 'Analytics')
+      ],
     },
     {
-      category: 'Marketing Landing',
-      title: 'Landing Page Campaign',
-      description:
-        'Landing page high-converting untuk campaign marketing dan lead generation',
-      tags: ['Lead Forms', 'A/B Testing', 'Analytics', 'Mobile Optimized'],
+      category: content.get('page detail layanan web&apk', 'portfolio_item_3_category', 'Marketing Landing'),
+      title: content.get('page detail layanan web&apk', 'portfolio_item_3_title', 'Landing Page Campaign'),
+      description: content.get('page detail layanan web&apk', 'portfolio_item_3_desc', 'Landing page high-converting untuk campaign marketing dan lead generation'),
+      tags: [
+        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_1', 'Lead Forms'),
+        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_2', 'A/B Testing'),
+        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_3', 'Analytics'),
+        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_4', 'Mobile Optimized')
+      ],
     },
   ];
 
@@ -61,8 +75,12 @@ const PortfolioWebsiteSection = () => {
     <section className="bg-white py-20">
       <div className="max-w-[1180px] mx-auto px-5">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600">Portfolio Website</h2>
-          <p className="mt-3 text-gray-500">Beberapa website terbaik yang telah kami kembangkan</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600">
+            {content.get('page detail layanan web&apk', 'portfolio_section_title', 'Portfolio Website')}
+          </h2>
+          <p className="mt-3 text-gray-500">
+            {content.get('page detail layanan web&apk', 'portfolio_section_subtitle', 'Beberapa website terbaik yang telah kami kembangkan')}
+          </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {items.map((it, idx) => (
@@ -77,10 +95,10 @@ const PortfolioWebsiteSection = () => {
         </div>
         <div className="mt-10 text-center">
           <a
-            href="../page-portfolio/page-portfolio.tsx"
+            href="/portfolio"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500 text-blue-600 hover:bg-blue-50"
           >
-            <i className="far fa-eye" /> Lihat Semua Portfolio
+            <i className="far fa-eye" /> {content.get('page detail layanan web&apk', 'portfolio_button', 'Lihat Semua Portfolio')}
           </a>
         </div>
       </div>

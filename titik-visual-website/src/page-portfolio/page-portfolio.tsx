@@ -10,8 +10,164 @@ const getImg = (name: string) => {
   }
 };
 
+
+interface Project {
+  id: number;
+  image: string;
+  tag?: string;
+  category: string;
+  year: string;
+  title: string;
+  description: string;
+  tech: string[];
+  client: string;
+  link: string;
+}
+
 function App() {
   const content = useContent();
+
+  const projects: Project[] = [
+    {
+      id: 1,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'UI/UX Design',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_1_title', 'E-Commerce Mobile App'),
+      description: content.get('page-portofolio', 'project_1_desc', 'Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.'),
+      tech: ['Mobile', 'E-commerce', 'iOS'],
+      client: 'ShopNow Indonesia',
+      link: '/portfolio'
+    },
+    {
+      id: 2,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'UI/UX Design',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_2_title', 'SaaS Dashboard Design'),
+      description: content.get('page-portofolio', 'project_2_desc', 'Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.'),
+      tech: ['Web App', 'Dashboard', 'SaaS'],
+      client: 'DataFlow Solutions',
+      link: '/portfolio'
+    },
+    {
+      id: 3,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'Mobile App',
+      year: '2023',
+      title: content.get('page-portofolio', 'project_3_title', 'Banking Mobile App'),
+      description: content.get('page-portofolio', 'project_3_desc', 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.'),
+      tech: ['Mobile App', 'Banking', 'Security'],
+      client: 'SecureBank Digital',
+      link: '/portfolio'
+    },
+    {
+      id: 4,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'UI/UX Design',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_4_title', 'E-Commerce Mobile App'),
+      description: content.get('page-portofolio', 'project_4_desc', 'Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.'),
+      tech: ['Mobile', 'E-commerce', 'iOS'],
+      client: 'ShopNow Indonesia',
+      link: '/portfolio'
+    },
+    {
+      id: 5,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'UI/UX Design',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_5_title', 'SaaS Dashboard Design'),
+      description: content.get('page-portofolio', 'project_5_desc', 'Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.'),
+      tech: ['Web App', 'Dashboard', 'SaaS'],
+      client: 'DataFlow Solutions',
+      link: '/portfolio'
+    },
+    {
+      id: 6,
+      image: portfolioImage,
+      category: 'Web Development',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_6_title', 'Corporate Website'),
+      description: content.get('page-portofolio', 'project_6_desc', 'Website corporate yang modern dan professional dengan CMS integration untuk easy content management.'),
+      tech: ['Website', 'Corporate', 'Responsive'],
+      client: 'PT. Maju Bersama',
+      link: '/portfolio'
+    },
+    {
+      id: 7,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'Mobile App',
+      year: '2023',
+      title: content.get('page-portofolio', 'project_7_title', 'Banking Mobile App'),
+      description: content.get('page-portofolio', 'project_7_desc', 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.'),
+      tech: ['Mobile App', 'Banking', 'Security'],
+      client: 'SecureBank Digital',
+      link: '/portfolio'
+    },
+    {
+      id: 8,
+      image: portfolioImage,
+      category: 'Branding',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_8_title', 'Brand Identity Package'),
+      description: content.get('page-portofolio', 'project_8_desc', 'Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.'),
+      tech: ['Logo', 'Brand Identity', 'Guidelines'],
+      client: 'GreenTech Startup',
+      link: '/portfolio'
+    },
+    {
+      id: 9,
+      image: portfolioImage,
+      category: 'Social Media',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_9_title', 'Social Media Campaign'),
+      description: content.get('page-portofolio', 'project_9_desc', 'Social media campaign design untuk fashion brand dengan consistent visual identity dan engaging content.'),
+      tech: ['Social Media', 'Campaign', 'Instagram'],
+      client: 'Fashion Brand Co',
+      link: '/portfolio'
+    },
+    {
+      id: 10,
+      image: portfolioImage,
+      category: 'Web Development',
+      year: '2023',
+      title: content.get('page-portofolio', 'project_10_title', 'Restaurant Website'),
+      description: content.get('page-portofolio', 'project_10_desc', 'Website restaurant dengan online menu, table booking system, dan gallery yang menarik.'),
+      tech: ['Website', 'Restaurant', 'Online Menu'],
+      client: 'Rasa Nusantara',
+      link: '/portfolio'
+    },
+    {
+      id: 11,
+      image: portfolioImage,
+      tag: 'Featured',
+      category: 'UI/UX Design',
+      year: '2024',
+      title: content.get('page-portofolio', 'project_11_title', 'Fitness App UI/UX'),
+      description: content.get('page-portofolio', 'project_11_desc', 'Fitness tracking app dengan motivational design dan comprehensive workout planning features.'),
+      tech: ['Mobile', 'Fitness', 'Health'],
+      client: 'FitLife App',
+      link: '/portfolio'
+    },
+    {
+      id: 12,
+      image: portfolioImage,
+      category: 'Web Development',
+      year: '2023',
+      title: content.get('page-portofolio', 'project_12_title', 'E-Learning Platform'),
+      description: content.get('page-portofolio', 'project_12_desc', 'E-learning platform dengan interactive course content dan comprehensive student management system.'),
+      tech: ['Web App', 'Education', 'LMS'],
+      client: 'EduTech Indonesia',
+      link: '/portfolio'
+    }
+  ];
 
   return (
     <div className="App">

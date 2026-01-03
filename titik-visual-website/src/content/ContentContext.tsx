@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 
 type PageKey =
   | 'beranda'
+  | 'global'
   | 'page-about'
   | 'page-contact'
   | 'page-layanan'

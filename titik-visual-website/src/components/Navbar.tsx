@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import { useContent } from '../content/ContentContext';
 
 const getImg = (name: string) => {
   try {
@@ -14,6 +15,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentPath }) => {
+  const content = useContent();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -83,12 +85,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath }) => {
         
         {/* Desktop Navigation */}
         <nav className="nav" aria-label="Primary navigation">
-          <a href="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</a>
-          <a href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</a>
-          <a href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>Services</a>
-          <a href="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`}>Portfolio</a>
-          <a href="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>Careers</a>
-          <a href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Contact</a>
+          <a href="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>{content.get('global', 'nav_home', 'Home')}</a>
+          <a href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>{content.get('global', 'nav_about', 'About')}</a>
+          <a href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>{content.get('global', 'nav_services', 'Services')}</a>
+          <a href="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
+          <a href="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>{content.get('global', 'nav_careers', 'Careers')}</a>
+          <a href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>{content.get('global', 'nav_contact', 'Contact')}</a>
         </nav>
 
         {/* Mobile Menu Toggle */}

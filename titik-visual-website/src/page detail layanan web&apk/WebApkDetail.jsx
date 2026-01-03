@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContent } from '../content/ContentContext';
 
 const getImg = (name) => {
   try {
@@ -9,6 +10,7 @@ const getImg = (name) => {
 };
 
 const WebApkDetail = () => {
+  const content = useContent();
   return (
     <div className="bg-[#F0FDF9]">
       <section className="py-24">
@@ -29,33 +31,37 @@ const WebApkDetail = () => {
                     maskPosition: 'center'
                   }}
                 />
-                Website & Aplikasi Development
+                {content.get('page detail layanan web&apk', 'hero_badge', 'Website & Aplikasi Development')}
               </span>
               <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-                <span className="bg-gradient-to-r from-[#2563EB] to-[#0891B2] bg-clip-text text-transparent">Website & Aplikasi</span>
+                <span className="bg-gradient-to-r from-[#2563EB] to-[#0891B2] bg-clip-text text-transparent">{content.get('page detail layanan web&apk', 'hero_title_line1', 'Website & Aplikasi')}</span>
                 <br />
-                <span className="bg-gradient-to-r from-[#2563EB] to-[#0891B2] bg-clip-text text-transparent">Professional</span>
+                <span className="bg-gradient-to-r from-[#2563EB] to-[#0891B2] bg-clip-text text-transparent">{content.get('page detail layanan web&apk', 'hero_title_line2', 'Professional')}</span>
                 <br />
-                <span className="text-gray-900">yang Convert</span>
+                <span className="text-gray-900">{content.get('page detail layanan web&apk', 'hero_title_line3', 'yang Convert')}</span>
               </h1>
               <p className="mt-6 text-gray-600 leading-relaxed">
-                Bangun presence online yang kuat dengan website responsif, cepat, dan SEO-friendly. Dari landing page high-converting hingga e-commerce platform lengkap, kami ciptakan website yang mendorong pertumbuhan bisnis Anda. Selain itu, kami juga mengembangkan aplikasi mobile yang inovatif dan user-friendly.
+                {content.get('page detail layanan web&apk', 'hero_description', 'Bangun presence online yang kuat dengan website responsif, cepat, dan SEO-friendly. Dari landing page high-converting hingga e-commerce platform lengkap, kami ciptakan website yang mendorong pertumbuhan bisnis Anda. Selain itu, kami juga mengembangkan aplikasi mobile yang inovatif dan user-friendly.')}
               </p>
               <div className="mt-8 flex gap-4">
                 <a
-                  href="https://wa.me/6281804376001"
+                  href={content.get('page detail layanan web&apk', 'hero_whatsapp_href', 'https://wa.me/6281804376001')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-blue-500 text-white font-semibold inline-flex items-center gap-2"
                 >
-                  <i className="far fa-comment" /> Konsultasi Gratis
+                  <i className="far fa-comment" /> {content.get('page detail layanan web&apk', 'hero_button_consult', 'Konsultasi Gratis')}
                 </a>
-                <a
-                  href="../page-portfolio/page-portfolio.tsx"
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('portfolio');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/portfolio';
+                  }}
                   className="px-6 py-3 rounded-xl border border-blue-500 text-blue-600 font-semibold bg-transparent inline-flex items-center gap-2"
                 >
-                  <i className="far fa-eye" /> Lihat Portfolio
-                </a>
+                  <i className="far fa-eye" /> {content.get('page detail layanan web&apk', 'hero_button_portfolio', 'Lihat Portfolio')}
+                </button>
               </div>
             </div>
             <div className="flex justify-center">
