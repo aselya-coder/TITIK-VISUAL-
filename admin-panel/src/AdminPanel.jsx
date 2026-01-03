@@ -76,10 +76,13 @@ export default function AdminPanel() {
       const data = raw ? JSON.parse(raw) : {};
       data[selectedPage] = { title, subtitle };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      window.postMessage(
-        { type: "tv_content_update", page: selectedPage, title, subtitle },
-        "*"
-      );
+      try {
+        const iframe = document.getElementById('tv-preview');
+        const target = iframe && iframe.tagName === 'IFRAME' ? iframe.contentWindow : null;
+        if (target) {
+          target.postMessage({ type: "tv_content_update", page: selectedPage, title, subtitle }, "*");
+        }
+      } catch {}
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {

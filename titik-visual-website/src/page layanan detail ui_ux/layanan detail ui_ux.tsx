@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import UiUxSection from './UiUxSection';
+import { useContent } from '../content/ContentContext';
 const getImg = (name: string) => {
   try {
     return require(`../img/${name}`);
@@ -50,6 +51,7 @@ interface Testimonial {
 }
 
 const UIUXPage = () => {
+  const content = useContent();
   // Offerings data
   const offerings: Offering[] = [
     {
@@ -223,7 +225,7 @@ const UIUXPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="/services">Services</a> / <span>UI/UX Design</span>
+          <a href="/">Home</a> / <a href="/services">Services</a> / <span>UI/UX Design</span>
         </div>
       </section>
 
@@ -356,14 +358,14 @@ const UIUXPage = () => {
       {/* CTA SECTION */}
       <section className="cta-section">
         <div className="container">
-          <h2>Siap Membuat UI/UX yang Luar Biasa?</h2>
-          <p>Konsultasikan kebutuhan UI/UX Design Anda dengan tim ahli kami secara gratis</p>
+          <h2>{content.get('page layanan detail ui_ux', 'cta_title', 'Siap Membuat UI/UX yang Luar Biasa?')}</h2>
+          <p>{content.get('page layanan detail ui_ux', 'cta_subtitle', 'Konsultasikan kebutuhan UI/UX Design Anda dengan tim ahli kami secara gratis')}</p>
           <div className="cta-buttons">
-            <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer">
-              <i className="far fa-comment"></i> WhatsApp Sekarang
+            <a href={content.get('page layanan detail ui_ux', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} className="btn btn-light" target="_blank" rel="noopener noreferrer">
+              <i className="far fa-comment"></i> {content.get('page layanan detail ui_ux', 'cta_whatsapp_label', 'WhatsApp Sekarang')}
             </a>
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-light">
-              <i className="fas fa-download"></i> Download Portfolio
+            <a href={content.get('page layanan detail ui_ux', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light">
+              <i className="fas fa-download"></i> {content.get('page layanan detail ui_ux', 'cta_portfolio_label', 'Download Portfolio')}
             </a>
           </div>
         </div>

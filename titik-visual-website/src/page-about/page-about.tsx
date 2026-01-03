@@ -375,10 +375,10 @@ const AboutPage = () => {
           <h2>Siap Berkolaborasi dengan Kami?</h2>
           <p>Mari wujudkan visi digital Anda bersama tim profesional Titik Visual</p>
           <div className="cta-buttons flex flex-row items-center gap-4">
-            <a href="../page-contact/page-contact.tsx" className="btn-cta-primary inline-flex w-fit whitespace-nowrap">
+            <a href="/contact" className="btn-cta-primary inline-flex w-fit whitespace-nowrap">
               <i className="far fa-comment"></i> Mulai Diskusi
             </a>
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn-cta-outline-white inline-flex w-fit px-4 whitespace-nowrap text-sm">
+            <a href="/portfolio" className="btn-cta-outline-white inline-flex w-fit px-4 whitespace-nowrap text-sm">
               <i className="fas fa-arrow-up-right-from-square"></i> Lihat Portfolio
             </a>
           </div>
@@ -401,7 +401,7 @@ const AboutPage = () => {
                 <li><button onClick={() => window.location.href = '#portfolio'} className="link-button">Portfolio</button></li>
                 <li><button onClick={() => window.location.href = '#services'} className="link-button">Services</button></li>
                 <li><button onClick={() => window.location.href = '#careers'} className="link-button">Careers</button></li>
-                <li><button onClick={() => window.location.href = '#blog'} className="link-button">Blog</button></li>
+                <li><button onClick={() => window.location.href = '#contact'} className="link-button">Contact</button></li>
               </ul>
             </div>
     

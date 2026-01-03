@@ -120,7 +120,7 @@ const CareersPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <a href="../page-about/page-about.tsx" className="btn btn-learn-more">Pelajari Lebih Lanjut</a>
+                <a href="/about" className="btn btn-learn-more">Pelajari Lebih Lanjut</a>
               </div>
               <div className="about-image">
                 <div className="image-card">
@@ -440,11 +440,11 @@ const CareersPage: React.FC = () => {
                     Careers
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#blog'} 
+                  onClick={() => window.location.href = '#contact'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Blog"
+                          aria-label="Contact"
                   >
-                    Blog
+                    Contact
                   </button></li>
               </ul>
             </div>

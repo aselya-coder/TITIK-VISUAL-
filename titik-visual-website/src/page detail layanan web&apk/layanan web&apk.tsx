@@ -7,6 +7,7 @@ import WhyChooseWebsite from './WhyChooseWebsite';
 import TechStackSection from './TechStackSection';
 import ProcessSection from './ProcessSection';
 import PortfolioWebsiteSection from './PortfolioWebsiteSection';
+import { useContent } from '../content/ContentContext';
 
 interface PricingPlan {
   id: number;
@@ -27,6 +28,7 @@ interface Testimonial {
 }
 
 const WebsiteAppPage = () => {
+  const content = useContent();
   // Process steps and portfolio data moved to dedicated components; removed local duplicates.
 
   // Pricing plans data
@@ -110,7 +112,7 @@ const WebsiteAppPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Website & Aplikasi</span>
+          <a href="/">Home</a> / <a href="/services">Services</a> / <span>Website & Aplikasi</span>
         </div>
       </section>
 
@@ -144,7 +146,7 @@ const WebsiteAppPage = () => {
                     <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="../page-contact/page-contact.tsx" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-light'}`}>
+                <a href="/contact" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-light'}`}>
                   <i className="fa-solid fa-arrow-right"></i> Pilih Paket
                 </a>
               </div>
@@ -195,11 +197,11 @@ const WebsiteAppPage = () => {
       {/* CTA SECTION */}
       <section id="cta" className="cta-section">
         <div className="container">
-          <h2>Siap Membuat Website & Aplikasi Impian Anda?</h2>
-          <p>Konsultasikan kebutuhan website dan aplikasi Anda dengan tim developer ahli kami secara gratis</p>
+          <h2>{content.get('page detail layanan web&apk', 'cta_title', 'Siap Membuat Website & Aplikasi Impian Anda?')}</h2>
+          <p>{content.get('page detail layanan web&apk', 'cta_subtitle', 'Konsultasikan kebutuhan website dan aplikasi Anda dengan tim developer ahli kami secara gratis')}</p>
           <div className="actions">
-            <a href="https://wa.me/6281804376001" className="btn btn-light" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> WhatsApp Sekarang</a>
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-light"><i className="fa-solid fa-download"></i> Download Portfolio</a>
+            <a href={content.get('page detail layanan web&apk', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} className="btn btn-light" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> {content.get('page detail layanan web&apk', 'cta_whatsapp_label', 'WhatsApp Sekarang')}</a>
+            <a href={content.get('page detail layanan web&apk', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light"><i className="fa-solid fa-download"></i> {content.get('page detail layanan web&apk', 'cta_portfolio_label', 'Download Portfolio')}</a>
           </div>
         </div>
       </section>

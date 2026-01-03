@@ -273,7 +273,7 @@ const TitikVisualWebsite: React.FC = () => {
             </p>
 
             <div className="featured-grid">
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/ui-ux')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/ui-ux')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('ui-ux desain.png')} alt="UI/UX Design Icon" className="icon" />
                 </div>
@@ -281,7 +281,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <p>Desain interface yang user-friendly dan menarik untuk aplikasi dan website</p>
               </div>
 
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/web-apk')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-website.png')} alt="Website Development Icon" className="icon" />
                 </div>
@@ -289,7 +289,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <p>Website responsif dan modern untuk bisnis Anda</p>
               </div>
 
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-custom-merchandise.png')} alt="Custom Merchandise Icon" className="icon" />
                 </div>
@@ -297,7 +297,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <p>Payung, tumbler, totebag, dan merchandise custom berkualitas</p>
               </div>
 
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-corporate-gift.png')} alt="Corporate Gifts Icon" className="icon" />
                 </div>
@@ -305,7 +305,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <p>Paket seminar kit, powerbank, flashdisk untuk kebutuhan corporate</p>
               </div>
 
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-drinkware.png')} alt="Drinkware Collection Icon" className="icon" />
                 </div>
@@ -313,7 +313,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <p>Botol minum, tumbler, mug, gelas kaca, dan drink jar custom</p>
               </div>
 
-              <div className="featured-card" onClick={() => navigateToPage('/layanan/logo-design')} style={{ cursor: 'pointer' }}>
+              <div className="featured-card" onClick={() => navigateToPage('/logo-design')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-logo dan brand.png')} alt="Logo & Brand Identity Icon" className="icon" />
                 </div>
@@ -341,7 +341,7 @@ const TitikVisualWebsite: React.FC = () => {
             </div>
 
             <div className="services-grid">
-              <div className="service-card" onClick={() => navigateToPage('/layanan/ui-ux')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/ui-ux')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('ui-ux desain.png')} alt="UI/UX Design Icon" className="icon" />
@@ -353,7 +353,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <span className="price">Mulai Rp 2.5jt</span>
               </div>
 
-              <div className="service-card" onClick={() => navigateToPage('/layanan/web-apk')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('icon-website.png')} alt="Website Development Icon" className="icon" />
@@ -365,7 +365,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <span className="price"><span className="price-label">Mulai</span> <span className="price-amount">Rp 3.5jt</span></span>
               </div>
 
-              <div className="service-card" onClick={() => navigateToPage('/layanan/web-apk')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('icon-mobile-app.png')} alt="Mobile App Development Icon" className="icon" />
@@ -377,7 +377,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price" href="/layanan"><span className="price-label">Mulai</span> <span className="price-amount">Rp 15jt</span></a>
               </div>
 
-              <div className="service-card" onClick={() => navigateToPage('/layanan/logo-design')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/logo-design')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('icon-custom-merchandise.png')} alt="Logo Design Icon" className="icon" />
@@ -389,7 +389,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price" href="/layanan"><span className="price-label">Mulai</span> <span className="price-amount">Rp 500rb</span></a>
               </div>
 
-              <div className="service-card" onClick={() => navigateToPage('/layanan/social-media')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('icon-sosial-media.png')} alt="Social Media Management Icon" className="icon" />
@@ -401,7 +401,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price" href="/layanan"><span className="price-label">Mulai</span> <span className="price-amount">Rp 1.5jt/bulan</span></a>
               </div>
 
-              <div className="service-card" onClick={() => navigateToPage('/layanan/social-media')} style={{ cursor: 'pointer' }}>
+              <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
                   <div className="icon-box">
                     <img src={getImg('icon-digital-marketing.png')} alt="Digital Marketing Icon" className="icon" />
@@ -427,7 +427,7 @@ const TitikVisualWebsite: React.FC = () => {
             </div>
 
             <div className="merch-grid">
-              <div className="merch-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="merch-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-custom-drinkware.png')} className="merch-icon" alt="Drinkware" />
                 </div>
@@ -439,7 +439,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price-link" href="/layanan/merchandise">Mulai Rp 25rb/pcs →</a>
               </div>
 
-              <div className="merch-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="merch-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-custom-bag.png')} className="merch-icon" alt="Custom Bags" />
                 </div>
@@ -451,7 +451,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price-link" href="/layanan/merchandise">Mulai Rp 50rb/pcs →</a>
               </div>
 
-              <div className="merch-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="merch-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-corporate.png')} className="merch-icon" alt="Corporate Gifts" />
                 </div>
@@ -463,7 +463,7 @@ const TitikVisualWebsite: React.FC = () => {
                 <a className="price-link" href="/layanan/merchandise">Mulai Rp 50rb/pcs →</a>
               </div>
 
-              <div className="merch-card" onClick={() => navigateToPage('/layanan/merchandise')} style={{ cursor: 'pointer' }}>
+              <div className="merch-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
                 <div className="icon-box">
                   <img src={getImg('icon-lifestyle.png')} className="merch-icon" alt="Lifestyle" />
                 </div>

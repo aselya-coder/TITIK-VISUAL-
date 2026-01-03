@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import { useContent } from '../content/ContentContext';
 const getImg = (name: string) => {
   try {
     return require(`../img/${name}`);
@@ -10,6 +11,7 @@ const getImg = (name: string) => {
 
 function ServicesPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const content = useContent();
 
 
 
@@ -26,8 +28,8 @@ function ServicesPage() {
       {/* Hero Section - Kategori Layanan */}
       <main className="hero-section" style={{ backgroundColor: '#FFFFFF', backgroundImage: 'none' }}>
         <div className="container">
-          <h1>Kategori Layanan Utama</h1>
-          <p className="subtitle">Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.</p>
+          <h1>{content.get('page-layanan', 'hero_title', 'Kategori Layanan Utama')}</h1>
+          <p className="subtitle">{content.get('page-layanan', 'hero_subtitle', 'Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.')}</p>
 
           <div className="category-grid-main">
             {/* Card 1: UI/UX Design */}
@@ -42,7 +44,7 @@ function ServicesPage() {
               <h3>UI/UX Design</h3>
               <p>Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile</p>
               <a
-                href="/ui-ux"
+                href={content.get('page-layanan', 'cta_uiux_href', '/ui-ux')}
                 className="btn-detail btn-purple"
                 style={{
                   background: 'linear-gradient(90deg, #A855F7, #EC4899)',
@@ -50,9 +52,11 @@ function ServicesPage() {
                   display: 'inline-flex',
                   alignItems: 'center'
                 }}
+                aria-label="Lihat detail UI/UX Design"
+                tabIndex={0}
               >
                 <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
-                <span>Lihat Detail</span>
+                <span>{content.get('page-layanan', 'cta_uiux_label', 'Lihat Detail')}</span>
               </a>
             </div>
 
@@ -68,7 +72,7 @@ function ServicesPage() {
               <h3>Website & Aplikasi</h3>
               <p>Website responsif dan aplikasi mobile dengan teknologi terdepan</p>
               <a
-                href="/web-apk"
+                href={content.get('page-layanan', 'cta_webapk_href', '/web-apk')}
                 className="btn-detail btn-blue"
                 style={{
                   background: 'linear-gradient(90deg, #3B82F6, #06B6D4)',
@@ -76,9 +80,11 @@ function ServicesPage() {
                   display: 'inline-flex',
                   alignItems: 'center'
                 }}
+                aria-label="Lihat detail Website & Aplikasi"
+                tabIndex={0}
               >
                 <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
-                <span>Lihat Detail</span>
+                <span>{content.get('page-layanan', 'cta_webapk_label', 'Lihat Detail')}</span>
               </a>
             </div>
 
@@ -102,6 +108,8 @@ function ServicesPage() {
                   display: 'inline-flex',
                   alignItems: 'center'
                 }}
+                aria-label="Lihat detail Logo Design"
+                tabIndex={0}
               >
                 <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
                 <span>Lihat Detail</span>
@@ -120,7 +128,7 @@ function ServicesPage() {
               <h3>Social Media Management</h3>
               <p>Strategi konten dan manajemen media sosial untuk meningkatkan engagement</p>
               <a
-                href="/social-media"
+                href={content.get('page-layanan', 'cta_social_href', '/social-media')}
                 className="btn-detail btn-pink"
                 style={{
                   background: 'linear-gradient(90deg, #EC4899, #F43F5E)',
@@ -128,9 +136,11 @@ function ServicesPage() {
                   display: 'inline-flex',
                   alignItems: 'center'
                 }}
+                aria-label="Lihat detail Social Media Management"
+                tabIndex={0}
               >
                 <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
-                <span>Lihat Detail</span>
+                <span>{content.get('page-layanan', 'cta_social_label', 'Lihat Detail')}</span>
               </a>
             </div>
 
@@ -146,7 +156,7 @@ function ServicesPage() {
               <h3>Custom Merchandise</h3>
               <p>Berbagai pilihan merchandise custom berkualitas untuk kebutuhan branding</p>
               <a
-                href="/custom-merchandise"
+                href={content.get('page-layanan', 'cta_merch_href', '/custom-merchandise')}
                 className="btn-detail btn-teal"
                 style={{
                   background: 'linear-gradient(90deg, #14B8A6, #0EA5E9)',
@@ -154,9 +164,11 @@ function ServicesPage() {
                   display: 'inline-flex',
                   alignItems: 'center'
                 }}
+                aria-label="Lihat detail Custom Merchandise"
+                tabIndex={0}
               >
                 <i className="fas fa-arrow-right" style={{ marginRight: 8 }}></i>
-                <span>Lihat Detail</span>
+                <span>{content.get('page-layanan', 'cta_merch_label', 'Lihat Detail')}</span>
               </a>
             </div>
           </div>

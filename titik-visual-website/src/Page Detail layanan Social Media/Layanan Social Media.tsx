@@ -313,7 +313,7 @@ const SocialMediaPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Social Media Management</span>
+          <a href="/">Home</a> / <a href="/services">Services</a> / <span>Social Media Management</span>
         </div>
       </section>
 
@@ -333,7 +333,7 @@ const SocialMediaPage = () => {
             </p>
             <div className="hero-buttons">
               <a href="https://wa.me/6281804376001" className="btn btn-gradient" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
+              <a href="/portfolio" className="btn btn-outline"><i className="far fa-eye"></i> Lihat Portfolio</a>
             </div>
           </div>
           <div className="hero-image-wrapper">
@@ -445,7 +445,7 @@ const SocialMediaPage = () => {
                     <span>Durasi:</span>
                     <span className="duration-value">{plan.duration}</span>
                   </div>
-                  <a href="../page-contact/page-contact.tsx" className={`btn-pricing ${plan.buttonClass}`}>
+                  <a href="/contact" className={`btn-pricing ${plan.buttonClass}`}>
                     <i className="fas fa-arrow-right"></i> Mulai Sekarang
                   </a>
                 </div>

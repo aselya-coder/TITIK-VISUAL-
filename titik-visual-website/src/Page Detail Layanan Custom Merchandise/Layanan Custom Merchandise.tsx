@@ -420,7 +420,7 @@ const CustomMerchandisePage = () => {
             <span className="label">Produksi:</span>
             <span className="time">{product.productionTime}</span>
           </div>
-          <a href="../page-contact/page-contact.tsx" className="btn-order">
+          <a href="/contact" className="btn-order">
             <i className="fas fa-arrow-right"></i> Order Sekarang
           </a>
         </div>
@@ -453,7 +453,7 @@ const CustomMerchandisePage = () => {
               <span className="label">Produksi:</span>
               <span className="time">{product.productionTime}</span>
             </div>
-            <a href="../page-contact/page-contact.tsx" className="btn-order">
+            <a href="/contact" className="btn-order">
               <i className="fas fa-arrow-right"></i> Order Sekarang
             </a>
           </div>
@@ -469,7 +469,7 @@ const CustomMerchandisePage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Custom Merchandise</span>
+          <a href="/">Home</a> / <a href="/services">Services</a> / <span>Custom Merchandise</span>
         </div>
       </section>
 
@@ -490,7 +490,7 @@ const CustomMerchandisePage = () => {
             </p>
             <div className="hero-buttons">
               <a href="https://wa.me/6281804376001" className="btn btn-green" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> Konsultasi Gratis</a>
-              <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-green"><i className="far fa-eye"></i> Lihat Katalog Lengkap</a>
+              <a href="/portfolio" className="btn btn-outline-green"><i className="far fa-eye"></i> Lihat Katalog Lengkap</a>
             </div>
           </div>
           <div className="hero-image-wrapper">

@@ -7,6 +7,7 @@ import iconFile from '../img/icon file.png';
 import iconUnlimited from '../img/icon unlimited.png';
 import jenisLogoImg from '../img/jenis logo.png';
 import portfolioImg from '../img/portfolio logo desain.png';
+import { useContent } from '../content/ContentContext';
 
 const getImg = (name: string) => {
   try {
@@ -44,6 +45,7 @@ interface PricingPlan {
 }
 
 const LogoDesignPage = () => {
+  const content = useContent();
   // Portfolio data
   const portfolioItems: PortfolioItem[] = [
     {
@@ -248,7 +250,7 @@ const LogoDesignPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="../beranda/beranda.tsx">Home</a> / <a href="../page-layanan/page-layanan.tsx">Services</a> / <span>Logo Design</span>
+          <a href="/">Home</a> / <a href="/services">Services</a> / <span>Logo Design</span>
         </div>
       </section>
 
@@ -263,32 +265,34 @@ const LogoDesignPage = () => {
             </div>
             
             <h1 className="logo-title">
-              <span className="text-gradient-pink">Logo yang Memorable</span><br />
-              untuk Brand Anda
+              <span className="text-gradient-pink">{content.get('Page Detail Layanan Logo Design', 'hero_title_line1', 'Logo yang Memorable')}</span><br />
+              {content.get('Page Detail Layanan Logo Design', 'hero_title_line2', 'untuk Brand Anda')}
             </h1>
             
             <p className="logo-desc">
-              Ciptakan identitas visual yang kuat dengan logo profesional yang
-              mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga
-              eksekusi, kami pastikan logo Anda memorable dan timeless.
+              {content.get(
+                'Page Detail Layanan Logo Design',
+                'hero_desc',
+                'Ciptakan identitas visual yang kuat dengan logo profesional yang mencerminkan nilai dan kepribadian brand Anda. Dari konsep hingga eksekusi, kami pastikan logo Anda memorable dan timeless.'
+              )}
             </p>
             
             <div className="hero-actions">
               <a
-                href="https://wa.me/6281804376001"
+                href={content.get('Page Detail Layanan Logo Design', 'cta_whatsapp_href', 'https://wa.me/6281804376001')}
                 className="btn-consult"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa-regular fa-comment"></i>
-                <span>Konsultasi Gratis</span>
+                <span>{content.get('Page Detail Layanan Logo Design', 'cta_whatsapp_label', 'Konsultasi Gratis')}</span>
               </a>
               <a
-                href="/portfolio"
+                href={content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio')}
                 className="btn-portfolio-outline"
               >
                 <i className="far fa-eye"></i>
-                <span>Lihat Portfolio</span>
+                <span>{content.get('Page Detail Layanan Logo Design', 'cta_portfolio_label', 'Lihat Portfolio')}</span>
               </a>
             </div>
           </div>
@@ -398,9 +402,9 @@ const LogoDesignPage = () => {
             ))}
           </div>
           <div className="view-all-button-container">
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline">
-              <i className="fa-solid fa-eye"></i> Lihat Semua Portfolio
-            </a>
+                <a href={content.get('Page Detail Layanan Logo Design', 'view_all_portfolio_href', '/portfolio')} className="btn btn-outline">
+                  <i className="fa-solid fa-eye"></i> {content.get('Page Detail Layanan Logo Design', 'view_all_portfolio_label', 'Lihat Semua Portfolio')}
+                </a>
           </div>
         </div>
       </section>
@@ -440,7 +444,7 @@ const LogoDesignPage = () => {
                     <li key={idx}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="../page-contact/page-contact.tsx" className="btn-pricing"><i className="fas fa-arrow-right"></i> Pilih Paket</a>
+                <a href="/contact" className="btn-pricing"><i className="fas fa-arrow-right"></i> Pilih Paket</a>
               </div>
             ))}
           </div>

@@ -346,6 +346,8 @@ body.page-loaded{
   transition: all 0.3s ease;
   border: 1px solid transparent;
   line-height: 1.2;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .btn i {

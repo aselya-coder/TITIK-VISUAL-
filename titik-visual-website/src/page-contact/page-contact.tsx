@@ -459,19 +459,19 @@ const ContactPage = () => {
               <ul className="footer-list">
                 <li><a href="/about" className="link-button">About Us</a></li>
                 <li><a href="/portfolio" className="link-button">Portfolio</a></li>
-                <li><a href="/layanan" className="link-button">Services</a></li>
+                <li><a href="/services" className="link-button">Services</a></li>
                 <li><a href="/careers" className="link-button">Careers</a></li>
-                <li><a href="/blog" className="link-button">Blog</a></li>
+                <li><a href="/contact" className="link-button">Contact</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4 className="footer-title">Services</h4>
               <ul className="footer-list">
-                <li><a href="/layanan/ui-ux" className="link-button">UI/UX Design</a></li>
-                <li><a href="/layanan/web-apk" className="link-button">Web Development</a></li>
-                <li><a href="/layanan/web-apk" className="link-button">Mobile App</a></li>
-                <li><a href="/layanan/merchandise" className="link-button">Custom Merchandise</a></li>
-                <li><a href="/layanan/social-media" className="link-button">Digital Marketing</a></li>
+                <li><a href="/ui-ux" className="link-button">UI/UX Design</a></li>
+                <li><a href="/web-apk" className="link-button">Web Development</a></li>
+                <li><a href="/web-apk" className="link-button">Mobile App</a></li>
+                <li><a href="/custom-merchandise" className="link-button">Custom Merchandise</a></li>
+                <li><a href="/social-media" className="link-button">Digital Marketing</a></li>
               </ul>
             </div>
             <div className="footer-col">

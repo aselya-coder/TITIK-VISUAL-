@@ -335,6 +335,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    touch-action: manipulation;
+    cursor: pointer;
 }
 
 .btn-detail:hover {
@@ -877,6 +879,8 @@ body {
     font-size: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+    cursor: pointer;
 }
 
 .btn-product:hover {

@@ -30,7 +30,7 @@ function App() {
                 <i className="fas fa-eye"></i>
                 {content.get('page-portofolio', 'cta_all_works_label', 'Lihat Semua Karya')}
               </a>
-              <a href="../page-contact/page-contact.tsx" className="btn btn-secondary">
+              <a href="/contact" className="btn btn-secondary">
                 <i className="fas fa-arrow-up-right-from-square"></i>
                 {content.get('page-portofolio', 'cta_discuss_label', 'Diskusi Proyek')}
               </a>
@@ -67,7 +67,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: ShopNow Indonesia</span>
-                    <a href="/portfolio/ecommerce-mobile-app" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -95,7 +95,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: DataFlow Solutions</span>
-                    <a href="/portfolio/saas-dashboard" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -123,7 +123,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: SecureBank Digital</span>
-                    <a href="/portfolio/banking-app" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -152,7 +152,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: ShopNow Indonesia</span>
-                    <a href="/portfolio/ecommerce-mobile-app-2" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -180,7 +180,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: DataFlow Solutions</span>
-                    <a href="/portfolio/saas-dashboard-2" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -207,7 +207,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: PT. Maju Bersama</span>
-                    <a href="/portfolio/corporate-website" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -235,7 +235,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: SecureBank Digital</span>
-                    <a href="/portfolio/banking-app-2" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -262,7 +262,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: GreenTech Startup</span>
-                    <a href="/portfolio/brand-identity" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -289,7 +289,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: Fashion Brand Co</span>
-                    <a href="/portfolio/social-media-campaign" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -316,7 +316,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: Rasa Nusantara</span>
-                    <a href="/portfolio/restaurant-website" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -344,7 +344,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: FitLife App</span>
-                    <a href="/portfolio/fitness-app" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -371,7 +371,7 @@ function App() {
                   </div>
                   <div className="project-footer">
                     <span className="client-name">Client: EduTech Indonesia</span>
-                    <a href="/portfolio/e-learning-platform" className="project-link">
+                    <a href="/portfolio" className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -387,7 +387,7 @@ function App() {
             <h2>Tertarik dengan Karya Kami?</h2>
             <p>Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda</p>
             <div className="cta-buttons">
-              <a href="../page-contact/page-contact.tsx" className="btn btn-primary-cta">
+              <a href="/contact" className="btn btn-primary-cta">
                 <i className="fas fa-arrow-up-right-from-square"></i> Diskusi Proyek
               </a>
               <a href="#portfolio" className="btn btn-secondary-cta">
