@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; }
+  * { max-width: 100%; }
+  .container { max-width: 100%; padding: 0 16px; width: 100%; }
+  img, video, iframe { max-width: 100%; height: auto; }
+  .nav, .nav-right { flex-wrap: wrap; gap: 16px; }
+  .hero, .hero-section { padding-left: 16px; padding-right: 16px; }
+  .container > *, section > *, header > *, footer > * { min-width: 0; max-width: 100%; width: 100%; }
+  h1, h2, h3, h4, p, span, li, a { word-break: break-word; overflow-wrap: anywhere; white-space: normal; }
+  .hero-buttons, .cta-buttons { flex-wrap: wrap; gap: 12px; }
+  .hero-buttons .btn { width: 100%; max-width: 320px; }
+  .btn, .btn-cta-primary, .btn-cta-secondary { min-height: 44px; }
+  a[class*="btn"], button[class*="btn"] { width: 100%; max-width: 100%; min-height: 44px; justify-content: center; }
+  .pricing-grid, .features-grid, .job-details-grid, .footer-widgets, .grid-container, .platforms-grid, .testimonial-grid, .stories-grid, .package-grid, .workflow-grid, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .portfolio-grid, .category-grid-main, .service-grid, .products-grid, .services-grid-v2, .contact-grid, .program-grid, .stationery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .platform-services { padding-left: 0 !important; }
+  .hero-content, .hero-image-wrapper, .preview-card-wrapper { position: static; width: 100%; max-width: 100%; }
+  .hero-image, .story-image-collage { overflow: hidden; }
+  .hero-image-wrapper::after, .hero-image::after { display: none; }
+  .hero-title-line1 { white-space: normal; }
+  .header-inner, .footer-container, .features, .cta-buttons { flex-direction: column; align-items: stretch; }
+  .platform-header, .job-card-top, .testimonial-client, .contact-card, .program-item { flex-direction: column; align-items: stretch; }
+  .hero-card { height: auto; }
+  .cta-btn { position: static; width: 100%; justify-content: center; }
+}

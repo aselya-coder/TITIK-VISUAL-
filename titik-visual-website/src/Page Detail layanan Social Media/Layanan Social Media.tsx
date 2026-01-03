@@ -425,7 +425,10 @@ const SocialMediaPage = () => {
               <span className="subtitle-text">{content.get('Page Detail layanan Social Media', 'hero_title_line2', 'di Social Media')}</span>
             </h1>
             <p>
-              {content.get('Page Detail layanan Social Media', 'hero_desc', 'Bangun komunitas yang engaged dan tingkatkan brand awareness dengan strategi social media yang tepat. Dari content creation hingga paid ads, kami kelola semua aspek social media bisnis Anda.')}
+              {content.get('Page Detail layanan Social Media', 'hero_desc_line1', 'Bangun komunitas yang engaged')}<br />
+              {content.get('Page Detail layanan Social Media', 'hero_desc_line2', 'dan tingkatkan brand awareness')}<br />
+              {content.get('Page Detail layanan Social Media', 'hero_desc_line3', 'dengan strategi social media yang tepat.')}<br />
+              {content.get('Page Detail layanan Social Media', 'hero_desc_line4', 'Dari content creation hingga paid ads, kami kelola semua aspek social media bisnis Anda.')}
             </p>
             <div className="hero-buttons">
               <a 
