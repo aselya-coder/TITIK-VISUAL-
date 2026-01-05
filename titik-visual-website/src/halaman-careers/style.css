@@ -441,8 +441,10 @@ body {
 }
 
 .features {
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 32px;
+    align-items: center;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -456,8 +458,8 @@ body {
 .feature-icon {
     background-color: #FFF7ED;
     color: #FB923C;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -467,14 +469,14 @@ body {
 
 .feature-text h4 {
     font-size: 18px;
-    color: #333;
+    color: #111827;
     margin: 0 0 5px 0;
     font-weight: 600;
 }
 
 .feature-text p {
     margin: 0;
-    color: #777;
+    color: #6B7280;
     font-size: 14px;
 }
 
@@ -1104,12 +1106,57 @@ body {
         gap: 24px;
     }
     .careers-page .features {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 16px;
-        align-items: center;
+        align-items: start;
     }
     .careers-page .feature-item {
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 768px) {
+    .careers-page .about-section .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 100%;
+    }
+    .careers-page .about-content {
+        text-align: left;
+    }
+    .careers-page .about-content .section-header h2 {
+        font-size: 26px;
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+    }
+    .careers-page .about-content p {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+        text-align: left;
+    }
+    .careers-page .about-grid {
+        gap: 16px;
+        align-items: start;
+    }
+}
+@media (max-width: 768px) {
+    .careers-page .about-image .image-card::before,
+    .careers-page .about-image .image-card::after {
+        display: block;
+        width: 72px;
+        height: 72px;
+        border-radius: 16px;
+    }
+    .careers-page .about-image .image-card::before {
+        top: -16px;
+        right: -16px;
+    }
+    .careers-page .about-image .image-card::after {
+        bottom: -16px;
+        left: -16px;
     }
 }

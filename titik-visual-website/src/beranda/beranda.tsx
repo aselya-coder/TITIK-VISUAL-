@@ -215,7 +215,7 @@ const TitikVisualWebsite: React.FC = () => {
             </h1>
             <p
               className="hero-lead"
-              style={{ fontSize: 28, lineHeight: 1.5, whiteSpace: 'nowrap', maxWidth: 'none' }}
+              style={{ lineHeight: 1.5, whiteSpace: 'normal', overflowWrap: 'anywhere', wordBreak: 'break-word', hyphens: 'auto' }}
             >
               {content.get('beranda', 'hero_lead_prefix', 'Dari Ide Menjadi Kenyataan dengan')}{' '}
               <span

@@ -43,4 +43,17 @@ code {
   .platform-header, .job-card-top, .testimonial-client, .contact-card, .program-item { flex-direction: column; align-items: stretch; }
   .hero-card { height: auto; }
   .cta-btn { position: static; width: 100%; justify-content: center; }
+  .footer, .site-footer { padding-left: 16px; padding-right: 16px; }
+  .footer-grid, .footer-widgets, .footer-content { grid-template-columns: 1fr !important; gap: 16px; }
+  .footer-brand, .footer-col, .footer-links, .footer-contact, .footer-widget, .footer-column { align-items: flex-start !important; text-align: left !important; }
+  .footer-title, .footer-links h4, .footer-widget h4, .footer-column h4 { white-space: normal; }
+  .footer-list, .footer-links ul { width: 100%; }
+  .footer-logo { max-width: 160px; height: auto; }
+}
+
+@media (max-width: 768px) {
+  .top-bar-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .top-left { width: 100%; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .top-left span, .top-left .item { display: inline-flex; align-items: center; gap: 8px; width: 100%; }
+  .top-right { width: 100%; justify-content: flex-start; gap: 12px; }
 }

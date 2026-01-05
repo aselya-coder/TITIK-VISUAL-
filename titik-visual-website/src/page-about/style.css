@@ -1199,7 +1199,23 @@ body {
 
 @media (max-width: 640px) {
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+        text-align: left;
+    }
+    .about-page .grid,
+    .about-page .grid-cols-4 {
+        grid-template-columns: 1fr !important;
+    }
+    .footer-title {
+        white-space: normal;
+    }
+    .footer-list {
+        gap: 8px;
+    }
+    .footer .container {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
 
@@ -1232,3 +1248,13 @@ body {
 
 /* Copyright single-line fix */
 .footer-bottom p br { display: none !important; }
+
+@media (max-width: 768px) {
+  .about-page .footer .footer-grid,
+  .about-page .footer .footer-grid.grid,
+  .about-page .footer .footer-grid.grid.grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    text-align: left;
+  }
+}

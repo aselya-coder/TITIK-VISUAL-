@@ -256,11 +256,24 @@
 
 @media (max-width: 640px) {
   .top-bar-inner {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
   }
-  .top-left,
+  .top-left {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    white-space: normal;
+  }
+  .top-left span {
+    width: 100%;
+  }
   .top-right {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
     white-space: normal;
   }
 }
