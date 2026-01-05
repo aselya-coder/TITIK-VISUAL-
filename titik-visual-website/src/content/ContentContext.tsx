@@ -20,7 +20,7 @@ type PageKey =
 type ContentMap = Record<string, Record<string, string>>;
 
 const STORAGE_KEY = 'tv_page_content';
-const API_URL = process.env.REACT_APP_CONTENT_API;
+const API_URL = process.env.REACT_APP_CONTENT_API || 'http://localhost:4000/api/content';
 
 function readStorage(): ContentMap {
   try {
@@ -117,8 +117,29 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const api: ContentAPI = {
     get: (page, field, fallback = '') => {
       const pg = data?.[page] || {};
-      const val = pg?.[field];
-      return typeof val === 'string' && val.length > 0 ? val : fallback;
+      let cur: any = pg;
+      if (field && field.includes('.')) {
+        const parts = field.split('.').filter(Boolean);
+        for (const k of parts) {
+          const idxMatch = k.match(/^\d+$/);
+          if (idxMatch) {
+            const idx = parseInt(k, 10);
+            if (!Array.isArray(cur)) {
+              cur = undefined;
+              break;
+            }
+            cur = cur[idx];
+          } else {
+            cur = cur ? cur[k] : undefined;
+          }
+          if (cur === undefined || cur === null) break;
+        }
+      } else {
+        cur = pg?.[field];
+      }
+      const val = cur;
+      if (val === undefined || val === null) return fallback;
+      return typeof val === 'string' ? val : fallback;
     },
     page: (page) => {
       return (data?.[page] as Record<string, string>) || {};

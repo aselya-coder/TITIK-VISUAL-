@@ -17,7 +17,7 @@ export function PreviewPane({ fullWidth = false }) {
           <iframe
             id="tv-preview"
             title="Website Preview"
-            src="http://localhost:3000/"
+            src="http://localhost:3001/"
             style={{ width: '100%', height: '500px', border: '1px solid hsl(var(--border))', borderRadius: '12px' }}
           />
         </ScrollArea>

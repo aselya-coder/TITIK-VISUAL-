@@ -346,24 +346,23 @@ function App() {
               {/* Project Card 6 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src={portfolioImage} alt="Corporate Website" />
+                  <img src={getImg(content.get('page-portfolio', 'items.0.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.0.title', 'Corporate Website')} />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
-                    <span className="project-category">Web Development</span>
-                    <span className="project-year">2024</span>
+                    <span className="project-category">{content.get('page-portfolio', 'items.0.category', 'Web Development')}</span>
+                    <span className="project-year">{content.get('page-portfolio', 'items.0.year', '2024')}</span>
                   </div>
-                  <h3 className="project-title">Corporate Website</h3>
-                  <p className="project-description">Website corporate yang modern dan professional dengan
-                    CMS integration untuk easy content management.</p>
+                  <h3 className="project-title">{content.get('page-portfolio', 'items.0.title', 'Corporate Website')}</h3>
+                  <p className="project-description">{content.get('page-portfolio', 'items.0.description', 'Website corporate yang modern dan professional dengan CMS integration untuk easy content management.')}</p>
                   <div className="project-tech">
                     <span>Website</span>
                     <span>Corporate</span>
                     <span>Responsive</span>
                   </div>
                   <div className="project-footer">
-                    <span className="client-name">Client: PT. Maju Bersama</span>
-                    <a href="/portfolio" className="project-link">
+                    <span className="client-name">Client: {content.get('page-portfolio', 'items.0.client', 'PT. Maju Bersama')}</span>
+                    <a href={content.get('page-portfolio', 'items.0.link', '/portfolio')} className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -373,25 +372,24 @@ function App() {
               {/* Project Card 7 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src={portfolioImage} alt="Banking Mobile App" />
-                  <span className="project-tag">Featured</span>
+                  <img src={getImg(content.get('page-portfolio', 'items.1.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.1.title', 'Banking Mobile App')} />
+                  <span className="project-tag">{content.get('page-portfolio', 'items.1.tag', 'Featured')}</span>
                 </div>
                 <div className="card-content">
                   <div className="content-header">
-                    <span className="project-category">Mobile App</span>
-                    <span className="project-year">2023</span>
+                    <span className="project-category">{content.get('page-portfolio', 'items.1.category', 'Mobile App')}</span>
+                    <span className="project-year">{content.get('page-portfolio', 'items.1.year', '2023')}</span>
                   </div>
-                  <h3 className="project-title">Banking Mobile App</h3>
-                  <p className="project-description">Secure dan user-friendly banking app dengan modern
-                    interface dan advanced security features.</p>
+                  <h3 className="project-title">{content.get('page-portfolio', 'items.1.title', 'Banking Mobile App')}</h3>
+                  <p className="project-description">{content.get('page-portfolio', 'items.1.description', 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.')}</p>
                   <div className="project-tech">
                     <span>Mobile App</span>
                     <span>Banking</span>
                     <span>Security</span>
                   </div>
                   <div className="project-footer">
-                    <span className="client-name">Client: SecureBank Digital</span>
-                    <a href="/portfolio" className="project-link">
+                    <span className="client-name">Client: {content.get('page-portfolio', 'items.1.client', 'SecureBank Digital')}</span>
+                    <a href={content.get('page-portfolio', 'items.1.link', '/portfolio')} className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -401,24 +399,23 @@ function App() {
               {/* Project Card 8 */}
               <div className="project-card">
                 <div className="card-image">
-                  <img src={portfolioImage} alt="Brand Identity Package" />
+                  <img src={getImg(content.get('page-portfolio', 'items.2.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.2.title', 'Brand Identity Package')} />
                 </div>
                 <div className="card-content">
                   <div className="content-header">
-                    <span className="project-category">Branding</span>
-                    <span className="project-year">2024</span>
+                    <span className="project-category">{content.get('page-portfolio', 'items.2.category', 'Branding')}</span>
+                    <span className="project-year">{content.get('page-portfolio', 'items.2.year', '2024')}</span>
                   </div>
-                  <h3 className="project-title">Brand Identity Package</h3>
-                  <p className="project-description">Complete brand identity package termasuk logo, color
-                    palette, typography, dan brand guidelines.</p>
+                  <h3 className="project-title">{content.get('page-portfolio', 'items.2.title', 'Brand Identity Package')}</h3>
+                  <p className="project-description">{content.get('page-portfolio', 'items.2.description', 'Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.')}</p>
                   <div className="project-tech">
                     <span>Logo</span>
                     <span>Brand Identity</span>
                     <span>Guidelines</span>
                   </div>
                   <div className="project-footer">
-                    <span className="client-name">Client: GreenTech Startup</span>
-                    <a href="/portfolio" className="project-link">
+                    <span className="client-name">Client: {content.get('page-portfolio', 'items.2.client', 'GreenTech Startup')}</span>
+                    <a href={content.get('page-portfolio', 'items.2.link', '/portfolio')} className="project-link">
                       <i className="fas fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
@@ -540,14 +537,14 @@ function App() {
         {/* CTA Section */}
         <section className="cta-section">
           <div className="container">
-            <h2>Tertarik dengan Karya Kami?</h2>
-            <p>Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda</p>
+            <h2>{content.get('page-portfolio', 'cta_title', 'Tertarik dengan Karya Kami?')}</h2>
+            <p>{content.get('page-portfolio', 'cta_subtitle', 'Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda')}</p>
             <div className="cta-buttons">
               <a href="/contact" className="btn btn-primary-cta">
-                <i className="fas fa-arrow-up-right-from-square"></i> Diskusi Proyek
+                <i className="fas fa-arrow-up-right-from-square"></i> {content.get('page-portfolio', 'cta_primary', 'Diskusi Proyek')}
               </a>
               <a href="#portfolio" className="btn btn-secondary-cta">
-                <i className="fas fa-eye"></i> Lihat Semua Portfolio
+                <i className="fas fa-eye"></i> {content.get('page-portfolio', 'cta_secondary', 'Lihat Semua Portfolio')}
               </a>
             </div>
           </div>

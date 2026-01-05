@@ -181,7 +181,7 @@ const TitikVisualWebsite: React.FC = () => {
               }}
             >
               <img
-                src={getImg('icon-custom-merchandise.png')}
+                src={getImg(content.get('beranda', 'hero_badge_icon', 'icon-custom-merchandise.png'))}
                 alt="Icon"
                 style={{ width: 14, height: 14, objectFit: 'contain' }}
               />
@@ -274,48 +274,48 @@ const TitikVisualWebsite: React.FC = () => {
 
             <div className="featured-grid">
               <div className="featured-card" onClick={() => navigateToPage('/ui-ux')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('ui-ux desain.png')} alt="UI/UX Design Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_uiux_icon', 'ui-ux desain.png'))} alt="UI/UX Design Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_uiux_title', 'UI/UX Design')}</h4>
                 <p>{content.get('beranda', 'service_uiux_desc', 'Desain interface yang user-friendly dan menarik untuk aplikasi dan website')}</p>
               </div>
 
               <div className="featured-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('icon-website.png')} alt="Website Development Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_website_icon', 'icon-website.png'))} alt="Website Development Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_web_title', 'Website Development')}</h4>
                 <p>{content.get('beranda', 'service_web_desc', 'Website responsif dan modern untuk bisnis Anda')}</p>
               </div>
 
               <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('icon-custom-merchandise.png')} alt="Custom Merchandise Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_merch_icon', 'icon-custom-merchandise.png'))} alt="Custom Merchandise Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_merch_title', 'Custom Merchandise')}</h4>
                 <p>{content.get('beranda', 'service_merch_desc', 'Payung, tumbler, totebag, dan merchandise custom berkualitas')}</p>
               </div>
 
               <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('icon-corporate-gift.png')} alt="Corporate Gifts Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_gift_icon', 'icon-corporate-gift.png'))} alt="Corporate Gifts Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_gift_title', 'Corporate Gifts')}</h4>
                 <p>{content.get('beranda', 'service_gift_desc', 'Paket seminar kit, powerbank, flashdisk untuk kebutuhan corporate')}</p>
               </div>
 
               <div className="featured-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('icon-drinkware.png')} alt="Drinkware Collection Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_drink_icon', 'icon-drinkware.png'))} alt="Drinkware Collection Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_drink_title', 'Drinkware Collection')}</h4>
                 <p>{content.get('beranda', 'service_drink_desc', 'Botol minum, tumbler, mug, gelas kaca, dan drink jar custom')}</p>
               </div>
 
               <div className="featured-card" onClick={() => navigateToPage('/logo-design')} style={{ cursor: 'pointer' }}>
-                <div className="icon-box">
-                  <img src={getImg('icon-logo dan brand.png')} alt="Logo & Brand Identity Icon" className="icon" />
+              <div className="icon-box">
+                  <img src={getImg(content.get('beranda', 'img_logo_icon', 'icon-logo dan brand.png'))} alt="Logo & Brand Identity Icon" className="icon" />
                 </div>
                 <h4>{content.get('beranda', 'service_logo_title', 'Logo & Brand Identity')}</h4>
                 <p>{content.get('beranda', 'service_logo_desc', 'Logo design dan brand identity package lengkap')}</p>

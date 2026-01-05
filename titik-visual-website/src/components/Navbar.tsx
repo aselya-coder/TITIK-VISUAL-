@@ -63,14 +63,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath }) => {
       <div className="top-bar">
         <div className="top-bar-inner">
           <div className="top-left">
-            <span><i className="fa-solid fa-phone"></i> 081804376001</span>
-            <span><i className="fa-regular fa-envelope"></i> titikvisualjogja@gmail.com</span>
+            <span><i className="fa-solid fa-phone"></i> {content.get('global', 'topbar_phone', '081804376001')}</span>
+            <span><i className="fa-regular fa-envelope"></i> {content.get('global', 'topbar_email', 'titikvisualjogja@gmail.com')}</span>
           </div>
           <div className="top-right">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href={content.get('global', 'social_facebook_href', 'https://facebook.com')} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i className="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href={content.get('global', 'social_instagram_href', 'https://instagram.com')} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i className="fa-brands fa-instagram"></i>
             </a>
           </div>
@@ -110,12 +110,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath }) => {
       {/* Mobile Navigation Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <a href="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-          <a href="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>About</a>
-          <a href="/services" className={`mobile-nav-link ${isActive('/services') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Services</a>
-          <a href="/portfolio" className={`mobile-nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Portfolio</a>
-          <a href="/careers" className={`mobile-nav-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Careers</a>
-          <a href="/contact" className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          <a href="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_home', 'Home')}</a>
+          <a href="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_about', 'About')}</a>
+          <a href="/services" className={`mobile-nav-link ${isActive('/services') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_services', 'Services')}</a>
+          <a href="/portfolio" className={`mobile-nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
+          <a href="/careers" className={`mobile-nav-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_careers', 'Careers')}</a>
+          <a href="/contact" className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_contact', 'Contact')}</a>
         </nav>
       </div>
       </header>
