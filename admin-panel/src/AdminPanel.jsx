@@ -143,6 +143,12 @@ export default function AdminPanel() {
     }
   });
   const [saved, setSaved] = useState(false);
+  const [lastSaved, setLastSaved] = useState({
+    page: pages[0],
+    title: "",
+    subtitle: "",
+    values: {},
+  });
 
   const loadContent = async (page) => {
     try {
@@ -186,6 +192,7 @@ export default function AdminPanel() {
             nextValues[f.path] = getByPath(json, f.path);
           });
           setFormValues(nextValues);
+          setLastSaved({ page, title: t, subtitle: s, values: nextValues });
           return;
         }
       }
@@ -201,6 +208,7 @@ export default function AdminPanel() {
         nextValues[f.path] = typeof content[f.path] === "string" ? content[f.path] : "";
       });
       setFormValues(nextValues);
+      setLastSaved({ page, title: content.title || "", subtitle: content.subtitle || "", values: nextValues });
     } catch (e) {
       console.error(e);
       setTitle("");
@@ -283,6 +291,7 @@ export default function AdminPanel() {
           target.postMessage({ type: "tv_content_update", page: selectedPage, title, subtitle }, "*");
         }
       } catch { void 0; }
+      setLastSaved({ page: selectedPage, title, subtitle, values: formValues });
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {
@@ -358,13 +367,31 @@ export default function AdminPanel() {
         <main className="p-6">
           <div className="max-w-2xl">
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-gray-900">{selectedPage}</h2>
-              <p className="text-gray-600">Isi dan perbarui konten halaman</p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900">{selectedPage}</h2>
+                  <p className="text-gray-600">Isi dan perbarui konten halaman</p>
+                </div>
+                {(
+                  selectedPage !== lastSaved.page ||
+                  title !== lastSaved.title ||
+                  subtitle !== lastSaved.subtitle ||
+                  Object.keys(formValues).some((k) => (formValues[k] || "") !== (lastSaved.values[k] || ""))
+                ) && (
+                  <span className="inline-flex items-center rounded-full bg-yellow-100 text-yellow-700 px-3 py-1 text-xs font-medium">
+                    Belum disimpan
+                  </span>
+                )}
+              </div>
             </div>
             <Card className="shadow-sm rounded-2xl border border-gray-200">
               <CardContent className="p-6 space-y-6">
                 <div className="space-y-3">
+                  <div className="mb-2 text-sm text-gray-500">
+                    <span className="text-gray-900 font-medium">{selectedPage}</span> <span>→</span> <span>Header</span>
+                  </div>
                   <h3 className="text-lg font-semibold text-gray-900">Header</h3>
+                  <p className="text-xs text-gray-500">Perubahan akan tampil setelah klik Simpan Perubahan</p>
                   <div className="grid grid-cols-1 gap-4">
                     <div>
                       <label className="text-sm text-gray-700">Judul Halaman</label>
@@ -431,7 +458,25 @@ export default function AdminPanel() {
         <section className="hidden lg:block border-l border-gray-200 bg-white p-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-gray-900">Preview</h3>
-            <Button variant="outline" className="h-8 rounded-lg px-2" onClick={() => setShowPreview(s => !s)}>{showPreview ? "Sembunyikan" : "Tampilkan"}</Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                className="h-8 rounded-lg px-2"
+                onClick={() => {
+                  const iframe = document.getElementById("tv-preview");
+                  if (iframe && iframe.tagName === "IFRAME") {
+                    const el = iframe;
+                    const src = el.getAttribute("src") || "";
+                    el.setAttribute("src", src);
+                  }
+                }}
+              >
+                Reload Preview
+              </Button>
+              <Button variant="outline" className="h-8 rounded-lg px-2" onClick={() => setShowPreview(s => !s)}>
+                {showPreview ? "Sembunyikan" : "Tampilkan"}
+              </Button>
+            </div>
           </div>
           {showPreview ? (
             <iframe id="tv-preview" title="Website Preview" src="http://localhost:3001/" className="w-full h-[85vh] rounded-xl border border-gray-200" />
