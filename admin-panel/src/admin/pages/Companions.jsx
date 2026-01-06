@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useCompanions } from "../hooks/useCompanions";
+import { useCompanions } from "../hooks/useCompanions.js";
 
 export function CompanionsPage() {
   const { items, loading, error, reload } = useCompanions();
@@ -35,4 +35,3 @@ export function CompanionsPage() {
     </Card>
   );
 }
-

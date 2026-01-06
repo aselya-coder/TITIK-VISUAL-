@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useBookings } from "../hooks/useBookings";
+import { useBookings } from "../hooks/useBookings.js";
 
 export function BookingsPage() {
   const { items, loading, error, reload, approve, reject } = useBookings();
@@ -46,4 +46,3 @@ export function BookingsPage() {
     </Card>
   );
 }
-

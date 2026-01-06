@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getSupabase } from '../lib/supabaseClient';
+import { getSupabase } from '../lib/supabaseClient.js';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -51,4 +51,3 @@ export function AdminGuard({ children }) {
   }
   return children;
 }
-

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useUsers } from "../hooks/useUsers";
+import { useUsers } from "../hooks/useUsers.js";
 
 export function UsersPage() {
   const { items, loading, error, reload } = useUsers();
@@ -37,4 +37,3 @@ export function UsersPage() {
     </Card>
   );
 }
-

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listPayments, approvePayment, rejectPayment } from '../services/paymentService';
+import { listPayments, approvePayment, rejectPayment } from '../services/paymentService.js';
 
 export function usePayments() {
   const [items, setItems] = useState([]);
@@ -32,4 +32,3 @@ export function usePayments() {
 
   return { items, loading, error, reload: load, approve, reject };
 }
-

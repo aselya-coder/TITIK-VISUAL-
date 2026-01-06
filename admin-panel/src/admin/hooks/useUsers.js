@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listUsers, updateUser } from '../services/userService';
+import { listUsers, updateUser } from '../services/userService.js';
 
 export function useUsers() {
   const [items, setItems] = useState([]);
@@ -28,4 +28,3 @@ export function useUsers() {
 
   return { items, loading, error, reload: load, save };
 }
-

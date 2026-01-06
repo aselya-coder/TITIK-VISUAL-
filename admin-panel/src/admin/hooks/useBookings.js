@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listBookings, approveBooking, rejectBooking } from '../services/bookingService';
+import { listBookings, approveBooking, rejectBooking } from '../services/bookingService.js';
 
 export function useBookings() {
   const [items, setItems] = useState([]);
@@ -32,4 +32,3 @@ export function useBookings() {
 
   return { items, loading, error, reload: load, approve, reject };
 }
-

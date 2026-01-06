@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listCompanions, updateCompanion } from '../services/companionService';
+import { listCompanions, updateCompanion } from '../services/companionService.js';
 
 export function useCompanions() {
   const [items, setItems] = useState([]);
@@ -28,4 +28,3 @@ export function useCompanions() {
 
   return { items, loading, error, reload: load, save };
 }
-

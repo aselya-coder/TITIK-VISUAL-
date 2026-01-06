@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { usePayments } from "../hooks/usePayments";
+import { usePayments } from "../hooks/usePayments.js";
 
 export function PaymentsPage() {
   const { items, loading, error, reload, approve, reject } = usePayments();
@@ -44,4 +44,3 @@ export function PaymentsPage() {
     </Card>
   );
 }
-
