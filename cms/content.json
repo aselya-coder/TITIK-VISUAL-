@@ -1,0 +1,129 @@
+{
+  "global": {
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_services": "Services",
+    "nav_portfolio": "Portfolio",
+    "nav_careers": "Careers",
+    "nav_contact": "Contact",
+    "topbar_phone": "081804376001",
+    "topbar_email": "titikvisualjogja@gmail.com",
+    "social_facebook_href": "https://facebook.com/titikvisual",
+    "social_instagram_href": "https://instagram.com/titikvisual",
+    "partners": {
+      "items": [
+        {
+          "name": "PT. Maju Bersama",
+          "logo": "logo-pt-maju-bersama.png",
+          "href": "https://ptmajubersama.co.id"
+        },
+        {
+          "name": "SecureBank Digital",
+          "logo": "logo-securebank.png",
+          "href": "https://securebank.example.com"
+        },
+        {
+          "name": "GreenTech Startup",
+          "logo": "logo-greentech.png",
+          "href": "https://greentech.example.com"
+        }
+      ]
+    }
+  },
+  "page-layanan": {
+    "services": {
+      "items": [
+        {
+          "title": "UI/UX Design",
+          "desc": "Desain antarmuka yang intuitif dan pengalaman pengguna yang optimal.",
+          "icon": "ui_ux.png"
+        },
+        {
+          "title": "Website Development",
+          "desc": "Website profesional yang cepat, aman, dan responsif untuk bisnis Anda.",
+          "icon": "web.png"
+        },
+        {
+          "title": "Social Media Management",
+          "desc": "Pengelolaan konten, kalender, dan engagement untuk channel sosial Anda.",
+          "icon": "Social Media Management.png"
+        }
+      ]
+    }
+  },
+  "beranda": {
+    "hero_badge_text": "Titik Visual • Digital Creative Studio Yogyakarta",
+    "hero_badge_icon": "icon-custom-merchandise.png",
+    "hero_title_line1": "Titik Visual",
+    "hero_title_line2": "Creative Studio",
+    "hero_lead_prefix": "Dari Ide Menjadi Kenyataan dengan",
+    "hero_lead_highlight": "Sentuhan Kreativitas",
+    "hero_description": "Titik Visual adalah Digital Creative Studio yang berpengalaman dalam UI/UX Design, Web Development, Mobile App, Social Media Management, dan Custom Merchandise Premium.",
+    "cta_portfolio_label": "Lihat Portofolio",
+    "cta_consult_label": "Konsultasi Gratis",
+    "img_uiux_icon": "ui-ux desain.png",
+    "img_website_icon": "icon-website.png",
+    "img_merch_icon": "icon-custom-merchandise.png",
+    "img_gift_icon": "icon-corporate-gift.png",
+    "img_drink_icon": "icon-drinkware.png",
+    "img_logo_icon": "icon-custom-merchandise.png"
+  },
+  "page-portfolio": {
+    "cta": {
+      "title": "Tertarik dengan Karya Kami?",
+      "subtitle": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda",
+      "primary": "Diskusi Proyek",
+      "secondary": "Lihat Semua Portfolio"
+    },
+    "items": [
+      {
+        "title": "Corporate Website",
+        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
+        "category": "Web Development",
+        "year": "2024",
+        "client": "PT. Maju Bersama",
+        "tag": "",
+        "image": "portfolio.png",
+        "link": "/portfolio"
+      },
+      {
+        "title": "Banking Mobile App",
+        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
+        "category": "Mobile App",
+        "year": "2023",
+        "client": "SecureBank Digital",
+        "tag": "Featured",
+        "image": "portfolio.png",
+        "link": "/portfolio"
+      },
+      {
+        "title": "Brand Identity Package",
+        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
+        "category": "Branding",
+        "year": "2024",
+        "client": "GreenTech Startup",
+        "tag": "",
+        "image": "portfolio.png",
+        "link": "/portfolio"
+      }
+    ]
+  },
+  "Page Detail Layanan Logo Design": {
+    "testimonials": {
+      "items": [
+        {
+          "name": "Ahmad Rizki",
+          "role": "Founder at StartupHub Jakarta",
+          "quote": "Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!",
+          "avatar": "Page Detail Layanan Logo Design.png"
+        },
+        {
+          "name": "Maya Sari",
+          "role": "Owner at Boutique Fashion",
+          "quote": "Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!",
+          "avatar": "Page Detail Layanan Logo Design.png"
+        }
+      ]
+    }
+  }
+}
