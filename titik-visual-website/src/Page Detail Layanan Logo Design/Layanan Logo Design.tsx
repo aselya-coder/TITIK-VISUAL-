@@ -137,23 +137,7 @@ const LogoDesignPage = () => {
     }
   ];
 
-  // Testimonials data
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      text: content.get('Page Detail Layanan Logo Design', 'testimonial_1_text', '"Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!"'),
-      clientName: content.get('Page Detail Layanan Logo Design', 'testimonial_1_name', 'Ahmad Rizki'),
-      clientPosition: content.get('Page Detail Layanan Logo Design', 'testimonial_1_pos', 'Founder at StartupHub Jakarta'),
-      clientImage: getImg('Page Detail Layanan Logo Design.png')
-    },
-    {
-      id: 2,
-      text: content.get('Page Detail Layanan Logo Design', 'testimonial_2_text', '"Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!"'),
-      clientName: content.get('Page Detail Layanan Logo Design', 'testimonial_2_name', 'Maya Sari'),
-      clientPosition: content.get('Page Detail Layanan Logo Design', 'testimonial_2_pos', 'Owner at Boutique Fashion'),
-      clientImage: getImg('Page Detail Layanan Logo Design.png')
-    }
-  ];
+  
 
   // Pricing plans data
   const pricingPlans: PricingPlan[] = [
@@ -522,25 +506,40 @@ const LogoDesignPage = () => {
             <p>{content.get('Page Detail Layanan Logo Design', 'testimonials_subtitle', 'Testimoni dari klien yang puas dengan logo design kami')}</p>
           </div>
           <div className="testimonial-grid" data-aos="fade-up" data-aos-delay="200">
-            {testimonials.map(testimonial => (
-              <div className="testimonial-card" key={testimonial.id}>
-                <div className="testimonial-stars">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                </div>
-                <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-client">
-                  <img src={testimonial.clientImage} alt={testimonial.clientName} />
-                  <div className="client-info">
-                    <h4>{testimonial.clientName}</h4>
-                    <span>{testimonial.clientPosition}</span>
-                  </div>
+            <div className="testimonial-card">
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">{content.get('Page Detail Layanan Logo Design', 'testimonials.items.0.quote', '"Logo yang dibuat Titik Visual sangat mencerminkan visi startup kami. Prosesnya profesional dan hasilnya melampaui ekspektasi!"')}</p>
+              <div className="testimonial-client">
+                <img src={getImg(content.get('Page Detail Layanan Logo Design', 'testimonials.items.0.avatar', 'Page Detail Layanan Logo Design.png'))} alt={content.get('Page Detail Layanan Logo Design', 'testimonials.items.0.name', 'Klien')} />
+                <div className="client-info">
+                  <h4>{content.get('Page Detail Layanan Logo Design', 'testimonials.items.0.name', 'Ahmad Rizki')}</h4>
+                  <span>{content.get('Page Detail Layanan Logo Design', 'testimonials.items.0.role', 'Founder at StartupHub Jakarta')}</span>
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="testimonial-card">
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">{content.get('Page Detail Layanan Logo Design', 'testimonials.items.1.quote', '"Tim sangat memahami brand kami. Logo yang dihasilkan elegant dan memorable. Highly recommended!"')}</p>
+              <div className="testimonial-client">
+                <img src={getImg(content.get('Page Detail Layanan Logo Design', 'testimonials.items.1.avatar', 'Page Detail Layanan Logo Design.png'))} alt={content.get('Page Detail Layanan Logo Design', 'testimonials.items.1.name', 'Klien')} />
+                <div className="client-info">
+                  <h4>{content.get('Page Detail Layanan Logo Design', 'testimonials.items.1.name', 'Maya Sari')}</h4>
+                  <span>{content.get('Page Detail Layanan Logo Design', 'testimonials.items.1.role', 'Owner at Boutique Fashion')}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

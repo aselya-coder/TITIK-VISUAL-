@@ -188,8 +188,8 @@ function ServicesPage() {
             <div className="service-card-v2 accent-purple">
               <div className="card-image-container"><img src={getImg('ui_ux.png')} alt={content.get('page-layanan', 'svc_uiux_img_alt', 'UI/UX Design')} /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
-                <h3>{content.get('page-layanan', 'svc_uiux_title', 'UI/UX Design')}</h3>
-                <p className="description">{content.get('page-layanan', 'svc_uiux_desc', 'Desain antarmuka yang intuitif dan pengalaman pengguna yang optimal.')}</p>
+                <h3>{content.get('page-layanan', 'services.items.0.title', 'UI/UX Design')}</h3>
+                <p className="description">{content.get('page-layanan', 'services.items.0.desc', 'Desain antarmuka yang intuitif dan pengalaman pengguna yang optimal.')}</p>
                 <h4>{content.get('page-layanan', 'feature_title', 'Fitur Utama:')}</h4>
                 <ul className="features-list">
                   <li><i className="fas fa-check-circle"></i> {content.get('page-layanan', 'svc_uiux_feat_1', 'UI/UX Research')}</li>
@@ -207,10 +207,10 @@ function ServicesPage() {
 
             {/* Web Dev */}
             <div className="service-card-v2 accent-blue">
-              <div className="card-image-container"><img src={getImg('web.png')} alt={content.get('page-layanan', 'svc_web_img_alt', 'Web Development')} /></div>
+              <div className="card-image-container"><img src={getImg(content.get('page-layanan', 'services.items.1.icon', 'web.png'))} alt={content.get('page-layanan', 'svc_web_img_alt', 'Web Development')} /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
-                <h3>{content.get('page-layanan', 'svc_web_title', 'Website Development')}</h3>
-                <p className="description">{content.get('page-layanan', 'svc_web_desc', 'Website profesional yang cepat, aman, dan responsif untuk bisnis Anda.')}</p>
+                <h3>{content.get('page-layanan', 'services.items.1.title', 'Website Development')}</h3>
+                <p className="description">{content.get('page-layanan', 'services.items.1.desc', 'Website profesional yang cepat, aman, dan responsif untuk bisnis Anda.')}</p>
                 <h4>{content.get('page-layanan', 'feature_title', 'Fitur Utama:')}</h4>
                 <ul className="features-list">
                   <li><i className="fas fa-check-circle"></i> {content.get('page-layanan', 'svc_web_feat_1', 'Responsive Design')}</li>
@@ -287,10 +287,10 @@ function ServicesPage() {
 
             {/* Social Media Management */}
             <div className="service-card-v2 accent-pink">
-              <div className="card-image-container"><img src={getImg('Social Media Management.png')} alt={content.get('page-layanan', 'svc_social_img_alt', 'Social Media Management')} /></div>
+              <div className="card-image-container"><img src={getImg(content.get('page-layanan', 'services.items.2.icon', 'Social Media Management.png'))} alt={content.get('page-layanan', 'svc_social_img_alt', 'Social Media Management')} /></div>
               <div className="card-content-v2" style={{ textAlign: 'left' }}>
-                <h3>{content.get('page-layanan', 'svc_social_title', 'Social Media Management')}</h3>
-                <p className="description">{content.get('page-layanan', 'svc_social_desc', 'Pengelolaan konten, kalender, dan engagement untuk channel sosial Anda.')}</p>
+                <h3>{content.get('page-layanan', 'services.items.2.title', 'Social Media Management')}</h3>
+                <p className="description">{content.get('page-layanan', 'services.items.2.desc', 'Pengelolaan konten, kalender, dan engagement untuk channel sosial Anda.')}</p>
                 <h4>{content.get('page-layanan', 'feature_title', 'Fitur Utama:')}</h4>
                 <ul className="features-list">
                   <li><i className="fas fa-check-circle"></i> {content.get('page-layanan', 'svc_social_feat_1', 'Strategi Konten')}</li>
