@@ -40,6 +40,7 @@ export const navStructure = [
     items: [
       { id: 'global', label: 'Global' },
       { id: 'beranda', label: 'Beranda' },
+      { id: 'page-portfolio', label: 'Portfolio' },
     ]
   },
   {
@@ -56,8 +57,9 @@ export const navStructure = [
   {
     label: 'Halaman Lain',
     items: [
-      { id: 'page-portfolio', label: 'Portfolio' },
       { id: 'halaman-careers', label: 'Karir' },
+      { id: 'halaman-program-magang', label: 'Program Magang' },
+      { id: 'halaman-lowongan-kerja', label: 'Lowongan Kerja' },
       { id: 'page-contact', label: 'Kontak' },
       { id: 'page-about', label: 'Tentang' },
     ]
