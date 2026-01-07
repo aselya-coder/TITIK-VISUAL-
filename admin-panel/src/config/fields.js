@@ -283,6 +283,8 @@ export const fieldsConfig = {
           { label: "Social Media Description", path: "service_sosmed_desc" },
           { label: "Social Media Price", path: "price_sosmed" },
           { label: "Digital Marketing Title", path: "service_marketing_title" },
+          { label: "Digital Marketing Description", path: "service_marketing_desc" },
+          { label: "Digital Marketing Price", path: "price_marketing" },
         ]
       },
       {
@@ -290,7 +292,6 @@ export const fieldsConfig = {
         fields: [
           { label: "Main Title", path: "contact_cta_title" },
           { label: "Main Subtitle", path: "contact_cta_subtitle" },
-          { label: "Contact List Title", path: "contact_list_title" },
           { label: "WhatsApp Title", path: "contact_whatsapp_title" },
           { label: "Phone Title", path: "contact_phone_title" },
           { label: "Email Title", path: "contact_email_title" },
