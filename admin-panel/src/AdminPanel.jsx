@@ -1,154 +1,33 @@
 import { useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Sidebar } from "./components/Sidebar";
+import { Topbar } from "./components/Topbar";
+import { DashboardWelcome } from "./components/DashboardWelcome";
+import { PreviewPanel } from "./components/PreviewPanel";
+import { SectionEditor } from "./components/SectionEditor";
+import { fieldsConfig } from "./config/fields";
+import { getPageLabel } from "./config/pages";
 import { Button } from "@/components/ui/button";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { Save } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 export default function AdminPanel() {
-  const pages = [
-    "global",
-    "beranda",
-    "halaman-careers",
-    "halaman-lowongan-kerja",
-    "halaman-program-magang",
-    "Page Detail Layanan Custom Merchandise",
-    "Page Detail Layanan Logo Design",
-    "Page Detail layanan Social Media",
-    "page detail layanan web&apk",
-    "page layanan detail ui_ux",
-    "page-about",
-    "page-contact",
-    "page-layanan",
-    "page-portfolio",
-  ];
-
   const STORAGE_KEY = "tv_page_content";
   const API_BASE = "http://localhost:4000/api/content";
-  const [selectedPage, setSelectedPage] = useState(pages[0]);
-  const [showPreview, setShowPreview] = useState(true);
-  const fieldsConfig = {
-    global: [
-      { label: "Topbar Phone", path: "topbar_phone" },
-      { label: "Topbar Email", path: "topbar_email" },
-      { label: "Facebook Link", path: "social_facebook_href" },
-      { label: "Instagram Link", path: "social_instagram_href" },
-      { label: "Menu Home", path: "nav_home" },
-      { label: "Menu About", path: "nav_about" },
-      { label: "Menu Services", path: "nav_services" },
-      { label: "Menu Portfolio", path: "nav_portfolio" },
-      { label: "Menu Careers", path: "nav_careers" },
-      { label: "Menu Contact", path: "nav_contact" },
-      { label: "Partner 0 Name", path: "partners.items.0.name" },
-      { label: "Partner 0 Logo", path: "partners.items.0.logo" },
-      { label: "Partner 0 Link", path: "partners.items.0.href" },
-      { label: "Partner 1 Name", path: "partners.items.1.name" },
-      { label: "Partner 1 Logo", path: "partners.items.1.logo" },
-      { label: "Partner 1 Link", path: "partners.items.1.href" },
-      { label: "Partner 2 Name", path: "partners.items.2.name" },
-      { label: "Partner 2 Logo", path: "partners.items.2.logo" },
-      { label: "Partner 2 Link", path: "partners.items.2.href" }
-    ],
-    beranda: [
-      { label: "Hero Badge Text", path: "hero_badge_text" },
-      { label: "Hero Badge Icon", path: "hero_badge_icon" },
-      { label: "Hero Title Line 1", path: "hero_title_line1" },
-      { label: "Hero Title Line 2", path: "hero_title_line2" },
-      { label: "Hero Lead Prefix", path: "hero_lead_prefix" },
-      { label: "Hero Lead Highlight", path: "hero_lead_highlight" },
-      { label: "Hero Description", path: "hero_description" },
-      { label: "CTA Portfolio Label", path: "cta_portfolio_label" },
-      { label: "CTA Consult Label", path: "cta_consult_label" },
-      { label: "Icon UI/UX", path: "img_uiux_icon" },
-      { label: "Icon Website", path: "img_website_icon" },
-      { label: "Icon Merchandise", path: "img_merch_icon" },
-      { label: "Icon Corporate Gift", path: "img_gift_icon" },
-      { label: "Icon Drinkware", path: "img_drink_icon" },
-      { label: "Icon Logo", path: "img_logo_icon" }
-    ],
-    "page-portfolio": [
-      { label: "CTA Title", path: "cta.title" },
-      { label: "CTA Subtitle", path: "cta.subtitle" },
-      { label: "CTA Primary Button", path: "cta.primary" },
-      { label: "CTA Secondary Button", path: "cta.secondary" },
-      { label: "Item 0 Title", path: "items.0.title" },
-      { label: "Item 0 Description", path: "items.0.description" },
-      { label: "Item 0 Category", path: "items.0.category" },
-      { label: "Item 0 Year", path: "items.0.year" },
-      { label: "Item 0 Client", path: "items.0.client" },
-      { label: "Item 0 Tag", path: "items.0.tag" },
-      { label: "Item 0 Image", path: "items.0.image" },
-      { label: "Item 0 Link", path: "items.0.link" },
-      { label: "Item 1 Title", path: "items.1.title" },
-      { label: "Item 1 Description", path: "items.1.description" },
-      { label: "Item 1 Category", path: "items.1.category" },
-      { label: "Item 1 Year", path: "items.1.year" },
-      { label: "Item 1 Client", path: "items.1.client" },
-      { label: "Item 1 Tag", path: "items.1.tag" },
-      { label: "Item 1 Image", path: "items.1.image" },
-      { label: "Item 1 Link", path: "items.1.link" },
-      { label: "Item 2 Title", path: "items.2.title" },
-      { label: "Item 2 Description", path: "items.2.description" },
-      { label: "Item 2 Category", path: "items.2.category" },
-      { label: "Item 2 Year", path: "items.2.year" },
-      { label: "Item 2 Client", path: "items.2.client" },
-      { label: "Item 2 Tag", path: "items.2.tag" },
-      { label: "Item 2 Image", path: "items.2.image" },
-      { label: "Item 2 Link", path: "items.2.link" }
-    ]
-    ,
-    "page-layanan": [
-      { label: "Service 0 Title", path: "services.items.0.title" },
-      { label: "Service 0 Desc", path: "services.items.0.desc" },
-      { label: "Service 0 Icon", path: "services.items.0.icon" },
-      { label: "Service 1 Title", path: "services.items.1.title" },
-      { label: "Service 1 Desc", path: "services.items.1.desc" },
-      { label: "Service 1 Icon", path: "services.items.1.icon" },
-      { label: "Service 2 Title", path: "services.items.2.title" },
-      { label: "Service 2 Desc", path: "services.items.2.desc" },
-      { label: "Service 2 Icon", path: "services.items.2.icon" }
-    ],
-    "Page Detail Layanan Logo Design": [
-      { label: "Testimonial 0 Quote", path: "testimonials.items.0.quote" },
-      { label: "Testimonial 0 Name", path: "testimonials.items.0.name" },
-      { label: "Testimonial 0 Role", path: "testimonials.items.0.role" },
-      { label: "Testimonial 0 Avatar", path: "testimonials.items.0.avatar" },
-      { label: "Testimonial 1 Quote", path: "testimonials.items.1.quote" },
-      { label: "Testimonial 1 Name", path: "testimonials.items.1.name" },
-      { label: "Testimonial 1 Role", path: "testimonials.items.1.role" },
-      { label: "Testimonial 1 Avatar", path: "testimonials.items.1.avatar" }
-    ]
-  };
+  
+  const [selectedPage, setSelectedPage] = useState(null);
   const [formValues, setFormValues] = useState({});
-  const [title, setTitle] = useState(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return "";
-      const data = JSON.parse(raw);
-      const content = data?.[pages[0]];
-      return content?.title || "";
-    } catch {
-      return "";
-    }
-  });
-  const [subtitle, setSubtitle] = useState(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return "";
-      const data = JSON.parse(raw);
-      const content = data?.[pages[0]];
-      return content?.subtitle || "";
-    } catch {
-      return "";
-    }
-  });
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
   const [saved, setSaved] = useState(false);
   const [lastSaved, setLastSaved] = useState({
-    page: pages[0],
+    page: null,
     title: "",
     subtitle: "",
     values: {},
   });
+  const [apiUp, setApiUp] = useState(null);
 
   const loadContent = async (page) => {
     try {
@@ -156,61 +35,67 @@ export default function AdminPanel() {
       const res = await fetch(`${API_BASE}/${encodeURIComponent(page)}`, {
         headers: { Accept: "application/json" },
       });
+      
+      let data = {};
+      let t = "";
+      let s = "";
+
       if (res.ok) {
         const json = await res.json();
         if (json && typeof json === "object") {
-          const t = json.title || "";
-          const s = json.subtitle || "";
-          setTitle(typeof t === "string" ? t : "");
-          setSubtitle(typeof s === "string" ? s : "");
+          data = json;
+          t = json.title || "";
+          s = json.subtitle || "";
+          
           // sync to localStorage for preview iframe communication
           try {
             const raw = localStorage.getItem(STORAGE_KEY);
-            const data = raw ? JSON.parse(raw) : {};
-            data[page] = { ...(data[page] || {}), ...json, title: t, subtitle: s };
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            const localData = raw ? JSON.parse(raw) : {};
+            localData[page] = { ...(localData[page] || {}), ...json, title: t, subtitle: s };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(localData));
           } catch { void 0; }
-          const cfg = fieldsConfig[page] || [];
-          const nextValues = {};
-          const getByPath = (obj, path) => {
-            let cur = obj;
-            const parts = path.split(".").filter(Boolean);
-            for (const k of parts) {
-              const idxMatch = k.match(/^\d+$/);
-              if (idxMatch) {
-                const idx = parseInt(k, 10);
-                if (!Array.isArray(cur)) return "";
-                cur = cur[idx];
-              } else {
-                cur = cur ? cur[k] : undefined;
-              }
-              if (cur === undefined || cur === null) break;
-            }
-            return typeof cur === "string" ? cur : "";
-          };
-          cfg.forEach(f => {
-            nextValues[f.path] = getByPath(json, f.path);
-          });
-          setFormValues(nextValues);
-          setLastSaved({ page, title: t, subtitle: s, values: nextValues });
-          return;
         }
+      } else {
+        // Fallback to localStorage
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const localData = raw ? JSON.parse(raw) : {};
+        data = localData?.[page] || {};
+        t = typeof data.title === "string" ? data.title : "";
+        s = typeof data.subtitle === "string" ? data.subtitle : "";
       }
-      // Fallback to localStorage
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const data = raw ? JSON.parse(raw) : {};
-      const content = data?.[page] || {};
-      setTitle(typeof content.title === "string" ? content.title : "");
-      setSubtitle(typeof content.subtitle === "string" ? content.subtitle : "");
-      const cfg = fieldsConfig[page] || [];
+
+      setTitle(typeof t === "string" ? t : "");
+      setSubtitle(typeof s === "string" ? s : "");
+
+      const sections = fieldsConfig[page] || [];
       const nextValues = {};
-      cfg.forEach(f => {
-        nextValues[f.path] = typeof content[f.path] === "string" ? content[f.path] : "";
+      
+      const getByPath = (obj, path) => {
+        let cur = obj;
+        const parts = path.split(".").filter(Boolean);
+        for (const k of parts) {
+          const idxMatch = k.match(/^\d+$/);
+          if (idxMatch) {
+            const idx = parseInt(k, 10);
+            if (!Array.isArray(cur)) return "";
+            cur = cur[idx];
+          } else {
+            cur = cur ? cur[k] : undefined;
+          }
+          if (cur === undefined || cur === null) break;
+        }
+        return typeof cur === "string" ? cur : "";
+      };
+
+      sections.forEach(section => {
+        section.fields.forEach(f => {
+          nextValues[f.path] = getByPath(data, f.path);
+        });
       });
+
       setFormValues(nextValues);
-      setLastSaved({ page, title: content.title || "", subtitle: content.subtitle || "", values: nextValues });
-    } catch (e) {
-      console.error(e);
+      setLastSaved({ page, title: t, subtitle: s, values: nextValues });
+    } catch {
       setTitle("");
       setSubtitle("");
       setFormValues({});
@@ -218,8 +103,22 @@ export default function AdminPanel() {
   };
 
   useEffect(() => {
-    loadContent(selectedPage);
+    if (selectedPage) {
+      loadContent(selectedPage);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPage]);
+  
+  useEffect(() => {
+    const ping = async () => {
+      try {
+        const res = await fetch(API_BASE, { headers: { Accept: "application/json" } });
+        setApiUp(res.ok ? true : false);
+      } catch {
+        setApiUp(false);
+      }
+    };
+    ping();
   }, []);
 
   const handleSave = async () => {
@@ -299,193 +198,123 @@ export default function AdminPanel() {
       setTimeout(() => setSaved(false), 2000);
     }
   };
-  const handleReset = () => {
-    loadContent(selectedPage);
-  };
-  const primaryPages = ["global", "beranda", "page-layanan", "page-portfolio"];
-  const otherPages = pages.filter(p => !primaryPages.includes(p));
-  const groupFields = (list) => {
-    const groups = {};
-    const labelFor = (path) => {
-      if (path.startsWith("cta.")) return "CTA";
-      if (path.startsWith("items.")) return "Items";
-      if (path.startsWith("services.items.")) return "Services";
-      if (path.startsWith("partners.items.")) return "Partners";
-      if (path.startsWith("nav_")) return "Navigation";
-      if (path.startsWith("social_")) return "Social";
-      return "General";
-    };
-    (list || []).forEach(f => {
-      const key = labelFor(f.path);
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(f);
-    });
-    return groups;
+
+  const handleFieldChange = (path, value) => {
+    setFormValues(prev => ({ ...prev, [path]: value }));
   };
 
+  const hasChanges = selectedPage && (
+    selectedPage !== lastSaved.page ||
+    title !== lastSaved.title ||
+    subtitle !== lastSaved.subtitle ||
+    Object.keys(formValues).some((k) => (formValues[k] || "") !== (lastSaved.values[k] || ""))
+  );
+
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-      <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] lg:grid-cols-[280px_1fr_420px]">
-        <aside className="border-r border-gray-200 bg-white md:min-h-screen p-4">
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
-            <p className="text-sm text-gray-500">Kelola konten website</p>
-          </div>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Halaman Utama</h3>
-              <ul className="space-y-1">
-                {primaryPages.map((p) => (
-                  <li key={p}>
-                    <button
-                      className={`w-full text-left px-3 py-2 rounded-lg ${selectedPage === p ? "bg-gray-100 text-gray-900 font-medium" : "text-gray-700 hover:bg-gray-50"}`}
-                      onClick={() => { setSelectedPage(p); loadContent(p); }}
-                    >
-                      {p}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Halaman Lainnya</h3>
-              <ul className="space-y-1">
-                {otherPages.map((p) => (
-                  <li key={p}>
-                    <button
-                      className={`w-full text-left px-3 py-2 rounded-lg ${selectedPage === p ? "bg-gray-100 text-gray-900 font-medium" : "text-gray-700 hover:bg-gray-50"}`}
-                      onClick={() => { setSelectedPage(p); loadContent(p); }}
-                    >
-                      {p}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </aside>
-        <main className="p-6">
-          <div className="max-w-2xl">
-            <div className="mb-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900">{selectedPage}</h2>
-                  <p className="text-gray-600">Isi dan perbarui konten halaman</p>
-                </div>
-                {(
-                  selectedPage !== lastSaved.page ||
-                  title !== lastSaved.title ||
-                  subtitle !== lastSaved.subtitle ||
-                  Object.keys(formValues).some((k) => (formValues[k] || "") !== (lastSaved.values[k] || ""))
-                ) && (
-                  <span className="inline-flex items-center rounded-full bg-yellow-100 text-yellow-700 px-3 py-1 text-xs font-medium">
-                    Belum disimpan
-                  </span>
-                )}
-              </div>
-            </div>
-            <Card className="shadow-sm rounded-2xl border border-gray-200">
-              <CardContent className="p-6 space-y-6">
-                <div className="space-y-3">
-                  <div className="mb-2 text-sm text-gray-500">
-                    <span className="text-gray-900 font-medium">{selectedPage}</span> <span>→</span> <span>Header</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">Header</h3>
-                  <p className="text-xs text-gray-500">Perubahan akan tampil setelah klik Simpan Perubahan</p>
-                  <div className="grid grid-cols-1 gap-4">
-                    <div>
-                      <label className="text-sm text-gray-700">Judul Halaman</label>
-                      <Input
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        placeholder="Masukkan judul halaman"
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-sm text-gray-700">Subjudul Halaman</label>
-                      <Input
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                        placeholder="Masukkan subjudul halaman"
-                        className="mt-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="border-t border-gray-200" />
-                {(fieldsConfig[selectedPage] || []).length > 0 && (
-                  <div className="space-y-8">
-                    {Object.entries(groupFields(fieldsConfig[selectedPage])).map(([section, fields]) => (
-                      <div key={section} className="space-y-3">
-                        <h3 className="text-lg font-semibold text-gray-900">{section}</h3>
-                        <div className="grid grid-cols-1 gap-4">
-                          {fields.map((f, i) => (
-                            <div key={i}>
-                              <label className="text-sm text-gray-700">{f.label}</label>
-                              <Input
-                                value={formValues[f.path] || ""}
-                                onChange={(e) =>
-                                  setFormValues((prev) => ({ ...prev, [f.path]: e.target.value }))
-                                }
-                                placeholder={f.path}
-                                className="mt-1"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                <div className="flex items-center gap-3 pt-2">
-                  <Button onClick={handleSave} className="rounded-xl">Simpan Perubahan</Button>
-                  <Button variant="outline" onClick={handleReset} className="rounded-xl">Reset</Button>
-                </div>
-                {saved && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-green-600 font-semibold"
-                  >
-                    ✓ Perubahan halaman berhasil disimpan
-                  </motion.p>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-        </main>
-        <section className="hidden lg:block border-l border-gray-200 bg-white p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-gray-900">Preview</h3>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                className="h-8 rounded-lg px-2"
-                onClick={() => {
-                  const iframe = document.getElementById("tv-preview");
-                  if (iframe && iframe.tagName === "IFRAME") {
-                    const el = iframe;
-                    const src = el.getAttribute("src") || "";
-                    el.setAttribute("src", src);
-                  }
-                }}
-              >
-                Reload Preview
-              </Button>
-              <Button variant="outline" className="h-8 rounded-lg px-2" onClick={() => setShowPreview(s => !s)}>
-                {showPreview ? "Sembunyikan" : "Tampilkan"}
-              </Button>
-            </div>
-          </div>
-          {showPreview ? (
-            <iframe id="tv-preview" title="Website Preview" src="http://localhost:3001/" className="w-full h-[85vh] rounded-xl border border-gray-200" />
+    <div className="flex h-screen bg-gray-50 font-sans overflow-hidden">
+      <Sidebar selectedPage={selectedPage} onSelect={setSelectedPage} />
+      
+      <div className="flex-1 flex flex-col min-w-0">
+        <Topbar />
+        
+        <main className="flex-1 overflow-y-auto p-8 scroll-smooth">
+          {!selectedPage ? (
+            <DashboardWelcome />
           ) : (
-            <div className="w-full h-[85vh] rounded-xl border border-gray-200 grid place-items-center">
-              <p className="text-gray-500">Preview disembunyikan</p>
+            <div className="max-w-3xl mx-auto pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              {/* Header Area with Title & Save Button */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 sticky top-0 bg-gray-50/95 backdrop-blur z-10 py-4 border-b border-gray-200/50 gap-4">
+                <div>
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-1 font-medium uppercase tracking-wider">
+                    <span>Website</span>
+                    <span>/</span>
+                    <span>{getPageLabel(selectedPage)}</span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">{getPageLabel(selectedPage)}</h2>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  {hasChanges && (
+                    <span className="flex items-center gap-2 text-amber-600 text-xs font-medium bg-amber-50 px-3 py-1.5 rounded-full border border-amber-100">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                      Unsaved Changes
+                    </span>
+                  )}
+                  <Button 
+                    onClick={handleSave} 
+                    className={`${saved ? "bg-green-600 hover:bg-green-700" : ""}`}
+                  >
+                    {saved ? "Tersimpan!" : <><Save className="w-4 h-4 mr-2"/> Simpan Perubahan</>}
+                  </Button>
+                </div>
+              </div>
+              
+              {apiUp === false && (
+                <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 text-amber-800 p-4 text-sm">
+                  Server CMS tidak aktif. Jalankan server API di port 4000.
+                </div>
+              )}
+
+              {/* Page Header Config (Title/Subtitle) */}
+              <Card className="mb-8 border-gray-200 shadow-sm overflow-hidden">
+                <CardHeader className="bg-white border-b border-gray-100 pb-4">
+                  <CardTitle className="text-lg text-gray-900">Header Halaman</CardTitle>
+                  <CardDescription>Judul dan deskripsi utama yang muncul di tab browser atau hero section</CardDescription>
+                </CardHeader>
+                <CardContent className="p-6 space-y-4 bg-white">
+                  <div className="grid gap-2">
+                    <Label>Judul Halaman</Label>
+                    <Input 
+                      value={title} 
+                      onChange={e => setTitle(e.target.value)} 
+                      className="bg-gray-50 border-gray-200 focus:bg-white transition-colors"
+                    />
+                  </div>
+                  <div className="grid gap-2">
+                    <Label>Subjudul Halaman</Label>
+                    <Input 
+                      value={subtitle} 
+                      onChange={e => setSubtitle(e.target.value)} 
+                      className="bg-gray-50 border-gray-200 focus:bg-white transition-colors"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Sections */}
+              <div className="space-y-6">
+                {fieldsConfig[selectedPage]?.map((section, i) => (
+                  <SectionEditor 
+                    key={i} 
+                    section={section} 
+                    formValues={formValues} 
+                    onChange={handleFieldChange}
+                    pageName={getPageLabel(selectedPage)}
+                  />
+                ))}
+              </div>
+              
+              {(!fieldsConfig[selectedPage] || fieldsConfig[selectedPage].length === 0) && (
+                 <div className="text-center py-12 text-gray-400 bg-white rounded-lg border border-dashed border-gray-200">
+                    <p>Tidak ada konfigurasi field untuk halaman ini.</p>
+                 </div>
+              )}
             </div>
           )}
-        </section>
+        </main>
+      </div>
+      
+      <div className="w-[450px] hidden xl:block h-full shadow-xl z-20 border-l border-gray-200">
+        <PreviewPanel 
+          url="http://localhost:3001" 
+          onRefresh={() => {
+            const iframe = document.getElementById('tv-preview');
+            if (iframe) {
+              const current = iframe.getAttribute('src');
+              if (current) iframe.setAttribute('src', current);
+            }
+          }} 
+        />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './input.css';
-import App from './App.jsx';
+import AdminCMSApp from './AdminCMSApp.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <AdminCMSApp />
   </StrictMode>,
 )
