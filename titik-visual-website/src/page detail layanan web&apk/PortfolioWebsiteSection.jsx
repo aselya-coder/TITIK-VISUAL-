@@ -23,7 +23,7 @@ const PortfolioCard = ({ category, title, description, tags }) => (
       <div className="text-lg font-semibold text-gray-900">{title}</div>
       <p className="text-gray-500 mt-2">{description}</p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {tags.map((t, i) => (
+        {(Array.isArray(tags) ? tags : []).map((t, i) => (
           <span key={i} className="px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-700">
             {t}
           </span>
@@ -40,34 +40,19 @@ const PortfolioWebsiteSection = () => {
       category: content.get('page detail layanan web&apk', 'portfolio_item_1_category', 'Business Website'),
       title: content.get('page detail layanan web&apk', 'portfolio_item_1_title', 'Corporate Website'),
       description: content.get('page detail layanan web&apk', 'portfolio_item_1_desc', 'Website corporate modern dengan CMS integration dan multi-language support'),
-      tags: [
-        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_1', 'Multi-page'),
-        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_2', 'CMS'),
-        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_3', 'Contact Forms'),
-        content.get('page detail layanan web&apk', 'portfolio_item_1_tag_4', 'Gallery')
-      ],
+      tags: content.get('page detail layanan web&apk', 'portfolio_item_1_tags', ['Multi-page', 'CMS', 'Contact Forms', 'Gallery']),
     },
     {
       category: content.get('page detail layanan web&apk', 'portfolio_item_2_category', 'Online Store'),
       title: content.get('page detail layanan web&apk', 'portfolio_item_2_title', 'E-Commerce Platform'),
       description: content.get('page detail layanan web&apk', 'portfolio_item_2_desc', 'Platform e-commerce lengkap dengan payment gateway dan inventory management'),
-      tags: [
-        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_1', 'Shopping Cart'),
-        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_2', 'Payment Gateway'),
-        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_3', 'Admin Panel'),
-        content.get('page detail layanan web&apk', 'portfolio_item_2_tag_4', 'Analytics')
-      ],
+      tags: content.get('page detail layanan web&apk', 'portfolio_item_2_tags', ['Shopping Cart', 'Payment Gateway', 'Admin Panel', 'Analytics']),
     },
     {
       category: content.get('page detail layanan web&apk', 'portfolio_item_3_category', 'Marketing Landing'),
       title: content.get('page detail layanan web&apk', 'portfolio_item_3_title', 'Landing Page Campaign'),
       description: content.get('page detail layanan web&apk', 'portfolio_item_3_desc', 'Landing page high-converting untuk campaign marketing dan lead generation'),
-      tags: [
-        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_1', 'Lead Forms'),
-        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_2', 'A/B Testing'),
-        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_3', 'Analytics'),
-        content.get('page detail layanan web&apk', 'portfolio_item_3_tag_4', 'Mobile Optimized')
-      ],
+      tags: content.get('page detail layanan web&apk', 'portfolio_item_3_tags', ['Lead Forms', 'A/B Testing', 'Analytics', 'Mobile Optimized']),
     },
   ];
 

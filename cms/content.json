@@ -36,20 +36,51 @@
         {
           "title": "UI/UX Design",
           "desc": "Desain antarmuka yang intuitif dan pengalaman pengguna yang optimal.",
-          "icon": "ui_ux.png"
+          "price": ""
         },
         {
           "title": "Website Development",
           "desc": "Website profesional yang cepat, aman, dan responsif untuk bisnis Anda.",
-          "icon": "web.png"
+          "price": ""
         },
         {
           "title": "Social Media Management",
           "desc": "Pengelolaan konten, kalender, dan engagement untuk channel sosial Anda.",
-          "icon": "Social Media Management.png"
+          "price": ""
         }
       ]
-    }
+    },
+    "hero_title": "Kategori Layanan Utama",
+    "hero_subtitle": "Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.",
+    "cat_uiux_title": "UI/UX Design",
+    "cat_uiux_desc": "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile",
+    "cta_uiux_label": "Lihat Detail",
+    "cat_webapk_title": "Website & Aplikasi",
+    "cat_webapk_desc": "Website responsif dan aplikasi mobile dengan teknologi terdepan",
+    "cat_logo_title": "Logo Design",
+    "cat_logo_desc": "Logo profesional yang mencerminkan identitas dan nilai brand Anda",
+    "cat_social_title": "Social Media Management",
+    "cat_social_desc": "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat",
+    "cat_merch_title": "Custom Merchandise",
+    "cat_merch_desc": "Merchandise berkualitas tinggi untuk promosi dan corporate branding",
+    "detail_title": "",
+    "detail_subtitle": "",
+    "svc_uiux_price": "",
+    "svc_uiux_duration": "",
+    "svc_web_price": "",
+    "svc_web_duration": "",
+    "svc_app_title": "",
+    "svc_app_desc": "",
+    "svc_app_price": "",
+    "svc_app_duration": "",
+    "svc_logo_title": "",
+    "svc_logo_desc": "",
+    "svc_logo_price": "",
+    "svc_logo_duration": "",
+    "svc_brand_title": "",
+    "svc_brand_desc": "",
+    "svc_brand_price": "",
+    "svc_brand_duration": ""
   },
   "beranda": {
     "hero_badge_text": "Titik Visual • Digital Creative Studio Yogyakarta",
@@ -218,8 +249,8 @@
     }
   },
   "page-portfolio": {
-    "portfolio_title": "Semua Karya Titik Visual",
-    "portfolio_subtitle": "Kumpulan lengkap karya kami di berbagai kategori",
+    "portfolio_title": "Featured Projects",
+    "portfolio_subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami",
     "hero": {
       "title": "Portfolio Kami",
       "description": "Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.",
@@ -238,9 +269,15 @@
     },
     "cta": {
       "title": "Tertarik dengan Karya Kami?",
-      "subtitle": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda",
-      "primary": "Diskusi Proyek",
-      "secondary": "Lihat Semua Portfolio"
+      "description": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda",
+      "primary": {
+        "label": "Diskusi Proyek",
+        "url": "/contact"
+      },
+      "secondary": {
+        "label": "Lihat Semua Portfolio",
+        "url": "/portfolio"
+      }
     },
     "items": [
       {
@@ -248,39 +285,180 @@
         "category": "UI/UX Design",
         "year": "2024",
         "client": "Client: ShopNow Indonesia",
-        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
+        "description": "Complete mobile app design untuk platform e-commerce\ndengan user experience yang optimal dan conversion rate\ntinggi.",
         "image": "portfolio.png",
         "link": "/portfolio",
+        "featured": true,
         "tags": [
-          "Mobile, E-commerce, iOS"
+          "mobile",
+          "E-Commerce",
+          "iOS"
+        ]
+      },
+      {
+        "title": "SaaS Dashboard Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "Client: DataFlow Solutions",
+        "description": "Dashboard design untuk SaaS platform dengan data\nvisualization yang clear dan user-friendly interface.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Web App",
+          "Dashboard",
+          "SaaS"
         ]
       },
       {
         "title": "Banking Mobile App",
         "category": "Mobile App",
         "year": "2023",
-        "client": "SecureBank Digital",
-        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
+        "client": "Client: SecureBank Digital",
+        "description": "Secure dan user-friendly banking app dengan modern\ninterface dan advanced security features.",
         "image": "portfolio.png",
-        "link": "/portfolio"
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Mobile App",
+          "Banking",
+          "Security"
+        ]
+      },
+      {
+        "title": "E-Commerce Mobile App",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "Client: ShopNow Indonesia",
+        "description": "Client: ShopNow Indonesia",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "E-commerce",
+          "iOS"
+        ]
+      },
+      {
+        "title": "SaaS Dashboard Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "Client: DataFlow Solutions",
+        "description": "Dashboard design untuk SaaS platform dengan data\nvisualization yang clear dan user-friendly interface.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Web App",
+          "Dashboard",
+          "SaaS"
+        ]
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Web Development",
+        "year": "2024",
+        "client": "Client: PT. Maju Bersama",
+        "description": "Website corporate yang modern dan professional dengan\nCMS integration untuk easy content management.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": false,
+        "tags": [
+          "Website",
+          "Corporate",
+          "Responsive"
+        ]
+      },
+      {
+        "title": "Banking Mobile App",
+        "category": "Mobile App",
+        "year": "2023",
+        "client": "Client: SecureBank Digital",
+        "description": "Secure dan user-friendly banking app dengan modern\ninterface dan advanced security features.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Mobile App",
+          "Banking",
+          "Security"
+        ]
       },
       {
         "title": "Brand Identity Package",
         "category": "Branding",
         "year": "2024",
-        "client": "GreenTech Startup",
-        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
+        "client": "Client: GreenTech Startup",
+        "description": "Complete brand identity package termasuk logo, color\npalette, typography, dan brand guidelines.",
         "image": "portfolio.png",
-        "link": "/portfolio"
+        "link": "/portfolio",
+        "featured": false,
+        "tags": [
+          "Logo",
+          "Brand Identity",
+          "Guidelines"
+        ]
       },
       {
-        "title": "",
-        "category": "",
-        "year": "",
-        "client": "",
-        "description": "",
-        "image": "",
-        "link": ""
+        "title": "Social Media Campaign",
+        "category": "Social Media",
+        "year": "2024",
+        "client": "Client: Fashion Brand Co",
+        "description": "Social media campaign design untuk fashion brand dengan\nconsistent visual identity dan engaging content.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": false,
+        "tags": [
+          "Social Media",
+          "Campaign",
+          "Instagram"
+        ]
+      },
+      {
+        "title": "Restaurant Website",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "Client: Rasa Nusantara",
+        "description": "Website restaurant dengan online menu, table booking\nsystem, dan gallery yang menarik.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": false,
+        "tags": [
+          "Website",
+          "Restaurant",
+          "Online Menu"
+        ]
+      },
+      {
+        "title": "Fitness App UI/UX",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "Client: FitLife App",
+        "description": "Fitness tracking app dengan motivational design dan\ncomprehensive workout planning features.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "Fitness",
+          "Health"
+        ]
+      },
+      {
+        "title": "E-Learning Platform",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "Client: EduTech Indonesia",
+        "description": "E-learning platform dengan interactive course content dan\ncomprehensive student management system.",
+        "image": "portfolio.png",
+        "link": "/portfolio",
+        "featured": false,
+        "tags": [
+          "Web App",
+          "Education",
+          "LMS"
+        ]
       }
     ]
   },

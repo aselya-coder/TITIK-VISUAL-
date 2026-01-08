@@ -56,7 +56,17 @@ export default function AdminPanel() {
       const sections = fieldsConfig[page] || [];
       const nextValues = {};
       
-      const getByPath = (obj, path) => {
+      const isTruthy = (val) => {
+        if (typeof val === "boolean") return val;
+        if (typeof val === "string") {
+          const v = val.trim().toLowerCase();
+          return v === "true" || v === "1" || v === "yes" || v === "on";
+        }
+        if (typeof val === "number") return val !== 0;
+        return false;
+      };
+
+      const getByPath = (obj, path, preserveArray = false) => {
         let cur = obj;
         const parts = path.split(".").filter(Boolean);
         for (const k of parts) {
@@ -76,15 +86,17 @@ export default function AdminPanel() {
           if (cur === undefined || cur === null) break;
         }
         if (Array.isArray(cur)) {
-          return cur.join("\n");
+          return preserveArray ? cur : cur.join("\n");
         }
+        if (typeof cur === "boolean") return cur;
+        if (typeof cur === "number") return String(cur);
         return typeof cur === "string" ? cur : "";
       };
 
       sections.forEach(section => {
         if (section.fields && Array.isArray(section.fields)) {
           section.fields.forEach(f => {
-            nextValues[f.path] = getByPath(data, f.path);
+            nextValues[f.path] = getByPath(data, f.path, f.type === 'repeatable');
           });
         }
         if (section.list && section.list.base && Array.isArray(section.list.fields)) {
@@ -114,10 +126,34 @@ export default function AdminPanel() {
               .map(k => parseInt(k, 10))
               .sort((a, b) => a - b);
           }
+          const normalizeRepeatableObject = (raw) => {
+            if (raw === undefined || raw === null) return [];
+            if (typeof raw === "string") {
+              const labels = raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+              return labels.map(label => ({ label }));
+            }
+            if (Array.isArray(raw)) {
+              if (raw.every(v => typeof v === "string")) {
+                return raw.map(label => ({ label }));
+              }
+              return raw;
+            }
+            return [];
+          };
+
           indices.forEach(i => {
             section.list.fields.forEach(field => {
               const path = `${section.list.base}.${i}.${field.key}`;
-              nextValues[path] = getByPath(data, path);
+              const raw = getByPath(data, path, field.type === "repeatable");
+              if (field.type === "repeatable" && field.subType !== "string") {
+                nextValues[path] = normalizeRepeatableObject(raw);
+                return;
+              }
+              if (field.type === "boolean") {
+                nextValues[path] = isTruthy(raw);
+                return;
+              }
+              nextValues[path] = raw;
             });
           });
         }

@@ -35,7 +35,7 @@ function readStorage(): ContentMap {
 }
 
 type ContentAPI = {
-  get: (page: PageKey, field: string, fallback?: string) => string;
+  get: (page: PageKey, field: string, fallback?: any) => any;
   page: (page: PageKey) => Record<string, string>;
   enabled: (page: PageKey, sectionKey: string, defaultEnabled?: boolean) => boolean;
   refresh: () => Promise<void>;
@@ -142,7 +142,10 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       }
       const val = cur;
       if (val === undefined || val === null) return fallback;
-      return typeof val === 'string' ? val : fallback;
+      if (Array.isArray(val)) return val;
+      if (typeof val === 'boolean') return val;
+      if (typeof val === 'number') return val;
+      return typeof val === 'string' ? val : val;
     },
     page: (page) => {
       return (data?.[page] as Record<string, string>) || {};

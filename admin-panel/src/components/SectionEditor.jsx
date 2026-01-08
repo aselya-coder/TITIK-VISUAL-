@@ -36,12 +36,28 @@ export function SectionEditor({ section, formValues, onChange, pageName }) {
       const nextIndex = (uniqueIndices[uniqueIndices.length - 1] ?? -1) + 1;
       itemFields.forEach(f => {
         const path = `${base}.${nextIndex}.${f.key}`;
+        if (f.type === "boolean") {
+          onChange(path, false);
+          return;
+        }
+        if (f.type === "repeatable") {
+          onChange(path, [{ label: "" }]);
+          return;
+        }
         onChange(path, "");
       });
     };
     const handleDeleteItem = (idx) => {
       itemFields.forEach(f => {
         const path = `${base}.${idx}.${f.key}`;
+        if (f.type === "boolean") {
+          onChange(path, false);
+          return;
+        }
+        if (f.type === "repeatable") {
+          onChange(path, []);
+          return;
+        }
         onChange(path, "");
       });
     };

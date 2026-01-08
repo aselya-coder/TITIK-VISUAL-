@@ -84,10 +84,7 @@ export const fieldsConfig = {
         { label: "Kategori", path: "portfolio_item_1_category" },
         { label: "Judul", path: "portfolio_item_1_title" },
         { label: "Deskripsi", path: "portfolio_item_1_desc" },
-        { label: "Tag 1", path: "portfolio_item_1_tag_1" },
-        { label: "Tag 2", path: "portfolio_item_1_tag_2" },
-        { label: "Tag 3", path: "portfolio_item_1_tag_3" },
-        { label: "Tag 4", path: "portfolio_item_1_tag_4" }
+        { label: "Tags", path: "portfolio_item_1_tags", type: "repeatable", subType: "string" }
       ]
     },
     {
@@ -96,10 +93,7 @@ export const fieldsConfig = {
         { label: "Kategori", path: "portfolio_item_2_category" },
         { label: "Judul", path: "portfolio_item_2_title" },
         { label: "Deskripsi", path: "portfolio_item_2_desc" },
-        { label: "Tag 1", path: "portfolio_item_2_tag_1" },
-        { label: "Tag 2", path: "portfolio_item_2_tag_2" },
-        { label: "Tag 3", path: "portfolio_item_2_tag_3" },
-        { label: "Tag 4", path: "portfolio_item_2_tag_4" }
+        { label: "Tags", path: "portfolio_item_2_tags", type: "repeatable", subType: "string" }
       ]
     },
     {
@@ -108,10 +102,7 @@ export const fieldsConfig = {
         { label: "Kategori", path: "portfolio_item_3_category" },
         { label: "Judul", path: "portfolio_item_3_title" },
         { label: "Deskripsi", path: "portfolio_item_3_desc" },
-        { label: "Tag 1", path: "portfolio_item_3_tag_1" },
-        { label: "Tag 2", path: "portfolio_item_3_tag_2" },
-        { label: "Tag 3", path: "portfolio_item_3_tag_3" },
-        { label: "Tag 4", path: "portfolio_item_3_tag_4" }
+        { label: "Tags", path: "portfolio_item_3_tags", type: "repeatable", subType: "string" }
       ]
     },
     {
@@ -950,9 +941,21 @@ export const fieldsConfig = {
             { key: "description", label: "Deskripsi", type: "textarea" },
             { key: "image", label: "Gambar" },
             { key: "link", label: "Link" },
-            { key: "tags", label: "Tags (baris per tag)", type: "textarea" }
+            { key: "featured", label: "Featured Project", type: "boolean" },
+            { key: "tags", label: "Tags", type: "repeatable", subType: "string" }
           ]
         }
+      },
+      {
+        section: "Call To Action",
+        fields: [
+          { label: "Judul CTA", path: "cta.title" },
+          { label: "Deskripsi CTA", path: "cta.description", type: "textarea" },
+          { label: "Tombol Utama - Teks", path: "cta.primary.label" },
+          { label: "Tombol Utama - URL", path: "cta.primary.url" },
+          { label: "Tombol Sekunder - Teks", path: "cta.secondary.label" },
+          { label: "Tombol Sekunder - URL", path: "cta.secondary.url" }
+        ]
       }
     ],
     "page layanan detail ui_ux": [
