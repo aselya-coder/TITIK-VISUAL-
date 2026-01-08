@@ -539,6 +539,219 @@ export const fieldsConfig = {
         ]
       }
     ],
+    "page-layanan": [
+      {
+        section: "Header Page Layanan",
+        fields: [
+          { label: "Title", path: "hero_title" },
+          { label: "Subtitle", path: "hero_subtitle" }
+        ]
+      },
+      {
+        section: "Kategori Layanan Utama",
+        list: {
+          base: "main_services",
+          fields: [
+            { label: "Card Color", key: "color", type: "select", options: ["purple", "blue", "orange", "pink", "teal"] },
+            { label: "Icon Image", key: "icon" },
+            { label: "Title", key: "title" },
+            { label: "Description", key: "desc", type: "textarea" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_href" },
+            { label: "Icon Alt Text", key: "icon_alt" },
+            { label: "ARIA Label", key: "aria_label" }
+          ]
+        }
+      },
+      {
+        section: "Digital Creative Services (Header)",
+        fields: [
+          { label: "Section Title", path: "detail_title" },
+          { label: "Section Subtitle", path: "detail_subtitle" }
+        ]
+      },
+      {
+        section: "Digital Creative Services (List)",
+        list: {
+          base: "detail_services",
+          fields: [
+            { label: "Accent Color", key: "accent", type: "select", options: ["purple", "blue", "green", "orange", "pink"] },
+            { label: "Image", key: "image" },
+            { label: "Image Alt", key: "img_alt" },
+            { label: "Title", key: "title" },
+            { label: "Description", key: "desc", type: "textarea" },
+            { label: "Feature Title", key: "feature_title" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "Price Label", key: "label_price" },
+            { label: "Price Value", key: "price" },
+            { label: "Duration Label", key: "label_duration" },
+            { label: "Duration Value", key: "duration" },
+            { label: "CTA Button Text", key: "btn_order" },
+            { label: "CTA Link (WA)", key: "wa_link" }
+          ]
+        }
+      },
+      {
+        section: "Custom Drinkware (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_drinkware_title" },
+          { label: "Section Subtitle", path: "sect_drinkware_subtitle" }
+        ]
+      },
+      {
+        section: "Custom Drinkware (List)",
+        list: {
+          base: "drinkware_products",
+          fields: [
+            { label: "Accent Color", key: "accent", type: "select", options: ["blue", "orange", "pink", "green"] },
+            { label: "Image", key: "image" },
+            { label: "Image Alt", key: "img_alt" },
+            { label: "Title", key: "title" },
+            { label: "Spec Label", key: "label_spec" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "Price Label", key: "label_price" },
+            { label: "Price Value", key: "price" },
+            { label: "Production Label", key: "label_production" },
+            { label: "Production Duration", key: "duration" },
+            { label: "CTA Button Text", key: "btn_order" },
+            { label: "CTA Link", key: "link" }
+          ]
+        }
+      },
+      {
+        section: "Custom Bags (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_bags_title" },
+          { label: "Section Subtitle", path: "sect_bags_subtitle" }
+        ]
+      },
+      {
+        section: "Custom Bags (List)",
+        list: {
+          base: "bags_products",
+          fields: [
+            { label: "Accent Color", key: "accent", type: "select", options: ["pink", "blue", "green"] },
+            { label: "Image", key: "image" },
+            { label: "Image Alt", key: "img_alt" },
+            { label: "Title", key: "title" },
+            { label: "Spec Label", key: "label_spec" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "Price Label", key: "label_price" },
+            { label: "Price Value", key: "price" },
+            { label: "Production Label", key: "label_production" },
+            { label: "Production Duration", key: "duration" },
+            { label: "CTA Button Text", key: "btn_order" },
+            { label: "CTA Link", key: "link" }
+          ]
+        }
+      },
+      {
+        section: "Corporate Gifts (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_corporate_title" },
+          { label: "Section Subtitle", path: "sect_corporate_subtitle" }
+        ]
+      },
+      {
+        section: "Corporate Gifts (List)",
+        list: {
+          base: "corporate_products",
+          fields: [
+            { label: "Accent Color", key: "accent", type: "select", options: ["green", "purple"] },
+            { label: "Image", key: "image" },
+            { label: "Image Alt", key: "img_alt" },
+            { label: "Title", key: "title" },
+            { label: "Spec Label", key: "label_spec" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "Price Label", key: "label_price" },
+            { label: "Price Value", key: "price" },
+            { label: "Production Label", key: "label_production" },
+            { label: "Production Duration", key: "duration" },
+            { label: "CTA Button Text", key: "btn_order" },
+            { label: "CTA Link", key: "link" }
+          ]
+        }
+      },
+      {
+        section: "Lifestyle Merchandise (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_lifestyle_title" },
+          { label: "Section Subtitle", path: "sect_lifestyle_subtitle" }
+        ]
+      },
+      {
+        section: "Lifestyle Merchandise (List)",
+        list: {
+          base: "lifestyle_products",
+          fields: [
+            { label: "Accent Color", key: "accent", type: "select", options: ["blue", "orange", "pink", "slate"] },
+            { label: "Image", key: "image" },
+            { label: "Image Alt", key: "img_alt" },
+            { label: "Title", key: "title" },
+            { label: "Description", key: "desc", type: "textarea" },
+            { label: "Spec Label", key: "label_spec" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "Price Label", key: "label_price" },
+            { label: "Price Value", key: "price" },
+            { label: "Production Label", key: "label_production" },
+            { label: "Production Duration", key: "duration" },
+            { label: "CTA Button Text", key: "btn_order" },
+            { label: "CTA Link", key: "link" }
+          ]
+        }
+      },
+      {
+        section: "Work Process (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_process_title" },
+          { label: "Section Subtitle", path: "sect_process_subtitle" }
+        ]
+      },
+      {
+        section: "Work Process (List)",
+        list: {
+          base: "work_process_steps",
+          fields: [
+            { label: "Title", key: "title" },
+            { label: "Description", key: "desc", type: "textarea" },
+            { label: "Icon Class (fa-check)", key: "icon" }
+          ]
+        }
+      },
+      {
+        section: "FAQ (Header)",
+        fields: [
+          { label: "Section Title", path: "sect_faq_title" },
+          { label: "Section Subtitle", path: "sect_faq_subtitle" }
+        ]
+      },
+      {
+        section: "FAQ (List)",
+        list: {
+          base: "faq_list",
+          fields: [
+            { label: "Question", key: "question" },
+            { label: "Answer", key: "answer", type: "textarea" }
+          ]
+        }
+      },
+      {
+        section: "CTA Section",
+        fields: [
+          { label: "Title", path: "sect_cta_title" },
+          { label: "Description", path: "sect_cta_desc" },
+          { label: "WhatsApp Button", path: "btn_whatsapp" },
+          { label: "Phone Button", path: "btn_phone" }
+        ]
+      },
+      {
+        section: "Footer Override",
+        fields: [
+          { label: "Footer Logo Alt", path: "footer_logo_alt" },
+          { label: "Footer Description", path: "footer_desc" }
+        ]
+      }
+    ],
     "Page Detail Layanan Custom Merchandise": [
       {
         section: "Thermos & Vacuum Flask Collection",
@@ -661,77 +874,165 @@ export const fieldsConfig = {
     ],
     "page-layanan": [
       {
-        section: "Hero Section",
+        section: "1️⃣ HEADER PAGE LAYANAN",
         fields: [
-          { label: "Hero Title", path: "hero_title" },
-          { label: "Hero Subtitle", path: "hero_subtitle" }
+          { label: "Judul Halaman", path: "hero_title" },
+          { label: "Deskripsi Halaman", path: "hero_subtitle" }
         ]
       },
       {
-        section: "Service Categories",
-        fields: [
-          { label: "UI/UX Title", path: "cat_uiux_title" },
-          { label: "UI/UX Desc", path: "cat_uiux_desc" },
-          { label: "UI/UX CTA", path: "cta_uiux_label" },
-          { label: "Web & App Title", path: "cat_webapk_title" },
-          { label: "Web & App Desc", path: "cat_webapk_desc" },
-          { label: "Logo Design Title", path: "cat_logo_title" },
-          { label: "Logo Design Desc", path: "cat_logo_desc" },
-          { label: "Social Media Title", path: "cat_social_title" },
-          { label: "Social Media Desc", path: "cat_social_desc" },
-          { label: "Merchandise Title", path: "cat_merch_title" },
-          { label: "Merchandise Desc", path: "cat_merch_desc" }
-        ]
+        section: "2️⃣ KATEGORI LAYANAN UTAMA (5 CARD)",
+        list: {
+          base: "main_services",
+          fields: [
+            { label: "Icon (Pilih Image)", key: "icon", type: "image" },
+            { label: "Judul Kategori", key: "title" },
+            { label: "Deskripsi Singkat", key: "desc", type: "textarea" },
+            { label: "Label Tombol CTA", key: "cta_label" },
+            { label: "Warna Tombol (purple, blue, orange, pink, teal)", key: "color", type: "select", options: ["purple", "blue", "orange", "pink", "teal"] },
+            { label: "URL CTA", key: "cta_href" },
+            { label: "Icon Alt Text", key: "icon_alt" },
+            { label: "ARIA Label", key: "aria_label" }
+          ]
+        }
       },
       {
-        section: "Services Items (Kanonik)",
+        section: "3️⃣ DIGITAL CREATIVE SERVICES (8+ CARD)",
         fields: [
-          { label: "UI/UX Title", path: "services.items.0.title" },
-          { label: "UI/UX Deskripsi", path: "services.items.0.desc" },
-          { label: "UI/UX Harga", path: "services.items.0.price" },
-          { label: "Web Title", path: "services.items.1.title" },
-          { label: "Web Deskripsi", path: "services.items.1.desc" },
-          { label: "Web Harga", path: "services.items.1.price" },
-          { label: "Social Media Title", path: "services.items.2.title" },
-          { label: "Social Media Deskripsi", path: "services.items.2.desc" },
-          { label: "Social Media Harga", path: "services.items.2.price" }
-        ]
+          { label: "Section Title", path: "detail_title" },
+          { label: "Section Subtitle", path: "detail_subtitle" }
+        ],
+        list: {
+          base: "detail_services",
+          fields: [
+            { label: "Gambar / Ilustrasi", key: "image", type: "image" },
+            { label: "Judul Layanan", key: "title" },
+            { label: "Deskripsi", key: "desc", type: "textarea" },
+            { label: "Fitur (List)", key: "features", type: "repeatable", subType: "string" },
+            { label: "Durasi Pengerjaan", key: "duration" },
+            { label: "Harga", key: "price" },
+            { label: "Label CTA", key: "btn_order" },
+            { label: "Warna CTA", key: "accent", type: "select", options: ["purple", "blue", "green", "orange", "pink"] },
+            { label: "URL CTA (WA)", key: "wa_link" }
+          ]
+        }
       },
       {
-        section: "Detailed Services (UI/UX)",
+        section: "4️⃣ CUSTOM MERCHANDISE – DRINKWARE",
         fields: [
-          { label: "Detail Title", path: "detail_title" },
-          { label: "Detail Subtitle", path: "detail_subtitle" },
-          { label: "Service 1 Title", path: "services.items.0.title" },
-          { label: "Service 1 Desc", path: "services.items.0.desc" },
-          { label: "Service 1 Price", path: "svc_uiux_price" },
-          { label: "Service 1 Duration", path: "svc_uiux_duration" }
-        ]
+          { label: "Section Title", path: "sect_drinkware_title" },
+          { label: "Section Subtitle", path: "sect_drinkware_subtitle" }
+        ],
+        list: {
+          base: "drinkware_products",
+          fields: [
+            { label: "Foto Produk", key: "image", type: "image" },
+            { label: "Nama Produk", key: "title" },
+            { label: "Spesifikasi (List)", key: "features", type: "repeatable", subType: "string" },
+            { label: "Durasi Produksi", key: "duration" },
+            { label: "Harga", key: "price" },
+            { label: "Label CTA", key: "btn_order" },
+            { label: "URL CTA", key: "link" },
+            { label: "Accent Color", key: "accent", type: "select", options: ["blue", "orange", "pink", "green"] }
+          ]
+        }
       },
       {
-        section: "Detailed Services (Web & App)",
+        section: "5️⃣ CUSTOM BAGS COLLECTION",
         fields: [
-          { label: "Service 2 Title", path: "services.items.1.title" },
-          { label: "Service 2 Desc", path: "services.items.1.desc" },
-          { label: "Service 2 Price", path: "svc_web_price" },
-          { label: "Service 2 Duration", path: "svc_web_duration" },
-          { label: "App Title", path: "svc_app_title" },
-          { label: "App Desc", path: "svc_app_desc" },
-          { label: "App Price", path: "svc_app_price" },
-          { label: "App Duration", path: "svc_app_duration" }
-        ]
+          { label: "Section Title", path: "sect_bags_title" },
+          { label: "Section Subtitle", path: "sect_bags_subtitle" }
+        ],
+        list: {
+          base: "bags_products",
+          fields: [
+            { label: "Foto Produk", key: "image", type: "image" },
+            { label: "Nama Produk", key: "title" },
+            { label: "Spesifikasi (List)", key: "features", type: "repeatable", subType: "string" },
+            { label: "Durasi Produksi", key: "duration" },
+            { label: "Harga", key: "price" },
+            { label: "Label CTA", key: "btn_order" },
+            { label: "URL CTA", key: "link" },
+            { label: "Accent Color", key: "accent", type: "select", options: ["pink", "blue", "green"] }
+          ]
+        }
       },
       {
-        section: "Detailed Services (Logo & Branding)",
+        section: "6️⃣ CORPORATE GIFTS & TECH",
         fields: [
-          { label: "Logo Title", path: "svc_logo_title" },
-          { label: "Logo Desc", path: "svc_logo_desc" },
-          { label: "Logo Price", path: "svc_logo_price" },
-          { label: "Logo Duration", path: "svc_logo_duration" },
-          { label: "Branding Title", path: "svc_brand_title" },
-          { label: "Branding Desc", path: "svc_brand_desc" },
-          { label: "Branding Price", path: "svc_brand_price" },
-          { label: "Branding Duration", path: "svc_brand_duration" }
+          { label: "Section Title", path: "sect_corporate_title" },
+          { label: "Section Subtitle", path: "sect_corporate_subtitle" }
+        ],
+        list: {
+          base: "corporate_products",
+          fields: [
+            { label: "Foto Produk", key: "image", type: "image" },
+            { label: "Nama Produk", key: "title" },
+            { label: "Spesifikasi (List)", key: "features", type: "repeatable", subType: "string" },
+            { label: "Durasi Produksi", key: "duration" },
+            { label: "Harga", key: "price" },
+            { label: "Label CTA", key: "btn_order" },
+            { label: "URL CTA", key: "link" },
+            { label: "Accent Color", key: "accent", type: "select", options: ["green", "purple"] }
+          ]
+        }
+      },
+      {
+        section: "7️⃣ LIFESTYLE MERCHANDISE",
+        fields: [
+          { label: "Section Title", path: "sect_lifestyle_title" },
+          { label: "Section Subtitle", path: "sect_lifestyle_subtitle" }
+        ],
+        list: {
+          base: "lifestyle_products",
+          fields: [
+            { label: "Foto Produk", key: "image", type: "image" },
+            { label: "Nama Produk", key: "title" },
+            { label: "Spesifikasi (List)", key: "features", type: "repeatable", subType: "string" },
+            { label: "Durasi Produksi", key: "duration" },
+            { label: "Harga", key: "price" },
+            { label: "Label CTA", key: "btn_order" },
+            { label: "URL CTA", key: "link" },
+            { label: "Accent Color", key: "accent", type: "select", options: ["blue", "orange", "pink", "slate"] }
+          ]
+        }
+      },
+      {
+        section: "8️⃣ PROSES KERJA KAMI",
+        fields: [
+          { label: "Section Title", path: "sect_process_title" },
+          { label: "Section Subtitle", path: "sect_process_subtitle" }
+        ],
+        list: {
+          base: "work_process_steps",
+          fields: [
+            { label: "Icon Class (e.g., fas fa-comments)", key: "icon" },
+            { label: "Judul Tahap", key: "title" },
+            { label: "Deskripsi Singkat", key: "desc", type: "textarea" }
+          ]
+        }
+      },
+      {
+        section: "9️⃣ FAQ",
+        fields: [
+          { label: "Section Title", path: "sect_faq_title" },
+          { label: "Section Subtitle", path: "sect_faq_subtitle" }
+        ],
+        list: {
+          base: "faq_list",
+          fields: [
+            { label: "Pertanyaan", key: "question" },
+            { label: "Jawaban", key: "answer", type: "textarea" }
+          ]
+        }
+      },
+      {
+        section: "Bottom CTA",
+        fields: [
+          { label: "Title", path: "sect_cta_title" },
+          { label: "Description", path: "sect_cta_desc" },
+          { label: "WhatsApp Button", path: "btn_whatsapp" },
+          { label: "Phone Button", path: "btn_phone" }
         ]
       }
     ],
@@ -1472,6 +1773,121 @@ export const fieldsConfig = {
         { label: "Baris 1 Atas", path: "footer_line1_top" },
         { label: "Baris 1 Bawah", path: "footer_line1_bottom" }
       ]
-    }
-  ]
-};
+    },
+  ],
+  "page-layanan": [
+      {
+        section: "Header",
+        fields: [
+          { label: "Title", path: "header.title" },
+          { label: "Description", path: "header.description", type: "textarea" },
+          { label: "Background Image", path: "header.bg_image", type: "image" }
+        ]
+      },
+      {
+        section: "Kategori Layanan Utama",
+        list: {
+          base: "main_services",
+          fields: [
+            { label: "Icon", key: "icon", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Description", key: "description", type: "textarea" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Digital Creative Services",
+        list: {
+          base: "creative_services",
+          fields: [
+            { label: "Image", key: "image", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Price", key: "price" },
+            { label: "Duration", key: "duration" },
+            { label: "Features", key: "features", type: "repeatable", subType: "string" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Custom Drinkware",
+        list: {
+          base: "drinkware",
+          fields: [
+            { label: "Image", key: "image", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Price", key: "price" },
+            { label: "Minimum Order", key: "min_order" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Custom Bags",
+        list: {
+          base: "bags",
+          fields: [
+            { label: "Image", key: "image", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Price", key: "price" },
+            { label: "Material", key: "material" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Corporate Gifts",
+        list: {
+          base: "gifts",
+          fields: [
+            { label: "Image", key: "image", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Price", key: "price" },
+            { label: "Includes", key: "include" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Lifestyle Merchandise",
+        list: {
+          base: "lifestyle",
+          fields: [
+            { label: "Image", key: "image", type: "image" },
+            { label: "Title", key: "title" },
+            { label: "Price", key: "price" },
+            { label: "Category", key: "category" },
+            { label: "CTA Label", key: "cta_label" },
+            { label: "CTA Link", key: "cta_link" }
+          ]
+        }
+      },
+      {
+        section: "Proses Kerja",
+        list: {
+          base: "work_process",
+          fields: [
+            { label: "Step Number", key: "step" },
+            { label: "Title", key: "title" },
+            { label: "Description", key: "description", type: "textarea" }
+          ]
+        }
+      },
+      {
+        section: "FAQ",
+        list: {
+          base: "faq",
+          fields: [
+            { label: "Question", key: "question" },
+            { label: "Answer", key: "answer", type: "textarea" }
+          ]
+        }
+      }
+    ],
+  };
