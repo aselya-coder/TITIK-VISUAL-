@@ -300,6 +300,118 @@ export const fieldsConfig = {
           { label: "WhatsApp Button Label", path: "cta_whatsapp_btn" },
           { label: "Contact Button Label", path: "cta_contact_btn" },
         ]
+      },
+      {
+        section: "Pencapaian / Statistik",
+        fields: [
+          { label: "Judul Pencapaian", path: "achievement.title" },
+          { label: "Subjudul Pencapaian", path: "achievement.subtitle" },
+          { label: "Angka Pencapaian 1", path: "achievement.items.0.value" },
+          { label: "Label Pencapaian 1", path: "achievement.items.0.label" },
+          { label: "Angka Pencapaian 2", path: "achievement.items.1.value" },
+          { label: "Label Pencapaian 2", path: "achievement.items.1.label" },
+          { label: "Angka Pencapaian 3", path: "achievement.items.2.value" },
+          { label: "Label Pencapaian 3", path: "achievement.items.2.label" },
+          { label: "Angka Pencapaian 4", path: "achievement.items.3.value" },
+          { label: "Label Pencapaian 4", path: "achievement.items.3.label" }
+        ]
+      },
+      {
+        section: "Preview Lowongan / Magang (Header)",
+        fields: [
+          { label: "Judul Section", path: "career_preview.title" },
+          { label: "Subjudul Section", path: "career_preview.subtitle" },
+          { label: "Text Tombol", path: "career_preview.cta.label" },
+          { label: "URL Tombol", path: "career_preview.cta.url" }
+        ]
+      },
+      {
+        section: "Card 1 – UI/UX Designer",
+        fields: [
+          { label: "Nama Posisi", path: "career_preview.items.0.position" },
+          { label: "Badge (Magang/Fulltime)", path: "career_preview.items.0.type", type: "select", options: ["Magang", "Fulltime"] },
+          { label: "Deskripsi Singkat", path: "career_preview.items.0.description", type: "textarea" },
+          { label: "Syarat 1", path: "career_preview.items.0.requirements.0" },
+          { label: "Syarat 2", path: "career_preview.items.0.requirements.1" },
+          { label: "Syarat 3", path: "career_preview.items.0.requirements.2" },
+          { label: "URL Lamar", path: "career_preview.items.0.apply_url" }
+        ]
+      },
+      {
+        section: "Card 2 – Web Developer",
+        fields: [
+          { label: "Nama Posisi", path: "career_preview.items.1.position" },
+          { label: "Badge (Magang/Fulltime)", path: "career_preview.items.1.type", type: "select", options: ["Magang", "Fulltime"] },
+          { label: "Deskripsi Singkat", path: "career_preview.items.1.description", type: "textarea" },
+          { label: "Syarat 1", path: "career_preview.items.1.requirements.0" },
+          { label: "Syarat 2", path: "career_preview.items.1.requirements.1" },
+          { label: "Syarat 3", path: "career_preview.items.1.requirements.2" },
+          { label: "URL Lamar", path: "career_preview.items.1.apply_url" }
+        ]
+      },
+      {
+        section: "Card 3 – Digital Marketing Specialist",
+        fields: [
+          { label: "Nama Posisi", path: "career_preview.items.2.position" },
+          { label: "Badge (Magang/Fulltime)", path: "career_preview.items.2.type", type: "select", options: ["Magang", "Fulltime"] },
+          { label: "Deskripsi Singkat", path: "career_preview.items.2.description", type: "textarea" },
+          { label: "Syarat 1", path: "career_preview.items.2.requirements.0" },
+          { label: "Syarat 2", path: "career_preview.items.2.requirements.1" },
+          { label: "Syarat 3", path: "career_preview.items.2.requirements.2" },
+          { label: "URL Lamar", path: "career_preview.items.2.apply_url" }
+        ]
+      },
+      {
+        section: "Card 4 – Social Media Specialist",
+        fields: [
+          { label: "Nama Posisi", path: "career_preview.items.3.position" },
+          { label: "Badge (Magang/Fulltime)", path: "career_preview.items.3.type", type: "select", options: ["Magang", "Fulltime"] },
+          { label: "Deskripsi Singkat", path: "career_preview.items.3.description", type: "textarea" },
+          { label: "Syarat 1", path: "career_preview.items.3.requirements.0" },
+          { label: "Syarat 2", path: "career_preview.items.3.requirements.1" },
+          { label: "Syarat 3", path: "career_preview.items.3.requirements.2" },
+          { label: "URL Lamar", path: "career_preview.items.3.apply_url" }
+        ]
+      },
+      {
+        section: "Portfolio Preview (Header)",
+        fields: [
+          { label: "Judul Section", path: "portfolio_preview.title" },
+          { label: "Subjudul Section", path: "portfolio_preview.subtitle" }
+        ]
+      },
+      {
+        section: "Portfolio Card 1",
+        fields: [
+          { label: "Tahun", path: "portfolio_preview.card_1.year" },
+          { label: "Kategori", path: "portfolio_preview.card_1.category" },
+          { label: "Judul Project", path: "portfolio_preview.card_1.title" },
+          { label: "Deskripsi Project", path: "portfolio_preview.card_1.description", type: "textarea" },
+          { label: "Nama Client", path: "portfolio_preview.card_1.client" },
+          { label: "URL Detail", path: "portfolio_preview.card_1.url" }
+        ]
+      },
+      {
+        section: "Portfolio Card 2",
+        fields: [
+          { label: "Tahun", path: "portfolio_preview.card_2.year" },
+          { label: "Kategori", path: "portfolio_preview.card_2.category" },
+          { label: "Judul Project", path: "portfolio_preview.card_2.title" },
+          { label: "Deskripsi Project", path: "portfolio_preview.card_2.description", type: "textarea" },
+          { label: "Nama Client", path: "portfolio_preview.card_2.client" },
+          { label: "URL Detail", path: "portfolio_preview.card_2.url" }
+        ]
+      },
+      {
+        section: "Portfolio Card 3",
+        fields: [
+          { label: "Tahun", path: "portfolio_preview.card_3.year" },
+          { label: "Kategori", path: "portfolio_preview.card_3.category" },
+          { label: "Judul Project", path: "portfolio_preview.card_3.title" },
+          { label: "Deskripsi Project", path: "portfolio_preview.card_3.description", type: "textarea" },
+          { label: "Nama Client", path: "portfolio_preview.card_3.client" },
+          { label: "URL Detail", path: "portfolio_preview.card_3.url" }
+        ]
       }
     ],
     "Page Detail Layanan Logo Design": [
@@ -809,27 +921,38 @@ export const fieldsConfig = {
     ],
     "page-portfolio": [
       {
-        section: "Hero & CTA",
+        section: "Hero Section",
         fields: [
-          { label: "Hero Title", path: "hero_title" },
-          { label: "All Works Label", path: "cta_all_works_label" }
+          { label: "Judul Hero", path: "hero.title" },
+          { label: "Deskripsi Hero", path: "hero.description", type: "textarea" },
+          { label: "CTA Utama - Teks Tombol", path: "hero.cta_primary.label" },
+          { label: "CTA Utama - URL", path: "hero.cta_primary.url" },
+          { label: "CTA Kedua - Teks Tombol", path: "hero.cta_secondary.label" },
+          { label: "CTA Kedua - URL", path: "hero.cta_secondary.url" }
         ]
       },
       {
-        section: "Portfolio Items",
+        section: "Portfolio (Header)",
         fields: [
-          { label: "Item 1 Title", path: "items.0.title" },
-          { label: "Item 1 Description", path: "items.0.description" },
-          { label: "Item 1 Category", path: "items.0.category" },
-          { label: "Item 1 Year", path: "items.0.year" },
-          { label: "Item 1 Client", path: "items.0.client" },
-          { label: "Item 1 Tag", path: "items.0.tag" },
-          { label: "Item 1 Link", path: "items.0.link" },
-          { label: "Item 2 Title", path: "items.1.title" },
-          { label: "Item 2 Description", path: "items.1.description" },
-          { label: "Item 3 Title", path: "items.2.title" },
-          { label: "Item 3 Description", path: "items.2.description" }
+          { label: "Judul Section", path: "portfolio_title" },
+          { label: "Subjudul Section", path: "portfolio_subtitle", type: "textarea" }
         ]
+      },
+      {
+        section: "Portfolio Items (List Dinamis)",
+        list: {
+          base: "items",
+          fields: [
+            { key: "title", label: "Judul" },
+            { key: "category", label: "Kategori" },
+            { key: "year", label: "Tahun" },
+            { key: "client", label: "Client" },
+            { key: "description", label: "Deskripsi", type: "textarea" },
+            { key: "image", label: "Gambar" },
+            { key: "link", label: "Link" },
+            { key: "tags", label: "Tags (baris per tag)", type: "textarea" }
+          ]
+        }
       }
     ],
     "page layanan detail ui_ux": [

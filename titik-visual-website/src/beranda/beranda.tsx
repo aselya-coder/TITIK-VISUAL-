@@ -518,32 +518,32 @@ const TitikVisualWebsite: React.FC = () => {
         {/* Achievements Section */}
         <section className="achievements-section">
           <div className="container">
-            <h2 className="title">{content.get('beranda', 'achievements_title', 'Pencapaian Titik Visual')}</h2>
-            <p className="subtitle">{content.get('beranda', 'achievements_subtitle', 'Kepercayaan klien adalah prioritas utama kami')}</p>
+            <h2 className="title">{content.get('beranda', 'achievement.title', 'Pencapaian Titik Visual')}</h2>
+            <p className="subtitle">{content.get('beranda', 'achievement.subtitle', 'Kepercayaan klien adalah prioritas utama kami')}</p>
 
             <div className="achievements-grid">
               <div className="achievement-card">
                 <div className="icon"><img src={getImg('icon-drinkware.png')} alt="Proyek Icon" /></div>
-                <h3>500+</h3>
-                <p>{content.get('beranda', 'achievements_projects', 'Proyek Selesai')}</p>
+                <h3>{content.get('beranda', 'achievement.items.0.value', '500+')}</h3>
+                <p>{content.get('beranda', 'achievement.items.0.label', 'Proyek Selesai')}</p>
               </div>
 
               <div className="achievement-card">
                 <div className="icon"><img src={getImg('icon-corporate-gift.png')} alt="Klien Icon" /></div>
-                <h3>200+</h3>
-                <p>{content.get('beranda', 'achievements_clients', 'Klien Puas')}</p>
+                <h3>{content.get('beranda', 'achievement.items.1.value', '200+')}</h3>
+                <p>{content.get('beranda', 'achievement.items.1.label', 'Klien Puas')}</p>
               </div>
 
               <div className="achievement-card">            
                 <div className="icon"><img src={getImg('5+.png')} alt="Tahun Icon" /></div>
-                <h3>5+</h3>
-                <p>{content.get('beranda', 'achievements_years', 'Tahun Pengalaman')}</p>
+                <h3>{content.get('beranda', 'achievement.items.2.value', '5+')}</h3>
+                <p>{content.get('beranda', 'achievement.items.2.label', 'Tahun Pengalaman')}</p>
               </div>
 
               <div className="achievement-card">
                 <div className="icon"><img src={getImg('24-7.png')} alt="Support Icon" /></div>
-                <h3>24/7</h3>
-                <p>{content.get('beranda', 'achievements_support', 'Support Titik Visual')}</p>
+                <h3>{content.get('beranda', 'achievement.items.3.value', '24/7')}</h3>
+                <p>{content.get('beranda', 'achievement.items.3.label', 'Support Titik Visual')}</p>
               </div>
             </div>
           </div>
@@ -553,58 +553,58 @@ const TitikVisualWebsite: React.FC = () => {
         <section className="portfolio-section">
           <div className="portfolio-inner">
           <div className="portfolio-header">
-            <h2>{content.get('beranda', 'portfolio_title', 'Portfolio Karya Titik Visual')}</h2>
-            <p>{content.get('beranda', 'portfolio_subtitle', 'Karya terbaik yang telah kami ciptakan untuk klien')}</p>
+            <h2>{content.get('beranda', 'portfolio_preview.title', 'Portfolio Karya Titik Visual')}</h2>
+            <p>{content.get('beranda', 'portfolio_preview.subtitle', 'Karya terbaik yang telah kami ciptakan untuk klien')}</p>
           </div>
 
           <button className="portfolio-nav prev" onClick={() => handlePortfolioNavigation('prev')}>&#10094;</button>
           <button className="portfolio-nav next" onClick={() => handlePortfolioNavigation('next')}>&#10095;</button>
 
           <div className="portfolio-cards">
-            <div className={`portfolio-card ${activePortfolioIndex === 0 ? 'active' : ''}`} onClick={() => navigateToPage('/portfolio')} style={{ cursor: 'pointer' }}>
+            <div className={`portfolio-card ${activePortfolioIndex === 0 ? 'active' : ''}`} onClick={() => navigateToPage(content.get('beranda', 'portfolio_preview.card_1.url', '/portfolio'))} style={{ cursor: 'pointer' }}>
               <div className="card-thumb green">
-                <span className="year">2024</span>
+                <span className="year">{content.get('beranda', 'portfolio_preview.card_1.year', '2024')}</span>
                 <i className="icon">▶</i>
               </div>
               <div className="card-body">
-                <span className="category">{content.get('beranda', 'portfolio_card1_category', 'Merchandise by Titik Visual')}</span>
-                <h3>{content.get('beranda', 'portfolio_card1_title', 'Custom Merchandise Package')}</h3>
-                <p>{content.get('beranda', 'portfolio_card1_desc', 'Paket merchandise lengkap termasuk tumbler, totebag, dan corporate gifts untuk event perusahaan.')}</p>
+                <span className="category">{content.get('beranda', 'portfolio_preview.card_1.category', 'Merchandise by Titik Visual')}</span>
+                <h3>{content.get('beranda', 'portfolio_preview.card_1.title', 'Custom Merchandise Package')}</h3>
+                <p>{content.get('beranda', 'portfolio_preview.card_1.description', 'Paket merchandise lengkap termasuk tumbler, totebag, dan corporate gifts untuk event perusahaan.')}</p>
               </div>
               <div className="card-bottom">
-                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: PT. Teknologi Maju</div>
+                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: {content.get('beranda', 'portfolio_preview.card_1.client', 'PT. Teknologi Maju')}</div>
                 <i className="fa-solid fa-arrow-up-right-from-square" style={{color:"#8b5cf6"}}></i>
               </div>            
             </div>
 
-            <div className={`portfolio-card ${activePortfolioIndex === 1 ? 'active' : ''}`} onClick={() => navigateToPage('/portfolio')} style={{ cursor: 'pointer' }}>
+            <div className={`portfolio-card ${activePortfolioIndex === 1 ? 'active' : ''}`} onClick={() => navigateToPage(content.get('beranda', 'portfolio_preview.card_2.url', '/portfolio'))} style={{ cursor: 'pointer' }}>
               <div className="card-thumb purple">
-                <span className="year">2024</span>
+                <span className="year">{content.get('beranda', 'portfolio_preview.card_2.year', '2024')}</span>
                 <i className="icon">▶</i>
               </div>
               <div className="card-body">
-                <span className="category">{content.get('beranda', 'portfolio_card2_category', 'Digital Marketing by Titik Visual')}</span>
-                <h3>{content.get('beranda', 'portfolio_card2_title', 'Social Media Management')}</h3>
-                <p>{content.get('beranda', 'portfolio_card2_desc', 'Pengelolaan social media lengkap dengan content creation, posting schedule, dan analytics reporting.')}</p>
+                <span className="category">{content.get('beranda', 'portfolio_preview.card_2.category', 'Digital Marketing by Titik Visual')}</span>
+                <h3>{content.get('beranda', 'portfolio_preview.card_2.title', 'Social Media Management')}</h3>
+                <p>{content.get('beranda', 'portfolio_preview.card_2.description', 'Pengelolaan social media lengkap dengan content creation, posting schedule, dan analytics reporting.')}</p>
               </div>
               <div className="card-bottom">
-                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: Fashion Brand Indonesia</div>
+                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: {content.get('beranda', 'portfolio_preview.card_2.client', 'Fashion Brand Indonesia')}</div>
                 <i className="fa-solid fa-arrow-up-right-from-square" style={{color:"#8b5cf6"}}></i>
               </div>            
             </div>
 
-            <div className={`portfolio-card ${activePortfolioIndex === 2 ? 'active' : ''}`} onClick={() => navigateToPage('/portfolio')} style={{ cursor: 'pointer' }}>
+            <div className={`portfolio-card ${activePortfolioIndex === 2 ? 'active' : ''}`} onClick={() => navigateToPage(content.get('beranda', 'portfolio_preview.card_3.url', '/portfolio'))} style={{ cursor: 'pointer' }}>
               <div className="card-thumb pink">
-                <span className="year">2023</span>
+                <span className="year">{content.get('beranda', 'portfolio_preview.card_3.year', '2023')}</span>
                 <i className="icon">▶</i>
               </div>
               <div className="card-body">
-                <span className="category">{content.get('beranda', 'portfolio_card3_category', 'UI/UX Design by Titik Visual')}</span>
-                <h3>{content.get('beranda', 'portfolio_card3_title', 'E-Learning Platform UI/UX')}</h3>
-                <p>{content.get('beranda', 'portfolio_card3_desc', 'Design interface untuk platform e-learning dengan fokus pada user experience dan engagement siswa.')}</p>
+                <span className="category">{content.get('beranda', 'portfolio_preview.card_3.category', 'UI/UX Design by Titik Visual')}</span>
+                <h3>{content.get('beranda', 'portfolio_preview.card_3.title', 'E-Learning Platform UI/UX')}</h3>
+                <p>{content.get('beranda', 'portfolio_preview.card_3.description', 'Design interface untuk platform e-learning dengan fokus pada user experience dan engagement siswa.')}</p>
               </div>
               <div className="card-bottom">
-                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: EduTech Indonesia</div>
+                <div className="client">{content.get('beranda', 'portfolio_client_label', 'Client')}: {content.get('beranda', 'portfolio_preview.card_3.client', 'EduTech Indonesia')}</div>
                 <i className="fa-solid fa-arrow-up-right-from-square" style={{color:"#8b5cf6"}}></i>
               </div>  
             </div>
@@ -626,8 +626,8 @@ const TitikVisualWebsite: React.FC = () => {
         {/* Career Section */}
         <section className="career-section">
           <div className="career-header">
-            <h2>{content.get('beranda', 'career_title', 'Bergabung dengan Tim Titik Visual')}</h2>
-            <p>{content.get('beranda', 'career_subtitle', 'Kembangkan karir kreatif Anda bersama Titik Visual')}</p>
+            <h2>{content.get('beranda', 'career_preview.title', 'Bergabung dengan Tim Titik Visual')}</h2>
+            <p>{content.get('beranda', 'career_preview.subtitle', 'Kembangkan karir kreatif Anda bersama Titik Visual')}</p>
           </div>
       
           <div className="career-grid">
@@ -637,21 +637,21 @@ const TitikVisualWebsite: React.FC = () => {
                   <img src={getImg('ui-ux desain.png')} alt="UI/UX Icon" className="career-icon" />
                 </div>
                 <div className="career-card-text">
-                  <h3>{content.get('beranda', 'career_uiux_title', 'UI/UX Designer')}</h3>
-                  <p>{content.get('beranda', 'career_uiux_desc', 'Bergabung dengan tim Titik Visual sebagai UI/UX Designer')}</p>
+                  <h3>{content.get('beranda', 'career_preview.items.0.position', 'UI/UX Designer')}</h3>
+                  <p>{content.get('beranda', 'career_preview.items.0.description', 'Bergabung dengan tim Titik Visual sebagai UI/UX Designer')}</p>
                 </div>
                 <span className="label">
                   <img src={getImg('icon kecil magang.png')} alt="icon magang" className="label-icon" />
-                  {content.get('beranda', 'career_badge_intern', 'Magang')}
+                  {content.get('beranda', 'career_preview.items.0.type', 'Magang')}
                 </span>                
               </div>
               <ul className="requirements">
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_uiux_req1', 'Pengalaman dengan software desain (Figma, Adobe XD, Sketch).')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_uiux_req2', 'Memahami prinsip desain UI/UX.')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_uiux_req3', 'Kemampuan berkomunikasi yang baik.')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.0.requirements.0', 'Mahasiswa DKV, Multimedia, atau relevan')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.0.requirements.1', 'Menguasai Figma, Adobe XD, Sketch')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.0.requirements.2', 'Memahami prinsip UI/UX design')}</li>
               </ul>
               <div className="job-card uiux-card">
-                <a href="https://wa.me/6281804376001" className="btn primary">
+                <a href={content.get('beranda', 'career_preview.items.0.apply_url', 'https://wa.me/6281804376001')} className="btn primary">
                   <i className="fa-solid fa-arrow-right"></i>
                   {content.get('beranda', 'career_apply_btn', 'Lamar Sekarang')}
                 </a>
@@ -664,21 +664,21 @@ const TitikVisualWebsite: React.FC = () => {
                   <img src={getImg('wd.spesialist.png')} alt="Web Developer Icon" className="career-icon" />
                 </div>
                 <div className="career-card-text">
-                  <h3>{content.get('beranda', 'career_web_title', 'Web Developer')}</h3>
-                  <p>{content.get('beranda', 'career_web_desc', 'Bangun website dan aplikasi web bersama tim Titik Visual')}</p>
+                  <h3>{content.get('beranda', 'career_preview.items.1.position', 'Web Developer')}</h3>
+                  <p>{content.get('beranda', 'career_preview.items.1.description', 'Bangun website dan aplikasi web bersama tim Titik Visual')}</p>
                 </div>
                 <span className="label">
                   <img src={getImg('icon kecil magang.png')} alt="icon magang" className="label-icon" />
-                  {content.get('beranda', 'career_badge_intern', 'Magang')}
+                  {content.get('beranda', 'career_preview.items.1.type', 'Magang')}
                 </span> 
               </div>
               <ul className="requirements">
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_web_req1', 'Penguasaan HTML, CSS, JavaScript.')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_web_req2', 'Pengalaman dengan framework (React, Vue, Angular).')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_web_req3', 'Kemampuan memecahkan masalah.')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.1.requirements.0', 'Mahasiswa Informatika / Sistem Informasi')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.1.requirements.1', 'Menguasai HTML, CSS, JavaScript')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.1.requirements.2', 'Familiar dengan React / Next.js')}</li>
               </ul>
               <div className="job-card web-card">
-                <a href="https://wa.me/6281804376001" className="btn primary">
+                <a href={content.get('beranda', 'career_preview.items.1.apply_url', 'https://wa.me/6281804376001')} className="btn primary">
                   <i className="fa-solid fa-arrow-right"></i>
                   {content.get('beranda', 'career_apply_btn', 'Lamar Sekarang')}
                 </a>
@@ -691,21 +691,21 @@ const TitikVisualWebsite: React.FC = () => {
                   <img src={getImg('dm.spesialist.png')} alt="Digital Marketing Icon" className="career-icon" />
                 </div>
                 <div className="career-card-text">
-                  <h3>{content.get('beranda', 'career_digital_title', 'Digital Marketing Specialist')}</h3>
-                  <p>{content.get('beranda', 'career_digital_desc', 'Kembangkan strategi digital marketing di Titik Visual')}</p>
+                  <h3>{content.get('beranda', 'career_preview.items.2.position', 'Digital Marketing Specialist')}</h3>
+                  <p>{content.get('beranda', 'career_preview.items.2.description', 'Kembangkan strategi digital marketing di Titik Visual')}</p>
                 </div>
                 <span className="label">
                   <img src={getImg('icon kecil magang.png')} alt="icon magang" className="label-icon" />
-                  {content.get('beranda', 'career_badge_intern', 'Magang')}
+                  {content.get('beranda', 'career_preview.items.2.type', 'Magang')}
                 </span> 
               </div>
               <ul className="requirements">
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_digital_req1', 'Pengetahuan tentang strategi pemasaran digital.')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_digital_req2', 'Pengalaman dengan SEO/SEM.')}</li>
-                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_digital_req3', 'Kemampuan analisis data.')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.2.requirements.0', 'Pengetahuan tentang strategi pemasaran digital.')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.2.requirements.1', 'Pengalaman dengan SEO/SEM.')}</li>
+                <li><i className="far fa-check-circle"></i>{content.get('beranda', 'career_preview.items.2.requirements.2', 'Kemampuan analisis data.')}</li>
               </ul>
               <div className="job-card digital-card">
-                <a href="https://wa.me/6281804376001" className="btn primary">
+                <a href={content.get('beranda', 'career_preview.items.2.apply_url', 'https://wa.me/6281804376001')} className="btn primary">
                   <i className="fa-solid fa-arrow-right"></i>
                   {content.get('beranda', 'career_apply_btn', 'Lamar Sekarang')}
                 </a>
@@ -718,21 +718,21 @@ const TitikVisualWebsite: React.FC = () => {
                   <img src={getImg('icon-sosial-media.png')} alt="Social Media Icon" className="career-icon" />
                 </div>
                 <div className="career-card-text">
-                  <h3>{content.get('beranda', 'career_social_title', 'Social Media Specialist')}</h3>
-                  <p>{content.get('beranda', 'career_social_desc', 'Kelola dan kembangkan media sosial klien Titik Visual')}</p>
+                  <h3>{content.get('beranda', 'career_preview.items.3.position', 'Social Media Specialist')}</h3>
+                  <p>{content.get('beranda', 'career_preview.items.3.description', 'Kelola dan kembangkan media sosial klien Titik Visual')}</p>
                 </div>
                 <span className="label">
                   <img src={getImg('icon kecil magang.png')} alt="icon magang" className="label-icon" />
-                  {content.get('beranda', 'career_badge_intern', 'Magang')}
+                  {content.get('beranda', 'career_preview.items.3.type', 'Magang')}
                 </span> 
               </div>
               <ul className="requirements">
-                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_social_req1', 'Pengalaman mengelola media sosial.')}</li>
-                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_social_req2', 'Kemampuan membuat konten yang menarik.')}</li>
-                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_social_req3', 'Memahami tren media sosial terkini.')}</li>
+                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_preview.items.3.requirements.0', 'Pengalaman mengelola media sosial.')}</li>
+                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_preview.items.3.requirements.1', 'Kemampuan membuat konten yang menarik.')}</li>
+                <li><i className="fa-regular fa-circle-check"></i>{content.get('beranda', 'career_preview.items.3.requirements.2', 'Memahami tren media sosial terkini.')}</li>
               </ul>
               <div className="job-card social-card">
-                <a href="https://wa.me/6281804376001" className="btn primary">
+                <a href={content.get('beranda', 'career_preview.items.3.apply_url', 'https://wa.me/6281804376001')} className="btn primary">
                   <i className="fa-solid fa-arrow-right"></i>
                   {content.get('beranda', 'career_apply_btn', 'Lamar Sekarang')}
                 </a>
@@ -741,8 +741,8 @@ const TitikVisualWebsite: React.FC = () => {
           </div>
 
           <div className="see-all">
-            <a href="/careers">
-              {content.get('beranda', 'career_see_all', 'Lihat Semua Posisi')}
+            <a href={content.get('beranda', 'career_preview.cta.url', '/karir')}>
+              {content.get('beranda', 'career_preview.cta.label', 'Lihat Semua Posisi')}
               <i className="fa-solid fa-arrow-right"></i>
             </a>
           </div>

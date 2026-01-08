@@ -39,6 +39,12 @@ export function SectionEditor({ section, formValues, onChange, pageName }) {
         onChange(path, "");
       });
     };
+    const handleDeleteItem = (idx) => {
+      itemFields.forEach(f => {
+        const path = `${base}.${idx}.${f.key}`;
+        onChange(path, "");
+      });
+    };
 
     return (
       <div className="space-y-4">
@@ -47,6 +53,14 @@ export function SectionEditor({ section, formValues, onChange, pageName }) {
         )}
         {uniqueIndices.map((idx) => (
           <div key={idx} className="rounded-lg border border-gray-200 p-4 bg-white">
+            <div className="flex justify-between items-center mb-3">
+              <div className="text-sm font-medium text-gray-700">
+                Item {idx + 1}
+              </div>
+              <Button variant="destructive" onClick={() => handleDeleteItem(idx)}>
+                Hapus Item
+              </Button>
+            </div>
             <div className="grid gap-4">
               {itemFields.map((f, i) => {
                 const path = `${base}.${idx}.${f.key}`;

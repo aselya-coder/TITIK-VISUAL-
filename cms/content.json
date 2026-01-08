@@ -111,9 +111,131 @@
     "title": "",
     "subtitle": "",
     "service_marketing_desc": "Strategi pemasaran digital yang efektif",
-    "price_marketing": "Mulai Rp 2jt/bulan"
+    "price_marketing": "Mulai Rp 2jt/bulan",
+    "achievement": {
+      "title": "Pencapaian Titik Visual",
+      "subtitle": "Kepercayaan klien adalah prioritas utama kami",
+      "items": {
+        "0": {
+          "value": "500+",
+          "label": "Proyek Selesai"
+        },
+        "1": {
+          "value": "200+",
+          "label": "Klien Puas"
+        },
+        "2": {
+          "value": "5+",
+          "label": "Tahun Pengalaman"
+        },
+        "3": {
+          "value": "24/7",
+          "label": "Support Titik Visual"
+        }
+      }
+    },
+    "portfolio_preview": {
+      "title": "Portfolio Karya Titik Visual",
+      "subtitle": "Karya terbaik yang telah kami ciptakan untuk klien",
+      "card_1": {
+        "year": "2024",
+        "category": "Merchandise by Titik Visual",
+        "title": "Custom Merchandise Package",
+        "description": "Paket merchandise lengkap termasuk tumbler, totebag, dan corporate gifts untuk event perusahaan.",
+        "client": "PT. Teknologi Maju",
+        "url": "/portfolio"
+      },
+      "card_2": {
+        "year": "2024",
+        "category": "Digital Marketing by Titik Visual",
+        "title": "Social Media Management",
+        "description": "Pengelolaan social media lengkap dengan content creation, posting schedule, dan analytics reporting.",
+        "client": "Fashion Brand Indonesia",
+        "url": "/portfolio"
+      },
+      "card_3": {
+        "year": "2023",
+        "category": "UI/UX Design by Titik Visual",
+        "title": "E-Learning Platform UI/UX",
+        "description": "Design interface untuk platform e-learning dengan fokus pada user experience dan engagement siswa.",
+        "client": "EduTech Indonesia",
+        "url": "/portfolio"
+      }
+    },
+    "career_preview": {
+      "title": "Bergabung dengan Tim Titik Visual",
+      "subtitle": "Kembangkan karir kreatif Anda bersama Titik Visual",
+      "items": {
+        "0": {
+          "position": "UI/UX Designer",
+          "type": "Magang",
+          "description": "Bergabung dengan tim Titik Visual sebagai UI/UX Designer",
+          "requirements": [
+            "Mahasiswa DKV, Multimedia, atau relevan",
+            "Menguasai Figma, Adobe XD, Sketch",
+            "Memahami prinsip UI/UX design"
+          ],
+          "apply_url": "/karir/uiux-designer"
+        },
+        "1": {
+          "position": "Web Developer",
+          "type": "Magang",
+          "description": "Bangun website dan aplikasi web bersama tim Titik Visual",
+          "requirements": [
+            "Mahasiswa Informatika / Sistem Informasi",
+            "Menguasai HTML, CSS, JavaScript",
+            "Familiar dengan React / Next.js"
+          ],
+          "apply_url": "/karir/web-developer"
+        },
+        "2": {
+          "position": "Digital Marketing Specialist",
+          "type": "Magang",
+          "description": "Kembangkan strategi digital marketing di Titik Visual",
+          "requirements": [
+            "Pengetahuan tentang strategi pemasaran digital.",
+            "Pengalaman dengan SEO/SEM.",
+            "Kemampuan analisis data."
+          ],
+          "apply_url": "/karir/digital-marketing"
+        },
+        "3": {
+          "position": "Social Media Specialist",
+          "type": "Magang",
+          "description": "Kelola dan kembangkan media sosial klien Titik Visual",
+          "requirements": [
+            "Pengalaman mengelola media sosial.",
+            "Kemampuan membuat konten yang menarik.",
+            "Memahami tren media sosial terkini."
+          ],
+          "apply_url": "/karir/social-media"
+        }
+      },
+      "cta": {
+        "label": "Lihat Semua Posisi",
+        "url": "/karir"
+      }
+    }
   },
   "page-portfolio": {
+    "portfolio_title": "Semua Karya Titik Visual",
+    "portfolio_subtitle": "Kumpulan lengkap karya kami di berbagai kategori",
+    "hero": {
+      "title": "Portfolio Kami",
+      "description": "Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.",
+      "cta_primary": {
+        "label": "Lihat Semua Karya",
+        "url": "#portfolio"
+      },
+      "cta_secondary": {
+        "label": "Diskusi Proyek",
+        "url": "/contact"
+      }
+    },
+    "featured": {
+      "title": "Featured Projects",
+      "subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami"
+    },
     "cta": {
       "title": "Tertarik dengan Karya Kami?",
       "subtitle": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda",
@@ -122,34 +244,43 @@
     },
     "items": [
       {
-        "title": "Corporate Website",
-        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
-        "category": "Web Development",
+        "title": "E-Commerce Mobile App",
+        "category": "UI/UX Design",
         "year": "2024",
-        "client": "PT. Maju Bersama",
-        "tag": "",
+        "client": "Client: ShopNow Indonesia",
+        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
         "image": "portfolio.png",
-        "link": "/portfolio"
+        "link": "/portfolio",
+        "tags": [
+          "Mobile, E-commerce, iOS"
+        ]
       },
       {
         "title": "Banking Mobile App",
-        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
         "category": "Mobile App",
         "year": "2023",
         "client": "SecureBank Digital",
-        "tag": "Featured",
+        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
         "image": "portfolio.png",
         "link": "/portfolio"
       },
       {
         "title": "Brand Identity Package",
-        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
         "category": "Branding",
         "year": "2024",
         "client": "GreenTech Startup",
-        "tag": "",
+        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
         "image": "portfolio.png",
         "link": "/portfolio"
+      },
+      {
+        "title": "",
+        "category": "",
+        "year": "",
+        "client": "",
+        "description": "",
+        "image": "",
+        "link": ""
       }
     ]
   },

@@ -23,7 +23,6 @@ export default function AdminPanel() {
     page: null,
     values: {},
   });
-  const [apiUp, setApiUp] = useState(null);
 
   const loadContent = async (page) => {
     try {
@@ -64,12 +63,20 @@ export default function AdminPanel() {
           const idxMatch = k.match(/^\d+$/);
           if (idxMatch) {
             const idx = parseInt(k, 10);
-            if (!Array.isArray(cur)) return "";
-            cur = cur[idx];
+            if (Array.isArray(cur)) {
+              cur = cur[idx];
+            } else if (cur && typeof cur === "object" && String(idx) in cur) {
+              cur = cur[String(idx)];
+            } else {
+              return "";
+            }
           } else {
             cur = cur ? cur[k] : undefined;
           }
           if (cur === undefined || cur === null) break;
+        }
+        if (Array.isArray(cur)) {
+          return cur.join("\n");
         }
         return typeof cur === "string" ? cur : "";
       };
@@ -82,29 +89,37 @@ export default function AdminPanel() {
         }
         if (section.list && section.list.base && Array.isArray(section.list.fields)) {
           const baseParts = section.list.base.split(".").filter(Boolean);
-          const getBase = (obj, parts) => {
+          const getContainer = (obj, parts) => {
             let cur = obj;
             for (const k of parts) {
               const isIndex = /^\d+$/.test(k);
               if (isIndex) {
                 const idx = parseInt(k, 10);
-                if (!Array.isArray(cur)) return [];
+                if (!Array.isArray(cur)) return null;
                 cur = cur[idx];
               } else {
                 cur = cur ? cur[k] : undefined;
               }
               if (cur === undefined || cur === null) break;
             }
-            return Array.isArray(cur) ? cur : [];
+            return cur;
           };
-          const arr = getBase(data, baseParts);
-          const length = arr.length > 0 ? arr.length : 0;
-          for (let i = 0; i < length; i++) {
+          const container = getContainer(data, baseParts);
+          let indices = [];
+          if (Array.isArray(container)) {
+            indices = container.map((_, i) => i);
+          } else if (container && typeof container === "object") {
+            indices = Object.keys(container)
+              .filter(k => /^\d+$/.test(k))
+              .map(k => parseInt(k, 10))
+              .sort((a, b) => a - b);
+          }
+          indices.forEach(i => {
             section.list.fields.forEach(field => {
               const path = `${section.list.base}.${i}.${field.key}`;
               nextValues[path] = getByPath(data, path);
             });
-          }
+          });
         }
       });
 
@@ -117,22 +132,11 @@ export default function AdminPanel() {
 
   useEffect(() => {
     if (selectedPage) {
-      loadContent(selectedPage);
+      setTimeout(() => {
+        loadContent(selectedPage);
+      }, 0);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPage]);
-  
-  useEffect(() => {
-    const ping = async () => {
-      try {
-        const res = await fetch(API_BASE, { headers: { Accept: "application/json" } });
-        setApiUp(res.ok ? true : false);
-      } catch {
-        setApiUp(false);
-      }
-    };
-    ping();
-  }, []);
 
   const handleSave = async () => {
     try {
@@ -175,7 +179,10 @@ export default function AdminPanel() {
                 }
               } else {
                 if (isLast) {
-                  cur[k] = value;
+                  const finalValue = (((k === "requirements") || (k === "tags")) && typeof value === "string")
+                    ? value.split(/\r?\n/).map(s => s.trim()).filter(Boolean)
+                    : value;
+                  cur[k] = finalValue;
                 } else {
                   if (typeof cur[k] !== "object" || cur[k] === null) cur[k] = {};
                   parent = cur;

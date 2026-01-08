@@ -124,11 +124,14 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
           const idxMatch = k.match(/^\d+$/);
           if (idxMatch) {
             const idx = parseInt(k, 10);
-            if (!Array.isArray(cur)) {
+            if (Array.isArray(cur)) {
+              cur = cur[idx];
+            } else if (cur && typeof cur === 'object' && String(idx) in cur) {
+              cur = (cur as any)[String(idx)];
+            } else {
               cur = undefined;
               break;
             }
-            cur = cur[idx];
           } else {
             cur = cur ? cur[k] : undefined;
           }

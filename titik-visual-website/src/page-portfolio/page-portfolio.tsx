@@ -179,16 +179,16 @@ function App() {
         {/* Portfolio Hero Section */}
         <section className="portfolio-hero-section">
           <div className="container">
-            <h1>{content.get('page-portofolio', 'hero_title', 'Portfolio Kami')}</h1>
-            <p>{content.get('page-portofolio', 'hero_subtitle', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}</p>
+            <h1>{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
+            <p>{content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}</p>
             <div className="hero-buttons">
-              <a href="#portfolio" className="btn btn-primary">
+              <a href={content.get('page-portfolio', 'hero.cta_primary.url', '#portfolio')} className="btn btn-primary">
                 <i className="fas fa-eye"></i>
-                {content.get('page-portofolio', 'cta_all_works_label', 'Lihat Semua Karya')}
+                {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
               </a>
-              <a href="/contact" className="btn btn-secondary">
+              <a href={content.get('page-portfolio', 'hero.cta_secondary.url', '/contact')} className="btn btn-secondary">
                 <i className="fas fa-arrow-up-right-from-square"></i>
-                {content.get('page-portofolio', 'cta_discuss_label', 'Diskusi Proyek')}
+                {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
               </a>
             </div>
           </div>
@@ -197,339 +197,56 @@ function App() {
         {/* Portfolio Section */}
         <section id="portfolio" className="portfolio-section">
           <div className="container">
-            <h2 className="section-title">{content.get('page-portofolio', 'section_title', 'Featured Projects')}</h2>
-            <p className="section-subtitle">{content.get('page-portofolio', 'section_subtitle', 'Karya-karya unggulan yang menjadi kebanggaan kami')}</p>
+            <h2 className="section-title">{content.get('page-portfolio', 'portfolio_title', 'Semua Karya Titik Visual')}</h2>
+            <p className="section-subtitle">{content.get('page-portfolio', 'portfolio_subtitle', 'Kumpulan lengkap karya kami di berbagai kategori')}</p>
 
             <div className="portfolio-grid">
-              {/* Project Card 1 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="E-Commerce Mobile App" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">UI/UX Design</span>
-                    <span className="project-year">2024</span>
+              {Array.from({ length: 50 }, (_, i) => i)
+                .filter(i => content.get('page-portfolio', `items.${i}.title`, '').trim() !== '')
+                .map((i) => (
+                  <div className="project-card" key={i}>
+                    <div className="card-image">
+                      <img
+                        src={getImg(content.get('page-portfolio', `items.${i}.image`, 'portfolio.png'))}
+                        alt={content.get('page-portfolio', `items.${i}.title`, 'Project')}
+                      />
+                    </div>
+                    <div className="card-content">
+                      <div className="content-header">
+                        <span className="project-category">
+                          {content.get('page-portfolio', `items.${i}.category`, 'Kategori')}
+                        </span>
+                        <span className="project-year">
+                          {content.get('page-portfolio', `items.${i}.year`, '2024')}
+                        </span>
+                      </div>
+                      <h3 className="project-title">
+                        {content.get('page-portfolio', `items.${i}.title`, 'Judul Project')}
+                      </h3>
+                      <p className="project-description">
+                        {content.get('page-portfolio', `items.${i}.description`, 'Deskripsi Project')}
+                      </p>
+                      <div className="project-tech">
+                        {Array.from({ length: 20 }, (_, j) => content.get('page-portfolio', `items.${i}.tags.${j}`, '').trim())
+                          .filter((t) => t !== '')
+                          .map((t, j2) => (
+                            <span key={j2}>{t}</span>
+                          ))}
+                      </div>
+                      <div className="project-footer">
+                        <span className="client-name">
+                          Client: {content.get('page-portfolio', `items.${i}.client`, 'Client')}
+                        </span>
+                        <a
+                          href={content.get('page-portfolio', `items.${i}.link`, '/portfolio')}
+                          className="project-link"
+                        >
+                          <i className="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="project-title">E-Commerce Mobile App</h3>
-                  <p className="project-description">Complete mobile app design untuk platform e-commerce 
-                    dengan user experience yang optimal dan conversion rate
-                    tinggi.</p>
-                  <div className="project-tech">
-                    <span>Mobile</span>
-                    <span>E-commerce</span>
-                    <span>iOS</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: ShopNow Indonesia</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 2 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="SaaS Dashboard Design" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">UI/UX Design</span>
-                    <span className="project-year">2024</span>
-                  </div>
-                  <h3 className="project-title">SaaS Dashboard Design</h3>
-                  <p className="project-description">Dashboard design untuk SaaS platform dengan data 
-                    visualization yang clear dan user-friendly interface.</p>
-                  <div className="project-tech">
-                    <span>Web App</span>
-                    <span>Dashboard</span>
-                    <span>SaaS</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: DataFlow Solutions</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 3 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="Banking Mobile App" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">Mobile App</span>
-                    <span className="project-year">2023</span>
-                  </div>
-                  <h3 className="project-title">Banking Mobile App</h3>
-                  <p className="project-description">Secure dan user-friendly banking app dengan modern 
-                    interface dan advanced security features.</p>
-                  <div className="project-tech">
-                    <span>Mobile App</span>
-                    <span>Banking</span>
-                    <span>Security</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: SecureBank Digital</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 4 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="E-Commerce Mobile App" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">UI/UX Design</span>
-                    <span className="project-year">2024</span>
-                  </div>
-                  <h3 className="project-title">E-Commerce Mobile App</h3>
-                  <p className="project-description">Complete mobile app design untuk platform e-commerce
-                    dengan user experience yang optimal dan conversion rate
-                    tinggi.</p>
-                  <div className="project-tech">
-                    <span>Mobile</span>
-                    <span>E-commerce</span>
-                    <span>iOS</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: ShopNow Indonesia</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 5 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="SaaS Dashboard Design" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">UI/UX Design</span>
-                    <span className="project-year">2024</span>
-                  </div>
-                  <h3 className="project-title">SaaS Dashboard Design</h3>
-                  <p className="project-description">Dashboard design untuk SaaS platform dengan data 
-                    visualization yang clear dan user-friendly interface.</p>
-                  <div className="project-tech">
-                    <span>Web App</span>
-                    <span>Dashboard</span>
-                    <span>SaaS</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: DataFlow Solutions</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 6 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={getImg(content.get('page-portfolio', 'items.0.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.0.title', 'Corporate Website')} />
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">{content.get('page-portfolio', 'items.0.category', 'Web Development')}</span>
-                    <span className="project-year">{content.get('page-portfolio', 'items.0.year', '2024')}</span>
-                  </div>
-                  <h3 className="project-title">{content.get('page-portfolio', 'items.0.title', 'Corporate Website')}</h3>
-                  <p className="project-description">{content.get('page-portfolio', 'items.0.description', 'Website corporate yang modern dan professional dengan CMS integration untuk easy content management.')}</p>
-                  <div className="project-tech">
-                    <span>Website</span>
-                    <span>Corporate</span>
-                    <span>Responsive</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: {content.get('page-portfolio', 'items.0.client', 'PT. Maju Bersama')}</span>
-                    <a href={content.get('page-portfolio', 'items.0.link', '/portfolio')} className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 7 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={getImg(content.get('page-portfolio', 'items.1.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.1.title', 'Banking Mobile App')} />
-                  <span className="project-tag">{content.get('page-portfolio', 'items.1.tag', 'Featured')}</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">{content.get('page-portfolio', 'items.1.category', 'Mobile App')}</span>
-                    <span className="project-year">{content.get('page-portfolio', 'items.1.year', '2023')}</span>
-                  </div>
-                  <h3 className="project-title">{content.get('page-portfolio', 'items.1.title', 'Banking Mobile App')}</h3>
-                  <p className="project-description">{content.get('page-portfolio', 'items.1.description', 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.')}</p>
-                  <div className="project-tech">
-                    <span>Mobile App</span>
-                    <span>Banking</span>
-                    <span>Security</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: {content.get('page-portfolio', 'items.1.client', 'SecureBank Digital')}</span>
-                    <a href={content.get('page-portfolio', 'items.1.link', '/portfolio')} className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 8 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={getImg(content.get('page-portfolio', 'items.2.image', 'portfolio.png'))} alt={content.get('page-portfolio', 'items.2.title', 'Brand Identity Package')} />
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">{content.get('page-portfolio', 'items.2.category', 'Branding')}</span>
-                    <span className="project-year">{content.get('page-portfolio', 'items.2.year', '2024')}</span>
-                  </div>
-                  <h3 className="project-title">{content.get('page-portfolio', 'items.2.title', 'Brand Identity Package')}</h3>
-                  <p className="project-description">{content.get('page-portfolio', 'items.2.description', 'Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.')}</p>
-                  <div className="project-tech">
-                    <span>Logo</span>
-                    <span>Brand Identity</span>
-                    <span>Guidelines</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: {content.get('page-portfolio', 'items.2.client', 'GreenTech Startup')}</span>
-                    <a href={content.get('page-portfolio', 'items.2.link', '/portfolio')} className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 9 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="Social Media Campaign" />
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">Social Media</span>
-                    <span className="project-year">2024</span>
-                  </div>
-                  <h3 className="project-title">Social Media Campaign</h3>
-                  <p className="project-description">Social media campaign design untuk fashion brand dengan
-                    consistent visual identity dan engaging content.</p>
-                  <div className="project-tech">
-                    <span>Social Media</span>
-                    <span>Campaign</span>
-                    <span>Instagram</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: Fashion Brand Co</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 10 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="Restaurant Website" />
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">Web Development</span>
-                    <span className="project-year">2023</span>
-                  </div>
-                  <h3 className="project-title">Restaurant Website</h3>
-                  <p className="project-description">Website restaurant dengan online menu, table booking
-                    system, dan gallery yang menarik.</p>
-                  <div className="project-tech">
-                    <span>Website</span>
-                    <span>Restaurant</span>
-                    <span>Online Menu</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: Rasa Nusantara</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 11 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="Fitness App UI/UX" />
-                  <span className="project-tag">Featured</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">UI/UX Design</span>
-                    <span className="project-year">2024</span>
-                  </div>
-                  <h3 className="project-title">Fitness App UI/UX</h3>
-                  <p className="project-description">Fitness tracking app dengan motivational design dan
-                    comprehensive workout planning features.</p>
-                  <div className="project-tech">
-                    <span>Mobile</span>
-                    <span>Fitness</span>
-                    <span>Health</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: FitLife App</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Card 12 */}
-              <div className="project-card">
-                <div className="card-image">
-                  <img src={portfolioImage} alt="E-Learning Platform" />
-                </div>
-                <div className="card-content">
-                  <div className="content-header">
-                    <span className="project-category">Web Development</span>
-                    <span className="project-year">2023</span>
-                  </div>
-                  <h3 className="project-title">E-Learning Platform</h3>
-                  <p className="project-description">E-learning platform dengan interactive course content dan
-                    comprehensive student management system.</p>
-                  <div className="project-tech">
-                    <span>Web App</span>
-                    <span>Education</span>
-                    <span>LMS</span>
-                  </div>
-                  <div className="project-footer">
-                    <span className="client-name">Client: EduTech Indonesia</span>
-                    <a href="/portfolio" className="project-link">
-                      <i className="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                ))}
             </div>
           </div>
         </section>
