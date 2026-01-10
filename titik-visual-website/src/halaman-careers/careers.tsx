@@ -355,21 +355,21 @@ const CareersPage: React.FC = () => {
                   <i className="fas fa-map-marker-alt"></i>
                 </div>
                 <h4>{content.get('halaman-careers', 'contact_address_label', 'Alamat')}</h4>
-                <p>{content.get('halaman-careers', 'contact_address_val', 'Jl. Malioboro No. 123<br />Yogyakarta 55271<br />Indonesia')}</p>
+                <p>{content.get('halaman-careers', 'contact_address_val', 'Jl. Malioboro No. 123, Yogyakarta 55271, Indonesia')}</p>
               </div>
               <div className="contact-card">
                 <div className="contact-icon">
                   <i className="fas fa-phone-alt"></i>
                 </div>
                 <h4>{content.get('halaman-careers', 'contact_phone_label', 'Telepon')}</h4>
-                <p>{content.get('halaman-careers', 'contact_phone_val', '+62 274 123 4567<br />+62 812 3456 7890')}</p>
+                <p>{content.get('halaman-careers', 'contact_phone_val', '+62 274 123 4567, +62 812 3456 7890')}</p>
               </div>
               <div className="contact-card">
                 <div className="contact-icon">
                   <i className="fas fa-envelope"></i>
                 </div>
                 <h4>{content.get('halaman-careers', 'contact_email_label', 'Email')}</h4>
-                <p>{content.get('halaman-careers', 'contact_email_val', 'info@titikvisual.com<br />career@titikvisual.com')}</p>
+                <p>{content.get('halaman-careers', 'contact_email_val', 'info@titikvisual.com, career@titikvisual.com')}</p>
               </div>
             </div>
           </div>

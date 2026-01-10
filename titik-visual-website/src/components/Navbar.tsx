@@ -11,10 +11,10 @@ const getImg = (name: string) => {
 };
 
 interface NavbarProps {
-  currentPath: string;
+  currentPath?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentPath }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
   const content = useContent();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

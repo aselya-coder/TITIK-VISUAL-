@@ -16,11 +16,11 @@ function ServicesPage() {
   const content = useContent();
 
   const DEFAULT_MAIN_SERVICES = [
-    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik", icon: "ui-ux.png", color: "purple", cta_label: "Lihat Detail", cta_href: "#detail-services" },
+    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik", icon: "ui-ux desain.png", color: "purple", cta_label: "Lihat Detail", cta_href: "#detail-services" },
     { title: "Website Development", desc: "Website responsif dan performa tinggi", icon: "web.png", color: "blue", cta_label: "Lihat Detail", cta_href: "#detail-services" },
     { title: "Logo Design", desc: "Logo profesional untuk identitas brand", icon: "logo desain.png", color: "orange", cta_label: "Lihat Detail", cta_href: "#detail-services" },
     { title: "Social Media", desc: "Pengelolaan konten dan engagement", icon: "sosial managemen.png", color: "pink", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Custom Merchandise", desc: "Merchandise unik untuk promosi", icon: "merchandise custom.png", color: "green", cta_label: "Lihat Detail", cta_href: "#products" }
+    { title: "Custom Merchandise", desc: "Merchandise unik untuk promosi", icon: "custom mercandhise.png", color: "green", cta_label: "Lihat Detail", cta_href: "#products" }
   ];
 
   const DEFAULT_DETAIL_SERVICES = [
@@ -49,7 +49,7 @@ function ServicesPage() {
 
   const DEFAULT_CORPORATE = [
     { title: "Powerbank Custom", image: "Powerbank Custom.png", accent: "green", features: ["Kapasitas Real", "Cetak UV/Laser", "Garansi Resmi", "Desain Slim"], price: "Mulai Rp 85.000", duration: "5-7 Hari" },
-    { title: "Flashdisk Custom", image: "icon-corporate-gift.png", accent: "blue", features: ["Kapasitas 8-64GB", "Model Kartu/Kunci", "Cetak Full Color", "Chip Berkualitas"], price: "Mulai Rp 45.000", duration: "3-5 Hari" },
+    { title: "Flashdisk Custom", image: "placeholder.png", accent: "blue", features: ["Kapasitas 8-64GB", "Model Kartu/Kunci", "Cetak Full Color", "Chip Berkualitas"], price: "Mulai Rp 45.000", duration: "3-5 Hari" },
     { title: "Tumbler Digital LED", image: "Tumbler Sport.png", accent: "purple", features: ["Indikator Suhu", "Stainless SUS304", "Laser Engraving", "Tahan 12 Jam"], price: "Mulai Rp 55.000", duration: "3-7 Hari" }
   ];
 

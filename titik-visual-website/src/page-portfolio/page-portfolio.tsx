@@ -1,174 +1,282 @@
-import React from 'react';
-import './style.css';
+import React, { useEffect, useState } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import { useContent } from '../content/ContentContext';
+import './style.css';
 
+// Helper to safely get images
 const getImg = (name: string) => {
   try {
+    if (!name) return '';
+    if (name.startsWith('http')) return name;
     return require(`../img/${name}`);
   } catch {
-    return '';
+    return require('../img/portfolio.png'); // Fallback
   }
 };
 
+interface Project {
+  title: string;
+  category: string;
+  year: string;
+  client: string;
+  description: string;
+  image: string;
+  link: string;
+  featured: boolean;
+  tags: string[];
+}
 
-function App() {
+const DEFAULT_PROJECTS: Project[] = [
+  {
+    title: 'E-Commerce Mobile App',
+    category: 'UI/UX Design',
+    year: '2024',
+    client: 'ShopNow Indonesia',
+    description: 'Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Mobile', 'E-commerce', 'iOS']
+  },
+  {
+    title: 'SaaS Dashboard Design',
+    category: 'UI/UX Design',
+    year: '2024',
+    client: 'DataFlow Solutions',
+    description: 'Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Web App', 'Dashboard', 'SaaS']
+  },
+  {
+    title: 'Banking Mobile App',
+    category: 'Mobile App',
+    year: '2023',
+    client: 'SecureBank Digital',
+    description: 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Mobile App', 'Banking', 'Security']
+  },
+  {
+    title: 'Corporate Website',
+    category: 'Web Development',
+    year: '2024',
+    client: 'PT Maju Bersama',
+    description: 'Website corporate yang modern dan professional dengan CMS integration untuk easy content management.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: false,
+    tags: ['Website', 'Corporate', 'Responsive']
+  },
+  {
+    title: 'Banking Mobile App',
+    category: 'Mobile App',
+    year: '2023',
+    client: 'SecureBank Digital',
+    description: 'Secure dan user-friendly banking app dengan modern interface dan advanced security features.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Mobile App', 'Banking', 'Security']
+  },
+  {
+    title: 'Brand Identity Package',
+    category: 'Branding',
+    year: '2024',
+    client: 'GreenTech Startup',
+    description: 'Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: false,
+    tags: ['Logo', 'Brand Identity', 'Guidelines']
+  },
+  {
+    title: 'Social Media Campaign',
+    category: 'Social Media',
+    year: '2024',
+    client: 'Fashion Brand Co',
+    description: 'Social media campaign design untuk fashion brand dengan consistent visual identity dan engaging content.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: false,
+    tags: ['Social Media', 'Campaign', 'Instagram']
+  },
+  {
+    title: 'Restaurant Website',
+    category: 'Web Development',
+    year: '2023',
+    client: 'Rasa Nusantara',
+    description: 'Website restaurant dengan online menu, table booking system, dan gallery yang menarik.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: false,
+    tags: ['Web', 'Restaurant', 'Online Menu']
+  },
+  {
+    title: 'Fitness App Design',
+    category: 'UI/UX Design',
+    year: '2024',
+    client: 'FitLife App',
+    description: 'Fitness tracking app dengan motivational design dan comprehensive workout planning features.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Mobile', 'Fitness', 'Health']
+  },
+  {
+    title: 'E-Learning Platform',
+    category: 'Web Development',
+    year: '2023',
+    client: 'EduTech Solutions',
+    description: 'E-learning platform dengan interactive course content dan comprehensive student management system.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: false,
+    tags: ['Web App', 'Education', 'LMS']
+  }
+];
+
+const PortfolioPage: React.FC = () => {
   const content = useContent();
+  const [projects, setProjects] = useState<Project[]>([]);
 
+  // Adapter: Transform Admin Panel data to Frontend Structure
+  useEffect(() => {
+    const loadedProjects: Project[] = [];
+    // Limit to 50 items as per convention
+    for (let i = 0; i < 50; i++) {
+      const title = content.get('page-portfolio', `items.${i}.title`);
+      // Stop if no title found (end of list)
+      if (!title || title.trim() === '') break;
+
+      const tagsRaw = content.get('page-portfolio', `items.${i}.tags`, []);
+      const tags = Array.isArray(tagsRaw) 
+        ? tagsRaw.map((t: any) => typeof t === 'string' ? t : t?.label || '').filter(Boolean)
+        : [];
+
+      loadedProjects.push({
+        title,
+        category: content.get('page-portfolio', `items.${i}.category`, 'General'),
+        year: content.get('page-portfolio', `items.${i}.year`, new Date().getFullYear().toString()),
+        client: content.get('page-portfolio', `items.${i}.client`, 'Client'),
+        description: content.get('page-portfolio', `items.${i}.description`, ''),
+        image: content.get('page-portfolio', `items.${i}.image`, 'portfolio.png'),
+        link: content.get('page-portfolio', `items.${i}.link`, '#'),
+        featured: Boolean(content.get('page-portfolio', `items.${i}.featured`, false)),
+        tags
+      });
+    }
+
+    if (loadedProjects.length > 0) {
+      setProjects(loadedProjects);
+    } else {
+      // Fallback to default design data if Admin Panel is empty
+      setProjects(DEFAULT_PROJECTS);
+    }
+  }, [content]); // Re-run when content changes
+
+  const navigateToPage = (path: string) => {
+    window.location.href = path;
+  };
 
   return (
-    <div className="App">
-
-
-
-
+    <div className="portfolio-page-wrapper">
+      
       <main>
         {/* Portfolio Hero Section */}
         <section className="portfolio-hero-section">
           <div className="container">
-            <h1>{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
-            <p>{content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}</p>
-            <div className="hero-buttons">
-              <a href={content.get('page-portfolio', 'hero.cta_primary.url', '#portfolio')} className="btn btn-primary">
-                <i className="fas fa-eye"></i>
-                {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
-              </a>
-              <a href={content.get('page-portfolio', 'hero.cta_secondary.url', '/contact')} className="btn btn-secondary">
-                <i className="fas fa-arrow-up-right-from-square"></i>
-                {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
-              </a>
+            <div className="hero-content">
+              <h1 className="hero-title">{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
+              <p className="hero-description">
+                {content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}
+              </p>
+              <div className="hero-buttons">
+                <button onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-primary">
+                  <i className="fas fa-eye"></i> {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
+                </button>
+                <button onClick={() => navigateToPage('/contact')} className="btn btn-secondary">
+                  <i className="fas fa-arrow-right"></i> {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Portfolio Section */}
-        <section id="portfolio" className="portfolio-section">
+        {/* Featured Projects Section */}
+        <section id="portfolio" className="featured-projects-section">
           <div className="container">
-            <h2 className="section-title">{content.get('page-portfolio', 'portfolio_title', 'Semua Karya Titik Visual')}</h2>
-            <p className="section-subtitle">{content.get('page-portfolio', 'portfolio_subtitle', 'Kumpulan lengkap karya kami di berbagai kategori')}</p>
+            <div className="section-header">
+              <h2 className="section-title">{content.get('page-portfolio', 'portfolio_title', 'Featured Projects')}</h2>
+              <p className="section-subtitle">{content.get('page-portfolio', 'portfolio_subtitle', 'Karya-karya unggulan yang menjadi kebanggaan kami')}</p>
+            </div>
 
             <div className="portfolio-grid">
-              {Array.from({ length: 50 }, (_, i) => i)
-                .filter(i => content.get('page-portfolio', `items.${i}.title`, '').trim() !== '')
-                .map((i) => {
-                  const featured = Boolean(content.get('page-portfolio', `items.${i}.featured`, false));
-                  const tagsRaw = content.get('page-portfolio', `items.${i}.tags`, []);
-                  const tags = Array.isArray(tagsRaw) ? tagsRaw : [];
-                  const tagLabels = tags
-                    .map((t: any) => (typeof t === 'string' ? t : t?.label))
-                    .filter((t: any) => typeof t === 'string' && t.trim() !== '');
-
-                  return (
-                    <div className="project-card" key={i}>
-                    <div className="card-image">
-                      <img
-                        src={getImg(content.get('page-portfolio', `items.${i}.image`, 'portfolio.png'))}
-                        alt={content.get('page-portfolio', `items.${i}.title`, 'Project')}
-                      />
-                      {featured && <span className="featured-badge">Featured</span>}
+              {projects.map((project, index) => (
+                <div className="project-card" key={index}>
+                  <div className="card-image-wrapper">
+                    <img
+                      src={getImg(project.image)}
+                      alt={project.title}
+                      className="card-image"
+                    />
+                    {project.featured && <span className="featured-badge">Featured</span>}
+                  </div>
+                  <div className="card-content">
+                    <div className="content-header">
+                      <span className="project-category-badge">{project.category}</span>
+                      <span className="project-year">{project.year}</span>
                     </div>
-                    <div className="card-content">
-                      <div className="content-header">
-                        <span className="project-category">
-                          {content.get('page-portfolio', `items.${i}.category`, 'Kategori')}
-                        </span>
-                        <span className="project-year">
-                          {content.get('page-portfolio', `items.${i}.year`, '2024')}
-                        </span>
-                      </div>
-                      <h3 className="project-title">
-                        {content.get('page-portfolio', `items.${i}.title`, 'Judul Project')}
-                      </h3>
-                      <p className="project-description">
-                        {content.get('page-portfolio', `items.${i}.description`, 'Deskripsi Project')}
-                      </p>
-                      <div className="project-tech">
-                        {tagLabels.map((t: string, j2: number) => (
-                          <span key={j2}>{t}</span>
-                        ))}
-                      </div>
-                      <div className="project-footer">
-                        <span className="client-name">
-                          Client: {content.get('page-portfolio', `items.${i}.client`, 'Client')}
-                        </span>
-                        <a
-                          href={content.get('page-portfolio', `items.${i}.link`, '/portfolio')}
-                          className="project-link"
-                        >
-                          <i className="fas fa-arrow-up-right-from-square"></i>
-                        </a>
-                      </div>
+                    
+                    <h3 className="project-title">{project.title}</h3>
+                    <p className="project-description">{project.description}</p>
+                    
+                    <div className="project-tags">
+                      {project.tags.map((tag, idx) => (
+                        <span key={idx} className="tag-item">{tag}</span>
+                      ))}
+                    </div>
+                    
+                    <div className="project-footer">
+                      <span className="client-info">Client: {project.client}</span>
+                      <a href={project.link} className="project-link-btn" aria-label="View Project">
+                        <i className="fas fa-arrow-up-right-from-square"></i>
+                      </a>
                     </div>
                   </div>
-                  );
-                })}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="cta-section">
+        <section className="portfolio-cta-section">
           <div className="container">
-            <h2>{content.get('page-portfolio', 'cta.title', 'Tertarik dengan Karya Kami?')}</h2>
-            <p>{content.get('page-portfolio', 'cta.description', 'Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda')}</p>
-            <div className="cta-buttons">
-              <a href={content.get('page-portfolio', 'cta.primary.url', '/contact')} className="btn btn-primary-cta">
-                <i className="fas fa-arrow-up-right-from-square"></i> {content.get('page-portfolio', 'cta.primary.label', 'Diskusi Proyek')}
-              </a>
-              <a href={content.get('page-portfolio', 'cta.secondary.url', '#portfolio')} className="btn btn-secondary-cta">
-                <i className="fas fa-eye"></i> {content.get('page-portfolio', 'cta.secondary.label', 'Lihat Semua Portfolio')}
-              </a>
+            <div className="cta-content">
+              <h2 className="cta-title">{content.get('page-portfolio', 'cta.title', 'Tertarik dengan Karya Kami?')}</h2>
+              <p className="cta-description">
+                {content.get('page-portfolio', 'cta.description', 'Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda.')}
+              </p>
+              <div className="cta-buttons">
+                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.primary.label', '/contact'))} className="btn btn-white">
+                  <i className="fas fa-paper-plane"></i> {content.get('page-portfolio', 'cta.primary.label', 'Diskusi Proyek')}
+                </button>
+                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.secondary.label', '/portfolio'))} className="btn btn-outline-white">
+                  <i className="fas fa-images"></i> {content.get('page-portfolio', 'cta.secondary.label', 'Lihat Semua Portfolio')}
+                </button>
+              </div>
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
-              <p>{content.get('page-portofolio', 'footer_brand_desc', 'Portfolio lengkap karya digital creative yang telah membantu berbagai klien mencapai kesuksesan.')}</p>
-            </div>
-            <div className="footer-links">
-              <h4>Portfolio</h4>
-              <ul>
-                  <li><a href="/portfolio/ui-ux">UI/UX Design</a></li>
-                  <li><a href="/portfolio/web-development">Web Development</a></li>
-                  <li><a href="/portfolio/mobile-app">Mobile App</a></li>
-                  <li><a href="/portfolio/branding">Branding</a></li>
-                  <li><a href="/portfolio/social-media">Social Media</a></li>
-                </ul>
-              </div>
-              <div className="footer-links">
-                <h4>Kategori</h4>
-                <ul>
-                  <li><a href="/portfolio/featured">Featured Works</a></li>
-                  <li><a href="/portfolio/case-studies">Case Studies</a></li>
-                  <li><a href="/portfolio/client-stories">Client Stories</a></li>
-                  <li><a href="/portfolio/awards">Awards</a></li>
-                  <li><a href="/portfolio/recognition">Recognition</a></li>
-                </ul>
-              </div>
-              <div className="footer-links">
-                <h4>Kontak</h4>
-                <ul>
-                  <li>081804376001</li>
-                  <li>titikvisualjogja@gmail.com</li>
-                  <li>Yogyakarta, Indonesia</li>
-                </ul>
-              </div>
-            </div>
-            <div className="footer-bottom">
-              <p>
-                {content.get('page-portfolio', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
-                {content.get('page-portfolio', 'footer_line1_bottom', 'All rights reserved.')}
-              </p>
-            </div>
-          </div>
-        </footer>
       </main>
+
+      <CareersFooter />
     </div>
   );
-}
+};
 
-export default App;
+export default PortfolioPage;
