@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
+
 const getImg = (name: string) => {
   if (!name) return '';
   if (name.startsWith('http')) return name;

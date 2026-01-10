@@ -61,6 +61,28 @@ const DEFAULT_PROJECTS: Project[] = [
     tags: ['Mobile App', 'Banking', 'Security']
   },
   {
+    title: 'E-Commerce Mobile App',
+    category: 'UI/UX Design',
+    year: '2024',
+    client: 'ShopNow Indonesia',
+    description: 'Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Mobile', 'E-commerce', 'iOS']
+  },
+  {
+    title: 'SaaS Dashboard Design',
+    category: 'UI/UX Design',
+    year: '2024',
+    client: 'DataFlow Solutions',
+    description: 'Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.',
+    image: 'portfolio.png',
+    link: '#',
+    featured: true,
+    tags: ['Web App', 'Dashboard', 'SaaS']
+  },
+  {
     title: 'Corporate Website',
     category: 'Web Development',
     year: '2024',
