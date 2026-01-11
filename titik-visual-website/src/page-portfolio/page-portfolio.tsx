@@ -287,7 +287,7 @@ const PortfolioPage: React.FC = () => {
                 <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.primary.label', '/contact'))} className="btn btn-white">
                   <i className="fas fa-paper-plane"></i> {content.get('page-portfolio', 'cta.primary.label', 'Diskusi Proyek')}
                 </button>
-                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.secondary.label', '/portfolio'))} className="btn btn-outline-white">
+                <button onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-outline-white">
                   <i className="fas fa-images"></i> {content.get('page-portfolio', 'cta.secondary.label', 'Lihat Semua Portfolio')}
                 </button>
               </div>

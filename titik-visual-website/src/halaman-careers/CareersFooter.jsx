@@ -24,21 +24,21 @@ export default function CareersFooter() {
           <div className="text-left">
             <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_company', 'Company')}</h4>
             <ul className="space-y-2 leading-relaxed">
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_about', 'About Us')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_portfolio', 'Portfolio')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_services', 'Services')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_careers', 'Careers')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_blog', 'Blog')}</span></li>
+              <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_about', 'About Us')}</a></li>
+              <li><a href="/portfolio" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_portfolio', 'Portfolio')}</a></li>
+              <li><a href="/services" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_services', 'Services')}</a></li>
+              <li><a href="/careers" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_careers', 'Careers')}</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_contact', 'Contact')}</a></li>
             </ul>
           </div>
           <div className="text-left">
             <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_careers', 'Careers')}</h4>
             <ul className="space-y-2 leading-relaxed">
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_jobs', 'Lowongan Kerja')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_intern', 'Program Magang')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_fulltime', 'Full Time Jobs')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_remote', 'Remote Work')}</span></li>
-              <li><span className="text-gray-400">{content.get('halaman-careers', 'footer_link_contract', 'Contract Work')}</span></li>
+              <li><a href="/lowongan-kerja" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_jobs', 'Lowongan Kerja')}</a></li>
+              <li><a href="/program-magang" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_intern', 'Program Magang')}</a></li>
+              <li><a href="/lowongan-kerja" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_fulltime', 'Full Time Jobs')}</a></li>
+              <li><a href="/lowongan-kerja" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_remote', 'Remote Work')}</a></li>
+              <li><a href="/lowongan-kerja" className="text-gray-400 hover:text-white transition-colors">{content.get('halaman-careers', 'footer_link_contract', 'Contract Work')}</a></li>
             </ul>
           </div>
           <div className="text-left">

@@ -416,7 +416,7 @@ const UIUXPage = () => {
                 <li><button onClick={() => window.location.href = '#case-studies'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_2', 'Case Studies')}</button></li>
                 <li><button onClick={() => window.location.href = '#design-system'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_3', 'Design System')}</button></li>
                 <li><button onClick={() => window.location.href = '#ui-kit'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_4', 'UI Kit')}</button></li>
-                <li><button onClick={() => window.location.href = '#blog'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_5', 'Blog')}</button></li>
+                <li><button onClick={() => window.location.href = '/portfolio'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_5', 'Blog')}</button></li>
               </ul>
             </div>
             <div className="footer-column">

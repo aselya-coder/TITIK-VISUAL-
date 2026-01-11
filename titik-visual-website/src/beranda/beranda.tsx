@@ -374,7 +374,7 @@ const TitikVisualWebsite: React.FC = () => {
                 </div>
                 <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
                 <p>{content.get('beranda', 'service_mobile_desc', 'Aplikasi mobile iOS dan Android')}</p>
-                <a className="price" href="/layanan"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_mobile', 'Rp 15jt')}</span></a>
+                <a className="price" href="/services"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_mobile', 'Rp 15jt')}</span></a>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/logo-design')} style={{ cursor: 'pointer' }}>
@@ -386,7 +386,7 @@ const TitikVisualWebsite: React.FC = () => {
                 </div>
                 <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
                 <p>{content.get('beranda', 'service_logo_short_desc', 'Logo profesional dan brand identity')}</p>
-                <a className="price" href="/layanan"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_logo', 'Rp 500rb')}</span></a>
+                <a className="price" href="/services"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_logo', 'Rp 500rb')}</span></a>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
@@ -398,7 +398,7 @@ const TitikVisualWebsite: React.FC = () => {
                 </div>
                 <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
                 <p>{content.get('beranda', 'service_sosmed_desc', 'Kelola dan kembangkan media sosial brand')}</p>
-                <a className="price" href="/layanan"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_sosmed', 'Rp 1.5jt/bulan')}</span></a>
+                <a className="price" href="/services"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_sosmed', 'Rp 1.5jt/bulan')}</span></a>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
@@ -410,7 +410,7 @@ const TitikVisualWebsite: React.FC = () => {
                 </div>
                 <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
                 <p>{content.get('beranda', 'service_marketing_desc', 'Strategi pemasaran digital yang efektif')}</p>
-                <a className="price" href="/layanan"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_marketing', 'Rp 2jt/bulan')}</span></a>
+                <a className="price" href="/services"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_marketing', 'Rp 2jt/bulan')}</span></a>
               </div>
             </div>
           </div>
@@ -741,7 +741,7 @@ const TitikVisualWebsite: React.FC = () => {
           </div>
 
           <div className="see-all">
-            <a href={content.get('beranda', 'career_preview.cta.url', '/karir')}>
+            <a href={content.get('beranda', 'career_preview.cta.url', '/careers')}>
               {content.get('beranda', 'career_preview.cta.label', 'Lihat Semua Posisi')}
               <i className="fa-solid fa-arrow-right"></i>
             </a>

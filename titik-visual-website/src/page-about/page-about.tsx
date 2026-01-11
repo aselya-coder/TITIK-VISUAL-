@@ -208,7 +208,7 @@ const AboutPage = () => {
             </p>
             
             <div className="hero-buttons">
-              <a href="#portfolio" className="btn-primary">
+              <a href="/portfolio" className="btn-primary">
                 <i className="fa-solid fa-arrow-up-right-from-square"></i> {content.get('page-about', 'hero_btn_portfolio', 'Lihat Portfolio')}
               </a>
 
@@ -395,22 +395,22 @@ const AboutPage = () => {
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-about', 'footer_company_title', 'Company')}</h4>
               <ul className="footer-list">
-                <li><button onClick={() => window.location.href = '#about'} className="link-button">{content.get('page-about', 'footer_company_about', 'About Us')}</button></li>
-                <li><button onClick={() => window.location.href = '#portfolio'} className="link-button">{content.get('page-about', 'footer_company_portfolio', 'Portfolio')}</button></li>
-                <li><button onClick={() => window.location.href = '#services'} className="link-button">{content.get('page-about', 'footer_company_services', 'Services')}</button></li>
-                <li><button onClick={() => window.location.href = '#careers'} className="link-button">{content.get('page-about', 'footer_company_careers', 'Careers')}</button></li>
-                <li><button onClick={() => window.location.href = '#contact'} className="link-button">{content.get('page-about', 'footer_company_contact', 'Contact')}</button></li>
+                <li><a href="/about" className="link-button">{content.get('page-about', 'footer_company_about', 'About Us')}</a></li>
+                <li><a href="/portfolio" className="link-button">{content.get('page-about', 'footer_company_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services" className="link-button">{content.get('page-about', 'footer_company_services', 'Services')}</a></li>
+                <li><a href="/careers" className="link-button">{content.get('page-about', 'footer_company_careers', 'Careers')}</a></li>
+                <li><a href="/contact" className="link-button">{content.get('page-about', 'footer_company_contact', 'Contact')}</a></li>
               </ul>
             </div>
     
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-about', 'footer_services_title', 'Services')}</h4>
               <ul className="footer-list">
-                <li><button onClick={() => window.location.href = '#ui-ux'} className="link-button">{content.get('page-about', 'footer_services_uiux', 'UI/UX Design')}</button></li>
-                <li><button onClick={() => window.location.href = '#web-development'} className="link-button">{content.get('page-about', 'footer_services_web', 'Web Development')}</button></li>
-                <li><button onClick={() => window.location.href = '#mobile-app'} className="link-button">{content.get('page-about', 'footer_services_mobile', 'Mobile App')}</button></li>
-                <li><button onClick={() => window.location.href = '#branding'} className="link-button">{content.get('page-about', 'footer_services_branding', 'Branding')}</button></li>
-                <li><button onClick={() => window.location.href = '#digital-marketing'} className="link-button">{content.get('page-about', 'footer_services_marketing', 'Digital Marketing')}</button></li>
+                <li><a href="/ui-ux" className="link-button">{content.get('page-about', 'footer_services_uiux', 'UI/UX Design')}</a></li>
+                <li><a href="/web-apk" className="link-button">{content.get('page-about', 'footer_services_web', 'Web Development')}</a></li>
+                <li><a href="/web-apk" className="link-button">{content.get('page-about', 'footer_services_mobile', 'Mobile App')}</a></li>
+                <li><a href="/logo-design" className="link-button">{content.get('page-about', 'footer_services_branding', 'Branding')}</a></li>
+                <li><a href="/social-media" className="link-button">{content.get('page-about', 'footer_services_marketing', 'Digital Marketing')}</a></li>
               </ul>
             </div>
     

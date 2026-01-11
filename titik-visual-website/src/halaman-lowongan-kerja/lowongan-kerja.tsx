@@ -367,7 +367,7 @@ const LowonganKerjaPage = () => {
           <h2>{content.get('halaman-lowongan-kerja', 'cta_title', 'Bersiap untuk Tantangan Baru?')}</h2>
           <p>{content.get('halaman-lowongan-kerja', 'cta_desc', 'Mari bergabung dengan tim Titik Visual dan wujudkan karya digital yang berdampak bersama para profesional terbaik.')}</p>
           <div className="cta-buttons">
-            <button className="btn btn-cta-primary" onClick={() => window.location.reload()}>
+            <button className="btn btn-cta-primary" onClick={() => document.getElementById('job-listings')?.scrollIntoView({ behavior: 'smooth' })}>
                <i className="far fa-comment"></i> {content.get('halaman-lowongan-kerja', 'btn_view_jobs', 'Lihat Lowongan')}
             </button>
             <a href="mailto:titikvisualjogja@gmail.com" className="btn btn-cta-secondary">
@@ -388,20 +388,20 @@ const LowonganKerjaPage = () => {
             <div className="footer-widget footer-links">
               <h4>{content.get('halaman-lowongan-kerja', 'footer_col_1', 'Company')}</h4>
               <ul>
-                <li><a href="#about">{content.get('halaman-lowongan-kerja', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="#portfolio">{content.get('halaman-lowongan-kerja', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="#services">{content.get('halaman-lowongan-kerja', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="#careers">{content.get('halaman-lowongan-kerja', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="#blog">{content.get('halaman-lowongan-kerja', 'footer_link_faq', 'FAQ')}</a></li>
+                <li><a href="/about">{content.get('halaman-lowongan-kerja', 'footer_link_about', 'About Us')}</a></li>
+                <li><a href="/portfolio">{content.get('halaman-lowongan-kerja', 'footer_link_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services">{content.get('halaman-lowongan-kerja', 'footer_link_services', 'Services')}</a></li>
+                <li><a href="/careers">{content.get('halaman-lowongan-kerja', 'footer_link_careers', 'Careers')}</a></li>
+                <li><a href="/services#faq">{content.get('halaman-lowongan-kerja', 'footer_link_faq', 'FAQ')}</a></li>
               </ul>
             </div>
             <div className="footer-widget footer-links">
               <h4>{content.get('halaman-lowongan-kerja', 'footer_col_2', 'Lowongan Kerja')}</h4>
               <ul>
-                <li><a href="#careers">{content.get('halaman-lowongan-kerja', 'footer_link_design', 'Design & Creative')}</a></li>
-                <li><a href="#careers">{content.get('halaman-lowongan-kerja', 'footer_link_engineering', 'Engineering')}</a></li>
-                <li><a href="#careers">{content.get('halaman-lowongan-kerja', 'footer_link_marketing', 'Marketing & Sales')}</a></li>
-                <li><a href="#careers">{content.get('halaman-lowongan-kerja', 'footer_link_management', 'Management')}</a></li>
+                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_design', 'Design & Creative')}</a></li>
+                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_engineering', 'Engineering')}</a></li>
+                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_marketing', 'Marketing & Sales')}</a></li>
+                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_management', 'Management')}</a></li>
               </ul>
             </div>
             <div className="footer-widget footer-contact">

@@ -415,35 +415,35 @@ const CareersPage: React.FC = () => {
               <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_1_title', 'Company')}</h4>
               <ul className="space-y-2 leading-relaxed">
                 <li><button 
-                  onClick={() => window.location.href = '#about'} 
+                  onClick={() => window.location.href = '/about'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="About Us"
                   >
                     {content.get('halaman-careers', 'footer_link_about', 'About Us')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#portfolio'} 
+                  onClick={() => window.location.href = '/portfolio'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Portfolio"
                   >
                     {content.get('halaman-careers', 'footer_link_portfolio', 'Portfolio')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#services'} 
+                  onClick={() => window.location.href = '/services'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Services"
                   >
                     {content.get('halaman-careers', 'footer_link_services', 'Services')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#careers'} 
+                  onClick={() => window.location.href = '/careers'} 
                           className="footer-link-button active text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Careers"
                   >
                     {content.get('halaman-careers', 'footer_link_careers', 'Careers')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#contact'} 
+                  onClick={() => window.location.href = '/contact'} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Contact"
                   >

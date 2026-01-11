@@ -18,11 +18,11 @@ function ServicesPage() {
   const content = useContent();
 
   const DEFAULT_MAIN_SERVICES = [
-    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile", icon: "PenTool", color: "purple", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Website & Aplikasi", desc: "Website responsif dan aplikasi mobile dengan teknologi terdepan", icon: "Globe", color: "blue", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Logo Design", desc: "Logo profesional yang mencerminkan identitas dan nilai brand Anda", icon: "Sparkles", color: "orange", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Social Media Management", desc: "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat", icon: "TrendingUp", color: "pink", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Custom Merchandise", desc: "Merchandise berkualitas tinggi untuk promosi dan corporate branding", icon: "Gift", color: "green", cta_label: "Lihat Detail", cta_href: "#products" }
+    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile", icon: "PenTool", color: "purple", cta_label: "Lihat Detail", cta_href: "/ui-ux" },
+    { title: "Website & Aplikasi", desc: "Website responsif dan aplikasi mobile dengan teknologi terdepan", icon: "Globe", color: "blue", cta_label: "Lihat Detail", cta_href: "/web-apk" },
+    { title: "Logo Design", desc: "Logo profesional yang mencerminkan identitas dan nilai brand Anda", icon: "Sparkles", color: "orange", cta_label: "Lihat Detail", cta_href: "/logo-design" },
+    { title: "Social Media Management", desc: "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat", icon: "TrendingUp", color: "pink", cta_label: "Lihat Detail", cta_href: "/social-media" },
+    { title: "Custom Merchandise", desc: "Merchandise berkualitas tinggi untuk promosi dan corporate branding", icon: "Gift", color: "green", cta_label: "Lihat Detail", cta_href: "/custom-merchandise" }
   ];
 
   const iconMap: any = {
@@ -60,29 +60,141 @@ function ServicesPage() {
   ];
 
   const DEFAULT_DRINKWARE = [
-    { title: "Botol Minum & Tumbler Custom", image: "Botol Minum & Tumbler Custom.png", accent: "blue", features: ["Tahan Panas & Dingin (Thermos)", "Bahan Stainless SUS 304", "Desain Logo & Nama", "Food Grade Material", "Berbagai Pilihan Warna"], price: "Mulai Rp 25.000/pcs", duration: "7-14 Hari" },
-    { title: "Mug Custom", image: "mug.png", accent: "orange", features: ["Desain Full Color / Foto", "Bahan Keramik SNI", "Tahan Panas & Dingin", "Cocok Souvenir", "Minimal Order 24 pcs"], price: "Mulai Rp 20.000/pcs", duration: "7-10 Hari" },
-    { title: "Gelas Kaca Premium", image: "gelas kaca.png", accent: "blue", features: ["Kaca Tebal & Jernih", "Sablon Decal / Printing", "Desain Eksklusif", "Packaging Aman", "Minimal Order 50 pcs"], price: "Mulai Rp 15.000/pcs", duration: "10-14 Hari" },
-    { title: "Drink Jar & Gelas Cup", image: "drink jar.png", accent: "green", features: ["Model Vintage", "Termasuk Tutup & Sedotan", "Wadah Minuman Kekinian", "Sticker / Sablon", "Minimal Order 50 pcs"], price: "Mulai Rp 18.000/pcs", duration: "7-12 Hari" }
+    { 
+      title: "Botol Minum & Tumbler Custom", 
+      desc: "Botol minum dan tumbler berkualitas tinggi dengan custom design sesuai brand Anda",
+      image: "Botol Minum & Tumbler Custom.png", 
+      accent: "blue", 
+      features: ["Material Stainless Steel/Plastic", "Berbagai Ukuran (350ml-1000ml)", "Custom Logo & Design", "Packaging Eksklusif", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 25.000/pcs", 
+      duration: "7-14 hari" 
+    },
+    { 
+      title: "Mug Custom", 
+      desc: "Mug ceramic dan stainless berkualitas premium dengan printing yang tahan lama",
+      image: "mug.png", 
+      accent: "orange", 
+      features: ["Ceramic & Stainless Options", "Full Color Printing", "Heat-resistant Design", "Custom Packaging", "Minimum Order 24 pcs"], 
+      price: "Mulai dari Rp 20.000/pcs", 
+      duration: "7-10 hari" 
+    },
+    { 
+      title: "Gelas Kaca Premium", 
+      desc: "Gelas kaca berkualitas tinggi untuk kebutuhan corporate dan event special",
+      image: "gelas kaca.png", 
+      accent: "blue", 
+      features: ["Material Kaca Berkualitas", "Berbagai Model & Ukuran", "Etching & Printing Options", "Elegant Packaging", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 15.000/pcs", 
+      duration: "10-14 hari" 
+    },
+    { 
+      title: "Drink Jar & Gelas Cup", 
+      desc: "Drink jar unik dan gelas cup branded untuk promosi yang memorable",
+      image: "drink jar.png", 
+      accent: "green", 
+      features: ["Mason Jar Style", "Custom Cup Design", "Food Grade Material", "Creative Packaging", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 18.000/pcs", 
+      duration: "7-12 hari" 
+    }
   ];
 
   const DEFAULT_BAGS = [
-    { title: "Tote Bag Canvas Premium", image: "tas canvas.png", accent: "pink", features: ["Canvas Tebal & Premium", "Jahitan Kuat & Rapi", "Sablon / DTF Full Color", "Ada Resleting / Perekat", "Minimal Order 24 pcs"], price: "Mulai Rp 35.000/pcs", duration: "7-14 Hari" },
-    { title: "Tas Furing Spunbond", image: "Tas Furing Spunbond.png", accent: "green", features: ["Bahan Ramah Lingkungan", "Banyak Pilihan Warna", "Sablon 1-2 Warna", "Harga Sangat Ekonomis", "Pengerjaan Cepat"], price: "Mulai Rp 3.500/pcs", duration: "5-7 Hari" },
-    { title: "Tas Kertas & Plastik Custom", image: "Tas Kertas & Plastik Custom.png", accent: "blue", features: ["Paper Bag / Plastic Bag", "Sablon Toko & Logo", "Berbagai Ukuran", "Full Color / Sablon", "Minimal Order 100 pcs"], price: "Mulai Rp 1.500/pcs", duration: "7-10 Hari" }
+    { 
+      title: "Totebag Canvas Premium", 
+      desc: "Totebag canvas berkualitas tinggi dengan custom design yang tahan lama",
+      image: "tas canvas.png", 
+      accent: "pink", 
+      features: ["Canvas Material Premium", "Custom Size & Design", "Sablon/Bordir Options", "Eco-friendly Material", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 15.000/pcs", 
+      duration: "7-14 hari" 
+    },
+    { 
+      title: "Tas Furing Spunbond", 
+      desc: "Tas furing spunbond yang praktis dan ekonomis untuk promosi brand",
+      image: "Tas Furing Spunbond.png", 
+      accent: "green", 
+      features: ["Material Spunbond Berkualitas", "Berbagai Warna Tersedia", "Custom Print 1-4 Warna", "Lightweight & Durable", "Minimum Order 100 pcs"], 
+      price: "Mulai dari Rp 8.000/pcs", 
+      duration: "5-10 hari" 
+    },
+    { 
+      title: "Tas Kertas & Plastik Custom", 
+      desc: "Tas kertas dan plastik branded untuk packaging dan promosi yang efektif",
+      image: "Tas Kertas & Plastik Custom.png", 
+      accent: "blue", 
+      features: ["Paper & Plastic Options", "Custom Size & Handle", "Full Color Printing", "Lamination Available", "Minimum Order 500 pcs"], 
+      price: "Mulai dari Rp 3.000/pcs", 
+      duration: "7-14 hari" 
+    }
   ];
 
   const DEFAULT_CORPORATE = [
-    { title: "Powerbank Custom", image: "Powerbank Custom.png", accent: "green", features: ["Kapasitas Real 10000 mAh", "Fast Charging Support", "Sablon / UV Print Logo", "Premium Packaging", "Minimal Order 50 pcs"], price: "Mulai Rp 75.000/pcs", duration: "10-14 Hari" },
-    { title: "Flashdisk Custom", image: "placeholder.png", accent: "purple", features: ["Kapasitas 8GB-64GB", "Custom Shape & Design", "Logo Pad/Laser Printing", "Chip Kualitas Terbaik", "Minimal Order 50 pcs"], price: "Mulai Rp 35.000/pcs", duration: "7-14 Hari" },
-    { title: "Paket Seminar Kit", image: "Tumbler Sport.png", accent: "blue", features: ["Notebook + Pen + Goodie Bag", "Termasuk Sablon Logo", "Desain Custom", "Kemasan Rapi", "Minimal Order 50 set"], price: "Mulai Rp 55.000/set", duration: "10-14 Hari" }
+    { 
+      title: "Powerbank Custom", 
+      desc: "Powerbank berkualitas tinggi dengan custom design untuk corporate gifts",
+      image: "Powerbank Custom.png", 
+      accent: "green", 
+      features: ["Kapasitas 5000-20000 mAh", "Fast Charging Support", "Custom Logo Engraving", "Premium Packaging", "Minimum Order 25 pcs"], 
+      price: "Mulai dari Rp 75.000/pcs", 
+      duration: "10-21 hari" 
+    },
+    { 
+      title: "Flashdisk Custom", 
+      desc: "Flashdisk branded dengan berbagai kapasitas dan model unik",
+      image: "placeholder.png", 
+      accent: "purple", 
+      features: ["Kapasitas 4GB-128GB", "Custom Shape & Design", "Logo Engraving/Printing", "Data Preload Available", "Minimum Order 25 pcs"], 
+      price: "Mulai dari Rp 35.000/pcs", 
+      duration: "7-14 hari" 
+    },
+    { 
+      title: "Paket Seminar Kit", 
+      desc: "Paket lengkap seminar kit dengan custom branding untuk event corporate",
+      image: "Tumbler Sport.png", 
+      accent: "blue", 
+      features: ["Tas Seminar + Isi Lengkap", "Notebook & Pulpen Custom", "ID Card Holder", "Custom Packaging", "Minimum Order 50 set"], 
+      price: "Mulai dari Rp 45.000/set", 
+      duration: "10-21 hari" 
+    }
   ];
 
   const DEFAULT_LIFESTYLE = [
-    { title: "Payung Custom Premium", image: "Payung Custom Premium.png", accent: "blue", features: ["Rangka Kokoh & Kuat", "Sablon Logo 2-4 Sisi", "Pilihan Model Lipat / Golf", "Tahan Angin & Air", "Minimal Order 50 pcs"], price: "Mulai Rp 35.000/pcs", duration: "10-21 Hari" },
-    { title: "Jam Dinding Custom", image: "Jam Dinding Custom.png", accent: "orange", features: ["Berbagai Bentuk & Ukuran", "Mesin Jam Berkualitas", "Custom Design Muka Jam", "Awet & Tahan Lama", "Minimal Order 50 pcs"], price: "Mulai Rp 45.000/pcs", duration: "14-21 Hari" },
-    { title: "Pulpen & Pin Custom", image: "Pulpen & Pin Custom.png", accent: "pink", features: ["Berbagai Model Pulpen", "Pin Peniti / Gantungan", "Sablon Logo / Insert Paper", "Cocok untuk Massal", "Minimal Order 100 pcs"], price: "Mulai Rp 3.500/pcs", duration: "7-14 Hari" },
-    { title: "Asbak & Aksesoris", image: "Asbak & Aksesoris.png", accent: "slate", features: ["Bahan Keramik / Kaca / Melamin", "Sablon / Decal Logo", "Tahan Panas", "Packaging Aman", "Minimal Order 50 pcs"], price: "Mulai Rp 15.000/pcs", duration: "10-14 Hari" }
+    { 
+      title: "Payung Custom Premium", 
+      desc: "Payung berkualitas tinggi dengan custom design untuk promosi yang efektif",
+      image: "Payung Custom Premium.png", 
+      accent: "blue", 
+      features: ["Material Berkualitas Tinggi", "Tahan Angin & Air", "Custom Print Full Color", "Berbagai Ukuran", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 35.000/pcs", 
+      duration: "10-21 hari" 
+    },
+    { 
+      title: "Jam Dinding Custom", 
+      desc: "Jam dinding custom dengan design unik untuk dekorasi dan promosi",
+      image: "Jam Dinding Custom.png", 
+      accent: "orange", 
+      features: ["Berbagai Bentuk & Ukuran", "Mesin Jam Berkualitas", "Custom Design & Logo", "Silent Movement", "Minimum Order 25 pcs"], 
+      price: "Mulai dari Rp 45.000/pcs", 
+      duration: "14-21 hari" 
+    },
+    { 
+      title: "Pulpen & Pin Custom", 
+      desc: "Pulpen dan pin branded untuk promosi sehari-hari yang efektif",
+      image: "Pulpen & Pin Custom.png", 
+      accent: "pink", 
+      features: ["Berbagai Model Pulpen", "Pin Enamel/Metal", "Custom Logo & Warna", "Packaging Menarik", "Minimum Order 100 pcs"], 
+      price: "Mulai dari Rp 5.000/pcs", 
+      duration: "7-14 hari" 
+    },
+    { 
+      title: "Asbak & Aksesoris", 
+      desc: "Asbak custom dan berbagai aksesoris branded lainnya",
+      image: "Asbak & Aksesoris.png", 
+      accent: "slate", 
+      features: ["Material Berkualitas", "Custom Shape & Design", "Logo Engraving", "Packaging Eksklusif", "Minimum Order 50 pcs"], 
+      price: "Mulai dari Rp 25.000/pcs", 
+      duration: "10-14 hari" 
+    }
   ];
 
   const DEFAULT_PROCESS = [
@@ -162,7 +274,7 @@ function ServicesPage() {
       </main>
 
       {/* Services List Section (Detail) */}
-      <section className="services-list-section">
+      <section className="services-list-section" id="detail-services">
         <div className="container">
           <div className="section-header-v2">
             <h2>{content.get('page-layanan', 'detail_title', 'Digital Creative Services')}</h2>
@@ -206,7 +318,7 @@ function ServicesPage() {
       </section>
 
       {/* Custom Drinkware Collection */}
-      <section className="products-section custom-drinkware">
+      <section className="products-section custom-drinkware" id="products">
         <div className="container">
           <div className="section-header-v2">
             <h2 className="section-title">{content.get('page-layanan', 'sect_drinkware_title', 'Custom Drinkware Collection')}</h2>
@@ -220,6 +332,7 @@ function ServicesPage() {
                 </div>
                 <div className="product-content">
                   <h3>{product.title}</h3>
+                  {product.desc && <p className="product-description" style={{ textAlign: 'left' }}>{product.desc}</p>}
                   <h4>{product.label_spec || 'Spesifikasi:'}</h4>
                   <ul className="product-features">
                     {(product.features || []).map((feature: string, fIndex: number) => (
@@ -271,6 +384,7 @@ function ServicesPage() {
                 </div>
                 <div className="product-content">
                   <h3>{product.title}</h3>
+                  {product.desc && <p className="product-description">{product.desc}</p>}
                   <h4>{product.label_spec || 'Spesifikasi:'}</h4>
                   <ul className="product-features">
                     {(product.features || []).map((feature: string, fIndex: number) => (
@@ -322,6 +436,7 @@ function ServicesPage() {
                 </div>
                 <div className="product-content">
                   <h3>{product.title}</h3>
+                  {product.desc && <p className="product-description">{product.desc}</p>}
                   <h4>{product.label_spec || 'Spesifikasi:'}</h4>
                   <ul className="product-features">
                     {(product.features || []).map((feature: string, fIndex: number) => (
@@ -360,7 +475,7 @@ function ServicesPage() {
       </section>
 
       {/* Lifestyle Merchandise */}
-      <section className="products-section lifestyle-merch">
+      <section className="products-section lifestyle-merch" id="lifestyle">
         <div className="container">
           <div className="section-header-v2">
             <h2 className="section-title">{content.get('page-layanan', 'sect_lifestyle_title', 'Lifestyle Merchandise')}</h2>
@@ -435,7 +550,7 @@ function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
+      <section className="faq-section" id="faq">
         <div className="container">
           <div className="section-header-v2 centered">
             <h2>{content.get('page-layanan', 'sect_faq_title', 'Frequently Asked Questions')}</h2>
@@ -509,7 +624,7 @@ function ServicesPage() {
                 <li><a href="/web-apk">{content.get('page-layanan', 'footer_link_webapk', 'Website & Aplikasi')}</a></li>
                 <li><a href="/social-media">{content.get('page-layanan', 'footer_link_digital_marketing', 'Digital Marketing')}</a></li>
                 <li><a href="/custom-merchandise">{content.get('page-layanan', 'footer_link_merch', 'Merchandise Custom')}</a></li>
-                <li><a href="/custom-merchandise">{content.get('page-layanan', 'footer_link_gift', 'Corporate Gift')}</a></li>
+                <li><a href="/services#corporate">{content.get('page-layanan', 'footer_link_gift', 'Corporate Gift')}</a></li>
               </ul>
             </div>
             

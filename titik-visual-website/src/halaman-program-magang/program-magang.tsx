@@ -509,7 +509,7 @@ const InternshipPage = () => {
           <h2>{content.get('halaman-program-magang', 'cta_title', 'Siap Memulai Karier dari Sini?')}</h2>
           <p>{content.get('halaman-program-magang', 'cta_desc', 'Gabung dalam program magang di Titik Visual dan dapatkan pengalaman nyata bersama tim kreatif dan profesional kami.')}</p>
           <div className="cta-buttons">
-            <a href="#contact" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> {content.get('halaman-program-magang', 'cta_consult', 'Konsultasi Sekarang')}</a>
+            <a href="/contact" className="btn btn-cta-primary"><i className="fa-regular fa-comment"></i> {content.get('halaman-program-magang', 'cta_consult', 'Konsultasi Sekarang')}</a>
             <a href="https://wa.me/6281804376001" className="btn btn-cta-secondary" target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt"></i> {content.get('halaman-program-magang', 'cta_register', 'Daftar Magang')}</a>
           </div>
         </div>
@@ -526,21 +526,21 @@ const InternshipPage = () => {
             <div className="footer-widget links-widget">
               <h4>{content.get('halaman-program-magang', 'footer_col_1', 'Company')}</h4>
               <ul>
-                <li><a href="#about">{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="#portfolio">{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="#services">{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="#blog">{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
+                <li><a href="/about">{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
+                <li><a href="/portfolio">{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services">{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
+                <li><a href="/careers">{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
+                <li><a href="/portfolio">{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
               </ul>
             </div>
             <div className="footer-widget links-widget">
               <h4>{content.get('halaman-program-magang', 'footer_col_2', 'Program Magang')}</h4>
               <ul>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_frontend', 'FrontEnd Developer')}</a></li>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_backend', 'BackEnd Developer')}</a></li>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_hr', 'Human Resource')}</a></li>
-                <li><a href="#careers">{content.get('halaman-program-magang', 'footer_link_graphic', 'Graphic Designer')}</a></li>
+                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_uiux', 'UI/UX Design')}</a></li>
+                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_frontend', 'FrontEnd Developer')}</a></li>
+                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_backend', 'BackEnd Developer')}</a></li>
+                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_hr', 'Human Resource')}</a></li>
+                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_graphic', 'Graphic Designer')}</a></li>
               </ul>
             </div>
             <div className="footer-widget contact-widget">

@@ -505,6 +505,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    text-align: left !important;
 }
 
 .service-card-v2 h3 {
@@ -520,7 +521,7 @@ body {
     color: #718096;
     margin-bottom: 20px;
     line-height: 1.6;
-    text-align: center;
+    text-align: left !important;
 }
 
 .service-card-v2 h4 {
@@ -659,7 +660,7 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
-    border: 1px solid #f0f0f0;
+    border: none !important;
     display: flex;
     flex-direction: column;
 }
@@ -685,6 +686,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    text-align: left !important;
 }
 
 .product-content h3 {
@@ -700,7 +702,7 @@ body {
     color: #6b7280;
     margin-bottom: 20px;
     line-height: 1.6;
-    text-align: center;
+    text-align: left !important;
 }
 
 .product-content h4 {
