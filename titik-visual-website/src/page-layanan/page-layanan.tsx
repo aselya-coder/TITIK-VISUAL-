@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
+import { PenTool, Globe, Sparkles, TrendingUp, Gift } from 'lucide-react';
 
 const getImg = (name: string) => {
   if (!name) return '';
@@ -17,48 +18,71 @@ function ServicesPage() {
   const content = useContent();
 
   const DEFAULT_MAIN_SERVICES = [
-    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik", icon: "ui-ux desain.png", color: "purple", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Website Development", desc: "Website responsif dan performa tinggi", icon: "icon-website.png", color: "blue", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Logo Design", desc: "Logo profesional untuk identitas brand", icon: "logo desain.png", color: "orange", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Social Media", desc: "Pengelolaan konten dan engagement", icon: "sosial managemen.png", color: "pink", cta_label: "Lihat Detail", cta_href: "#detail-services" },
-    { title: "Custom Merchandise", desc: "Merchandise unik untuk promosi", icon: "custom mercandhise.png", color: "green", cta_label: "Lihat Detail", cta_href: "#products" }
+    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile", icon: "PenTool", color: "purple", cta_label: "Lihat Detail", cta_href: "#detail-services" },
+    { title: "Website & Aplikasi", desc: "Website responsif dan aplikasi mobile dengan teknologi terdepan", icon: "Globe", color: "blue", cta_label: "Lihat Detail", cta_href: "#detail-services" },
+    { title: "Logo Design", desc: "Logo profesional yang mencerminkan identitas dan nilai brand Anda", icon: "Sparkles", color: "orange", cta_label: "Lihat Detail", cta_href: "#detail-services" },
+    { title: "Social Media Management", desc: "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat", icon: "TrendingUp", color: "pink", cta_label: "Lihat Detail", cta_href: "#detail-services" },
+    { title: "Custom Merchandise", desc: "Merchandise berkualitas tinggi untuk promosi dan corporate branding", icon: "Gift", color: "green", cta_label: "Lihat Detail", cta_href: "#products" }
   ];
 
+  const iconMap: any = {
+    "PenTool": PenTool,
+    "Globe": Globe,
+    "Sparkles": Sparkles,
+    "TrendingUp": TrendingUp,
+    "Gift": Gift,
+    // Fallback mapping for old keys
+    "ui-ux desain.png": PenTool,
+    "icon-website.png": Globe,
+    "icon-logo dan brand.png": Sparkles,
+    "icon-sosial-media.png": TrendingUp,
+    "icon-custom-merchandise.png": Gift
+  };
+
+  const colorMap: any = {
+    purple: '#8a2be2',
+    blue: '#2b7bff',
+    orange: '#ff7c4c',
+    pink: '#e91e63',
+    green: '#28a745',
+    teal: '#0ea5e9'
+  };
+
   const DEFAULT_DETAIL_SERVICES = [
-    { title: "UI/UX Design", desc: "Desain antarmuka aplikasi mobile dan website yang modern, intuitif, dan user-friendly.", image: "portfolio_UI_UX.png", accent: "purple", features: ["User Research", "Wireframing", "Prototyping", "High Fidelity Design"], price: "Mulai dari Rp 2.500.000", duration: "2-4 Minggu" },
-    { title: "Website Development", desc: "Jasa pembuatan website company profile, toko online, hingga sistem informasi custom.", image: "web.png", accent: "blue", features: ["Responsive Design", "SEO Friendly", "CMS Integration", "Fast Loading"], price: "Mulai dari Rp 3.500.000", duration: "3-6 Minggu" },
-    { title: "Mobile App Development", desc: "Pengembangan aplikasi Android dan iOS dengan performa tinggi dan fitur lengkap.", image: "Mobile.png", accent: "green", features: ["Android & iOS", "API Integration", "Push Notification", "Play Store/App Store"], price: "Mulai dari Rp 15.000.000", duration: "6-12 Minggu" },
-    { title: "Logo Design", desc: "Desain logo profesional yang merepresentasikan visi dan misi bisnis Anda secara visual.", image: "Logo Design.png", accent: "orange", features: ["3 Konsep Logo", "Revisi Unlimited", "Master File (AI/EPS)", "Filosofi Logo"], price: "Mulai dari Rp 500.000", duration: "1-2 Minggu" },
-    { title: "Branding & Identity", desc: "Membangun identitas visual brand yang kuat dan konsisten di semua platform.", image: "brand identity.png", accent: "purple", features: ["Logo Usage", "Color Palette", "Typography", "Brand Guidelines"], price: "Mulai dari Rp 2.000.000", duration: "2-3 Minggu" },
-    { title: "Social Media Management", desc: "Pengelolaan akun media sosial untuk meningkatkan awareness dan engagement audiens.", image: "Social Media Management.png", accent: "pink", features: ["Content Planning", "Copywriting", "Design Feed/Story", "Monthly Report"], price: "Mulai dari Rp 1.500.000/bulan", duration: "Ongoing" },
-    { title: "Digital Marketing", desc: "Strategi pemasaran digital terpadu untuk menjangkau target pasar yang lebih luas.", image: "digital marketing.png", accent: "orange", features: ["FB/IG Ads", "Google Ads", "SEO Optimization", "Analytics"], price: "Mulai dari Rp 2.000.000/bulan", duration: "Ongoing" },
-    { title: "Social Media Feed Design", desc: "Jasa desain konten feed dan story media sosial yang estetik dan menarik perhatian.", image: "Social Media Feed Design.png", accent: "blue", features: ["Custom Design", "Source File", "Revisi Minor", "Fast Delivery"], price: "Mulai dari 800.000/bulan", duration: "Ongoing" }
+    { title: "UI/UX Design", desc: "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile", image: "ui-ux.png", accent: "purple", features: ["User Research & Analysis", "Wireframing & Prototyping", "Visual Design System", "Usability Testing", "Responsive Design"], price: "Mulai dari Rp 2.500.000", duration: "2-4 minggu", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Website Development", desc: "Website responsif dan modern dengan teknologi terdepan untuk bisnis Anda", image: "web.png", accent: "blue", features: ["Responsive Web Design", "CMS Integration", "E-commerce Solutions", "SEO Optimization", "Performance Optimization"], price: "Mulai dari Rp 3.500.000", duration: "3-6 minggu", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Mobile App Development", desc: "Aplikasi mobile iOS dan Android dengan performa optimal dan user experience terbaik", image: "Mobile.png", accent: "green", features: ["Native iOS & Android", "Cross-platform Development", "API Integration", "Push Notifications", "App Store Deployment"], price: "Mulai dari Rp 15.000.000", duration: "6-12 minggu", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Logo Design", desc: "Logo profesional yang mencerminkan identitas dan nilai brand brand Anda", image: "Logo Design.png", accent: "orange", features: ["Konsep Logo Unik", "Multiple Variations", "Brand Guidelines", "File Format Lengkap", "Unlimited Revisions"], price: "Mulai dari Rp 500.000", duration: "1-2 minggu", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Brand Identity", desc: "Paket lengkap identitas visual untuk membangun brand yang kuat dan memorable", image: "brand identity.png", accent: "purple", features: ["Logo Design", "Color Palette", "Typography System", "Business Card Design", "Letterhead & Stationery"], price: "Mulai dari Rp 2.000.000", duration: "2-3 minggu", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Social Media Management", desc: "Kelola dan kembangkan media sosial bisnis Anda dengan strategi yang tepat", image: "Social Media Management.png", accent: "pink", features: ["Content Planning & Strategy", "Daily Posting Schedule", "Community Management", "Analytics & Reporting", "Paid Ads Management"], price: "Mulai dari Rp 1.500.000/bulan", duration: "Ongoing", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Digital Marketing", desc: "Strategi pemasaran digital yang komprehensif untuk meningkatkan brand awareness", image: "digital marketing.png", accent: "orange", features: ["SEO & SEM Strategy", "Social Media Advertising", "Email Marketing", "Content Marketing", "Analytics & Optimization"], price: "Mulai dari Rp 2.000.000/bulan", duration: "Ongoing", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" },
+    { title: "Social Media Feed Design", desc: "Desain konten visual yang menarik dan konsisten untuk feed media sosial", image: "Social Media Feed Design.png", accent: "blue", features: ["Feed Template Design", "Story Templates", "Highlight Covers", "Post Carousel Design", "Brand Consistency"], price: "Mulai dari Rp 800.000/bulan", duration: "Ongoing", btn_order: "Pesan Sekarang", wa_link: "https://wa.me/6281804376001" }
   ];
 
   const DEFAULT_DRINKWARE = [
-    { title: "Botol Minum & Tumbler Custom", image: "Botol Minum & Tumbler Custom.png", accent: "blue", features: ["Bahan Stainless/Plastik", "Cetak UV/Sablon/Laser", "Tahan Panas/Dingin", "Banyak Pilihan Warna"], price: "Mulai dari Rp 25.000/pcs", duration: "7-14 Hari" },
-    { title: "Mug Custom", image: "mug.png", accent: "orange", features: ["Bahan Keramik Premium", "Cetak Full Color", "Tahan Lama", "Box Packaging"], price: "Mulai dari Rp 20.000/pcs", duration: "7-10 Hari" },
-    { title: "Gelas Kaca Premium", image: "gelas kaca.png", accent: "blue", features: ["Kaca Tebal", "Sablon Decal", "Desain Elegan", "Cocok untuk Cafe"], price: "Mulai dari Rp 15.000/pcs", duration: "10-14 Hari" },
-    { title: "Drink Jar & Gelas Cup", image: "drink jar.png", accent: "green", features: ["Unik & Kekinian", "Termasuk Sedotan", "Sticker/Sablon", "Volume Besar"], price: "Mulai dari Rp 18.000/pcs", duration: "7-12 Hari" }
+    { title: "Botol Minum & Tumbler Custom", image: "Botol Minum & Tumbler Custom.png", accent: "blue", features: ["Tahan Panas & Dingin (Thermos)", "Bahan Stainless SUS 304", "Desain Logo & Nama", "Food Grade Material", "Berbagai Pilihan Warna"], price: "Mulai Rp 25.000/pcs", duration: "7-14 Hari" },
+    { title: "Mug Custom", image: "mug.png", accent: "orange", features: ["Desain Full Color / Foto", "Bahan Keramik SNI", "Tahan Panas & Dingin", "Cocok Souvenir", "Minimal Order 24 pcs"], price: "Mulai Rp 20.000/pcs", duration: "7-10 Hari" },
+    { title: "Gelas Kaca Premium", image: "gelas kaca.png", accent: "blue", features: ["Kaca Tebal & Jernih", "Sablon Decal / Printing", "Desain Eksklusif", "Packaging Aman", "Minimal Order 50 pcs"], price: "Mulai Rp 15.000/pcs", duration: "10-14 Hari" },
+    { title: "Drink Jar & Gelas Cup", image: "drink jar.png", accent: "green", features: ["Model Vintage", "Termasuk Tutup & Sedotan", "Wadah Minuman Kekinian", "Sticker / Sablon", "Minimal Order 50 pcs"], price: "Mulai Rp 18.000/pcs", duration: "7-12 Hari" }
   ];
 
   const DEFAULT_BAGS = [
-    { title: "Tas Furing Spunbond", image: "Tas Furing Spunbond.png", accent: "pink", features: ["Ramah Lingkungan", "Kuat & Tahan Lama", "Sablon 1-3 Warna", "Harga Ekonomis"], price: "Mulai dari Rp 15.000/pcs", duration: "7-14 Hari" },
-    { title: "Tas Belanja / Shopping Bag", image: "Tas Kertas & Plastik Custom.png", accent: "blue", features: ["Bahan Kanvas/Blacu", "Full Print/Sablon", "Jahitan Rapi", "Ukuran Custom"], price: "Mulai dari Rp 8.000/pcs", duration: "5-10 Hari" },
-    { title: "Tas Seminar / Goodie Bag", image: "tas canvas.png", accent: "green", features: ["Bahan D300/D600", "Ada Slot Laptop", "Bordir/Sablon", "Model Eksklusif"], price: "Mulai dari Rp 3.000/pcs", duration: "7-14 Hari" }
+    { title: "Tote Bag Canvas Premium", image: "tas canvas.png", accent: "pink", features: ["Canvas Tebal & Premium", "Jahitan Kuat & Rapi", "Sablon / DTF Full Color", "Ada Resleting / Perekat", "Minimal Order 24 pcs"], price: "Mulai Rp 35.000/pcs", duration: "7-14 Hari" },
+    { title: "Tas Furing Spunbond", image: "Tas Furing Spunbond.png", accent: "green", features: ["Bahan Ramah Lingkungan", "Banyak Pilihan Warna", "Sablon 1-2 Warna", "Harga Sangat Ekonomis", "Pengerjaan Cepat"], price: "Mulai Rp 3.500/pcs", duration: "5-7 Hari" },
+    { title: "Tas Kertas & Plastik Custom", image: "Tas Kertas & Plastik Custom.png", accent: "blue", features: ["Paper Bag / Plastic Bag", "Sablon Toko & Logo", "Berbagai Ukuran", "Full Color / Sablon", "Minimal Order 100 pcs"], price: "Mulai Rp 1.500/pcs", duration: "7-10 Hari" }
   ];
 
   const DEFAULT_CORPORATE = [
-    { title: "Powerbank Custom", image: "Powerbank Custom.png", accent: "green", features: ["Kapasitas Real", "Cetak UV/Laser", "Garansi Resmi", "Desain Slim"], price: "Mulai dari Rp 75.000/pcs", duration: "10-21 Hari" },
-    { title: "Flashdisk Custom", image: "placeholder.png", accent: "blue", features: ["Kapasitas 8-64GB", "Model Kartu/Kunci", "Cetak Full Color", "Chip Berkualitas"], price: "Mulai dari Rp 35.000/pcs", duration: "7-14 Hari" },
-    { title: "Tumbler Digital LED", image: "Tumbler Sport.png", accent: "purple", features: ["Indikator Suhu", "Stainless SUS304", "Laser Engraving", "Tahan 12 Jam"], price: "Mulai dari Rp 45.000/set", duration: "10-12 Hari" }
+    { title: "Powerbank Custom", image: "Powerbank Custom.png", accent: "green", features: ["Kapasitas Real 10000 mAh", "Fast Charging Support", "Sablon / UV Print Logo", "Premium Packaging", "Minimal Order 50 pcs"], price: "Mulai Rp 75.000/pcs", duration: "10-14 Hari" },
+    { title: "Flashdisk Custom", image: "placeholder.png", accent: "purple", features: ["Kapasitas 8GB-64GB", "Custom Shape & Design", "Logo Pad/Laser Printing", "Chip Kualitas Terbaik", "Minimal Order 50 pcs"], price: "Mulai Rp 35.000/pcs", duration: "7-14 Hari" },
+    { title: "Paket Seminar Kit", image: "Tumbler Sport.png", accent: "blue", features: ["Notebook + Pen + Goodie Bag", "Termasuk Sablon Logo", "Desain Custom", "Kemasan Rapi", "Minimal Order 50 set"], price: "Mulai Rp 55.000/set", duration: "10-14 Hari" }
   ];
 
   const DEFAULT_LIFESTYLE = [
-    { title: "Payung Custom Premium", image: "Payung Custom Premium.png", accent: "blue", features: ["Rangka Kuat", "Sablon Logo", "Pilihan Warna", "Anti UV"], price: "Mulai dari Rp 35.000/pcs", duration: "10-21 Hari" },
-    { title: "Jam Dinding Custom", image: "Jam Dinding Custom.png", accent: "orange", features: ["Mesin Quartz", "Diameter 30cm", "Cetak Muka Jam", "Frame Minimalis"], price: "Mulai dari Rp 45.000/pcs", duration: "14-21 Hari" },
-    { title: "Pulpen & Pin Custom", image: "Pulpen & Pin Custom.png", accent: "pink", features: ["Pulpen Metal/Plastik", "Pin Peniti/Gantungan", "Cetak Logo", "Souvenir Murah"], price: "Mulai dari Rp 5.000/pcs", duration: "7-14 Hari" },
-    { title: "Asbak & Aksesoris", image: "Asbak & Aksesoris.png", accent: "slate", features: ["Bahan Keramik/Kaca", "Cetak Decal", "Tahan Panas", "Desain Custom"], price: "Mulai dari Rp 25.000/pcs", duration: "10-14 Hari" }
+    { title: "Payung Custom Premium", image: "Payung Custom Premium.png", accent: "blue", features: ["Rangka Kokoh & Kuat", "Sablon Logo 2-4 Sisi", "Pilihan Model Lipat / Golf", "Tahan Angin & Air", "Minimal Order 50 pcs"], price: "Mulai Rp 35.000/pcs", duration: "10-21 Hari" },
+    { title: "Jam Dinding Custom", image: "Jam Dinding Custom.png", accent: "orange", features: ["Berbagai Bentuk & Ukuran", "Mesin Jam Berkualitas", "Custom Design Muka Jam", "Awet & Tahan Lama", "Minimal Order 50 pcs"], price: "Mulai Rp 45.000/pcs", duration: "14-21 Hari" },
+    { title: "Pulpen & Pin Custom", image: "Pulpen & Pin Custom.png", accent: "pink", features: ["Berbagai Model Pulpen", "Pin Peniti / Gantungan", "Sablon Logo / Insert Paper", "Cocok untuk Massal", "Minimal Order 100 pcs"], price: "Mulai Rp 3.500/pcs", duration: "7-14 Hari" },
+    { title: "Asbak & Aksesoris", image: "Asbak & Aksesoris.png", accent: "slate", features: ["Bahan Keramik / Kaca / Melamin", "Sablon / Decal Logo", "Tahan Panas", "Packaging Aman", "Minimal Order 50 pcs"], price: "Mulai Rp 15.000/pcs", duration: "10-14 Hari" }
   ];
 
   const DEFAULT_PROCESS = [
@@ -94,15 +118,21 @@ function ServicesPage() {
           <p className="subtitle">{content.get('page-layanan', 'hero_subtitle', 'Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.')}</p>
 
           <div className="category-grid-main">
-            {(content.get('page-layanan', 'main_services', DEFAULT_MAIN_SERVICES) || []).map((item: any, index: number) => (
-              <div className="category-card" key={index}>
-                <div className={`card-icon ${item.color || 'purple'}`}>
-                  <img
-                    src={getImg(item.icon)}
-                    alt={item.icon_alt || item.title}
-                    style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
-                  />
-                </div>
+            {(content.get('page-layanan', 'main_services', DEFAULT_MAIN_SERVICES) || []).map((item: any, index: number) => {
+              const IconComponent = iconMap[item.icon];
+              return (
+                <div className="category-card" key={index}>
+                  <div className={`card-icon ${item.color || 'purple'}`}>
+                    {IconComponent ? (
+                      <IconComponent size={32} color={colorMap['purple']} />
+                    ) : (
+                      <img
+                        src={getImg(item.icon)}
+                        alt={item.icon_alt || item.title}
+                        style={{ width: '64%', height: '64%', objectFit: 'contain', display: 'block', opacity: 1 }}
+                      />
+                    )}
+                  </div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
                 <a
@@ -126,7 +156,7 @@ function ServicesPage() {
                   <span>{item.cta_label || 'Lihat Detail'}</span>
                 </a>
               </div>
-            ))}
+            ); })}
           </div>
         </div>
       </main>

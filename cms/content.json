@@ -6,7 +6,7 @@
       {
         "title": "UI/UX Design",
         "desc": "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile",
-        "icon": "ui-ux.png",
+        "icon": "PenTool",
         "color": "purple",
         "cta_label": "Lihat Detail",
         "cta_href": "#detail-services"
@@ -14,7 +14,7 @@
       {
         "title": "Website & Aplikasi",
         "desc": "Website responsif dan aplikasi mobile dengan teknologi terdepan",
-        "icon": "web.png",
+        "icon": "Globe",
         "color": "blue",
         "cta_label": "Lihat Detail",
         "cta_href": "#detail-services"
@@ -22,7 +22,7 @@
       {
         "title": "Logo Design",
         "desc": "Logo profesional yang mencerminkan identitas dan nilai brand Anda",
-        "icon": "logo desain.png",
+        "icon": "Sparkles",
         "color": "orange",
         "cta_label": "Lihat Detail",
         "cta_href": "#detail-services"
@@ -30,7 +30,7 @@
       {
         "title": "Social Media Management",
         "desc": "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat",
-        "icon": "sosial managemen.png",
+        "icon": "TrendingUp",
         "color": "pink",
         "cta_label": "Lihat Detail",
         "cta_href": "#detail-services"
@@ -38,7 +38,7 @@
       {
         "title": "Custom Merchandise",
         "desc": "Merchandise berkualitas tinggi untuk promosi dan corporate branding",
-        "icon": "merchandise custom.png",
+        "icon": "Gift",
         "color": "green",
         "cta_label": "Lihat Detail",
         "cta_href": "#products"
@@ -49,305 +49,352 @@
     "detail_services": [
       {
         "title": "UI/UX Design",
-        "desc": "Desain antarmuka aplikasi mobile dan website yang modern, intuitif, dan user-friendly.",
-        "image": "portfolio_UI_UX.png",
+        "desc": "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile",
+        "image": "ui-ux.png",
         "accent": "purple",
-        "features": ["User Research", "Wireframing", "Prototyping", "High Fidelity Design"],
-        "price": "Mulai Rp 2.500.000",
-        "duration": "3-5 Hari",
+        "features": [
+          "User Research & Analysis",
+          "Wireframing & Prototyping",
+          "Visual Design System",
+          "Usability Testing",
+          "Responsive Design"
+        ],
+        "price": "Mulai dari Rp 2.500.000",
+        "duration": "2-4 minggu",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Website Development",
-        "desc": "Jasa pembuatan website company profile, toko online, hingga sistem informasi custom.",
-        "image": "website.png",
+        "desc": "Website responsif dan modern dengan teknologi terdepan untuk bisnis Anda",
+        "image": "web.png",
         "accent": "blue",
-        "features": ["Responsive Design", "SEO Friendly", "CMS Integration", "Fast Loading"],
-        "price": "Mulai Rp 3.500.000",
-        "duration": "7-14 Hari",
+        "features": [
+          "Responsive Web Design",
+          "CMS Integration",
+          "E-commerce Solutions",
+          "SEO Optimization",
+          "Performance Optimization"
+        ],
+        "price": "Mulai dari Rp 3.500.000",
+        "duration": "3-6 minggu",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Mobile App Development",
-        "desc": "Pengembangan aplikasi Android dan iOS dengan performa tinggi dan fitur lengkap.",
+        "desc": "Aplikasi mobile iOS dan Android dengan performa optimal dan user experience terbaik",
         "image": "Mobile.png",
         "accent": "green",
-        "features": ["Android & iOS", "API Integration", "Push Notification", "Play Store/App Store"],
-        "price": "Mulai Rp 15.000.000",
-        "duration": "1-2 Bulan",
+        "features": [
+          "Native iOS & Android",
+          "Cross-platform Development",
+          "API Integration",
+          "Push Notifications",
+          "App Store Deployment"
+        ],
+        "price": "Mulai dari Rp 15.000.000",
+        "duration": "6-12 minggu",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Logo Design",
-        "desc": "Desain logo profesional yang merepresentasikan visi dan misi bisnis Anda secara visual.",
+        "desc": "Logo profesional yang mencerminkan identitas dan nilai brand brand Anda",
         "image": "Logo Design.png",
         "accent": "orange",
-        "features": ["3 Konsep Logo", "Revisi Unlimited", "Master File (AI/EPS)", "Filosofi Logo"],
-        "price": "Mulai Rp 250.000",
-        "duration": "2-3 Hari",
+        "features": [
+          "Konsep Logo Unik",
+          "Multiple Variations",
+          "Brand Guidelines",
+          "File Format Lengkap",
+          "Unlimited Revisions"
+        ],
+        "price": "Mulai dari Rp 500.000",
+        "duration": "1-2 minggu",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
-        "title": "Branding & Identity",
-        "desc": "Membangun identitas visual brand yang kuat dan konsisten di semua platform.",
+        "title": "Brand Identity",
+        "desc": "Paket lengkap identitas visual untuk membangun brand yang kuat dan memorable",
         "image": "brand identity.png",
         "accent": "purple",
-        "features": ["Logo Usage", "Color Palette", "Typography", "Brand Guidelines"],
-        "price": "Mulai Rp 1.500.000",
-        "duration": "3-5 Hari",
+        "features": [
+          "Logo Design",
+          "Color Palette",
+          "Typography System",
+          "Business Card Design",
+          "Letterhead & Stationery"
+        ],
+        "price": "Mulai dari Rp 2.000.000",
+        "duration": "2-3 minggu",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Social Media Management",
-        "desc": "Pengelolaan akun media sosial untuk meningkatkan awareness dan engagement audiens.",
+        "desc": "Kelola dan kembangkan media sosial bisnis Anda dengan strategi yang tepat",
         "image": "Social Media Management.png",
         "accent": "pink",
-        "features": ["Content Planning", "Copywriting", "Design Feed/Story", "Monthly Report"],
-        "price": "Mulai Rp 500.000/bln",
-        "duration": "Monthly",
+        "features": [
+          "Content Planning & Strategy",
+          "Daily Posting Schedule",
+          "Community Management",
+          "Analytics & Reporting",
+          "Paid Ads Management"
+        ],
+        "price": "Mulai dari Rp 1.500.000/bulan",
+        "duration": "Ongoing",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Digital Marketing",
-        "desc": "Strategi pemasaran digital terpadu untuk menjangkau target pasar yang lebih luas.",
+        "desc": "Strategi pemasaran digital yang komprehensif untuk meningkatkan brand awareness",
         "image": "digital marketing.png",
         "accent": "orange",
-        "features": ["FB/IG Ads", "Google Ads", "SEO Optimization", "Analytics"],
-        "price": "Hubungi Kami",
+        "features": [
+          "SEO & SEM Strategy",
+          "Social Media Advertising",
+          "Email Marketing",
+          "Content Marketing",
+          "Analytics & Optimization"
+        ],
+        "price": "Mulai dari Rp 2.000.000/bulan",
         "duration": "Ongoing",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       },
       {
         "title": "Social Media Feed Design",
-        "desc": "Jasa desain konten feed dan story media sosial yang estetik dan menarik perhatian.",
+        "desc": "Desain konten visual yang menarik dan konsisten untuk feed media sosial",
         "image": "Social Media Feed Design.png",
         "accent": "blue",
-        "features": ["Custom Design", "Source File", "Revisi Minor", "Fast Delivery"],
-        "price": "Mulai Rp 50.000/post",
+        "features": [
+          "Feed Template Design",
+          "Story Templates",
+          "Highlight Covers",
+          "Post Carousel Design",
+          "Brand Consistency"
+        ],
+        "price": "Mulai dari Rp 800.000/bulan",
         "duration": "Ongoing",
         "btn_order": "Pesan Sekarang",
         "wa_link": "https://wa.me/6281804376001"
       }
     ],
     "sect_drinkware_title": "Custom Drinkware Collection",
-    "sect_drinkware_subtitle": "Aneka pilihan botol dan gelas custom untuk kebutuhan promosi atau souvenir.",
+    "sect_drinkware_subtitle": "Pilihan wadah minum custom berkualitas tinggi untuk promosi brand Anda.",
     "drinkware_products": [
       {
         "title": "Botol Minum & Tumbler Custom",
         "image": "Botol Minum & Tumbler Custom.png",
         "accent": "blue",
-        "features": ["Bahan Stainless/Plastik", "Cetak UV/Sablon/Laser", "Tahan Panas/Dingin", "Banyak Pilihan Warna"],
-        "price": "Mulai Rp 35.000",
-        "duration": "3-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Tahan Panas & Dingin (Thermos)",
+          "Bahan Stainless SUS 304",
+          "Desain Logo & Nama",
+          "Food Grade Material",
+          "Berbagai Pilihan Warna"
+        ],
+        "price": "Mulai Rp 25.000/pcs",
+        "duration": "7-14 Hari"
       },
       {
         "title": "Mug Custom",
         "image": "mug.png",
         "accent": "orange",
-        "features": ["Bahan Keramik Premium", "Cetak Full Color", "Tahan Lama", "Box Packaging"],
-        "price": "Mulai Rp 25.000",
-        "duration": "2-5 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Desain Full Color / Foto",
+          "Bahan Keramik SNI",
+          "Tahan Panas & Dingin",
+          "Cocok Souvenir",
+          "Minimal Order 24 pcs"
+        ],
+        "price": "Mulai Rp 20.000/pcs",
+        "duration": "7-10 Hari"
       },
       {
         "title": "Gelas Kaca Premium",
         "image": "gelas kaca.png",
         "accent": "blue",
-        "features": ["Kaca Tebal", "Sablon Decal", "Desain Elegan", "Cocok untuk Cafe"],
-        "price": "Mulai Rp 15.000",
-        "duration": "3-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Kaca Tebal & Jernih",
+          "Sablon Decal / Printing",
+          "Desain Eksklusif",
+          "Packaging Aman",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 15.000/pcs",
+        "duration": "10-14 Hari"
       },
       {
         "title": "Drink Jar & Gelas Cup",
         "image": "drink jar.png",
         "accent": "green",
-        "features": ["Unik & Kekinian", "Termasuk Sedotan", "Sticker/Sablon", "Volume Besar"],
-        "price": "Mulai Rp 18.000",
-        "duration": "3-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Model Vintage",
+          "Termasuk Tutup & Sedotan",
+          "Wadah Minuman Kekinian",
+          "Sticker / Sablon",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 18.000/pcs",
+        "duration": "7-12 Hari"
       }
     ],
     "sect_bags_title": "Custom Bags Collection",
-    "sect_bags_subtitle": "Berbagai jenis tas custom yang dapat disesuaikan dengan kebutuhan branding Anda.",
+    "sect_bags_subtitle": "Berbagai jenis tas custom untuk kebutuhan promosi dan corporate branding.",
     "bags_products": [
+      {
+        "title": "Tote Bag Canvas Premium",
+        "image": "tas canvas.png",
+        "accent": "pink",
+        "features": [
+          "Canvas Tebal & Premium",
+          "Jahitan Kuat & Rapi",
+          "Sablon / DTF Full Color",
+          "Ada Resleting / Perekat",
+          "Minimal Order 24 pcs"
+        ],
+        "price": "Mulai Rp 35.000/pcs",
+        "duration": "7-14 Hari"
+      },
       {
         "title": "Tas Furing Spunbond",
         "image": "Tas Furing Spunbond.png",
-        "accent": "pink",
-        "features": ["Ramah Lingkungan", "Kuat & Tahan Lama", "Sablon 1-3 Warna", "Harga Ekonomis"],
-        "price": "Mulai Rp 3.500",
-        "duration": "3-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "accent": "green",
+        "features": [
+          "Bahan Ramah Lingkungan",
+          "Banyak Pilihan Warna",
+          "Sablon 1-2 Warna",
+          "Harga Sangat Ekonomis",
+          "Pengerjaan Cepat"
+        ],
+        "price": "Mulai Rp 3.500/pcs",
+        "duration": "5-7 Hari"
       },
       {
-        "title": "Tas Belanja / Shopping Bag",
+        "title": "Tas Kertas & Plastik Custom",
         "image": "Tas Kertas & Plastik Custom.png",
         "accent": "blue",
-        "features": ["Bahan Kanvas/Blacu", "Full Print/Sablon", "Jahitan Rapi", "Ukuran Custom"],
-        "price": "Mulai Rp 15.000",
-        "duration": "5-10 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
-      },
-      {
-        "title": "Tas Seminar / Goodie Bag",
-        "image": "tas canvas.png",
-        "accent": "green",
-        "features": ["Bahan D300/D600", "Ada Slot Laptop", "Bordir/Sablon", "Model Eksklusif"],
-        "price": "Mulai Rp 45.000",
-        "duration": "7-14 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Paper Bag / Plastic Bag",
+          "Sablon Toko & Logo",
+          "Berbagai Ukuran",
+          "Full Color / Sablon",
+          "Minimal Order 100 pcs"
+        ],
+        "price": "Mulai Rp 1.500/pcs",
+        "duration": "7-10 Hari"
       }
     ],
     "sect_corporate_title": "Corporate Gifts & Tech",
-    "sect_corporate_subtitle": "Pilihan hadiah korporat dan merchandise teknologi yang inovatif dan berkualitas.",
+    "sect_corporate_subtitle": "Merchandise teknologi dan corporate gifts premium untuk relasi bisnis Anda.",
     "corporate_products": [
       {
         "title": "Powerbank Custom",
         "image": "Powerbank Custom.png",
         "accent": "green",
-        "features": ["Kapasitas Real", "Cetak UV/Laser", "Garansi Resmi", "Desain Slim"],
-        "price": "Mulai Rp 85.000",
-        "duration": "5-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Kapasitas Real 10000 mAh",
+          "Fast Charging Support",
+          "Sablon / UV Print Logo",
+          "Premium Packaging",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 75.000/pcs",
+        "duration": "10-14 Hari"
       },
       {
         "title": "Flashdisk Custom",
-        "image": "icon-corporate-gift.png",
-        "accent": "blue",
-        "features": ["Kapasitas 8-64GB", "Model Kartu/Kunci", "Cetak Full Color", "Chip Berkualitas"],
-        "price": "Mulai Rp 45.000",
-        "duration": "3-5 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "image": "placeholder.png",
+        "accent": "purple",
+        "features": [
+          "Kapasitas 8GB-64GB",
+          "Custom Shape & Design",
+          "Logo Pad/Laser Printing",
+          "Chip Kualitas Terbaik",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 35.000/pcs",
+        "duration": "7-14 Hari"
       },
       {
-        "title": "Tumbler Digital LED",
+        "title": "Paket Seminar Kit",
         "image": "Tumbler Sport.png",
-        "accent": "purple",
-        "features": ["Indikator Suhu", "Stainless SUS304", "Laser Engraving", "Tahan 12 Jam"],
-        "price": "Mulai Rp 55.000",
-        "duration": "3-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "accent": "blue",
+        "features": [
+          "Notebook + Pen + Goodie Bag",
+          "Termasuk Sablon Logo",
+          "Desain Custom",
+          "Kemasan Rapi",
+          "Minimal Order 50 set"
+        ],
+        "price": "Mulai Rp 55.000/set",
+        "duration": "10-14 Hari"
       }
     ],
     "sect_lifestyle_title": "Lifestyle Merchandise",
-    "sect_lifestyle_subtitle": "Merchandise gaya hidup yang unik dan personal untuk kebutuhan promosi atau pribadi.",
+    "sect_lifestyle_subtitle": "Merchandise lifestyle untuk branding dan promosi yang efektif sehari-hari.",
     "lifestyle_products": [
       {
         "title": "Payung Custom Premium",
         "image": "Payung Custom Premium.png",
         "accent": "blue",
-        "features": ["Rangka Kuat", "Sablon Logo", "Pilihan Warna", "Anti UV"],
-        "price": "Mulai Rp 45.000",
-        "duration": "7-10 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Rangka Kokoh & Kuat",
+          "Sablon Logo 2-4 Sisi",
+          "Pilihan Model Lipat / Golf",
+          "Tahan Angin & Air",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 35.000/pcs",
+        "duration": "10-21 Hari"
       },
       {
         "title": "Jam Dinding Custom",
         "image": "Jam Dinding Custom.png",
         "accent": "orange",
-        "features": ["Mesin Quartz", "Diameter 30cm", "Cetak Muka Jam", "Frame Minimalis"],
-        "price": "Mulai Rp 65.000",
-        "duration": "3-5 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Berbagai Bentuk & Ukuran",
+          "Mesin Jam Berkualitas",
+          "Custom Design Muka Jam",
+          "Awet & Tahan Lama",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 45.000/pcs",
+        "duration": "14-21 Hari"
       },
       {
         "title": "Pulpen & Pin Custom",
         "image": "Pulpen & Pin Custom.png",
         "accent": "pink",
-        "features": ["Pulpen Metal/Plastik", "Pin Peniti/Gantungan", "Cetak Logo", "Souvenir Murah"],
-        "price": "Mulai Rp 2.500",
-        "duration": "3-5 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Berbagai Model Pulpen",
+          "Pin Peniti / Gantungan",
+          "Sablon Logo / Insert Paper",
+          "Cocok untuk Massal",
+          "Minimal Order 100 pcs"
+        ],
+        "price": "Mulai Rp 3.500/pcs",
+        "duration": "7-14 Hari"
       },
       {
         "title": "Asbak & Aksesoris",
         "image": "Asbak & Aksesoris.png",
         "accent": "slate",
-        "features": ["Bahan Keramik/Kaca", "Cetak Decal", "Tahan Panas", "Desain Custom"],
-        "price": "Mulai Rp 20.000",
-        "duration": "5-7 Hari",
-        "btn_order": "Pesan Sekarang",
-        "link": "https://wa.me/6281804376001"
+        "features": [
+          "Bahan Keramik / Kaca / Melamin",
+          "Sablon / Decal Logo",
+          "Tahan Panas",
+          "Packaging Aman",
+          "Minimal Order 50 pcs"
+        ],
+        "price": "Mulai Rp 15.000/pcs",
+        "duration": "10-14 Hari"
       }
-    ],
-    "sect_process_title": "Proses Kerja Kami",
-    "sect_process_subtitle": "Langkah-langkah sederhana untuk memulai proyek Anda bersama kami.",
-    "work_process_steps": [
-      {
-        "title": "Konsultasi",
-        "desc": "Diskusikan kebutuhan dan ide Anda dengan tim kami.",
-        "icon": "fa-comments"
-      },
-      {
-        "title": "Penawaran",
-        "desc": "Kami berikan penawaran harga dan spesifikasi terbaik.",
-        "icon": "fa-file-invoice-dollar"
-      },
-      {
-        "title": "Produksi",
-        "desc": "Proses pengerjaan desain atau produksi merchandise.",
-        "icon": "fa-cogs"
-      },
-      {
-        "title": "Review & Revisi",
-        "desc": "Review hasil kerja dan revisi jika diperlukan.",
-        "icon": "fa-clipboard-check"
-      },
-      {
-        "title": "Delivery",
-        "desc": "Pengiriman hasil akhir atau produk ke alamat Anda.",
-        "icon": "fa-shipping-fast"
-      }
-    ],
-    "sect_faq_title": "Frequently Asked Questions",
-    "sect_faq_subtitle": "Temukan jawaban atas pertanyaan umum seputar layanan kami.",
-    "faq_list": [
-      {
-        "question": "Berapa lama estimasi pengerjaan website?",
-        "answer": "Estimasi pengerjaan website bervariasi tergantung kompleksitas, rata-rata 7-14 hari kerja untuk company profile standar."
-      },
-      {
-        "question": "Apakah ada minimum order untuk merchandise?",
-        "answer": "Ya, setiap produk memiliki minimum order yang berbeda. Silakan hubungi admin untuk info detail per produk."
-      },
-      {
-        "question": "Apakah file desain mentahan akan diberikan?",
-        "answer": "Ya, untuk layanan desain logo dan branding, kami akan memberikan file master (AI/EPS/PDF) setelah pelunasan."
-      },
-      {
-        "question": "Bagaimana sistem pembayarannya?",
-        "answer": "Sistem pembayaran adalah DP 50% di awal dan pelunasan 50% setelah pekerjaan selesai atau sebelum pengiriman barang."
-      },
-      {
-        "question": "Apakah bisa kirim ke luar kota?",
-        "answer": "Tentu! Kami melayani pengiriman ke seluruh Indonesia menggunakan ekspedisi terpercaya (JNE, J&T, Cargo, dll)."
-      }
-    ],
-    "sect_cta_title": "Siap Memulai Proyek Anda?",
-    "sect_cta_desc": "Konsultasikan kebutuhan digital creative dan custom merchandise Anda dengan tim ahli kami secara gratis",
-    "btn_whatsapp": "WhatsApp Sekarang",
-    "btn_phone": "Telepon Langsung"
+    ]
   }
 }
