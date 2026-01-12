@@ -72,6 +72,21 @@ const UIUXPage = () => {
       behavior: 'smooth'
     });
   };
+
+  const handleFooterLink = (path: string) => {
+    if (path.startsWith('#')) {
+      const id = path.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Offerings data
   const offerings: Offering[] = [
     {
@@ -245,7 +260,7 @@ const UIUXPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">{content.get('page layanan detail ui_ux', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('page layanan detail ui_ux', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('page layanan detail ui_ux', 'breadcrumb_current', 'UI/UX Design')}</span>
+          <a href="/" onClick={(e) => { e.preventDefault(); handleFooterLink('/'); }}>{content.get('page layanan detail ui_ux', 'breadcrumb_home', 'Home')}</a> / <a href="/services" onClick={(e) => { e.preventDefault(); handleFooterLink('/services'); }}>{content.get('page layanan detail ui_ux', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('page layanan detail ui_ux', 'breadcrumb_current', 'UI/UX Design')}</span>
         </div>
       </section>
 
@@ -310,7 +325,7 @@ const UIUXPage = () => {
             ))}
           </div>
           <div className="portfolio-cta">
-            <a href="../page-portfolio/page-portfolio.tsx" className="btn btn-outline-primary">
+            <a href="/portfolio" className="btn btn-outline-primary" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-eye">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
@@ -337,7 +352,7 @@ const UIUXPage = () => {
                     <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="../page-contact/page-contact.tsx" className={`btn ${plan.featured ? 'btn-gradient-blue' : 'btn-light'}`}>
+                <a href="/contact" className={`btn ${plan.featured ? 'btn-gradient-blue' : 'btn-light'}`} onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }}>
                   <i className="fas fa-arrow-right"></i> {content.get('page layanan detail ui_ux', 'pricing_button_select', 'Pilih Paket')}
                 </a>
               </div>
@@ -384,7 +399,7 @@ const UIUXPage = () => {
             <a href={content.get('page layanan detail ui_ux', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} className="btn btn-light" target="_blank" rel="noopener noreferrer">
               <i className="far fa-comment"></i> {content.get('page layanan detail ui_ux', 'cta_whatsapp_label', 'WhatsApp Sekarang')}
             </a>
-            <a href={content.get('page layanan detail ui_ux', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light">
+            <a href={content.get('page layanan detail ui_ux', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }}>
               <i className="fas fa-download"></i> {content.get('page layanan detail ui_ux', 'cta_portfolio_label', 'Download Portfolio')}
             </a>
           </div>
@@ -402,21 +417,21 @@ const UIUXPage = () => {
             <div className="footer-column">
               <h4>{content.get('page layanan detail ui_ux', 'footer_services_title', 'UI/UX Services')}</h4>
               <ul>
-                <li><button onClick={() => window.location.href = '#user-research'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_1', 'User Research')}</button></li>
-                <li><button onClick={() => window.location.href = '#wireframing'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_2', 'Wireframing')}</button></li>
-                <li><button onClick={() => window.location.href = '#visual-design'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_3', 'Visual Design')}</button></li>
-                <li><button onClick={() => window.location.href = '#prototyping'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_4', 'Prototyping')}</button></li>
-                <li><button onClick={() => window.location.href = '#usability-testing'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_5', 'Usability Testing')}</button></li>
+                <li><button onClick={() => handleFooterLink('#user-research')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_1', 'User Research')}</button></li>
+                <li><button onClick={() => handleFooterLink('#wireframing')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_2', 'Wireframing')}</button></li>
+                <li><button onClick={() => handleFooterLink('#visual-design')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_3', 'Visual Design')}</button></li>
+                <li><button onClick={() => handleFooterLink('#prototyping')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_4', 'Prototyping')}</button></li>
+                <li><button onClick={() => handleFooterLink('#usability-testing')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_5', 'Usability Testing')}</button></li>
               </ul>
             </div>
             <div className="footer-column">
               <h4>{content.get('page layanan detail ui_ux', 'footer_resources_title', 'Resources')}</h4>
               <ul>
-                <li><button onClick={() => window.location.href = '#design-process'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_1', 'Design Process')}</button></li>
-                <li><button onClick={() => window.location.href = '#case-studies'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_2', 'Case Studies')}</button></li>
-                <li><button onClick={() => window.location.href = '#design-system'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_3', 'Design System')}</button></li>
-                <li><button onClick={() => window.location.href = '#ui-kit'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_4', 'UI Kit')}</button></li>
-                <li><button onClick={() => window.location.href = '/portfolio'} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_5', 'Blog')}</button></li>
+                <li><button onClick={() => handleFooterLink('#design-process')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_1', 'Design Process')}</button></li>
+                <li><button onClick={() => handleFooterLink('#case-studies')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_2', 'Case Studies')}</button></li>
+                <li><button onClick={() => handleFooterLink('#design-system')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_3', 'Design System')}</button></li>
+                <li><button onClick={() => handleFooterLink('#ui-kit')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_4', 'UI Kit')}</button></li>
+                <li><button onClick={() => handleFooterLink('/portfolio')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_5', 'Blog')}</button></li>
               </ul>
             </div>
             <div className="footer-column">

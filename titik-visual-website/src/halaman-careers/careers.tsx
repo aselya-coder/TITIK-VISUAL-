@@ -7,6 +7,21 @@ import logoImage from '../img/image.png';
 const CareersPage: React.FC = () => {
   const content = useContent();
 
+  const handleLink = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    if (path.startsWith('#')) {
+      const element = document.querySelector(path);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.pushState(null, '', path);
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // Add page-loaded class to body for fade-in effect
@@ -47,6 +62,12 @@ const CareersPage: React.FC = () => {
             >
               <a
                 href="/program-magang"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState(null, '', '/program-magang');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo(0, 0);
+                }}
                 className="btn btn-primary inline-flex items-center justify-center"
                 style={{
                   background: 'linear-gradient(90deg, #F97316 0%, #DC2626 100%)',
@@ -67,6 +88,12 @@ const CareersPage: React.FC = () => {
               </a>
               <a
                 href="/lowongan-kerja"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState(null, '', '/lowongan-kerja');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo(0, 0);
+                }}
                 className="btn inline-flex items-center justify-center border"
                 style={{
                   borderColor: '#F97316',
@@ -123,7 +150,7 @@ const CareersPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <a href="/about" className="btn btn-learn-more">{content.get('halaman-careers', 'btn_learn_more', 'Pelajari Lebih Lanjut')}</a>
+                <a href="/about" className="btn btn-learn-more" onClick={(e) => handleLink(e, '/about')}>{content.get('halaman-careers', 'btn_learn_more', 'Pelajari Lebih Lanjut')}</a>
               </div>
               <div className="about-image">
                 <div className="image-card">
@@ -184,6 +211,12 @@ const CareersPage: React.FC = () => {
                 {/* Button */}
                 <a 
                   href="/program-magang"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.history.pushState(null, '', '/program-magang');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo(0, 0);
+                  }}
                   className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-orange-200"
                   style={{ background: 'linear-gradient(90deg, #F97316 0%, #EF4444 100%)' }}
                 >
@@ -226,6 +259,12 @@ const CareersPage: React.FC = () => {
                 {/* Button */}
                 <a 
                   href="/lowongan-kerja"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.history.pushState(null, '', '/lowongan-kerja');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                    window.scrollTo(0, 0);
+                  }}
                   className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-green-200"
                   style={{ background: 'linear-gradient(90deg, #22c55e 0%, #16a34a 100%)' }}
                 >
@@ -386,6 +425,7 @@ const CareersPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="/program-magang"
+                onClick={(e) => handleLink(e, '/program-magang')}
                 className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
               >
                 <i className="fas fa-external-link-alt"></i>
@@ -393,6 +433,7 @@ const CareersPage: React.FC = () => {
               </a>
               <a
                 href="/lowongan-kerja"
+                onClick={(e) => handleLink(e, '/lowongan-kerja')}
                 className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
               >
                 <i className="fas fa-external-link-alt"></i>
@@ -415,35 +456,35 @@ const CareersPage: React.FC = () => {
               <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_1_title', 'Company')}</h4>
               <ul className="space-y-2 leading-relaxed">
                 <li><button 
-                  onClick={() => window.location.href = '/about'} 
+                  onClick={(e) => handleLink(e, '/about')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="About Us"
                   >
                     {content.get('halaman-careers', 'footer_link_about', 'About Us')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '/portfolio'} 
+                  onClick={(e) => handleLink(e, '/portfolio')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Portfolio"
                   >
                     {content.get('halaman-careers', 'footer_link_portfolio', 'Portfolio')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '/services'} 
+                  onClick={(e) => handleLink(e, '/services')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Services"
                   >
                     {content.get('halaman-careers', 'footer_link_services', 'Services')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '/careers'} 
+                  onClick={(e) => handleLink(e, '/careers')} 
                           className="footer-link-button active text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Careers"
                   >
                     {content.get('halaman-careers', 'footer_link_careers', 'Careers')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '/contact'} 
+                  onClick={(e) => handleLink(e, '/contact')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Contact"
                   >
@@ -455,35 +496,35 @@ const CareersPage: React.FC = () => {
               <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_2_title', 'Careers')}</h4>
               <ul className="space-y-2 leading-relaxed">
                 <li><button 
-                  onClick={() => window.location.href = '#job-openings'} 
+                  onClick={(e) => handleLink(e, '#job-openings')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Lowongan Kerja"
                   >
                     {content.get('halaman-careers', 'footer_link_jobs', 'Lowongan Kerja')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#program-magang'} 
+                  onClick={(e) => handleLink(e, '#program-magang')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Program magang"
                   >
                     {content.get('halaman-careers', 'footer_link_internship', 'Program magang')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#full-time-jobs'} 
+                  onClick={(e) => handleLink(e, '#full-time-jobs')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Full Time Jobs"
                   >
                     {content.get('halaman-careers', 'footer_link_fulltime', 'Full Time Jobs')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#remote-work'} 
+                  onClick={(e) => handleLink(e, '#remote-work')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Remote Work"
                   >
                     {content.get('halaman-careers', 'footer_link_remote', 'Remote Work')}
                   </button></li>
                 <li><button 
-                  onClick={() => window.location.href = '#contract-work'} 
+                  onClick={(e) => handleLink(e, '#contract-work')} 
                           className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
                           aria-label="Contract Work"
                   >

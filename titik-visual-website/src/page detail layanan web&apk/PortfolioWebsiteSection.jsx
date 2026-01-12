@@ -56,6 +56,13 @@ const PortfolioWebsiteSection = () => {
     },
   ];
 
+  const handleLink = (e, path) => {
+    e.preventDefault();
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section className="bg-white py-20">
       <div className="max-w-[1180px] mx-auto px-5">
@@ -81,6 +88,7 @@ const PortfolioWebsiteSection = () => {
         <div className="mt-10 text-center">
           <a
             href="/portfolio"
+            onClick={(e) => handleLink(e, '/portfolio')}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500 text-blue-600 hover:bg-blue-50"
           >
             <i className="far fa-eye" /> {content.get('page detail layanan web&apk', 'portfolio_button', 'Lihat Semua Portfolio')}

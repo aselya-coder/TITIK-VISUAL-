@@ -52,6 +52,21 @@ const CustomMerchandisePage = () => {
       behavior: 'smooth'
     });
   };
+
+  const handleFooterLink = (path: string) => {
+    if (path.startsWith('#')) {
+      const id = path.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Thermos & Vacuum Flask Collection
   const thermosProducts: Product[] = [
     {
@@ -522,7 +537,7 @@ const CustomMerchandisePage = () => {
             <span className="label">{content.get('Page Detail Layanan Custom Merchandise', 'card_production_label', 'Produksi:')}</span>
             <span className="time">{product.productionTime}</span>
           </div>
-          <a href="/contact" className="btn-order">
+          <a href="/contact" onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }} className="btn-order">
             <i className="fas fa-arrow-right"></i> {content.get('Page Detail Layanan Custom Merchandise', 'card_order_btn', 'Order Sekarang')}
           </a>
         </div>
@@ -555,7 +570,7 @@ const CustomMerchandisePage = () => {
               <span className="label">{content.get('Page Detail Layanan Custom Merchandise', 'card_production_label', 'Produksi:')}</span>
               <span className="time">{product.productionTime}</span>
             </div>
-            <a href="/contact" className="btn-order">
+            <a href="/contact" onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', '/contact'); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo(0, 0); }} className="btn-order">
               <i className="fas fa-arrow-right"></i> {content.get('Page Detail Layanan Custom Merchandise', 'card_order_btn', 'Order Sekarang')}
             </a>
           </div>
@@ -571,7 +586,7 @@ const CustomMerchandisePage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_current', 'Custom Merchandise')}</span>
+          <a href="/" onClick={(e) => { e.preventDefault(); handleFooterLink('/'); }}>{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_home', 'Home')}</a> / <a href="/services" onClick={(e) => { e.preventDefault(); handleFooterLink('/services'); }}>{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail Layanan Custom Merchandise', 'breadcrumb_current', 'Custom Merchandise')}</span>
         </div>
       </section>
 
@@ -589,7 +604,7 @@ const CustomMerchandisePage = () => {
             </p>
             <div className="hero-buttons">
               <a href={content.get('Page Detail Layanan Custom Merchandise', 'hero_btn_consult_href', 'https://wa.me/6281804376001')} className="btn btn-green" target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-comment"></i> {content.get('Page Detail Layanan Custom Merchandise', 'hero_btn_consult_label', 'Konsultasi Gratis')}</a>
-              <a href={content.get('Page Detail Layanan Custom Merchandise', 'hero_btn_catalog_href', '/portfolio')} className="btn btn-outline-green"><i className="far fa-eye"></i> {content.get('Page Detail Layanan Custom Merchandise', 'hero_btn_catalog_label', 'Lihat Katalog Lengkap')}</a>
+              <a href="/portfolio" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }} className="btn btn-outline-green"><i className="far fa-eye"></i> {content.get('Page Detail Layanan Custom Merchandise', 'hero_btn_catalog_label', 'Lihat Katalog Lengkap')}</a>
             </div>
           </div>
           <div className="hero-image-wrapper">
@@ -821,21 +836,21 @@ const CustomMerchandisePage = () => {
             <div className="footer-col">
               <h4>{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_title', 'Thermos & Drinkware')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#thermos'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link1', 'Vacuum Flask Office Series')}</button></li>
-                <li><button onClick={() => window.location.href = '#thermos'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link2', 'Smart Temperature Display')}</button></li>
-                <li><button onClick={() => window.location.href = '#thermos'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link3', 'Tumbler Stainless Premium')}</button></li>
-                <li><button onClick={() => window.location.href = '#aluminum'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link4', 'Aluminum Sport Bottles')}</button></li>
-                <li><button onClick={() => window.location.href = '#water'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link5', 'Water Bottles Collection')}</button></li>
+                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link1', 'Vacuum Flask Office Series')}</button></li>
+                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link2', 'Smart Temperature Display')}</button></li>
+                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link3', 'Tumbler Stainless Premium')}</button></li>
+                <li><button onClick={() => handleFooterLink('#aluminum')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link4', 'Aluminum Sport Bottles')}</button></li>
+                <li><button onClick={() => handleFooterLink('#water')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link5', 'Water Bottles Collection')}</button></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_title', 'Stationery & Accessories')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#stationery'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link1', 'Notebook + Post It')}</button></li>
-                <li><button onClick={() => window.location.href = '#stationery'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link2', 'Memo Leather Set')}</button></li>
-                <li><button onClick={() => window.location.href = '#stationery'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link3', 'Umbrella Premium')}</button></li>
-                <li><button onClick={() => window.location.href = '#water'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link4', 'Insert Paper Tumbler')}</button></li>
-                <li><button onClick={() => window.location.href = '#stationery'} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link5', 'Corporate Gift Sets')}</button></li>
+                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link1', 'Notebook + Post It')}</button></li>
+                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link2', 'Memo Leather Set')}</button></li>
+                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link3', 'Umbrella Premium')}</button></li>
+                <li><button onClick={() => handleFooterLink('#water')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link4', 'Insert Paper Tumbler')}</button></li>
+                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link5', 'Corporate Gift Sets')}</button></li>
               </ul>
             </div>
             <div className="footer-col">

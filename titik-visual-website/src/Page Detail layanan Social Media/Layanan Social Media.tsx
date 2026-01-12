@@ -134,6 +134,20 @@ const SocialMediaPage = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleFooterLink = (path: string) => {
+    if (path.startsWith('#')) {
+      const id = path.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   const handleConsultation = (e: React.MouseEvent, message: string) => {
     e.preventDefault();
     const encodedMessage = encodeURIComponent(message);
@@ -411,7 +425,7 @@ const SocialMediaPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">{content.get('Page Detail layanan Social Media', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('Page Detail layanan Social Media', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail layanan Social Media', 'breadcrumb_current', 'Social Media Management')}</span>
+          <a href="/" onClick={(e) => { e.preventDefault(); handleFooterLink('/'); }}>{content.get('Page Detail layanan Social Media', 'breadcrumb_home', 'Home')}</a> / <a href="/services" onClick={(e) => { e.preventDefault(); handleFooterLink('/services'); }}>{content.get('Page Detail layanan Social Media', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail layanan Social Media', 'breadcrumb_current', 'Social Media Management')}</span>
         </div>
       </section>
 
@@ -445,12 +459,7 @@ const SocialMediaPage = () => {
                 className="btn btn-outline"
                 onClick={(e) => {
                   e.preventDefault();
-                  const portfolioSection = document.getElementById('portfolio');
-                  if (portfolioSection) {
-                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    window.location.href = '/portfolio';
-                  }
+                  handleFooterLink('/portfolio');
                 }}
               >
                 <i className="far fa-eye"></i> {content.get('Page Detail layanan Social Media', 'hero_btn_portfolio_label', 'Lihat Portfolio')}
@@ -566,7 +575,7 @@ const SocialMediaPage = () => {
                     <span>{content.get('Page Detail layanan Social Media', 'pricing_duration_label', 'Durasi:')}</span>
                     <span className="duration-value">{plan.duration}</span>
                   </div>
-                  <a href={content.get('Page Detail layanan Social Media', 'pricing_btn_href', '/contact')} className={`btn-pricing ${plan.buttonClass}`}>
+                  <a href={content.get('Page Detail layanan Social Media', 'pricing_btn_href', '/contact')} onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }} className={`btn-pricing ${plan.buttonClass}`}>
                     <i className="fas fa-arrow-right"></i> {content.get('Page Detail layanan Social Media', 'pricing_btn_label', 'Mulai Sekarang')}
                   </a>
                 </div>
@@ -641,7 +650,7 @@ const SocialMediaPage = () => {
             ))}
           </div>
           <div className="view-all-stories">
-            <a href={content.get('Page Detail layanan Social Media', 'view_all_stories_href', '../page-about/page-about.tsx')} className="btn-outline-stories"><i className="far fa-eye"></i> {content.get('Page Detail layanan Social Media', 'view_all_stories_label', 'Lihat Semua Case Studies')}</a>
+            <a href="/portfolio" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }} className="btn-outline-stories"><i className="far fa-eye"></i> {content.get('Page Detail layanan Social Media', 'view_all_stories_label', 'Lihat Semua Case Studies')}</a>
           </div>
         </div>
       </section>
@@ -668,7 +677,7 @@ const SocialMediaPage = () => {
                   ))}
                 </ul>
                 <div className="package-footer">
-                  <a href={content.get('Page Detail layanan Social Media', 'package_btn_href', '../page-contact/page-contact.tsx')} className={`btn-package ${plan.recommended ? 'btn-gradient' : ''}`}>
+                  <a href={content.get('Page Detail layanan Social Media', 'package_btn_href', '/contact')} onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }} className={`btn-package ${plan.recommended ? 'btn-gradient' : ''}`}>
                     <i className="fas fa-arrow-right"></i> {content.get('Page Detail layanan Social Media', 'package_btn_label', 'Pilih Paket')}
                   </a>
                 </div>
@@ -729,7 +738,7 @@ const SocialMediaPage = () => {
               className="btn btn-outline-light"
               onClick={(e) => {
                 e.preventDefault();
-                alert('Portfolio download akan segera tersedia. Silakan hubungi kami untuk informasi lebih lanjut.');
+                handleFooterLink('/portfolio');
               }}
             >
               <i className="fas fa-download"></i> {content.get('Page Detail layanan Social Media', 'cta_portfolio_label', 'Download Portfolio')}
@@ -749,21 +758,21 @@ const SocialMediaPage = () => {
             <div className="footer-col">
               <h4>{content.get('Page Detail layanan Social Media', 'footer_services_title', 'Social Media Services')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#content-strategy'} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_1', 'Content Strategy')}</button></li>
-                <li><button onClick={() => window.location.href = '#community-management'} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_2', 'Community Management')}</button></li>
-                <li><button onClick={() => window.location.href = '#paid-ads'} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_3', 'Paid Ads Campaign')}</button></li>
-                <li><button onClick={() => window.location.href = '#analytics'} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_4', 'Analytics & Reporting')}</button></li>
-                <li><button onClick={() => window.location.href = '#influencer'} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_5', 'Influencer Marketing')}</button></li>
+                <li><button onClick={() => handleFooterLink('#content-strategy')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_1', 'Content Strategy')}</button></li>
+                <li><button onClick={() => handleFooterLink('#community-management')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_2', 'Community Management')}</button></li>
+                <li><button onClick={() => handleFooterLink('#paid-ads')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_3', 'Paid Ads Campaign')}</button></li>
+                <li><button onClick={() => handleFooterLink('#analytics')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_4', 'Analytics & Reporting')}</button></li>
+                <li><button onClick={() => handleFooterLink('#influencer')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_5', 'Influencer Marketing')}</button></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>{content.get('Page Detail layanan Social Media', 'footer_platforms_title', 'Platforms')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#instagram'} className="link-button">Instagram</button></li>
-                <li><button onClick={() => window.location.href = '#facebook'} className="link-button">Facebook</button></li>
-                <li><button onClick={() => window.location.href = '#tiktok'} className="link-button">TikTok</button></li>
-                <li><button onClick={() => window.location.href = '#linkedin'} className="link-button">LinkedIn</button></li>
-                <li><button onClick={() => window.location.href = '#youtube'} className="link-button">YouTube</button></li>
+                <li><button onClick={() => handleFooterLink('#instagram')} className="link-button">Instagram</button></li>
+                <li><button onClick={() => handleFooterLink('#facebook')} className="link-button">Facebook</button></li>
+                <li><button onClick={() => handleFooterLink('#tiktok')} className="link-button">TikTok</button></li>
+                <li><button onClick={() => handleFooterLink('#linkedin')} className="link-button">LinkedIn</button></li>
+                <li><button onClick={() => handleFooterLink('#youtube')} className="link-button">YouTube</button></li>
               </ul>
             </div>
             <div className="footer-col">

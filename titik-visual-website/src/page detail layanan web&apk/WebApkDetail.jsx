@@ -55,8 +55,13 @@ const WebApkDetail = () => {
                 <button
                   onClick={() => {
                     const el = document.getElementById('portfolio');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    else window.location.href = '/portfolio';
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.history.pushState(null, '', '/portfolio');
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                      window.scrollTo(0, 0);
+                    }
                   }}
                   className="px-6 py-3 rounded-xl border border-blue-500 text-blue-600 font-semibold bg-transparent inline-flex items-center gap-2"
                 >

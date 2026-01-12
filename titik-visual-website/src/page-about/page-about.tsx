@@ -46,6 +46,16 @@ interface Testimonial {
 
 const AboutPage = () => {
   const content = useContent();
+
+  const handleLink = (e: React.MouseEvent, path: string) => {
+    if (path.startsWith('/')) {
+      e.preventDefault();
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Timeline data
   const timelineEntries: TimelineEntry[] = [
     {
@@ -208,7 +218,7 @@ const AboutPage = () => {
             </p>
             
             <div className="hero-buttons">
-              <a href="/portfolio" className="btn-primary">
+              <a href="/portfolio" className="btn-primary" onClick={(e) => handleLink(e, '/portfolio')}>
                 <i className="fa-solid fa-arrow-up-right-from-square"></i> {content.get('page-about', 'hero_btn_portfolio', 'Lihat Portfolio')}
               </a>
 
@@ -373,10 +383,10 @@ const AboutPage = () => {
           <h2>{content.get('page-about', 'cta_title', 'Siap Berkolaborasi dengan Kami?')}</h2>
           <p>{content.get('page-about', 'cta_subtitle', 'Mari wujudkan visi digital Anda bersama tim profesional Titik Visual')}</p>
           <div className="cta-buttons flex flex-row items-center gap-4">
-            <a href="/contact" className="btn-cta-primary inline-flex w-fit whitespace-nowrap">
+            <a href="/contact" className="btn-cta-primary inline-flex w-fit whitespace-nowrap" onClick={(e) => handleLink(e, '/contact')}>
               <i className="far fa-comment"></i> {content.get('page-about', 'cta_btn_discuss', 'Mulai Diskusi')}
             </a>
-            <a href="/portfolio" className="btn-cta-outline-white inline-flex w-fit px-4 whitespace-nowrap text-sm">
+            <a href="/portfolio" className="btn-cta-outline-white inline-flex w-fit px-4 whitespace-nowrap text-sm" onClick={(e) => handleLink(e, '/portfolio')}>
               <i className="fas fa-arrow-up-right-from-square"></i> {content.get('page-about', 'cta_btn_portfolio', 'Lihat Portfolio')}
             </a>
           </div>
@@ -395,22 +405,22 @@ const AboutPage = () => {
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-about', 'footer_company_title', 'Company')}</h4>
               <ul className="footer-list">
-                <li><a href="/about" className="link-button">{content.get('page-about', 'footer_company_about', 'About Us')}</a></li>
-                <li><a href="/portfolio" className="link-button">{content.get('page-about', 'footer_company_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services" className="link-button">{content.get('page-about', 'footer_company_services', 'Services')}</a></li>
-                <li><a href="/careers" className="link-button">{content.get('page-about', 'footer_company_careers', 'Careers')}</a></li>
-                <li><a href="/contact" className="link-button">{content.get('page-about', 'footer_company_contact', 'Contact')}</a></li>
+                <li><a href="/about" onClick={(e) => handleLink(e, '/about')} className="link-button">{content.get('page-about', 'footer_company_about', 'About Us')}</a></li>
+                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')} className="link-button">{content.get('page-about', 'footer_company_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services" onClick={(e) => handleLink(e, '/services')} className="link-button">{content.get('page-about', 'footer_company_services', 'Services')}</a></li>
+                <li><a href="/careers" onClick={(e) => handleLink(e, '/careers')} className="link-button">{content.get('page-about', 'footer_company_careers', 'Careers')}</a></li>
+                <li><a href="/contact" onClick={(e) => handleLink(e, '/contact')} className="link-button">{content.get('page-about', 'footer_company_contact', 'Contact')}</a></li>
               </ul>
             </div>
     
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-about', 'footer_services_title', 'Services')}</h4>
               <ul className="footer-list">
-                <li><a href="/ui-ux" className="link-button">{content.get('page-about', 'footer_services_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="/web-apk" className="link-button">{content.get('page-about', 'footer_services_web', 'Web Development')}</a></li>
-                <li><a href="/web-apk" className="link-button">{content.get('page-about', 'footer_services_mobile', 'Mobile App')}</a></li>
-                <li><a href="/logo-design" className="link-button">{content.get('page-about', 'footer_services_branding', 'Branding')}</a></li>
-                <li><a href="/social-media" className="link-button">{content.get('page-about', 'footer_services_marketing', 'Digital Marketing')}</a></li>
+                <li><a href="/ui-ux" onClick={(e) => handleLink(e, '/ui-ux')} className="link-button">{content.get('page-about', 'footer_services_uiux', 'UI/UX Design')}</a></li>
+                <li><a href="/web-apk" onClick={(e) => handleLink(e, '/web-apk')} className="link-button">{content.get('page-about', 'footer_services_web', 'Web Development')}</a></li>
+                <li><a href="/web-apk" onClick={(e) => handleLink(e, '/web-apk')} className="link-button">{content.get('page-about', 'footer_services_mobile', 'Mobile App')}</a></li>
+                <li><a href="/logo-design" onClick={(e) => handleLink(e, '/logo-design')} className="link-button">{content.get('page-about', 'footer_services_branding', 'Branding')}</a></li>
+                <li><a href="/social-media" onClick={(e) => handleLink(e, '/social-media')} className="link-button">{content.get('page-about', 'footer_services_marketing', 'Digital Marketing')}</a></li>
               </ul>
             </div>
     

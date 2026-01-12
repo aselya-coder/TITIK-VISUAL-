@@ -387,6 +387,14 @@ const InternshipPage = () => {
       logo.style.opacity = '1';
     }
   }, []);
+
+  const handleLink = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="internship-page">
       
@@ -526,11 +534,11 @@ const InternshipPage = () => {
             <div className="footer-widget links-widget">
               <h4>{content.get('halaman-program-magang', 'footer_col_1', 'Company')}</h4>
               <ul>
-                <li><a href="/about">{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="/portfolio">{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services">{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="/careers">{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="/portfolio">{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
+                <li><a href="/about" onClick={(e) => handleLink(e, '/about')}>{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
+                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')}>{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services" onClick={(e) => handleLink(e, '/services')}>{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
+                <li><a href="/careers" onClick={(e) => handleLink(e, '/careers')}>{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
+                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')}>{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
               </ul>
             </div>
             <div className="footer-widget links-widget">

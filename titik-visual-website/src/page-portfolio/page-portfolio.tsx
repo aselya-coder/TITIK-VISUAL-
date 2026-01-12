@@ -167,41 +167,43 @@ const PortfolioPage: React.FC = () => {
 
   // Adapter: Transform Admin Panel data to Frontend Structure
   useEffect(() => {
-    const loadedProjects: Project[] = [];
-    // Limit to 50 items as per convention
-    for (let i = 0; i < 50; i++) {
-      const title = content.get('page-portfolio', `items.${i}.title`);
-      // Stop if no title found (end of list)
-      if (!title || title.trim() === '') break;
+    const rawItems = content.get('page-portfolio', 'items');
+    
+    if (Array.isArray(rawItems) && rawItems.length > 0) {
+      const loadedProjects = rawItems.map((item: any) => {
+        // Handle tags which might be strings or objects depending on admin panel version
+        const tagsRaw = item.tags || [];
+        const tags = Array.isArray(tagsRaw) 
+          ? tagsRaw.map((t: any) => typeof t === 'string' ? t : t?.label || '').filter(Boolean)
+          : [];
 
-      const tagsRaw = content.get('page-portfolio', `items.${i}.tags`, []);
-      const tags = Array.isArray(tagsRaw) 
-        ? tagsRaw.map((t: any) => typeof t === 'string' ? t : t?.label || '').filter(Boolean)
-        : [];
-
-      loadedProjects.push({
-        title,
-        category: content.get('page-portfolio', `items.${i}.category`, 'General'),
-        year: content.get('page-portfolio', `items.${i}.year`, new Date().getFullYear().toString()),
-        client: content.get('page-portfolio', `items.${i}.client`, 'Client'),
-        description: content.get('page-portfolio', `items.${i}.description`, ''),
-        image: content.get('page-portfolio', `items.${i}.image`, 'portfolio.png'),
-        link: content.get('page-portfolio', `items.${i}.link`, '#'),
-        featured: Boolean(content.get('page-portfolio', `items.${i}.featured`, false)),
-        tags
+        return {
+          title: item.title || '',
+          category: item.category || 'General',
+          year: item.year || new Date().getFullYear().toString(),
+          client: item.client || 'Client',
+          description: item.description || '',
+          image: item.image || 'portfolio.png',
+          link: item.link || '#',
+          featured: Boolean(item.featured),
+          tags
+        };
       });
-    }
-
-    if (loadedProjects.length > 0) {
       setProjects(loadedProjects);
     } else {
-      // Fallback to default design data if Admin Panel is empty
+      // Fallback to default design data if Admin Panel is empty or undefined
       setProjects(DEFAULT_PROJECTS);
     }
   }, [content]); // Re-run when content changes
 
   const navigateToPage = (path: string) => {
-    window.location.href = path;
+    if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:')) {
+      window.location.href = path;
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
   };
 
   return (
@@ -264,7 +266,15 @@ const PortfolioPage: React.FC = () => {
                     
                     <div className="project-footer">
                       <span className="client-info">Client: {project.client}</span>
-                      <a href={project.link} className="project-link-btn" aria-label="View Project">
+                      <a 
+                        href={project.link} 
+                        className="project-link-btn" 
+                        aria-label="View Project"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigateToPage(project.link);
+                        }}
+                      >
                         <i className="fas fa-arrow-up-right-from-square"></i>
                       </a>
                     </div>
@@ -284,7 +294,7 @@ const PortfolioPage: React.FC = () => {
                 {content.get('page-portfolio', 'cta.description', 'Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda.')}
               </p>
               <div className="cta-buttons">
-                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.primary.label', '/contact'))} className="btn btn-white">
+                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.primary.link', '/contact'))} className="btn btn-white">
                   <i className="fas fa-paper-plane"></i> {content.get('page-portfolio', 'cta.primary.label', 'Diskusi Proyek')}
                 </button>
                 <button onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-outline-white">

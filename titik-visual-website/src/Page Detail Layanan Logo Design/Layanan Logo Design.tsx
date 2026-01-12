@@ -109,6 +109,15 @@ const LogoDesignPage = () => {
     });
   };
 
+  const handleLink = (e: React.MouseEvent, path: string) => {
+    if (path.startsWith('/')) {
+      e.preventDefault();
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Portfolio data
   const portfolioItems: PortfolioItem[] = [
     {
@@ -297,7 +306,7 @@ const LogoDesignPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">{content.get('Page Detail Layanan Logo Design', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('Page Detail Layanan Logo Design', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail Layanan Logo Design', 'breadcrumb_current', 'Logo Design')}</span>
+          <a href="/" onClick={(e) => handleLink(e, '/')}>{content.get('Page Detail Layanan Logo Design', 'breadcrumb_home', 'Home')}</a> / <a href="/services" onClick={(e) => handleLink(e, '/services')}>{content.get('Page Detail Layanan Logo Design', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('Page Detail Layanan Logo Design', 'breadcrumb_current', 'Logo Design')}</span>
         </div>
       </section>
 
@@ -337,6 +346,7 @@ const LogoDesignPage = () => {
               <a
                 href={content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio')}
                 className="btn-portfolio-outline"
+                onClick={(e) => handleLink(e, content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio'))}
               >
                 <i className="far fa-eye"></i>
                 <span>{content.get('Page Detail Layanan Logo Design', 'cta_portfolio_label', 'Lihat Portfolio')}</span>
@@ -491,7 +501,7 @@ const LogoDesignPage = () => {
                     <li key={idx}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href={content.get('Page Detail Layanan Logo Design', 'pricing_btn_href', '/contact')} className="btn-pricing"><i className="fas fa-arrow-right"></i> {content.get('Page Detail Layanan Logo Design', 'pricing_btn_label', 'Pilih Paket')}</a>
+                <a href={content.get('Page Detail Layanan Logo Design', 'pricing_btn_href', '/contact')} onClick={(e) => handleLink(e, content.get('Page Detail Layanan Logo Design', 'pricing_btn_href', '/contact'))} className="btn-pricing"><i className="fas fa-arrow-right"></i> {content.get('Page Detail Layanan Logo Design', 'pricing_btn_label', 'Pilih Paket')}</a>
               </div>
             ))}
           </div>
@@ -554,7 +564,7 @@ const LogoDesignPage = () => {
               <a href={content.get('Page Detail Layanan Logo Design', 'cta_whatsapp_href', 'https://wa.me/6281804376001')} className="btn btn-light" target="_blank" rel="noopener noreferrer">
                 <i className="fa-regular fa-comment"></i> {content.get('Page Detail Layanan Logo Design', 'cta_bottom_wa_label', 'WhatsApp Sekarang')}
               </a>
-              <a href={content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio')} className="btn btn-outline-light">
+              <a href={content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio')} onClick={(e) => handleLink(e, content.get('Page Detail Layanan Logo Design', 'cta_portfolio_href', '/portfolio'))} className="btn btn-outline-light">
                 <i className="fa-solid fa-download"></i> {content.get('Page Detail Layanan Logo Design', 'cta_bottom_dl_label', 'Download Portfolio')}
               </a>
             </div>

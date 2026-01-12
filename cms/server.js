@@ -19,8 +19,10 @@ function readJSON() {
 function writeJSON(data) {
   try {
     fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), 'utf8');
+    console.log('Successfully wrote to content.json');
     return true;
-  } catch {
+  } catch (err) {
+    console.error('Failed to write to content.json:', err);
     return false;
   }
 }
@@ -62,8 +64,12 @@ const server = http.createServer((req, res) => {
         const data = readJSON();
         const prev = data[page] || {};
         data[page] = { ...prev, ...json };
-        writeJSON(data);
-        return sendJSON(res, 200, { ok: true, page, content: data[page] });
+        const success = writeJSON(data);
+        if (success) {
+          return sendJSON(res, 200, { ok: true, page, content: data[page] });
+        } else {
+          return sendJSON(res, 500, { ok: false, error: 'write_failed' });
+        }
       } catch {
         return sendJSON(res, 400, { ok: false, error: 'invalid_json' });
       }
@@ -78,8 +84,12 @@ const server = http.createServer((req, res) => {
         const json = JSON.parse(body || '{}');
         const data = readJSON();
         const next = { ...data, ...json };
-        writeJSON(next);
-        return sendJSON(res, 200, { ok: true });
+        const success = writeJSON(next);
+        if (success) {
+          return sendJSON(res, 200, { ok: true });
+        } else {
+          return sendJSON(res, 500, { ok: false, error: 'write_failed' });
+        }
       } catch {
         return sendJSON(res, 400, { ok: false, error: 'invalid_json' });
       }

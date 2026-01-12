@@ -58,6 +58,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
     return currentPath.startsWith(path);
   };
 
+  const handleLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div className="top-bar">
@@ -79,18 +86,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
       <header className={headerClass}>
       <div className="header-inner">
         {/* Logo */}
-        <div className="logo-wrapper" onClick={() => window.location.href = '/'} role="button" tabIndex={0}>
+        <a href="/" className="logo-wrapper" onClick={(e) => handleLink(e, '/')}>
           <img src={getImg('img.png')} alt="Titik Visual" className="logo" />
-        </div>
+        </a>
         
         {/* Desktop Navigation */}
         <nav className="nav" aria-label="Primary navigation">
-          <a href="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>{content.get('global', 'nav_home', 'Home')}</a>
-          <a href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>{content.get('global', 'nav_about', 'About')}</a>
-          <a href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>{content.get('global', 'nav_services', 'Services')}</a>
-          <a href="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
-          <a href="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>{content.get('global', 'nav_careers', 'Careers')}</a>
-          <a href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>{content.get('global', 'nav_contact', 'Contact')}</a>
+          <a href="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/')}>{content.get('global', 'nav_home', 'Home')}</a>
+          <a href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/about')}>{content.get('global', 'nav_about', 'About')}</a>
+          <a href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/services')}>{content.get('global', 'nav_services', 'Services')}</a>
+          <a href="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/portfolio')}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
+          <a href="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/careers')}>{content.get('global', 'nav_careers', 'Careers')}</a>
+          <a href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={(e) => handleLink(e, '/contact')}>{content.get('global', 'nav_contact', 'Contact')}</a>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -110,12 +117,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
       {/* Mobile Navigation Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <a href="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_home', 'Home')}</a>
-          <a href="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_about', 'About')}</a>
-          <a href="/services" className={`mobile-nav-link ${isActive('/services') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_services', 'Services')}</a>
-          <a href="/portfolio" className={`mobile-nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
-          <a href="/careers" className={`mobile-nav-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_careers', 'Careers')}</a>
-          <a href="/contact" className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>{content.get('global', 'nav_contact', 'Contact')}</a>
+          <a href="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/'); }}>{content.get('global', 'nav_home', 'Home')}</a>
+          <a href="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/about'); }}>{content.get('global', 'nav_about', 'About')}</a>
+          <a href="/services" className={`mobile-nav-link ${isActive('/services') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/services'); }}>{content.get('global', 'nav_services', 'Services')}</a>
+          <a href="/portfolio" className={`mobile-nav-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/portfolio'); }}>{content.get('global', 'nav_portfolio', 'Portfolio')}</a>
+          <a href="/careers" className={`mobile-nav-link ${isActive('/careers') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/careers'); }}>{content.get('global', 'nav_careers', 'Careers')}</a>
+          <a href="/contact" className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/contact'); }}>{content.get('global', 'nav_contact', 'Contact')}</a>
         </nav>
       </div>
       </header>

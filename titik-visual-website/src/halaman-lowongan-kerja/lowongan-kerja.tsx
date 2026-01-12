@@ -256,7 +256,18 @@ const LowonganKerjaPage = () => {
           <p>{content.get('halaman-lowongan-kerja', 'hero_desc', 'Bergabunglah dengan tim profesional kami dan kembangkan karier di industri kreatif digital. Kami menawarkan lingkungan kerja yang supportif dengan benefit menarik.')}</p>
           <div className="hero-buttons">
             <button className="btn btn-primary" onClick={() => document.getElementById('job-listings')?.scrollIntoView({ behavior: 'smooth' })}>{content.get('halaman-lowongan-kerja', 'btn_apply', 'Lamar Sekarang')}</button>
-            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> {content.get('halaman-lowongan-kerja', 'btn_back', 'Kembali ke Beranda')}</a>
+            <a 
+              href="/careers" 
+              className="btn btn-secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState(null, '', '/careers');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+                window.scrollTo(0, 0);
+              }}
+            >
+              <i className="fas fa-arrow-left"></i> {content.get('halaman-lowongan-kerja', 'btn_back', 'Kembali ke Beranda')}
+            </a>
           </div>
         </div>
       </section>

@@ -406,17 +406,20 @@
           "Packaging Eksklusif",
           "Minimum Order 50 pcs"
         ],
-    "price": "Mulai dari Rp 25.000/pcs",
-    "duration": "10-14 hari"
-  }
+        "price": "Mulai dari Rp 25.000/pcs",
+        "duration": "10-14 hari"
+      }
     ]
   },
   "page-about": {
-      "hero_tag": "About Titik Visual",
-      "hero_title_1": "Digital Creative Studio",
-      "hero_title_2": "yang Mengutamakan Kualitas",
-      "hero_desc": "Sejak 2019, kami telah membantu 200+ klien mewujudkan visi digital mereka melalui UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang inovatif dan result-oriented.",
-      "hero_btn_portfolio": "Lihat Portfolio",
-      "hero_btn_contact": "Hubungi Kami"
-    }
+    "hero_tag": "About Titik Visual",
+    "hero_title_1": "Digital Creative Studio",
+    "hero_title_2": "yang Mengutamakan Kualitas",
+    "hero_desc": "Sejak 2019, kami telah membantu 200+ klien mewujudkan visi digital mereka melalui UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang inovatif dan result-oriented.",
+    "hero_btn_portfolio": "Lihat Portfolio",
+    "hero_btn_contact": "Hubungi Kami"
+  },
+  "test-page": {
+    "test-field": "test-value-1768182808271"
+  }
 }

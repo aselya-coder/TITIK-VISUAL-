@@ -36,6 +36,21 @@ const WebsiteAppPage = () => {
     window.open(`${base}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const handleFooterLink = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    if (path.startsWith('#')) {
+      const id = path.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.history.pushState(null, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Pricing plans data
   const pricingPlans: PricingPlan[] = [
     {
@@ -117,7 +132,7 @@ const WebsiteAppPage = () => {
       {/* BREADCRUMB */}
       <section className="breadcrumb">
         <div className="container">
-          <a href="/">{content.get('page detail layanan web&apk', 'breadcrumb_home', 'Home')}</a> / <a href="/services">{content.get('page detail layanan web&apk', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('page detail layanan web&apk', 'breadcrumb_current', 'Website & Aplikasi')}</span>
+          <a href="/" onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', '/'); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo(0, 0); }}>{content.get('page detail layanan web&apk', 'breadcrumb_home', 'Home')}</a> / <a href="/services" onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', '/services'); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo(0, 0); }}>{content.get('page detail layanan web&apk', 'breadcrumb_services', 'Services')}</a> / <span>{content.get('page detail layanan web&apk', 'breadcrumb_current', 'Website & Aplikasi')}</span>
         </div>
       </section>
 
@@ -153,7 +168,7 @@ const WebsiteAppPage = () => {
                     <li key={index}><i className="far fa-check-circle"></i> {feature}</li>
                   ))}
                 </ul>
-                <a href="/contact" className={`btn ${plan.featured ? 'btn-gradient' : 'btn-light'}`}>
+                <a href="/contact" onClick={(e) => handleFooterLink(e, '/contact')} className={`btn ${plan.featured ? 'btn-gradient' : 'btn-light'}`}>
                   <i className="fa-solid fa-arrow-right"></i> Pilih Paket
                 </a>
               </div>
@@ -244,13 +259,13 @@ const WebsiteAppPage = () => {
             <div className="footer-col">
               <h4>{content.get('page detail layanan web&apk', 'footer_services_title', 'Website & App Services')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#landing-page'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_1', 'Landing Page')}</button></li>
-                <li><button onClick={() => window.location.href = '#business-website'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_2', 'Business Website')}</button></li>
-                <li><button onClick={() => window.location.href = '#ecommerce'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_3', 'E-Commerce')}</button></li>
-                <li><button onClick={() => window.location.href = '#web-application'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_4', 'Web Application')}</button></li>
-                <li><button onClick={() => window.location.href = '#mobile-applications'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_5', 'Mobile Applications')}</button></li>
-                <li><button onClick={() => window.location.href = '#progressive-web-apps'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_6', 'Progressive Web Apps')}</button></li>
-                <li><button onClick={() => window.location.href = '#cms-integration'} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_7', 'CMS Integration')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#landing-page')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_1', 'Landing Page')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#business-website')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_2', 'Business Website')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#ecommerce')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_3', 'E-Commerce')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#web-application')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_4', 'Web Application')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#mobile-applications')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_5', 'Mobile Applications')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#progressive-web-apps')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_6', 'Progressive Web Apps')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#cms-integration')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_7', 'CMS Integration')}</button></li>
               </ul>
             </div>
 
@@ -258,11 +273,11 @@ const WebsiteAppPage = () => {
             <div className="footer-col">
               <h4>{content.get('page detail layanan web&apk', 'footer_tech_title', 'Technologies')}</h4>
               <ul className="footer-links">
-                <li><button onClick={() => window.location.href = '#react-nextjs'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_1', 'React/Next.js')}</button></li>
-                <li><button onClick={() => window.location.href = '#wordpress'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_2', 'WordPress')}</button></li>
-                <li><button onClick={() => window.location.href = '#shopify'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_3', 'Shopify')}</button></li>
-                <li><button onClick={() => window.location.href = '#custom-php'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_4', 'Custom PHP')}</button></li>
-                <li><button onClick={() => window.location.href = '#seo-optimization'} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_5', 'SEO Optimization')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#react-nextjs')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_1', 'React/Next.js')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#wordpress')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_2', 'WordPress')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#shopify')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_3', 'Shopify')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#custom-php')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_4', 'Custom PHP')}</button></li>
+                <li><button onClick={(e) => handleFooterLink(e, '#seo-optimization')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_5', 'SEO Optimization')}</button></li>
               </ul>
             </div>
 

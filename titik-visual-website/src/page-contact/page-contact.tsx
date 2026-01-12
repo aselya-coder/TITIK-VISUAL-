@@ -91,6 +91,12 @@ const ContactPage = () => {
     setTimeout(() => setFormAlert(''), 5000);
   };
 
+  const handleFooterLink = (path: string) => {
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+  };
+
   // Contact info data
   const contactInfo: ContactInfo[] = [
     {
@@ -456,21 +462,21 @@ const ContactPage = () => {
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-contact', 'footer_quick_links_title', 'Quick Links')}</h4>
               <ul className="footer-list">
-                <li><a href="/about" className="link-button">{content.get('page-contact', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="/portfolio" className="link-button">{content.get('page-contact', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services" className="link-button">{content.get('page-contact', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="/careers" className="link-button">{content.get('page-contact', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="/contact" className="link-button">{content.get('page-contact', 'footer_link_contact', 'Contact')}</a></li>
+                <li><a href="/about" onClick={(e) => { e.preventDefault(); handleFooterLink('/about'); }} className="link-button">{content.get('page-contact', 'footer_link_about', 'About Us')}</a></li>
+                <li><a href="/portfolio" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }} className="link-button">{content.get('page-contact', 'footer_link_portfolio', 'Portfolio')}</a></li>
+                <li><a href="/services" onClick={(e) => { e.preventDefault(); handleFooterLink('/services'); }} className="link-button">{content.get('page-contact', 'footer_link_services', 'Services')}</a></li>
+                <li><a href="/careers" onClick={(e) => { e.preventDefault(); handleFooterLink('/careers'); }} className="link-button">{content.get('page-contact', 'footer_link_careers', 'Careers')}</a></li>
+                <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }} className="link-button">{content.get('page-contact', 'footer_link_contact', 'Contact')}</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4 className="footer-title">{content.get('page-contact', 'footer_services_title', 'Services')}</h4>
               <ul className="footer-list">
-                <li><a href="/ui-ux" className="link-button">{content.get('page-contact', 'footer_service_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="/web-apk" className="link-button">{content.get('page-contact', 'footer_service_web', 'Web Development')}</a></li>
-                <li><a href="/web-apk" className="link-button">{content.get('page-contact', 'footer_service_app', 'Mobile App')}</a></li>
-                <li><a href="/custom-merchandise" className="link-button">{content.get('page-contact', 'footer_service_merch', 'Custom Merchandise')}</a></li>
-                <li><a href="/social-media" className="link-button">{content.get('page-contact', 'footer_service_digital_marketing', 'Digital Marketing')}</a></li>
+                <li><a href="/ui-ux" onClick={(e) => { e.preventDefault(); handleFooterLink('/ui-ux'); }} className="link-button">{content.get('page-contact', 'footer_service_uiux', 'UI/UX Design')}</a></li>
+                <li><a href="/web-apk" onClick={(e) => { e.preventDefault(); handleFooterLink('/web-apk'); }} className="link-button">{content.get('page-contact', 'footer_service_web', 'Web Development')}</a></li>
+                <li><a href="/web-apk" onClick={(e) => { e.preventDefault(); handleFooterLink('/web-apk'); }} className="link-button">{content.get('page-contact', 'footer_service_app', 'Mobile App')}</a></li>
+                <li><a href="/custom-merchandise" onClick={(e) => { e.preventDefault(); handleFooterLink('/custom-merchandise'); }} className="link-button">{content.get('page-contact', 'footer_service_merch', 'Custom Merchandise')}</a></li>
+                <li><a href="/social-media" onClick={(e) => { e.preventDefault(); handleFooterLink('/social-media'); }} className="link-button">{content.get('page-contact', 'footer_service_digital_marketing', 'Digital Marketing')}</a></li>
               </ul>
             </div>
             <div className="footer-col">

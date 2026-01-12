@@ -217,6 +217,13 @@ function ServicesPage() {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const handleFooterLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="services-page">
 
@@ -249,6 +256,14 @@ function ServicesPage() {
                 <p>{item.desc}</p>
                 <a
                   href={item.cta_href || '#'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (item.cta_href) {
+                      window.history.pushState(null, '', item.cta_href);
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                      window.scrollTo(0, 0);
+                    }
+                  }}
                   className={`btn-detail btn-${item.color || 'purple'}`}
                   style={{
                     background: item.color === 'purple' ? 'linear-gradient(90deg, #A855F7, #EC4899)' :
@@ -306,6 +321,15 @@ function ServicesPage() {
                   </div>
                   <a
                     href={service.wa_link || 'https://wa.me/6281804376001'}
+                    onClick={(e) => {
+                      const link = service.wa_link || 'https://wa.me/6281804376001';
+                      if (link.startsWith('/')) {
+                        e.preventDefault();
+                        window.history.pushState(null, '', link);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo(0, 0);
+                      }
+                    }}
                     className={`btn-pesan btn-grad-${service.accent || 'purple'}`}
                   >
                     <i className="fas fa-shopping-cart"></i> {service.btn_order || 'Pesan Sekarang'}
@@ -351,6 +375,15 @@ function ServicesPage() {
                   </div>
                   <a
                     href={product.link || 'https://wa.me/6281804376001'}
+                    onClick={(e) => {
+                      const link = product.link || 'https://wa.me/6281804376001';
+                      if (link.startsWith('/')) {
+                        e.preventDefault();
+                        window.history.pushState(null, '', link);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo(0, 0);
+                      }
+                    }}
                     className="btn-product"
                     style={{
                       background: product.accent === 'blue' ? 'linear-gradient(90deg, #3B82F6, #06B6D4)' :
@@ -403,6 +436,15 @@ function ServicesPage() {
                   </div>
                   <a
                     href={product.link || 'https://wa.me/6281804376001'}
+                    onClick={(e) => {
+                      const link = product.link || 'https://wa.me/6281804376001';
+                      if (link.startsWith('/')) {
+                        e.preventDefault();
+                        window.history.pushState(null, '', link);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo(0, 0);
+                      }
+                    }}
                     className="btn-product"
                     style={{
                       background: product.accent === 'blue' ? 'linear-gradient(90deg, #3B82F6, #06B6D4)' :
@@ -455,6 +497,15 @@ function ServicesPage() {
                   </div>
                   <a
                     href={product.link || 'https://wa.me/6281804376001'}
+                    onClick={(e) => {
+                      const link = product.link || 'https://wa.me/6281804376001';
+                      if (link.startsWith('/')) {
+                        e.preventDefault();
+                        window.history.pushState(null, '', link);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo(0, 0);
+                      }
+                    }}
                     className="btn-product"
                     style={{
                       background: product.accent === 'blue' ? 'linear-gradient(90deg, #3B82F6, #06B6D4)' :
@@ -609,22 +660,22 @@ function ServicesPage() {
             <div className="footer-col">
               <h4>{content.get('page-layanan', 'footer_col_1_title', 'Quick Links')}</h4>
               <ul className="footer-list">
-                <li><a href="/">{content.get('page-layanan', 'footer_link_home', 'Home')}</a></li>
-                <li><a href="/services">{content.get('page-layanan', 'footer_link_services', 'Layanan')}</a></li>
-                <li><a href="/portfolio">{content.get('page-layanan', 'footer_link_portfolio', 'Portofolio')}</a></li>
-                <li><a href="/about">{content.get('page-layanan', 'footer_link_about', 'Tentang Kami')}</a></li>
-                <li><a href="/contact">{content.get('page-layanan', 'footer_link_contact', 'Live Chat')}</a></li>
+                <li><a href="/" onClick={(e) => handleFooterLink(e, '/')} >{content.get('page-layanan', 'footer_link_home', 'Home')}</a></li>
+                <li><a href="/services" onClick={(e) => handleFooterLink(e, '/services')} >{content.get('page-layanan', 'footer_link_services', 'Layanan')}</a></li>
+                <li><a href="/portfolio" onClick={(e) => handleFooterLink(e, '/portfolio')} >{content.get('page-layanan', 'footer_link_portfolio', 'Portofolio')}</a></li>
+                <li><a href="/about" onClick={(e) => handleFooterLink(e, '/about')} >{content.get('page-layanan', 'footer_link_about', 'Tentang Kami')}</a></li>
+                <li><a href="/contact" onClick={(e) => handleFooterLink(e, '/contact')} >{content.get('page-layanan', 'footer_link_contact', 'Live Chat')}</a></li>
               </ul>
             </div>
             
             <div className="footer-col">
               <h4>{content.get('page-layanan', 'footer_col_2_title', 'Layanan Kami')}</h4>
               <ul className="footer-list">
-                <li><a href="/ui-ux">{content.get('page-layanan', 'footer_link_uiux', 'Desain Grafis')}</a></li>
-                <li><a href="/web-apk">{content.get('page-layanan', 'footer_link_webapk', 'Website & Aplikasi')}</a></li>
-                <li><a href="/social-media">{content.get('page-layanan', 'footer_link_digital_marketing', 'Digital Marketing')}</a></li>
-                <li><a href="/custom-merchandise">{content.get('page-layanan', 'footer_link_merch', 'Merchandise Custom')}</a></li>
-                <li><a href="/services#corporate">{content.get('page-layanan', 'footer_link_gift', 'Corporate Gift')}</a></li>
+                <li><a href="/ui-ux" onClick={(e) => handleFooterLink(e, '/ui-ux')} >{content.get('page-layanan', 'footer_link_uiux', 'Desain Grafis')}</a></li>
+                <li><a href="/web-apk" onClick={(e) => handleFooterLink(e, '/web-apk')} >{content.get('page-layanan', 'footer_link_webapk', 'Website & Aplikasi')}</a></li>
+                <li><a href="/social-media" onClick={(e) => handleFooterLink(e, '/social-media')} >{content.get('page-layanan', 'footer_link_digital_marketing', 'Digital Marketing')}</a></li>
+                <li><a href="/custom-merchandise" onClick={(e) => handleFooterLink(e, '/custom-merchandise')} >{content.get('page-layanan', 'footer_link_merch', 'Merchandise Custom')}</a></li>
+                <li><a href="/services#corporate" onClick={(e) => handleFooterLink(e, '/services#corporate')} >{content.get('page-layanan', 'footer_link_gift', 'Corporate Gift')}</a></li>
               </ul>
             </div>
             
