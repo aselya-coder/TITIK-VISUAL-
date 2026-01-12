@@ -5,12 +5,13 @@ const getImg = (name) => {
   try {
     return require(`../img/${name}`);
   } catch {
-    return '';
+    return undefined;
   }
 };
 
 const WebApkDetail = () => {
   const content = useContent();
+  const iconWebsite = getImg('icon-website.png');
   return (
     <div className="bg-[#F0FDF9]">
       <section className="py-24">
@@ -21,8 +22,8 @@ const WebApkDetail = () => {
                 <span
                   className="inline-block w-4 h-4 bg-[#1D4ED8]"
                   style={{
-                    WebkitMaskImage: `url(${getImg('icon-website.png')})`,
-                    maskImage: `url(${getImg('icon-website.png')})`,
+                    WebkitMaskImage: iconWebsite ? `url(${iconWebsite})` : undefined,
+                    maskImage: iconWebsite ? `url(${iconWebsite})` : undefined,
                     WebkitMaskSize: 'contain',
                     maskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',

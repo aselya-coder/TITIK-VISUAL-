@@ -419,7 +419,352 @@
     "hero_btn_portfolio": "Lihat Portfolio",
     "hero_btn_contact": "Hubungi Kami"
   },
+  "page-portfolio": {
+    "hero": {
+      "title": "Portfolio Kami",
+      "description": "Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.",
+      "cta_primary": {
+        "label": "Lihat Semua Karya",
+        "url": "#portfolio"
+      },
+      "cta_secondary": {
+        "label": "Diskusi Proyek",
+        "url": "/contact"
+      }
+    },
+    "portfolio_title": "Featured Projects",
+    "portfolio_subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami",
+    "items": [
+      {
+        "title": "E-Commerce Mobile App",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "ShopNow Indonesia",
+        "description": "Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "E-commerce",
+          "iOS"
+        ]
+      },
+      {
+        "title": "SaaS Dashboard Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "DataFlow Solutions",
+        "description": "Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Web App",
+          "Dashboard",
+          "SaaS"
+        ]
+      },
+      {
+        "title": "Banking Mobile App",
+        "category": "Mobile App",
+        "year": "2023",
+        "client": "SecureBank Digital",
+        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile App",
+          "Banking",
+          "Security"
+        ]
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Web Development",
+        "year": "2024",
+        "client": "PT Maju Bersama",
+        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Website",
+          "Corporate",
+          "Responsive"
+        ]
+      },
+      {
+        "title": "Brand Identity Package",
+        "category": "Branding",
+        "year": "2024",
+        "client": "GreenTech Startup",
+        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Logo",
+          "Brand Identity",
+          "Guidelines"
+        ]
+      },
+      {
+        "title": "Social Media Campaign",
+        "category": "Social Media",
+        "year": "2024",
+        "client": "Fashion Brand Co",
+        "description": "Social media campaign design untuk fashion brand dengan consistent visual identity dan engaging content.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Social Media",
+          "Campaign",
+          "Instagram"
+        ]
+      },
+      {
+        "title": "Restaurant Website",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "Rasa Nusantara",
+        "description": "Website restaurant dengan online menu, table booking system, dan gallery yang menarik.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Web",
+          "Restaurant",
+          "Online Menu"
+        ]
+      },
+      {
+        "title": "Fitness App Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "FitLife App",
+        "description": "Fitness tracking app dengan motivational design dan comprehensive workout planning features.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "Fitness",
+          "Health"
+        ]
+      },
+      {
+        "title": "E-Learning Platform",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "EduTech Solutions",
+        "description": "E-learning platform dengan interactive course content dan comprehensive student management system.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Web App",
+          "Education",
+          "LMS"
+        ]
+      },
+      {
+        "title": "Product Landing Page",
+        "category": "Web Design",
+        "year": "2024",
+        "client": "Startup Launch",
+        "description": "Landing page high-converting untuk campaign marketing dan lead generation.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Landing Page",
+          "Marketing",
+          "Conversion"
+        ]
+      },
+      {
+        "title": "Mobile Banking Redesign",
+        "category": "UI/UX Design",
+        "year": "2023",
+        "client": "Bank Digital",
+        "description": "Redesign aplikasi perbankan untuk meningkatkan kemudahan penggunaan dan aksesibilitas.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Fintech",
+          "UX",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "Corporate Merchandise Kit",
+        "category": "Custom Merchandise",
+        "year": "2023",
+        "client": "Tech Conference",
+        "description": "Produksi paket merchandise event: tumbler, totebag, dan stationery dengan branding konsisten.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Merchandise",
+          "Event",
+          "Branding"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Tertarik dengan Karya Kami?",
+      "description": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda.",
+      "primary": {
+        "label": "Diskusi Proyek",
+        "url": "/contact"
+      },
+      "secondary": {
+        "label": "Lihat Semua Portfolio",
+        "url": "#portfolio"
+      }
+    }
+  },
   "test-page": {
     "test-field": "test-value-1768182808271"
+  },
+  "beranda": {
+    "hero_badge_text": "",
+    "hero_badge_icon": "",
+    "hero_title_line1": "",
+    "hero_title_line2": "",
+    "hero_lead_prefix": "",
+    "hero_lead_highlight": "",
+    "hero_description": "",
+    "cta_portfolio_label": "",
+    "cta_consult_label": "",
+    "featured_title": "Layanan Unggulan Titik Visual",
+    "featured_subtitle": "Solusi kreatif terlengkap dari Titik Visual untuk mengembangkan bisnis digital Anda",
+    "service_uiux_title": "UI/UX Design",
+    "service_uiux_desc": "Desain interface yang user-friendly dan menarik untuk aplikasi dan website",
+    "img_uiux_icon": "",
+    "service_web_title": "",
+    "service_web_desc": "",
+    "img_website_icon": "",
+    "service_merch_title": "",
+    "service_merch_desc": "",
+    "img_merch_icon": "",
+    "service_gift_title": "",
+    "service_gift_desc": "",
+    "img_gift_icon": "",
+    "service_drink_title": "",
+    "service_drink_desc": "",
+    "img_drink_icon": "",
+    "service_logo_title": "",
+    "service_logo_desc": "",
+    "img_logo_icon": "",
+    "all_services_title": "",
+    "all_services_subtitle": "",
+    "digital_services_header": "",
+    "tv_expertise_badge": "",
+    "service_uiux_short_desc": "",
+    "price_uiux": "",
+    "service_web_short_desc": "",
+    "price_web": "",
+    "service_mobile_title": "",
+    "service_mobile_desc": "",
+    "price_mobile": "",
+    "service_logo_short_desc": "",
+    "price_logo": "",
+    "service_sosmed_title": "",
+    "service_sosmed_desc": "",
+    "price_sosmed": "",
+    "service_marketing_title": "",
+    "service_marketing_desc": "",
+    "price_marketing": "",
+    "contact_cta_title": "",
+    "contact_cta_subtitle": "",
+    "contact_whatsapp_title": "",
+    "contact_phone_title": "",
+    "contact_email_title": "",
+    "cta_card_title": "",
+    "cta_card_desc": "",
+    "cta_whatsapp_btn": "",
+    "cta_contact_btn": "",
+    "achievement": {
+      "title": "",
+      "subtitle": "",
+      "items": [
+        {
+          "value": "",
+          "label": ""
+        },
+        {
+          "value": "",
+          "label": ""
+        },
+        {
+          "value": "",
+          "label": ""
+        },
+        {
+          "value": "",
+          "label": ""
+        }
+      ]
+    },
+    "career_preview": {
+      "title": "",
+      "subtitle": "",
+      "cta": {
+        "label": "",
+        "url": ""
+      },
+      "items": [
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        }
+      ]
+    }
   }
 }

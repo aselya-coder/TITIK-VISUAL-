@@ -716,7 +716,9 @@ export const fieldsConfig = {
           { label: "Title", path: "sect_cta_title" },
           { label: "Description", path: "sect_cta_desc" },
           { label: "WhatsApp Button", path: "btn_whatsapp" },
-          { label: "Phone Button", path: "btn_phone" }
+          { label: "WhatsApp Link", path: "cta_whatsapp_href" },
+          { label: "Phone Button", path: "btn_phone" },
+          { label: "Phone Link", path: "cta_phone_href" }
         ]
       },
       {

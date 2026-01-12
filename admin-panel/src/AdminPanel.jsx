@@ -176,67 +176,111 @@ export default function AdminPanel() {
 
   const handleSave = async () => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const data = raw ? JSON.parse(raw) : {};
-      data[selectedPage] = { ...(data[selectedPage] || {}) };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      // Persist to backend API
-      try {
-        const buildPatch = (values) => {
-          const out = {};
-          const setByPath = (obj, path, value) => {
-            const parts = path.split(".").filter(Boolean);
-            let cur = obj;
-            let parent = null;
-            let parentKey = null;
-            for (let i = 0; i < parts.length; i++) {
-              const k = parts[i];
-              const isLast = i === parts.length - 1;
-              const isIndex = /^\d+$/.test(k);
-              if (isIndex) {
-                const idx = parseInt(k, 10);
-                if (!Array.isArray(cur)) {
-                  if (parent && parentKey !== null) {
-                    if (!Array.isArray(parent[parentKey])) parent[parentKey] = [];
-                    cur = parent[parentKey];
-                  } else {
-                    // root array path
-                    return;
-                  }
-                }
-                while (cur.length <= idx) cur.push({});
-                if (isLast) {
-                  cur[idx] = value;
+      const buildPatch = (values) => {
+        const out = {};
+        const splitList = (input) => {
+          const parts = String(input)
+            .split(/[\n,]/g)
+            .map((s) => s.trim())
+            .filter(Boolean);
+          return parts;
+        };
+        const normalizeStringList = (list) => {
+          if (!Array.isArray(list)) return list;
+          const normalized = [];
+          for (const v of list) {
+            if (v === undefined || v === null) continue;
+            if (typeof v === "string") {
+              normalized.push(...splitList(v));
+              continue;
+            }
+            if (typeof v === "object") {
+              const label = v?.label;
+              if (typeof label === "string") normalized.push(...splitList(label));
+            }
+          }
+          return normalized;
+        };
+        const setByPath = (obj, path, value) => {
+          const parts = path.split(".").filter(Boolean);
+          let cur = obj;
+          let parent = null;
+          let parentKey = null;
+          for (let i = 0; i < parts.length; i++) {
+            const k = parts[i];
+            const isLast = i === parts.length - 1;
+            const isIndex = /^\d+$/.test(k);
+            if (isIndex) {
+              const idx = parseInt(k, 10);
+              if (!Array.isArray(cur)) {
+                if (parent && parentKey !== null) {
+                  if (!Array.isArray(parent[parentKey])) parent[parentKey] = [];
+                  cur = parent[parentKey];
                 } else {
-                  if (typeof cur[idx] !== "object" || cur[idx] === null) cur[idx] = {};
-                  parent = cur;
-                  parentKey = idx;
-                  cur = cur[idx];
-                }
-              } else {
-                if (isLast) {
-                  const finalValue = (((k === "requirements") || (k === "tags")) && typeof value === "string")
-                    ? value.split(/\r?\n/).map(s => s.trim()).filter(Boolean)
-                    : value;
-                  cur[k] = finalValue;
-                } else {
-                  if (typeof cur[k] !== "object" || cur[k] === null) cur[k] = {};
-                  parent = cur;
-                  parentKey = k;
-                  cur = cur[k];
+                  return;
                 }
               }
+              while (cur.length <= idx) cur.push({});
+              if (isLast) {
+                cur[idx] = value;
+              } else {
+                if (typeof cur[idx] !== "object" || cur[idx] === null) cur[idx] = {};
+                parent = cur;
+                parentKey = idx;
+                cur = cur[idx];
+              }
+            } else {
+              if (isLast) {
+                let finalValue = value;
+                if ((k === "requirements" || k === "tags") && typeof value === "string") {
+                  finalValue = splitList(value);
+                } else if (k === "tags" && Array.isArray(value)) {
+                  finalValue = normalizeStringList(value);
+                }
+                cur[k] = finalValue;
+              } else {
+                if (typeof cur[k] !== "object" || cur[k] === null) cur[k] = {};
+                parent = cur;
+                parentKey = k;
+                cur = cur[k];
+              }
             }
-          };
-          Object.entries(values).forEach(([p, v]) => setByPath(out, p, v));
-          return out;
+          }
         };
-        await fetch(`${API_BASE}/${encodeURIComponent(selectedPage)}`, {
+        Object.entries(values).forEach(([p, v]) => setByPath(out, p, v));
+        return out;
+      };
+
+      const patch = buildPatch(formValues);
+
+      console.log("Data dikirim ke backend? YA (Mencoba kirim...)");
+
+      // Persist to backend API
+      try {
+        const res = await fetch(`${API_BASE}/${encodeURIComponent(selectedPage)}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(buildPatch(formValues)),
+          body: JSON.stringify(patch),
         });
+        
+        if (!res.ok) {
+          throw new Error(`Server returned ${res.status}`);
+        }
+        console.log("Backend response OK - Data berhasil dikirim.");
+      } catch (err) {
+        console.error("Gagal simpan ke backend:", err);
+        alert("Gagal menyimpan ke server! Pastikan server CMS berjalan di port 4000.");
+        return; // Stop execution, do not show 'Tersimpan!'
+      }
+
+      // Sync to localStorage (optional, for immediate preview feedback)
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const data = raw ? JSON.parse(raw) : {};
+        data[selectedPage] = patch;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       } catch { void 0; }
+
       try {
         const iframe = document.getElementById('tv-preview');
         const target = iframe && iframe.tagName === 'IFRAME' ? iframe.contentWindow : null;
@@ -244,12 +288,13 @@ export default function AdminPanel() {
           target.postMessage({ type: "tv_content_update", page: selectedPage }, "*");
         }
       } catch { void 0; }
+
       setLastSaved({ page: selectedPage, values: formValues });
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
-    } catch {
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
+    } catch (err) {
+      console.error("Save error:", err);
+      alert("Terjadi kesalahan saat memproses data.");
     }
   };
 

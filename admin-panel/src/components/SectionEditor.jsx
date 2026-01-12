@@ -41,7 +41,11 @@ export function SectionEditor({ section, formValues, onChange, pageName }) {
           return;
         }
         if (f.type === "repeatable") {
-          onChange(path, [{ label: "" }]);
+          if (f.subType === "string") {
+            onChange(path, [""]);
+          } else {
+            onChange(path, [{ label: "" }]);
+          }
           return;
         }
         onChange(path, "");

@@ -70,6 +70,11 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const refresh = useCallback(async () => {
     const local = readStorage();
     const remote = await fetchRemote();
+    if (Object.keys(remote).length > 0) {
+      console.log('ContentContext: Loaded data from Backend API (Prioritized)');
+    } else {
+      console.log('ContentContext: Backend API unreachable or empty, using Local/Default');
+    }
     const merged = mergeContent(remote, local);
     setData(merged);
   }, []);

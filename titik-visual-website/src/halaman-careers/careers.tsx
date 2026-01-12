@@ -68,20 +68,12 @@ const CareersPage: React.FC = () => {
                   window.dispatchEvent(new PopStateEvent('popstate'));
                   window.scrollTo(0, 0);
                 }}
-                className="btn btn-primary inline-flex items-center justify-center"
+                className="inline-flex items-center justify-center gap-2 rounded-md text-white px-6 py-3 transition hover:opacity-90 shadow-lg shadow-orange-900/20"
                 style={{
                   background: 'linear-gradient(90deg, #F97316 0%, #DC2626 100%)',
-                  color: '#ffffff',
-                  borderRadius: '8px',
-                  padding: '12px 28px',
-                  boxShadow: '0 12px 24px rgba(249,115,22,0.35)',
-                  border: 'none',
                   fontWeight: 600,
                   fontSize: '16px',
-                  gap: '10px',
-                  width: 'auto',
-                  minWidth: 0,
-                  whiteSpace: 'nowrap'
+                  minWidth: '200px'
                 }}
               >
                 <i className="fas fa-graduation-cap"></i> {content.get('halaman-careers', 'btn_internship', 'Lihat Program Magang')}
@@ -94,22 +86,14 @@ const CareersPage: React.FC = () => {
                   window.dispatchEvent(new PopStateEvent('popstate'));
                   window.scrollTo(0, 0);
                 }}
-                className="btn inline-flex items-center justify-center border"
+                className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 transition hover:bg-orange-50"
                 style={{
-                  borderColor: '#F97316',
+                  border: '2px solid #F97316',
                   color: '#F97316',
-                  backgroundColor: 'transparent',
-                  borderWidth: '2px',
-                  borderStyle: 'solid',
-                  borderRadius: '8px',
-                  padding: '12px 28px',
-                  boxShadow: '0 8px 20px rgba(249,115,22,0.20)',
+                  backgroundColor: '#FFF7ED',
                   fontWeight: 600,
                   fontSize: '16px',
-                  gap: '10px',
-                  width: 'auto',
-                  minWidth: 0,
-                  whiteSpace: 'nowrap'
+                  minWidth: '200px'
                 }}
               >
                 <i className="fas fa-briefcase"></i> {content.get('halaman-careers', 'btn_jobs', 'Cari Lowongan Kerja')}
@@ -200,7 +184,7 @@ const CareersPage: React.FC = () => {
                   </div>
                   <div className="bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
                      <div className="text-[#9A3412] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_benefit_label', 'Benefit')}</div>
-                     <div className="text-[#EA580C] text-xs md:text-sm leading-tight">{content.get('halaman-careers', 'info_benefit_val_intern', 'Sertifikat +<br/>Uang Saku')}</div>
+                     <div className="text-[#EA580C] text-base md:text-lg">{content.get('halaman-careers', 'info_benefit_val_intern', 'Sertifikat + Uang Saku')}</div>
                   </div>
                   <div className="bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
                      <div className="text-[#9A3412] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_target_label', 'Target')}</div>
@@ -218,7 +202,7 @@ const CareersPage: React.FC = () => {
                     window.scrollTo(0, 0);
                   }}
                   className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-orange-200"
-                  style={{ background: 'linear-gradient(90deg, #F97316 0%, #EF4444 100%)' }}
+                  style={{ background: 'linear-gradient(90deg, #F97316 0%, #DC2626 100%)' }}
                 >
                   {content.get('halaman-careers', 'btn_internship', 'Lihat Program Magang')} <i className="fas fa-arrow-right text-sm"></i>
                 </a>
@@ -227,32 +211,32 @@ const CareersPage: React.FC = () => {
               {/* Card 2: Lowongan Pekerjaan */}
               <div className="bg-white rounded-[2.5rem] border border-green-200 p-8 md:p-10 flex flex-col items-center hover:shadow-xl transition-all duration-300 h-full">
                 {/* Icon */}
-                <div className="w-20 h-20 bg-green-100 rounded-3xl flex items-center justify-center mb-8 text-green-600 text-3xl shadow-sm">
+                <div className="w-20 h-20 bg-green-100 rounded-3xl flex items-center justify-center mb-8 text-green-500 text-3xl shadow-sm">
                    <i className="fas fa-briefcase"></i>
                 </div>
                 
                 <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">{content.get('halaman-careers', 'card_job_title', 'Lowongan Pekerjaan')}</h3>
                 <p className="text-gray-500 text-center mb-10 text-sm md:text-base px-4">
-                  {content.get('halaman-careers', 'card_job_desc', 'Bergabunglah dengan tim profesional kami sebagai karyawan full-time atau kontrak. Kesempatan karir dengan gaji kompetitif dan benefit menarik.')}
+                  {content.get('halaman-careers', 'card_job_desc', 'Temukan karir impianmu disini. Kami membuka kesempatan untuk berbagai posisi full-time, part-time, dan remote work.')}
                 </p>
 
                 {/* Info Grid */}
                 <div className="grid grid-cols-2 gap-4 w-full mb-10">
-                   <div className="bg-green-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
-                     <div className="text-[#166534] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_type_label', 'Tipe')}</div>
-                     <div className="text-[#16A34A] text-xs md:text-sm leading-tight">{content.get('halaman-careers', 'info_type_val_job', 'Full-time &<br/>Kontrak')}</div>
+                  <div className="bg-green-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
+                     <div className="text-[#065F46] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_type_label', 'Tipe')}</div>
+                     <div className="text-[#16A34A] text-base md:text-lg">{content.get('halaman-careers', 'info_type_val_job', 'Full-time & Kontrak')}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
-                     <div className="text-[#166534] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_salary_label', 'Gaji')}</div>
+                     <div className="text-[#065F46] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_salary_label', 'Gaji')}</div>
                      <div className="text-[#16A34A] text-base md:text-lg">{content.get('halaman-careers', 'info_salary_val_job', '5–15 Juta')}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
-                     <div className="text-[#166534] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_benefit_label', 'Benefit')}</div>
-                     <div className="text-[#16A34A] text-base md:text-lg leading-tight">{content.get('halaman-careers', 'info_benefit_val_job', 'BPJS +<br/>Bonus')}</div>
+                     <div className="text-[#065F46] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_benefit_label', 'Benefit')}</div>
+                     <div className="text-[#16A34A] text-base md:text-lg">{content.get('halaman-careers', 'info_benefit_val_job', 'BPJS + Bonus')}</div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-xl flex flex-col items-center justify-center text-center h-24">
-                     <div className="text-[#166534] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_target_label', 'Target')}</div>
-                     <div className="text-[#16A34A] text-xs md:text-sm">{content.get('halaman-careers', 'info_target_val_job', 'Fresh Graduate+')}</div>
+                     <div className="text-[#065F46] font-bold mb-1 text-sm">{content.get('halaman-careers', 'info_target_label', 'Target')}</div>
+                     <div className="text-[#16A34A] text-base md:text-lg">{content.get('halaman-careers', 'info_target_val_job', 'Fresh Graduate+')}</div>
                   </div>
                 </div>
 
@@ -265,8 +249,8 @@ const CareersPage: React.FC = () => {
                     window.dispatchEvent(new PopStateEvent('popstate'));
                     window.scrollTo(0, 0);
                   }}
-                  className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-green-200"
-                  style={{ background: 'linear-gradient(90deg, #22c55e 0%, #16a34a 100%)' }}
+                  className="w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity mt-auto shadow-lg shadow-emerald-200"
+                  style={{ background: 'linear-gradient(90deg, #22C55E 0%, #16A34A 100%)' }}
                 >
                   {content.get('halaman-careers', 'btn_jobs', 'Lihat Lowongan Kerja')} <i className="fas fa-arrow-right text-sm"></i>
                 </a>
@@ -426,7 +410,8 @@ const CareersPage: React.FC = () => {
               <a
                 href="/program-magang"
                 onClick={(e) => handleLink(e, '/program-magang')}
-                className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
+                className="inline-flex items-center gap-2 rounded-md text-white px-6 py-3 transition hover:bg-white/10"
+                style={{ border: '1.5px solid rgba(255,255,255,0.9)', background: 'transparent', fontWeight: 600 }}
               >
                 <i className="fas fa-external-link-alt"></i>
                 {content.get('halaman-careers', 'btn_internship', 'Lihat Program Magang')}
@@ -434,7 +419,8 @@ const CareersPage: React.FC = () => {
               <a
                 href="/lowongan-kerja"
                 onClick={(e) => handleLink(e, '/lowongan-kerja')}
-                className="inline-flex items-center gap-2 rounded-md border border-white text-white px-6 py-3 bg-transparent hover:bg-white hover:text-gray-900 transition"
+                className="inline-flex items-center gap-2 rounded-md text-white px-6 py-3 transition hover:bg-white/10"
+                style={{ border: '1.5px solid rgba(255,255,255,0.9)', background: 'transparent', fontWeight: 600 }}
               >
                 <i className="fas fa-external-link-alt"></i>
                 {content.get('halaman-careers', 'btn_jobs', 'Lihat Lowongan Kerja')}

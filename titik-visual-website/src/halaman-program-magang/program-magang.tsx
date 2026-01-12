@@ -405,8 +405,28 @@ const InternshipPage = () => {
           <h1><i className="fas fa-graduation-cap hero-icon"></i> <span className="title-main">{content.get('halaman-program-magang', 'hero_title', 'Program Magang')}</span> <strong>Titik Visual</strong></h1>
           <p>{content.get('halaman-program-magang', 'hero_subtitle', 'Mulai perjalanan kariermu di industri kreatif digital. Dapatkan pengalaman praktis, mentoring dari profesional, dan sertifikat yang diakui industri.')}</p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => document.getElementById('internship-grid')?.scrollIntoView({ behavior: 'smooth' })}>{content.get('halaman-program-magang', 'hero_cta_register', 'Daftar Sekarang')}</button>
-            <a href="/careers" className="btn btn-secondary"><i className="fas fa-arrow-left"></i> {content.get('halaman-program-magang', 'hero_cta_back', 'Kembali ke Beranda')}</a>
+            <button
+              className="btn btn-primary"
+              style={{
+                background: 'linear-gradient(90deg, #F97316 0%, #DC2626 100%)',
+                color: '#FFFFFF',
+                border: 'none'
+              }}
+              onClick={() => document.getElementById('internship-grid')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              {content.get('halaman-program-magang', 'hero_cta_register', 'Daftar Sekarang')}
+            </button>
+            <a
+              href="/careers"
+              className="btn btn-secondary"
+              style={{
+                background: 'transparent',
+                color: '#F97316',
+                border: '2px solid #F97316'
+              }}
+            >
+              <i className="fas fa-arrow-left"></i> {content.get('halaman-program-magang', 'hero_cta_back', 'Kembali ke Beranda')}
+            </a>
           </div>
         </div>
       </section>

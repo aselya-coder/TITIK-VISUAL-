@@ -239,26 +239,27 @@ body {
 }
 
 .hero-section .btn-primary {
-    background: linear-gradient(90deg, #ff6b00 0%, #ff4500 100%);
-    color: #FFFFFF;
-    border: none;
-    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
+    background: linear-gradient(90deg, #F97316 0%, #DC2626 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3) !important;
 }
 
 .hero-section .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 6px 15px rgba(249, 115, 22, 0.4) !important;
 }
 
 .hero-section .btn-secondary {
-    background-color: #FFFFFF;
-    color: #c2410c;
-    border: 1px solid #fdba74;
+    background-color: transparent !important;
+    color: #F97316 !important;
+    border: 2px solid #F97316 !important;
 }
 
 .hero-section .btn-secondary:hover {
-    background-color: #fff7ed;
-    border-color: #ff6b00;
+    background-color: transparent !important;
+    border-color: #DC2626 !important;
+    color: #DC2626 !important;
 }
 
 .hero-section .btn-secondary i {

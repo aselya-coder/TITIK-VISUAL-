@@ -6,7 +6,7 @@ import './style.css';
 // Helper to safely get images
 const getImg = (name: string) => {
   try {
-    if (!name) return '';
+    if (!name) return require('../img/portfolio.png');
     if (name.startsWith('http')) return name;
     return require(`../img/${name}`);
   } catch {
@@ -164,6 +164,15 @@ const DEFAULT_PROJECTS: Project[] = [
 const PortfolioPage: React.FC = () => {
   const content = useContent();
   const [projects, setProjects] = useState<Project[]>([]);
+  const getUrl = (primary: string, legacy?: string, fallback: string = '#') => {
+    const v = content.get('page-portfolio', primary, undefined);
+    if (typeof v === 'string' && v.trim()) return v;
+    if (legacy) {
+      const legacyVal = content.get('page-portfolio', legacy, undefined);
+      if (typeof legacyVal === 'string' && legacyVal.trim()) return legacyVal;
+    }
+    return fallback;
+  };
 
   // Adapter: Transform Admin Panel data to Frontend Structure
   useEffect(() => {
@@ -199,6 +208,9 @@ const PortfolioPage: React.FC = () => {
   const navigateToPage = (path: string) => {
     if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:')) {
       window.location.href = path;
+    } else if (path.startsWith('#')) {
+      const id = path.slice(1);
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.history.pushState(null, '', path);
       window.dispatchEvent(new PopStateEvent('popstate'));
@@ -219,10 +231,23 @@ const PortfolioPage: React.FC = () => {
                 {content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}
               </p>
               <div className="hero-buttons">
-                <button onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-primary">
+                <button
+                  onClick={() => {
+                    const url = getUrl('hero.cta_primary.url', 'hero.cta_primary.link', '');
+                    if (url) {
+                      navigateToPage(url);
+                      return;
+                    }
+                    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="btn btn-primary"
+                >
                   <i className="fas fa-eye"></i> {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
                 </button>
-                <button onClick={() => navigateToPage('/contact')} className="btn btn-secondary">
+                <button
+                  onClick={() => navigateToPage(getUrl('hero.cta_secondary.url', 'hero.cta_secondary.link', '/contact'))}
+                  className="btn btn-secondary"
+                >
                   <i className="fas fa-arrow-right"></i> {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
                 </button>
               </div>
@@ -294,10 +319,20 @@ const PortfolioPage: React.FC = () => {
                 {content.get('page-portfolio', 'cta.description', 'Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda.')}
               </p>
               <div className="cta-buttons">
-                <button onClick={() => navigateToPage(content.get('page-portfolio', 'cta.primary.link', '/contact'))} className="btn btn-white">
+                <button onClick={() => navigateToPage(getUrl('cta.primary.url', 'cta.primary.link', '/contact'))} className="btn btn-white">
                   <i className="fas fa-paper-plane"></i> {content.get('page-portfolio', 'cta.primary.label', 'Diskusi Proyek')}
                 </button>
-                <button onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-outline-white">
+                <button
+                  onClick={() => {
+                    const url = getUrl('cta.secondary.url', 'cta.secondary.link', '');
+                    if (url) {
+                      navigateToPage(url);
+                      return;
+                    }
+                    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="btn btn-outline-white"
+                >
                   <i className="fas fa-images"></i> {content.get('page-portfolio', 'cta.secondary.label', 'Lihat Semua Portfolio')}
                 </button>
               </div>

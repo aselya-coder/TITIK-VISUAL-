@@ -19,10 +19,12 @@ function readJSON() {
 function writeJSON(data) {
   try {
     fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), 'utf8');
-    console.log('Successfully wrote to content.json');
+    console.log('Backend benar-benar menulis file? YA');
+    console.log(`Saved content to ${DATA_PATH}`);
     return true;
   } catch (err) {
     console.error('Failed to write to content.json:', err);
+    console.log('Backend benar-benar menulis file? TIDAK (Error)');
     return false;
   }
 }

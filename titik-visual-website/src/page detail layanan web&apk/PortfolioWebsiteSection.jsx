@@ -5,7 +5,7 @@ const getImg = (name) => {
   try {
     return require(`../img/${name}`);
   } catch {
-    return '';
+    return undefined;
   }
 };
 

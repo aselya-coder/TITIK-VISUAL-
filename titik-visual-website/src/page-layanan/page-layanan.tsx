@@ -4,12 +4,12 @@ import { useContent } from '../content/ContentContext';
 import { PenTool, Globe, Sparkles, TrendingUp, Gift } from 'lucide-react';
 
 const getImg = (name: string) => {
-  if (!name) return '';
+  if (!name) return undefined as any;
   if (name.startsWith('http')) return name;
   try {
     return require(`../img/${name}`);
   } catch {
-    return '';
+    return undefined as any;
   }
 };
 
@@ -631,10 +631,15 @@ function ServicesPage() {
             <h2>{content.get('page-layanan', 'sect_cta_title', 'Siap Memulai Proyek Anda?')}</h2>
             <p>{content.get('page-layanan', 'sect_cta_desc', 'Konsultasikan kebutuhan digital creative dan custom merchandise Anda dengan tim ahli kami secara gratis')}</p>
             <div className="cta-buttons-v2">
-              <a href="https://wa.me/6281804376001" className="btn-primary-v2" target="_blank" rel="noopener noreferrer">
+              <a
+                href={content.get('page-layanan', 'cta_whatsapp_href', 'https://wa.me/6281804376001')}
+                className="btn-primary-v2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-whatsapp"></i> {content.get('page-layanan', 'btn_whatsapp', 'WhatsApp Sekarang')}
               </a>
-              <a href="tel:081804376001" className="btn-secondary-v2">
+              <a href={content.get('page-layanan', 'cta_phone_href', 'tel:081804376001')} className="btn-secondary-v2">
                 <i className="fa-solid fa-phone"></i> {content.get('page-layanan', 'btn_phone', 'Telepon Langsung')}
               </a>
             </div>
