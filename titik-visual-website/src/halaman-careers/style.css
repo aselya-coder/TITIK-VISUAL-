@@ -206,6 +206,42 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #FFFFFF;
+  }
+  .nav-right.show,
+  .nav-right.open {
+    display: flex;
+  }
+  .nav-right li a,
+  .careers-page .nav-right li button.nav-link {
+    font-size: 16px;
+    padding: 12px 8px;
+    min-height: 44px;
+  }
+  .main-nav {
+    padding: 12px 20px;
+  }
+  .top-bar {
+    padding: 8px 16px;
+  }
+  .top-left, .top-right {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
 
 /* Hero Section */
 .hero {

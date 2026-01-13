@@ -154,6 +154,43 @@ body {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* Page wrapper overflow guard */
+.about-page { overflow-x: hidden; }
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, #A855F7, #06B6D4);
+  }
+  .nav-right.show,
+  .nav-right.open {
+    display: flex;
+  }
+  .about-page .main-nav .nav-right li a {
+    font-size: 16px;
+    padding: 12px 8px;
+    min-height: 44px;
+  }
+  .main-nav {
+    padding: 12px 20px;
+  }
+  .top-bar {
+    padding: 8px 16px;
+  }
+  .top-left, .top-right {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
 /* =========================================================
    HERO SECTION
 ========================================================= */
@@ -265,7 +302,7 @@ body {
 
 .about-page .btn-primary {
     padding: 12px 25px;
-    background: linear-gradient(90deg, #A855F7, #06B6D4);
+    background: linear-gradient(90deg, #A855F7, #06B6D4) !important;
     color: #ffffff;
     border-radius: 12px;
     font-weight: 600;
@@ -277,7 +314,7 @@ body {
     box-shadow: 0 8px 20px rgba(124, 77, 255, 0.25);
 }
 .about-page .hero-section .hero-buttons .btn-primary {
-    background: linear-gradient(90deg, #A855F7, #06B6D4);
+    background: linear-gradient(90deg, #A855F7, #06B6D4) !important;
 }
 
 .about-page .btn-primary:hover {

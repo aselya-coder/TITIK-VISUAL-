@@ -15,6 +15,30 @@ import { Input } from "@/components/ui/input";
 export default function AdminPanel() {
   const STORAGE_KEY = "tv_page_content";
   const API_BASE = "http://localhost:4000/api/content";
+  const [previewUrl, setPreviewUrl] = useState("http://localhost:3002");
+  
+  useEffect(() => {
+    const probe = async (url) => {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 2000);
+        await fetch(url, { mode: "no-cors", signal: controller.signal });
+        clearTimeout(timeout);
+        return true;
+      } catch {
+        return false;
+      }
+    };
+    (async () => {
+      const candidates = ["http://localhost:3002", "http://localhost:3000", "http://localhost:3001"];
+      for (const url of candidates) {
+        if (await probe(url)) {
+          setPreviewUrl(url);
+          return;
+        }
+      }
+    })();
+  }, []);
   
   const [selectedPage, setSelectedPage] = useState(null);
   const [formValues, setFormValues] = useState({});
@@ -247,7 +271,18 @@ export default function AdminPanel() {
             }
           }
         };
-        Object.entries(values).forEach(([p, v]) => setByPath(out, p, v));
+        const entries = Object.entries(values);
+        const changed = entries.filter(([p, v]) => {
+          const prevVal = (lastSaved.values[p] ?? "");
+          const curVal = (v ?? "");
+          if (Array.isArray(prevVal) || Array.isArray(curVal)) {
+            const a = Array.isArray(prevVal) ? prevVal.join(",") : String(prevVal);
+            const b = Array.isArray(curVal) ? curVal.join(",") : String(curVal);
+            return a !== b;
+          }
+          return String(prevVal) !== String(curVal);
+        });
+        changed.forEach(([p, v]) => setByPath(out, p, v));
         return out;
       };
 
@@ -277,7 +312,42 @@ export default function AdminPanel() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         const data = raw ? JSON.parse(raw) : {};
-        data[selectedPage] = patch;
+        const prevPage = data[selectedPage] || {};
+        const deepMerge = (a, b) => {
+          if (Array.isArray(a) && Array.isArray(b)) {
+            const res = a.slice();
+            for (let i = 0; i < b.length; i++) {
+              const av = res[i];
+              const bv = b[i];
+              if (bv === undefined) continue;
+              if (Array.isArray(av) && Array.isArray(bv)) {
+                res[i] = deepMerge(av, bv);
+              } else if (av && typeof av === "object" && bv && typeof bv === "object") {
+                res[i] = deepMerge(av, bv);
+              } else {
+                res[i] = bv;
+              }
+            }
+            return res;
+          }
+          if (a && typeof a === "object" && !Array.isArray(a) && b && typeof b === "object" && !Array.isArray(b)) {
+            const res = { ...a };
+            for (const k of Object.keys(b)) {
+              const av = a[k];
+              const bv = b[k];
+              if (Array.isArray(av) && Array.isArray(bv)) {
+                res[k] = deepMerge(av, bv);
+              } else if (av && typeof av === "object" && !Array.isArray(av) && bv && typeof bv === "object" && !Array.isArray(bv)) {
+                res[k] = deepMerge(av, bv);
+              } else {
+                res[k] = bv;
+              }
+            }
+            return res;
+          }
+          return b ?? a;
+        };
+        data[selectedPage] = deepMerge(prevPage, patch);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       } catch { void 0; }
 
@@ -371,7 +441,7 @@ export default function AdminPanel() {
       
       <div className="w-[450px] hidden xl:block h-full shadow-xl z-20 border-l border-gray-200">
         <PreviewPanel 
-          url="http://localhost:3001" 
+          url={previewUrl} 
           onRefresh={() => {
             const iframe = document.getElementById('tv-preview');
             if (iframe) {

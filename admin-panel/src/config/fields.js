@@ -279,6 +279,13 @@ export const fieldsConfig = {
         ]
       },
       {
+        section: "Digital Services Carousel",
+        fields: [
+          { label: "Carousel Title", path: "ds_carousel_title" },
+          { label: "Carousel Subtitle", path: "ds_carousel_subtitle" }
+        ]
+      },
+      {
         section: "Contact CTA",
         fields: [
           { label: "Main Title", path: "contact_cta_title" },
@@ -439,19 +446,19 @@ export const fieldsConfig = {
           { label: "Section Subtitle", path: "process_subtitle" },
           { label: "Step 1 Title", path: "process_1_title" },
           { label: "Step 1 Desc", path: "process_1_desc" },
-          { label: "Step 1 Duration", path: "process_1_time" },
+          { label: "Step 1 Duration", path: "process_1_duration" },
           { label: "Step 2 Title", path: "process_2_title" },
           { label: "Step 2 Desc", path: "process_2_desc" },
-          { label: "Step 2 Duration", path: "process_2_time" },
+          { label: "Step 2 Duration", path: "process_2_duration" },
           { label: "Step 3 Title", path: "process_3_title" },
           { label: "Step 3 Desc", path: "process_3_desc" },
-          { label: "Step 3 Duration", path: "process_3_time" },
+          { label: "Step 3 Duration", path: "process_3_duration" },
           { label: "Step 4 Title", path: "process_4_title" },
           { label: "Step 4 Desc", path: "process_4_desc" },
-          { label: "Step 4 Duration", path: "process_4_time" },
+          { label: "Step 4 Duration", path: "process_4_duration" },
           { label: "Step 5 Title", path: "process_5_title" },
           { label: "Step 5 Desc", path: "process_5_desc" },
-          { label: "Step 5 Duration", path: "process_5_time" },
+          { label: "Step 5 Duration", path: "process_5_duration" },
         ]
       },
       {
@@ -461,18 +468,18 @@ export const fieldsConfig = {
           { label: "Section Subtitle", path: "portfolio_subtitle" },
           { label: "Download Alert Message", path: "alert_portfolio_download" },
           { label: "Download Button Label", path: "cta_download_portfolio" },
-          { label: "Item 1 Title", path: "portfolio_1_title" },
-          { label: "Item 1 Category", path: "portfolio_1_cat" },
-          { label: "Item 1 Style", path: "portfolio_1_style" },
-          { label: "Item 1 Desc", path: "portfolio_1_desc" },
-          { label: "Item 2 Title", path: "portfolio_2_title" },
-          { label: "Item 2 Category", path: "portfolio_2_cat" },
-          { label: "Item 2 Style", path: "portfolio_2_style" },
-          { label: "Item 2 Desc", path: "portfolio_2_desc" },
-          { label: "Item 3 Title", path: "portfolio_3_title" },
-          { label: "Item 3 Category", path: "portfolio_3_cat" },
-          { label: "Item 3 Style", path: "portfolio_3_style" },
-          { label: "Item 3 Desc", path: "portfolio_3_desc" },
+          { label: "Item 1 Title", path: "portfolio_item_1_title" },
+          { label: "Item 1 Category", path: "portfolio_item_1_category" },
+          { label: "Item 1 Tags", path: "portfolio_item_1_tags" },
+          { label: "Item 1 Desc", path: "portfolio_item_1_desc" },
+          { label: "Item 2 Title", path: "portfolio_item_2_title" },
+          { label: "Item 2 Category", path: "portfolio_item_2_category" },
+          { label: "Item 2 Tags", path: "portfolio_item_2_tags" },
+          { label: "Item 2 Desc", path: "portfolio_item_2_desc" },
+          { label: "Item 3 Title", path: "portfolio_item_3_title" },
+          { label: "Item 3 Category", path: "portfolio_item_3_category" },
+          { label: "Item 3 Tags", path: "portfolio_item_3_tags" },
+          { label: "Item 3 Desc", path: "portfolio_item_3_desc" },
         ]
       },
       {
@@ -810,8 +817,15 @@ export const fieldsConfig = {
           { label: "Product 1 Time", path: "product_water_1_time" },
         ]
       }
-    ],
-    "Page Detail layanan Social Media": [
+  ],
+  "Page Detail layanan Social Media": [
+      {
+        section: "Platforms (Header)",
+        fields: [
+          { label: "Section Title", path: "platforms_title" },
+          { label: "Section Subtitle", path: "platforms_subtitle" }
+        ]
+      },
       {
         section: "Platform Data",
         fields: [
@@ -842,10 +856,172 @@ export const fieldsConfig = {
         ]
       },
       {
+        section: "Breadcrumb",
+        fields: [
+          { label: "Home Link Text", path: "breadcrumb_home" },
+          { label: "Services Link Text", path: "breadcrumb_services" },
+          { label: "Current Page Text", path: "breadcrumb_current" }
+        ]
+      },
+      {
+        section: "Hero",
+        fields: [
+          { label: "Badge", path: "hero_badge" },
+          { label: "Title Line 1", path: "hero_title_line1" },
+          { label: "Title Line 2", path: "hero_title_line2" },
+          { label: "Desc Line 1", path: "hero_desc_line1" },
+          { label: "Desc Line 2", path: "hero_desc_line2" },
+          { label: "Desc Line 3", path: "hero_desc_line3" },
+          { label: "Desc Line 4", path: "hero_desc_line4" },
+          { label: "Consult Button Label", path: "hero_btn_consult_label" },
+          { label: "Consult Button Link", path: "hero_btn_consult_href" },
+          { label: "Portfolio Button Label", path: "hero_btn_portfolio_label" },
+          { label: "Portfolio Button Link", path: "hero_btn_portfolio_href" }
+        ]
+      },
+      {
+        section: "Features",
+        fields: [
+          { label: "Feature 1 Title", path: "feature_1_title" },
+          { label: "Feature 1 Description", path: "feature_1_desc" },
+          { label: "Feature 2 Title", path: "feature_2_title" },
+          { label: "Feature 2 Description", path: "feature_2_desc" },
+          { label: "Feature 3 Title", path: "feature_3_title" },
+          { label: "Feature 3 Description", path: "feature_3_desc" },
+          { label: "Feature 4 Title", path: "feature_4_title" },
+          { label: "Feature 4 Description", path: "feature_4_desc" }
+        ]
+      },
+      {
         section: "Pricing Plans",
         fields: [
           { label: "Plan 1 Name", path: "pricing_1_name" },
           { label: "Plan 1 Desc", path: "pricing_1_desc" },
+          { label: "Pricing Button Label", path: "pricing_btn_label" }
+        ]
+      },
+      {
+        section: "Pricing – Plan 1",
+        fields: [
+          { label: "Plan 1 Price", path: "pricing_1_price" },
+          { label: "Plan 1 Duration", path: "pricing_1_duration" },
+          { label: "Plan 1 Best For", path: "pricing_1_best_for" },
+          { label: "Plan 1 Feature 1", path: "pricing_1_feature_1" },
+          { label: "Plan 1 Feature 2", path: "pricing_1_feature_2" },
+          { label: "Plan 1 Feature 3", path: "pricing_1_feature_3" },
+          { label: "Plan 1 Feature 4", path: "pricing_1_feature_4" },
+          { label: "Plan 1 Feature 5", path: "pricing_1_feature_5" },
+          { label: "Plan 1 Feature 6", path: "pricing_1_feature_6" }
+        ]
+      },
+      {
+        section: "Pricing – Plan 2",
+        fields: [
+          { label: "Plan 2 Name", path: "pricing_2_name" },
+          { label: "Plan 2 Desc", path: "pricing_2_desc" },
+          { label: "Plan 2 Price", path: "pricing_2_price" },
+          { label: "Plan 2 Duration", path: "pricing_2_duration" },
+          { label: "Plan 2 Best For", path: "pricing_2_best_for" },
+          { label: "Plan 2 Feature 1", path: "pricing_2_feature_1" },
+          { label: "Plan 2 Feature 2", path: "pricing_2_feature_2" },
+          { label: "Plan 2 Feature 3", path: "pricing_2_feature_3" },
+          { label: "Plan 2 Feature 4", path: "pricing_2_feature_4" },
+          { label: "Plan 2 Feature 5", path: "pricing_2_feature_5" },
+          { label: "Plan 2 Feature 6", path: "pricing_2_feature_6" }
+        ]
+      },
+      {
+        section: "Pricing – Plan 3",
+        fields: [
+          { label: "Plan 3 Name", path: "pricing_3_name" },
+          { label: "Plan 3 Desc", path: "pricing_3_desc" },
+          { label: "Plan 3 Price", path: "pricing_3_price" },
+          { label: "Plan 3 Duration", path: "pricing_3_duration" },
+          { label: "Plan 3 Best For", path: "pricing_3_best_for" },
+          { label: "Plan 3 Feature 1", path: "pricing_3_feature_1" },
+          { label: "Plan 3 Feature 2", path: "pricing_3_feature_2" },
+          { label: "Plan 3 Feature 3", path: "pricing_3_feature_3" },
+          { label: "Plan 3 Feature 4", path: "pricing_3_feature_4" },
+          { label: "Plan 3 Feature 5", path: "pricing_3_feature_5" },
+          { label: "Plan 3 Feature 6", path: "pricing_3_feature_6" }
+        ]
+      },
+      {
+        section: "Workflow",
+        fields: [
+          { label: "Workflow Title", path: "workflow_title" },
+          { label: "Workflow Subtitle", path: "workflow_subtitle" },
+          { label: "Step 1 Title", path: "workflow_1_title" },
+          { label: "Step 1 Desc", path: "workflow_1_desc" },
+          { label: "Step 1 Duration", path: "workflow_1_duration" },
+          { label: "Step 2 Title", path: "workflow_2_title" },
+          { label: "Step 2 Desc", path: "workflow_2_desc" },
+          { label: "Step 2 Duration", path: "workflow_2_duration" },
+          { label: "Step 3 Title", path: "workflow_3_title" },
+          { label: "Step 3 Desc", path: "workflow_3_desc" },
+          { label: "Step 3 Duration", path: "workflow_3_duration" },
+          { label: "Step 4 Title", path: "workflow_4_title" },
+          { label: "Step 4 Desc", path: "workflow_4_desc" },
+          { label: "Step 4 Duration", path: "workflow_4_duration" },
+          { label: "Step 5 Title", path: "workflow_5_title" },
+          { label: "Step 5 Desc", path: "workflow_5_desc" },
+          { label: "Step 5 Duration", path: "workflow_5_duration" }
+        ]
+      },
+      {
+        section: "Success Stories",
+        fields: [
+          { label: "Success 1 Category", path: "success_1_category" },
+          { label: "Success 1 Title", path: "success_1_title" },
+          { label: "Success 1 Desc", path: "success_1_desc" },
+          { label: "Success 1 Followers", path: "success_1_metric_followers" },
+          { label: "Success 1 Engagement", path: "success_1_metric_engagement" },
+          { label: "Success 1 Reach", path: "success_1_metric_reach" },
+          { label: "Success 2 Category", path: "success_2_category" },
+          { label: "Success 2 Title", path: "success_2_title" },
+          { label: "Success 2 Desc", path: "success_2_desc" },
+          { label: "Success 2 Followers", path: "success_2_metric_followers" },
+          { label: "Success 2 Engagement", path: "success_2_metric_engagement" },
+          { label: "Success 2 Reach", path: "success_2_metric_reach" },
+          { label: "Success 3 Category", path: "success_3_category" },
+          { label: "Success 3 Title", path: "success_3_title" },
+          { label: "Success 3 Desc", path: "success_3_desc" },
+          { label: "Success 3 Followers", path: "success_3_metric_followers" },
+          { label: "Success 3 Engagement", path: "success_3_metric_engagement" },
+          { label: "Success 3 Reach", path: "success_3_metric_reach" },
+          { label: "Metric Engagement Label", path: "metric_engagement_label" },
+          { label: "Metric Reach Label", path: "metric_reach_label" },
+          { label: "View All Stories Label", path: "view_all_stories_label" }
+        ]
+      },
+      {
+        section: "CTA Bottom",
+        fields: [
+          { label: "CTA Title", path: "cta_bottom_title" },
+          { label: "CTA Description", path: "cta_bottom_desc" },
+          { label: "WhatsApp Link", path: "cta_whatsapp_href" },
+          { label: "WhatsApp Label", path: "cta_whatsapp_label" },
+          { label: "Portfolio Link", path: "cta_portfolio_href" },
+          { label: "Portfolio Label", path: "cta_portfolio_label" }
+        ]
+      },
+      {
+        section: "Footer",
+        fields: [
+          { label: "Logo Alt", path: "footer_logo_alt" },
+          { label: "About Text", path: "footer_desc" },
+          { label: "Services Title", path: "footer_services_title" },
+          { label: "Service 1", path: "footer_service_1" },
+          { label: "Service 2", path: "footer_service_2" },
+          { label: "Service 3", path: "footer_service_3" },
+          { label: "Service 4", path: "footer_service_4" },
+          { label: "Service 5", path: "footer_service_5" },
+          { label: "Platforms Title", path: "footer_platforms_title" },
+          { label: "Contact Title", path: "footer_contact_title" },
+          { label: "Contact Phone", path: "footer_contact_phone" },
+          { label: "Contact Email", path: "footer_contact_email" },
+          { label: "Contact Address", path: "footer_contact_address" },
+          { label: "Copyright", path: "footer_copyright" }
         ]
       }
     ],
@@ -894,6 +1070,135 @@ export const fieldsConfig = {
           { label: "Deskripsi", path: "position_4_desc", type: "textarea" },
           { label: "Syarat 1", path: "position_4_req_1" },
           { label: "Syarat 2", path: "position_4_req_2" }
+        ]
+      },
+      {
+        section: "Program 5",
+        fields: [
+          { label: "Judul Program", path: "position_5_title" },
+          { label: "Deskripsi", path: "position_5_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_5_req_1" },
+          { label: "Syarat 2", path: "position_5_req_2" }
+        ]
+      },
+      {
+        section: "Program 6",
+        fields: [
+          { label: "Judul Program", path: "position_6_title" },
+          { label: "Deskripsi", path: "position_6_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_6_req_1" },
+          { label: "Syarat 2", path: "position_6_req_2" }
+        ]
+      },
+      {
+        section: "Program 7",
+        fields: [
+          { label: "Judul Program", path: "position_7_title" },
+          { label: "Deskripsi", path: "position_7_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_7_req_1" },
+          { label: "Syarat 2", path: "position_7_req_2" }
+        ]
+      },
+      {
+        section: "Program 8",
+        fields: [
+          { label: "Judul Program", path: "position_8_title" },
+          { label: "Deskripsi", path: "position_8_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_8_req_1" },
+          { label: "Syarat 2", path: "position_8_req_2" }
+        ]
+      },
+      {
+        section: "Program 9",
+        fields: [
+          { label: "Judul Program", path: "position_9_title" },
+          { label: "Deskripsi", path: "position_9_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_9_req_1" },
+          { label: "Syarat 2", path: "position_9_req_2" }
+        ]
+      },
+      {
+        section: "Program 10",
+        fields: [
+          { label: "Judul Program", path: "position_10_title" },
+          { label: "Deskripsi", path: "position_10_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_10_req_1" },
+          { label: "Syarat 2", path: "position_10_req_2" }
+        ]
+      },
+      {
+        section: "Program 11",
+        fields: [
+          { label: "Judul Program", path: "position_11_title" },
+          { label: "Deskripsi", path: "position_11_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_11_req_1" },
+          { label: "Syarat 2", path: "position_11_req_2" }
+        ]
+      },
+      {
+        section: "Program 12",
+        fields: [
+          { label: "Judul Program", path: "position_12_title" },
+          { label: "Deskripsi", path: "position_12_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_12_req_1" },
+          { label: "Syarat 2", path: "position_12_req_2" }
+        ]
+      },
+      {
+        section: "Program 13",
+        fields: [
+          { label: "Judul Program", path: "position_13_title" },
+          { label: "Deskripsi", path: "position_13_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_13_req_1" },
+          { label: "Syarat 2", path: "position_13_req_2" }
+        ]
+      },
+      {
+        section: "Program 14",
+        fields: [
+          { label: "Judul Program", path: "position_14_title" },
+          { label: "Deskripsi", path: "position_14_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_14_req_1" },
+          { label: "Syarat 2", path: "position_14_req_2" }
+        ]
+      },
+      {
+        section: "Program 15",
+        fields: [
+          { label: "Judul Program", path: "position_15_title" },
+          { label: "Deskripsi", path: "position_15_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_15_req_1" },
+          { label: "Syarat 2", path: "position_15_req_2" }
+        ]
+      },
+      {
+        section: "Program 16",
+        fields: [
+          { label: "Judul Program", path: "position_16_title" },
+          { label: "Deskripsi", path: "position_16_desc", type: "textarea" },
+          { label: "Syarat 1", path: "position_16_req_1" },
+          { label: "Syarat 2", path: "position_16_req_2" }
+        ]
+      },
+      {
+        section: "Filter & Pencarian",
+        fields: [
+          { label: "Filter Label", path: "filter_label" }
+        ]
+      },
+      {
+        section: "Footer",
+        fields: [
+          { label: "Judul Kolom Program", path: "footer_col_2" },
+          { label: "Link UI/UX", path: "footer_link_uiux" },
+          { label: "Link Frontend", path: "footer_link_frontend" },
+          { label: "Link Backend", path: "footer_link_backend" },
+          { label: "Link Graphic Designer", path: "footer_link_graphic" },
+          { label: "Judul Kolom Contact", path: "footer_col_3" },
+          { label: "Telepon", path: "footer_phone" },
+          { label: "Email", path: "footer_email" },
+          { label: "Alamat", path: "footer_address" },
+          { label: "Copyright", path: "footer_copyright" }
         ]
       },
       {

@@ -218,7 +218,12 @@ const AboutPage = () => {
             </p>
             
             <div className="hero-buttons">
-              <a href="/portfolio" className="btn-primary" onClick={(e) => handleLink(e, '/portfolio')}>
+              <a
+                href="/portfolio"
+                className="btn-primary"
+                onClick={(e) => handleLink(e, '/portfolio')}
+                style={{ background: 'linear-gradient(90deg, #A855F7, #06B6D4)' }}
+              >
                 <i className="fa-solid fa-arrow-up-right-from-square"></i> {content.get('page-about', 'hero_btn_portfolio', 'Lihat Portfolio')}
               </a>
 

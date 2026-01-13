@@ -1727,3 +1727,38 @@ body {
 .services-page *, .services-page *::before, .services-page *::after { box-sizing: border-box; }
 .services-page img, .services-page video, .services-page iframe { max-width: 100%; height: auto; }
 .services-page { overflow-x: hidden; }
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, #9150ff, #00bcd4);
+  }
+  .nav-right.show,
+  .nav-right.open {
+    display: flex;
+  }
+  .nav-right li a {
+    font-size: 16px;
+    padding: 12px 8px;
+    min-height: 44px;
+  }
+  .main-nav {
+    padding: 12px 20px;
+  }
+  .top-bar {
+    padding: 8px 16px;
+  }
+  .top-left, .top-right {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}

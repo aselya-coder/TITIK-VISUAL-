@@ -217,6 +217,19 @@ function ServicesPage() {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const resolveServiceHref = (item: any) => {
+    const title = (item?.title || '').toLowerCase();
+    if (title.includes('ui/ux') || title.includes('uiux')) return '/ui-ux';
+    if (title.includes('website') || title.includes('aplikasi')) return '/web-apk';
+    if (title.includes('logo')) return '/logo-design';
+    if (title.includes('social media') || title.includes('media sosial')) return '/social-media';
+    if (title.includes('merch') || title.includes('merchandise') || title.includes('gift')) return '/custom-merchandise';
+    if (item?.cta_href && typeof item.cta_href === 'string' && item.cta_href.trim().startsWith('/')) {
+      return item.cta_href.trim();
+    }
+    return '#';
+  };
+
   const handleFooterLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     window.history.pushState(null, '', path);
@@ -240,7 +253,20 @@ function ServicesPage() {
             {(content.get('page-layanan', 'main_services', DEFAULT_MAIN_SERVICES) || []).map((item: any, index: number) => {
               const IconComponent = iconMap[item.icon];
               return (
-                <div className="category-card" key={index}>
+                <div
+                  className="category-card"
+                  key={index}
+                  onClick={(e) => {
+                    const target = resolveServiceHref(item);
+                    if (target && target.startsWith('/')) {
+                      e.preventDefault();
+                      window.history.pushState(null, '', target);
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                      window.scrollTo(0, 0);
+                    }
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className={`card-icon ${item.color || 'purple'}`}>
                     {IconComponent ? (
                       <IconComponent size={32} color={colorMap['purple']} />
@@ -255,11 +281,12 @@ function ServicesPage() {
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
                 <a
-                  href={item.cta_href || '#'}
+                  href={resolveServiceHref(item)}
                   onClick={(e) => {
                     e.preventDefault();
-                    if (item.cta_href) {
-                      window.history.pushState(null, '', item.cta_href);
+                    const target = resolveServiceHref(item);
+                    if (target && target.startsWith('/')) {
+                      window.history.pushState(null, '', target);
                       window.dispatchEvent(new PopStateEvent('popstate'));
                       window.scrollTo(0, 0);
                     }
@@ -581,9 +608,14 @@ function ServicesPage() {
       {/* Work Process Section */}
       <section className="work-process-section">
         <div className="container">
-          <div className="section-header-v2">
+          <div className="section-header-v2 centered">
             <h2 className="section-title">{content.get('page-layanan', 'sect_process_title', 'Proses Kerja Kami')}</h2>
-            <p className="section-subtitle">{content.get('page-layanan', 'sect_process_subtitle', 'Langkah-langkah sederhana untuk memulai proyek Anda bersama kami.')}</p>
+            <p
+              className="section-subtitle"
+              style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+            >
+              {content.get('page-layanan', 'sect_process_subtitle', 'Langkah-langkah sederhana untuk memulai proyek Anda bersama kami.')}
+            </p>
           </div>
           <div className="work-process-timeline">
             {(content.get('page-layanan', 'work_process_steps', DEFAULT_PROCESS) || []).map((step: any, index: number) => (

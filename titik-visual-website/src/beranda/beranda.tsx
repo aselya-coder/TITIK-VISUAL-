@@ -60,13 +60,35 @@ const ContactList: React.FC = () => {
 
 const RightCTACard: React.FC = () => {
   const content = useContent();
+  const getTitle = () => {
+    const v = content.get('beranda', 'cta_card_title', '');
+    if (typeof v === 'string' && v.trim() === '') {
+      return content.get('beranda', 'contact_cta_title', 'Mari Berkreasi Bersama Titik Visual');
+    }
+    return v || content.get('beranda', 'contact_cta_title', 'Mari Berkreasi Bersama Titik Visual');
+  };
+  const getDesc = () => {
+    const v = content.get('beranda', 'cta_card_desc', '');
+    if (typeof v === 'string' && v.trim() === '') {
+      return 'Konsultasikan kebutuhan UI/UX, web development, digital marketing, dan custom merchandise Anda dengan tim ahli Titik Visual. Dapatkan penawaran terbaik untuk proyek impian Anda!';
+    }
+    return v || 'Konsultasikan kebutuhan UI/UX, web development, digital marketing, dan custom merchandise Anda dengan tim ahli Titik Visual. Dapatkan penawaran terbaik untuk proyek impian Anda!';
+  };
   return (
     <div className="cta-card">
       <div>
-        <h3 className="cta-title">{content.get('beranda', 'cta_card_title', 'Siap Memulai Proyek?')}</h3>
-        <p className="cta-desc">
-          {content.get('beranda', 'cta_card_desc', 'Konsultasikan kebutuhan UI/UX, web development, digital marketing, dan custom merchandise Anda dengan tim ahli Titik Visual. Dapatkan penawaran terbaik untuk proyek impian Anda!')}
-        </p>
+        <h3
+          className="cta-title"
+          style={{
+            color: '#111827',
+            background: 'none',
+            WebkitBackgroundClip: 'initial',
+            WebkitTextFillColor: 'initial'
+          }}
+        >
+          {getTitle()}
+        </h3>
+        <p className="cta-desc">{getDesc()}</p>
       </div>
       <div className="cta-actions">
         <a
@@ -256,7 +278,7 @@ const TitikVisualWebsite: React.FC = () => {
             </p>
             <div
               className="cta-buttons"
-              style={{ display: 'flex', gap: 10, justifyContent: 'center', alignItems: 'center', flexWrap: 'nowrap' }}
+              style={{ display: 'flex', gap: 10, justifyContent: 'center', alignItems: 'center' }}
             >
               <a
                 href="/portfolio"
@@ -284,6 +306,8 @@ const TitikVisualWebsite: React.FC = () => {
             </div>
           </div>
         </section>
+        
+
         
 
         {/* Featured Services */}
@@ -355,9 +379,33 @@ const TitikVisualWebsite: React.FC = () => {
             </p>
 
             <div className="services-header">
-              <h3>{content.get('beranda', 'digital_services_header', 'Digital Creative Services')}</h3>
-              <span className="badge">
-                <img src={getImg('icon-custom-merchandise.png')} alt="Custom Merchandise Icon" className="badge-icon" /> 
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: 24,
+                  fontWeight: 800,
+                  background: 'linear-gradient(90deg, #3B82F6, #9333EA)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
+                {content.get('beranda', 'digital_services_header', 'Digital Creative Services')}
+              </h3>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '6px 10px',
+                  borderRadius: 9999,
+                  background: '#F3E8FF',
+                  color: '#9333EA',
+                  fontSize: 12,
+                  fontWeight: 700,
+                  border: '1px solid #E9D5FF'
+                }}
+              >
+                <i className="fa-solid fa-wand-magic-sparkles"></i>
                 {content.get('beranda', 'tv_expertise_badge', 'Titik Visual Expertise')}
               </span>
             </div>
@@ -365,189 +413,827 @@ const TitikVisualWebsite: React.FC = () => {
             <div className="services-grid">
               <div className="service-card" onClick={() => navigateToPage('/ui-ux')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('ui-ux desain.png')} alt="UI/UX Design Icon" className="icon" />
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-solid fa-palette" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
                   <h4>{content.get('beranda', 'service_uiux_title', 'UI/UX Design')}</h4>
                 </div>
-                <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
+                >
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
                 <p>{content.get('beranda', 'service_uiux_short_desc', 'Desain interface yang user-friendly dan menarik')}</p>
-                <span className="price">{content.get('beranda', 'price_uiux', 'Mulai Rp 2.5jt')}</span>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_uiux', 'Mulai Rp 2.5jt')}</span>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-website.png')} alt="Website Development Icon" className="icon" />
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-regular fa-window-maximize" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
                   <h4>{content.get('beranda', 'service_web_title', 'Website Development')}</h4>
                 </div>
-                <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
+                >
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
                 <p>{content.get('beranda', 'service_web_short_desc', 'Website responsif dan modern untuk bisnis')}</p>
-                <span className="price"><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_web', 'Rp 3.5jt')}</span></span>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_web', 'Mulai Rp 3.5jt')}</span>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/web-apk')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-mobile-app.png')} alt="Mobile App Development Icon" className="icon" />
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-solid fa-mobile-screen-button" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
                   <h4>{content.get('beranda', 'service_mobile_title', 'Mobile App Development')}</h4>
                 </div>
-                <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
+                >
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
                 <p>{content.get('beranda', 'service_mobile_desc', 'Aplikasi mobile iOS dan Android')}</p>
-                <a className="price" href="/services" onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigateToPage('/services'); }}><span className="price-label">{content.get('beranda', 'price_label_start', 'Mulai')}</span> <span className="price-amount">{content.get('beranda', 'price_mobile', 'Rp 15jt')}</span></a>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_mobile', 'Mulai Rp 15jt')}</span>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/logo-design')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-custom-merchandise.png')} alt="Logo Design Icon" className="icon" />
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-solid fa-pen-nib" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
                   <h4>{content.get('beranda', 'service_logo_title', 'Logo Design')}</h4>
                 </div>
-                <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
+                >
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
                 <p>{content.get('beranda', 'service_logo_short_desc', 'Logo dan brand identity package')}</p>
-                <span className="price">{content.get('beranda', 'price_logo', 'Mulai Rp 1.5jt')}</span>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_logo', 'Mulai Rp 1.5jt')}</span>
               </div>
 
               <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
                 <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-social-media.png')} alt="Social Media Management Icon" className="icon" />
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-solid fa-share-nodes" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
                   <h4>{content.get('beranda', 'service_smm_title', 'Social Media Management')}</h4>
                 </div>
-                <span className="tag">{content.get('beranda', 'tag_popular', 'Populer')}</span>
-                <p>{content.get('beranda', 'service_smm_desc', 'Kelola dan optimalkan akun sosial media Anda')}</p>
-                <span className="price">{content.get('beranda', 'price_smm', 'Mulai Rp 2jt')}</span>
-              </div>
-
-              <div className="service-card" onClick={() => navigateToPage('/content-creation')} style={{ cursor: 'pointer' }}>
-                <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-content-creation.png')} alt="Content Creation Icon" className="icon" />
-                  </div>
-                  <h4>{content.get('beranda', 'service_content_title', 'Content Creation')}</h4>
-                </div>
-                <span className="tag">{content.get('beranda', 'tag_new', 'Baru')}</span>
-                <p>{content.get('beranda', 'service_content_desc', 'Produksi konten berkualitas untuk sosial media')}</p>
-                <span className="price">{content.get('beranda', 'price_content', 'Mulai Rp 1.5jt')}</span>
-              </div>
-            </div>
-
-            <div className="services-header">
-              <h3>{content.get('beranda', 'merch_services_header', 'Custom Merchandise & Corporate Gifts')}</h3>
-              <span className="badge">
-                <img src={getImg('icon-custom-merchandise.png')} alt="Custom Merchandise Icon" className="badge-icon" /> 
-                {content.get('beranda', 'tv_premium_badge', 'Titik Visual Premium')}
-              </span>
-            </div>
-
-            <div className="services-grid">
-              <div className="service-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-corporate-gift.png')} alt="Corporate Gifts Icon" className="icon" />
-                  </div>
-                  <h4>{content.get('beranda', 'service_gift_title', 'Corporate Gifts')}</h4>
-                </div>
-                <span className="tag">{content.get('beranda', 'tag_best_seller', 'Best Seller')}</span>
-                <p>{content.get('beranda', 'service_gift_short_desc', 'Paket seminar kit, powerbank, flashdisk, dll.')}</p>
-                <span className="price">{content.get('beranda', 'price_gift', 'Mulai Rp 50rb')}</span>
-              </div>
-
-              <div className="service-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-drinkware.png')} alt="Drinkware Collection Icon" className="icon" />
-                  </div>
-                  <h4>{content.get('beranda', 'service_drink_title', 'Drinkware Collection')}</h4>
-                </div>
-                <span className="tag">{content.get('beranda', 'tag_best_seller', 'Best Seller')}</span>
-                <p>{content.get('beranda', 'service_drink_short_desc', 'Botol minum, tumbler, mug, gelas kaca, dan drink jar')}</p>
-                <span className="price">{content.get('beranda', 'price_drink', 'Mulai Rp 35rb')}</span>
-              </div>
-
-              <div className="service-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-apparel.png')} alt="Apparel & Garment Icon" className="icon" />
-                  </div>
-                  <h4>{content.get('beranda', 'service_apparel_title', 'Apparel & Garment')}</h4>
-                </div>
-                <span className="tag">{content.get('beranda', 'tag_new', 'Baru')}</span>
-                <p>{content.get('beranda', 'service_apparel_desc', 'Kaos, polo shirt, kemeja, jaket, dan topi custom')}</p>
-                <span className="price">{content.get('beranda', 'price_apparel', 'Mulai Rp 75rb')}</span>
-              </div>
-
-              <div className="service-card" onClick={() => navigateToPage('/custom-merchandise')} style={{ cursor: 'pointer' }}>
-                <div className="service-card-header">
-                  <div className="icon-box">
-                    <img src={getImg('icon-stationery.png')} alt="Stationery & Office Supplies Icon" className="icon" />
-                  </div>
-                  <h4>{content.get('beranda', 'service_stationery_title', 'Stationery & Office')}</h4>
-                </div>
-                <span className="tag">{content.get('beranda', 'tag_new', 'Baru')}</span>
-                <p>{content.get('beranda', 'service_stationery_desc', 'Buku catatan, pulpen, kalender, dan id card')}</p>
-                <span className="price">{content.get('beranda', 'price_stationery', 'Mulai Rp 15rb')}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Section */}
-        <section className="portfolio" id="portfolio">
-          <div className="container">
-            <h2 className="portfolio-title">{content.get('beranda', 'portfolio_title', 'Portofolio Terbaru Titik Visual')}</h2>
-            <p className="portfolio-subtitle">
-              {content.get('beranda', 'portfolio_subtitle', 'Beberapa proyek pilihan yang telah kami kerjakan dengan sentuhan kreativitas dan keahlian.')}
-            </p>
-
-            <div className="portfolio-carousel">
-              {portfolioItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`portfolio-card ${index === activePortfolioIndex ? 'active' : ''}`}
-                  onClick={() => navigateToPage(item.url || '/portfolio')}
-                  style={{ cursor: 'pointer' }}
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
                 >
-                  <div className="card-header">
-                    <span className="year">{item.year}</span>
-                    <span className="category">{item.category}</span>
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
+                <p>{content.get('beranda', 'service_smm_desc', 'Kelola dan optimalkan akun sosial media Anda')}</p>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_smm', 'Mulai Rp 2jt')}</span>
+              </div>
+
+              <div className="service-card" onClick={() => navigateToPage('/social-media')} style={{ cursor: 'pointer' }}>
+                <div className="service-card-header">
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(180deg, #ECFDF5 0%, #F0F9FF 100%)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: 'inset 0 0 0 1px #E5E7EB'
+                    }}
+                  >
+                    <i className="fa-solid fa-bullhorn" style={{ color: '#9333EA', fontSize: 20 }}></i>
                   </div>
-                  <img src={getImg(item.image || 'portfolio-placeholder.png')} alt={item.title} className="card-image" />
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
-                  <div className="client-info">
-                    <i className="fa-solid fa-user-tie"></i>
-                    <span>{item.client}</span>
-                  </div>
+                  <h4>{content.get('beranda', 'service_marketing_title', 'Digital Marketing')}</h4>
                 </div>
-              ))}
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: 9999,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    background: '#F59E0B',
+                    color: '#ffffff'
+                  }}
+                >
+                  {content.get('beranda', 'tag_popular', 'Populer')}
+                </span>
+                <p>{content.get('beranda', 'service_marketing_desc', 'Strategi pemasaran digital yang efektif')}</p>
+                <span style={{ color: '#9333EA', fontWeight: 700 }}>{content.get('beranda', 'price_marketing', 'Mulai Rp 2jt/bulan')}</span>
+              </div>
             </div>
 
-            <div className="portfolio-navigation">
-              <button className="nav-arrow prev" onClick={() => handlePortfolioNavigation('prev')}>
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
-              <div className="portfolio-dots">
-                {portfolioItems.map((_, index) => (
-                  <span
-                    key={index}
-                    className={`dot ${index === activePortfolioIndex ? 'active' : ''}`}
-                    onClick={() => setActivePortfolioIndex(index)}
-                  ></span>
+            <div style={{ position: 'relative' }}>
+              <span
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  background: '#FCE7F3',
+                  color: '#EC4899',
+                  fontSize: 12,
+                  fontWeight: 700,
+                  padding: '8px 12px',
+                  borderRadius: 9999,
+                  border: '1px solid #FBCFE8',
+                  boxShadow: '0 4px 10px rgba(236, 72, 153, 0.15)'
+                }}
+              >
+                <i className="fa-solid fa-gift"></i>
+                {content.get('beranda', 'merch_premium_badge', 'Kualitas Premium')}
+              </span>
+              <h2
+                style={{
+                  marginTop: 24,
+                  marginBottom: 20,
+                  fontSize: 28,
+                  fontWeight: 800,
+                  background: 'linear-gradient(90deg, #F97316, #EC4899)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
+                {content.get('beranda', 'merch_highlight_title', 'Custom Merchandise Titik Visual')}
+              </h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: 16 }}>
+                {(content.get('beranda', 'merch_highlight.items', [
+                  { icon: 'icon-drinkware.png', title: 'Custom Drinkware', badge: 'Terbaik', desc: 'Botol minum, tumbler, mug, gelas kaca custom', price: 'Mulai Rp 25rb/pcs' },
+                  { icon: 'icon-custom-bag.png', title: 'Custom Bags', badge: 'Terbaik', desc: 'Totebag canvas, tas furing, tas kertas branded', price: 'Mulai Rp 15rb/pcs' },
+                  { icon: 'icon-corporate-gift.png', title: 'Corporate Gifts', badge: 'Terbaik', desc: 'Powerbank, flashdisk, paket seminar kit', price: 'Mulai Rp 50rb/pcs' },
+                  { icon: 'icon-lifestyle.png', title: 'Lifestyle Products', badge: 'Terbaik', desc: 'Payung custom, jam dinding, pulpen branded', price: 'Mulai Rp 30rb/pcs' },
+                ]) || []).map((item: any, idx: number) => (
+                  <a
+                    key={idx}
+                    href="/custom-merchandise"
+                    onClick={(e) => { e.preventDefault(); navigateToPage('/custom-merchandise'); }}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 12,
+                      padding: 20,
+                      borderRadius: 16,
+                      background: '#ffffff',
+                      border: '1px solid #E5E7EB',
+                      boxShadow: '0 6px 20px rgba(0,0,0,0.05)',
+                      textDecoration: 'none',
+                      color: '#111827'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div
+                         style={{
+                           width: 48,
+                           height: 48,
+                           borderRadius: 14,
+                           background: 'rgba(16,185,129,0.12)',
+                           display: 'grid',
+                           placeItems: 'center'
+                         }}
+                       >
+                         {(() => {
+                           const t = (item.title || '').toLowerCase();
+                           const iconClass =
+                             t.includes('drink') ? 'fa-solid fa-mug-hot' :
+                             t.includes('bag') ? 'fa-solid fa-bag-shopping' :
+                             t.includes('lifestyle') ? 'fa-solid fa-umbrella' :
+                             'fa-solid fa-gift';
+                           return <i className={iconClass} style={{ color: '#F97316', fontSize: 20 }}></i>;
+                         })()}
+                       </div>
+                       <i className="fa-regular fa-circle-right" style={{ color: '#9CA3AF' }}></i>
+                     </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <h4 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>{item.title}</h4>
+                      <span
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          padding: '4px 10px',
+                          borderRadius: 9999,
+                          fontSize: 12,
+                          fontWeight: 700,
+                          background: item.badge === 'Terbaik' ? '#10B981' : '#F59E0B',
+                          color: '#ffffff'
+                        }}
+                      >
+                        {item.badge || 'Terbaik'}
+                      </span>
+                    </div>
+                    <p style={{ margin: 0, color: '#6B7280' }}>{item.desc}</p>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#F97316', fontWeight: 700 }}>{item.price}</span>
+                      <i className="fa-solid fa-arrow-right" style={{ color: '#F97316' }}></i>
+                    </div>
+                  </a>
                 ))}
               </div>
-              <button className="nav-arrow next" onClick={() => handlePortfolioNavigation('next')}>
-                <i className="fa-solid fa-chevron-right"></i>
-              </button>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 24 }}>
+                <a
+                  href="/services"
+                  onClick={(e) => { e.preventDefault(); navigateToPage('/services'); }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    padding: '10px 16px',
+                    borderRadius: 12,
+                    textDecoration: 'none',
+                    border: '1.5px solid #A78BFA',
+                    color: '#9333EA',
+                    fontWeight: 700,
+                    background: '#ffffff'
+                  }}
+                >
+                  <i className="far fa-eye"></i>
+                  {content.get('beranda', 'merch_highlight_cta', 'Lihat Semua Layanan Titik Visual')}
+                </a>
+              </div>
+              <div style={{ marginTop: 24 }}>
+                <div className="ds-carousel">
+                  <button aria-label="Prev" className="ds-prev">
+                    <i className="fa-solid fa-chevron-left" style={{ color: '#6B7280' }}></i>
+                  </button>
+                  <button aria-label="Next" className="ds-next">
+                    <i className="fa-solid fa-chevron-right" style={{ color: '#6B7280' }}></i>
+                  </button>
+                  <div className="ds-row">
+                    <div style={{ flex: 1 }}>
+                      <h3 style={{ color: '#ffffff', fontSize: 22, fontWeight: 800 }}>
+                        {content.get('beranda', 'ds_carousel_title', 'Digital Creative Services')}
+                      </h3>
+                      <p style={{ color: '#F4F4F5', marginTop: 4 }}>
+                        {content.get('beranda', 'ds_carousel_subtitle', 'Logo Design, Social Media Management, Brand Identity')}
+                      </p>
+                    </div>
+                    <div className="ds-artwork">
+                      <div
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          top: 0,
+                          width: 120,
+                          height: 120,
+                          borderRadius: 9999,
+                          background: 'rgba(255,255,255,0.25)'
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: 'absolute',
+                          right: 30,
+                          top: 30,
+                          width: 60,
+                          height: 60,
+                          borderRadius: 9999,
+                          background: 'rgba(255,255,255,0.35)',
+                          display: 'grid',
+                          placeItems: 'center'
+                        }}
+                      >
+                        <i className="fa-regular fa-image" style={{ color: '#7C3AED', fontSize: 20 }}></i>
+                      </div>
+                    </div>
+                    <a
+                      href={content.get('beranda', 'ds_carousel_cta_href', 'https://wa.me/6281804376001')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '10px 16px',
+                        borderRadius: 12,
+                        textDecoration: 'none',
+                        background: 'linear-gradient(90deg, #F97316, #DC2626)',
+                        color: '#ffffff',
+                        fontWeight: 700,
+                        boxShadow: '0 10px 22px rgba(249, 115, 22, 0.25)'
+                        }}
+                      >
+                        <i className="fa-solid fa-phone"></i>
+                        {content.get('beranda', 'ds_carousel_cta_label', 'Hubungi Titik Visual')}
+                      </a>
+                  </div>
+                  <div className="ds-dots">
+                    <span className="ds-dot active"></span>
+                    <span className="ds-dot"></span>
+                    <span className="ds-dot"></span>
+                  </div>
+                </div>
+              </div>
+              <section style={{ marginTop: 24, background: '#F8FAFC' }}>
+                <div className="container" style={{ paddingTop: 28, paddingBottom: 28 }}>
+                  <h2 style={{ textAlign: 'center', fontSize: 26, fontWeight: 800, color: '#111827' }}>
+                    {content.get('beranda', 'achievements_title', 'Pencapaian Titik Visual')}
+                  </h2>
+                  <p style={{ textAlign: 'center', color: '#6B7280', marginTop: 6 }}>
+                    {content.get('beranda', 'achievements_subtitle', 'Kepercayaan klien adalah prioritas utama kami')}
+                  </p>
+                  <div
+                    className="achievements-grid"
+                    style={{ display: 'grid', gap: 16, marginTop: 20 }}
+                  >
+                    {(content.get('beranda', 'achievements.items', [
+                      { icon: 'fa-solid fa-bullseye', value: '500+', label: 'Proyek Selesai' },
+                      { icon: 'fa-solid fa-award', value: '200+', label: 'Klien Puas' },
+                      { icon: 'fa-regular fa-star', value: '5+', label: 'Tahun Pengalaman' },
+                      { icon: 'fa-solid fa-bolt', value: '24/7', label: 'Support Titik Visual' }
+                    ]) || []).map((item: any, idx: number) => (
+                      <div
+                        key={idx}
+                        style={{
+                          background: '#ffffff',
+                          borderRadius: 16,
+                          border: '1px solid #E5E7EB',
+                          boxShadow: '0 6px 16px rgba(0,0,0,0.04)',
+                          padding: 20,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 14
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 44,
+                            height: 44,
+                            borderRadius: 12,
+                            background: 'linear-gradient(180deg, #F5F3FF 0%, #FAFAFF 100%)',
+                            display: 'grid',
+                            placeItems: 'center',
+                            boxShadow: 'inset 0 0 0 1px #EDE9FE'
+                          }}
+                        >
+                          <i className={item.icon || 'fa-regular fa-star'} style={{ color: '#9333EA', fontSize: 20 }}></i>
+                        </div>
+                        <div>
+                          <div style={{ fontSize: 24, fontWeight: 800, color: '#111827', lineHeight: 1 }}>{item.value}</div>
+                          <div style={{ fontSize: 12, color: '#6B7280' }}>{item.label}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
             </div>
+            <section style={{ marginTop: 24 }}>
+              <div className="container">
+                <h2 style={{ textAlign: 'center', fontSize: 30, fontWeight: 800, color: '#1F2937' }}>
+                  {content.get('beranda', 'portfolio_showcase_title', 'Portfolio Karya Titik Visual')}
+                </h2>
+                <p style={{ textAlign: 'center', color: '#6B7280', marginTop: 6 }}>
+                  {content.get('beranda', 'portfolio_showcase_subtitle', 'Karya terbaik yang telah kami ciptakan untuk klien')}
+                </p>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                    gap: 16,
+                    marginTop: 20,
+                    position: 'relative'
+                  }}
+                >
+                  {(content.get('beranda', 'portfolio_showcase.items', [
+                    { year: '2024', label: 'Merchandise by Titik Visual', title: 'Custom Merchandise Package', desc: 'Paket merchandise lengkap termasuk tumbler, totebag, dan corporate gifts untuk event perusahaan.', client: 'PT. Teknologi Maju', gradient: 'linear-gradient(180deg, #10B981 0%, #34D399 100%)', link: '/portfolio' },
+                    { year: '2024', label: 'Digital Marketing by Titik Visual', title: 'Social Media Management', desc: 'Pengelolaan social media lengkap dengan content creation, posting schedule, dan analytics reporting.', client: 'Fashion Brand Indonesia', gradient: 'linear-gradient(180deg, #6366F1 0%, #A78BFA 100%)', link: '/portfolio' },
+                    { year: '2023', label: 'UI/UX Design by Titik Visual', title: 'E-Learning Platform UI/UX', desc: 'Design interface untuk platform e-learning dengan fokus pada user experience dan engagement siswa.', client: 'EduTech Indonesia', gradient: 'linear-gradient(180deg, #EC4899 0%, #F472B6 100%)', link: '/portfolio' }
+                  ]) || []).map((item: any, idx: number) => (
+                    <div
+                      key={idx}
+                      style={{
+                        background: '#ffffff',
+                        borderRadius: 12,
+                        border: '1px solid #E5E7EB',
+                        boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      <div style={{ position: 'relative', height: 140, background: item.gradient }}>
+                        <span
+                          style={{
+                            position: 'absolute',
+                            right: 12,
+                            top: 12,
+                            fontSize: 12,
+                            fontWeight: 700,
+                            padding: '4px 8px',
+                            borderRadius: 9999,
+                            background: 'rgba(255,255,255,0.85)',
+                            color: '#374151',
+                            border: '1px solid #E5E7EB'
+                          }}
+                        >
+                          {item.year}
+                        </span>
+                        <div
+                          style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: 64,
+                            height: 64,
+                            borderRadius: 9999,
+                            background: 'rgba(255,255,255,0.35)',
+                            display: 'grid',
+                            placeItems: 'center'
+                          }}
+                        >
+                          <i className="fa-regular fa-circle-play" style={{ color: '#ffffff', fontSize: 24 }}></i>
+                        </div>
+                      </div>
+                      <div style={{ padding: 16 }}>
+                        <span
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            padding: '4px 10px',
+                            borderRadius: 9999,
+                            fontSize: 12,
+                            fontWeight: 700,
+                            background: '#F3F4F6',
+                            color: '#374151',
+                            border: '1px solid #E5E7EB',
+                            marginBottom: 8
+                          }}
+                        >
+                          {item.label}
+                        </span>
+                        <h4 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: '#111827' }}>{item.title}</h4>
+                        <p style={{ marginTop: 8, color: '#6B7280' }}>{item.desc}</p>
+                        <p style={{ marginTop: 12, color: '#6B7280' }}>
+                          <span style={{ fontWeight: 600 }}>Client:</span> {item.client}
+                        </p>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                          <a
+                            href={item.link || '/portfolio'}
+                            onClick={(e) => { e.preventDefault(); navigateToPage(item.link || '/portfolio'); }}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              width: 28,
+                              height: 28,
+                              borderRadius: 8,
+                              border: '1px solid #E5E7EB',
+                              color: '#9333EA'
+                            }}
+                          >
+                            <i className="fa-regular fa-square-arrow-up-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  <button
+                    aria-label="Prev"
+                    style={{
+                      position: 'absolute',
+                      left: -8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      width: 36,
+                      height: 36,
+                      borderRadius: 9999,
+                      border: '1px solid #E5E7EB',
+                      background: '#ffffff',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.06)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <i className="fa-solid fa-chevron-left" style={{ color: '#6B7280' }}></i>
+                  </button>
+                  <button
+                    aria-label="Next"
+                    style={{
+                      position: 'absolute',
+                      right: -8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      width: 36,
+                      height: 36,
+                      borderRadius: 9999,
+                      border: '1px solid #E5E7EB',
+                      background: '#ffffff',
+                      display: 'grid',
+                      placeItems: 'center',
+                      boxShadow: '0 6px 16px rgba(0,0,0,0.06)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <i className="fa-solid fa-chevron-right" style={{ color: '#6B7280' }}></i>
+                  </button>
+                </div>
+                <div style={{ display: 'grid', placeItems: 'center', marginTop: 16, gap: 10 }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: 9999, background: '#9333EA' }}></span>
+                    <span style={{ width: 8, height: 8, borderRadius: 9999, background: '#E5E7EB' }}></span>
+                    <span style={{ width: 8, height: 8, borderRadius: 9999, background: '#E5E7EB' }}></span>
+                  </div>
+                  <a
+                    href="/portfolio"
+                    onClick={(e) => { e.preventDefault(); navigateToPage('/portfolio'); }}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 10,
+                      padding: '10px 16px',
+                      borderRadius: 12,
+                      textDecoration: 'none',
+                      border: '1.5px solid #A78BFA',
+                      color: '#9333EA',
+                      fontWeight: 700,
+                      background: '#ffffff'
+                    }}
+                  >
+                    <i className="far fa-eye"></i>
+                    {content.get('beranda', 'portfolio_showcase_cta', 'Lihat Semua Portfolio Titik Visual')}
+                  </a>
+                </div>
+              </div>
+            </section>
           </div>
+          <section style={{ marginTop: 24 }}>
+            <div className="container">
+              <h2 style={{ textAlign: 'center', fontSize: 30, fontWeight: 800, color: '#1F2937' }}>
+                {content.get('beranda', 'careers_title', 'Bergabung dengan Tim Titik Visual')}
+              </h2>
+              <p style={{ textAlign: 'center', color: '#6B7280', marginTop: 6 }}>
+                {content.get('beranda', 'careers_subtitle', 'Kembangkan karir kreatif Anda bersama Titik Visual')}
+              </p>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                  gap: 16,
+                  marginTop: 20
+                }}
+              >
+                {(content.get('beranda', 'careers.items', [
+                  {
+                    icon: 'fa-solid fa-palette',
+                    title: 'UI/UX Designer',
+                    subtitle: 'Bergabung dengan tim Titik Visual sebagai UI/UX Designer',
+                    points: ['Mahasiswa DKV, Multimedia, atau relevan', 'Menguasai Figma, Adobe XD, Sketch', 'Memahami prinsip UI/UX design'],
+                    gradient: 'linear-gradient(90deg, #9333EA, #EC4899)',
+                    applyLabel: 'Lamar Sekarang',
+                    href: '/program-magang'
+                  },
+                  {
+                    icon: 'fa-solid fa-code',
+                    title: 'Web Developer',
+                    subtitle: 'Bangun website dan aplikasi web bersama tim Titik Visual',
+                    points: ['Mahasiswa Informatika, Sistem Informasi', 'Menguasai HTML, CSS, JavaScript', 'Familiar dengan React, Next.js'],
+                    gradient: 'linear-gradient(90deg, #3B82F6, #06B6D4)',
+                    applyLabel: 'Lamar Sekarang',
+                    href: '/program-magang'
+                  },
+                  {
+                    icon: 'fa-solid fa-bullhorn',
+                    title: 'Digital Marketing Specialist',
+                    subtitle: 'Kembangkan strategi digital marketing di Titik Visual',
+                    points: ['Mahasiswa aktif (minimal semester 4)', 'Jurusan pemasaran, komunikasi, bisnis', 'Memahami SEO, Social Media, Email Marketing'],
+                    gradient: 'linear-gradient(90deg, #06B6D4, #3B82F6)',
+                    applyLabel: 'Lamar Sekarang',
+                    href: '/program-magang'
+                  },
+                  {
+                    icon: 'fa-solid fa-share-nodes',
+                    title: 'Social Media Specialist',
+                    subtitle: 'Kelola dan kembangkan media sosial klien Titik Visual',
+                    points: ['Mahasiswa aktif (minimal semester 4)', 'Memahami platform media sosial', 'Kreatif dalam content creation'],
+                    gradient: 'linear-gradient(90deg, #EC4899, #F97316)',
+                    applyLabel: 'Lamar Sekarang',
+                    href: '/program-magang'
+                  }
+                ]) || []).map((item: any, idx: number) => (
+                  <div
+                    key={idx}
+                    style={{
+                      background: '#ffffff',
+                      borderRadius: 16,
+                      border: '1px solid #E5E7EB',
+                      boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
+                      padding: 20
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div
+                          style={{
+                            width: 44,
+                            height: 44,
+                            borderRadius: 12,
+                            background: 'linear-gradient(180deg, #F5F3FF 0%, #FAFAFF 100%)',
+                            display: 'grid',
+                            placeItems: 'center',
+                            boxShadow: 'inset 0 0 0 1px #EDE9FE'
+                          }}
+                        >
+                          <i className={item.icon || 'fa-solid fa-palette'} style={{ color: '#9333EA', fontSize: 20 }}></i>
+                        </div>
+                        <div>
+                          <h4 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: '#111827' }}>{item.title}</h4>
+                          <p style={{ margin: 0, color: '#6B7280' }}>{item.subtitle}</p>
+                        </div>
+                      </div>
+                      <span
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          padding: '6px 10px',
+                          borderRadius: 9999,
+                          fontSize: 12,
+                          fontWeight: 700,
+                          background: '#F3E8FF',
+                          color: '#9333EA',
+                          border: '1px solid #E9D5FF'
+                        }}
+                      >
+                        Magang
+                      </span>
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, marginTop: 14, display: 'grid', gap: 8 }}>
+                      {(item.points || []).map((point: string, i: number) => (
+                        <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#374151' }}>
+                          <i className="fa-solid fa-check" style={{ color: '#10B981' }}></i>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={item.href || '/program-magang'}
+                      onClick={(e) => { e.preventDefault(); navigateToPage(item.href || '/program-magang'); }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: 10,
+                        marginTop: 14,
+                        width: '100%',
+                        padding: '10px 16px',
+                        borderRadius: 12,
+                        textDecoration: 'none',
+                        background: item.gradient,
+                        color: '#ffffff',
+                        fontWeight: 700,
+                        boxShadow: '0 10px 22px rgba(0,0,0,0.08)'
+                      }}
+                    >
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                        <i className="fa-solid fa-arrow-right"></i>
+                        {item.applyLabel || 'Lamar Sekarang'}
+                      </span>
+                      <span></span>
+                    </a>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+                <a
+                  href="/lowongan-kerja"
+                  onClick={(e) => { e.preventDefault(); navigateToPage('/lowongan-kerja'); }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    padding: '10px 16px',
+                    borderRadius: 12,
+                    textDecoration: 'none',
+                    border: '1.5px solid #A78BFA',
+                    color: '#9333EA',
+                    fontWeight: 700,
+                    background: '#ffffff'
+                  }}
+                >
+                  <i className="fa-solid fa-arrow-right"></i>
+                  {content.get('beranda', 'careers_cta', 'Lihat Semua Posisi')}
+                </a>
+              </div>
+            </div>
+          </section>
         </section>
 
+        
+
         <ContactCTASection />
+        <footer style={{ background: '#ffffff', padding: '24px 0' }}>
+          <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              {(() => {
+                const src = getImg('img.png');
+                return src ? <img src={src} alt="Titik Visual" style={{ height: 28, objectFit: 'contain' }} /> : <span style={{ fontWeight: 800, color: '#111827' }}>Titik Visual</span>;
+              })()}
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <p style={{ margin: 0, color: '#6B7280' }}>© {new Date().getFullYear()} Titik Visual. All rights reserved.</p>
+              <p style={{ margin: 0, color: '#6B7280' }}>Digital Creative Studio Yogyakarta - Dari Ide Menjadi Kenyataan</p>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
