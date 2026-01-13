@@ -1,0 +1,13 @@
+{
+  "name": "cms-server",
+  "version": "1.0.0",
+  "description": "Simple CMS Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

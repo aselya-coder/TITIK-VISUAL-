@@ -1,11 +1,20 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const DATA_PATH = path.join(__dirname, 'content.json');
 const BACKUP_DIR = process.env.BACKUP_DIR || path.join(__dirname, 'backups');
 const MAX_BACKUPS = parseInt(process.env.MAX_BACKUPS || '20', 10);
 const PORT = process.env.PORT || 4000;
+const JWT_SECRET = 'super-secret-key-change-this'; // In production use env var
+
+// Hardcoded admin user
+const ADMIN_USER = {
+  username: 'admin',
+  passwordHash: '$2a$10$vs2thajtmN9jkl7NCx5gL.DPn.o3MoPaCmwrllFlOOUyBVtsX4KCu' // admin123
+};
 
 function isObj(v) {
   return v && typeof v === 'object' && !Array.isArray(v);
@@ -130,6 +139,28 @@ const server = http.createServer((req, res) => {
     const data = readJSON();
     return sendJSON(res, 200, data[page] || {});
   }
+  if (url === '/api/login' && method === 'POST') {
+    let body = '';
+    req.on('data', (chunk) => (body += chunk));
+    req.on('end', () => {
+      try {
+        const { username, password } = JSON.parse(body || '{}');
+        if (!username || !password) {
+             return sendJSON(res, 400, { ok: false, error: 'Username and password required' });
+        }
+        if (username === ADMIN_USER.username && bcrypt.compareSync(password, ADMIN_USER.passwordHash)) {
+          const token = jwt.sign({ username, role: 'admin' }, JWT_SECRET, { expiresIn: '24h' });
+          return sendJSON(res, 200, { ok: true, token, role: 'admin' });
+        } else {
+          return sendJSON(res, 401, { ok: false, error: 'Username atau password salah' });
+        }
+      } catch (err) {
+        console.error('Login error:', err);
+        return sendJSON(res, 400, { ok: false, error: 'Invalid request body' });
+      }
+    });
+    return;
+  }
   if (url.startsWith('/api/content/') && (method === 'PUT' || method === 'PATCH')) {
     let body = '';
     req.on('data', (chunk) => (body += chunk));
@@ -155,6 +186,18 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (url === '/api/content' && method === 'POST') {
+    // Auth check
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) {
+      return sendJSON(res, 401, { ok: false, error: 'Unauthorized' });
+    }
+    try {
+      jwt.verify(token, JWT_SECRET);
+    } catch (err) {
+      return sendJSON(res, 403, { ok: false, error: 'Forbidden' });
+    }
+
     let body = '';
     req.on('data', (chunk) => (body += chunk));
     req.on('end', () => {

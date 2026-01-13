@@ -271,7 +271,10 @@ export default function AdminPanel() {
       try {
         const res = await fetch(`${API_BASE}/${encodeURIComponent(selectedPage)}`, {
           method: "PATCH",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("adminToken")}`
+          },
           body: JSON.stringify(patch),
         });
         

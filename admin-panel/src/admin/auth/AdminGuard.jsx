@@ -1,53 +1,28 @@
 import { useEffect, useState } from 'react';
-import { getSupabase } from '../lib/supabaseClient.js';
+import { Navigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 export function AdminGuard({ children }) {
-  const [status, setStatus] = useState('checking');
-  const [role, setRole] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(null); // null = checking
 
   useEffect(() => {
-    const supabase = getSupabase();
-    supabase.auth.getSession().then(async ({ data }) => {
-      const session = data?.session || null;
-      if (!session) {
-        setStatus('unauth');
-        return;
-      }
-      const uid = session.user.id;
-      const { data: profile, error } = await supabase.from('profiles').select('role').eq('id', uid).single();
-      if (error) {
-        setStatus('error');
-        return;
-      }
-      setRole(profile?.role || '');
-      setStatus(profile?.role === 'admin' ? 'ok' : 'forbidden');
-    });
+    const token = localStorage.getItem('adminToken');
+    // Here we could verify the token with the backend if we wanted to be more secure
+    // For now, simple existence check + expiration check (JWT decode) would be better but let's stick to existence as requested "simple"
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
   }, []);
 
-  if (status === 'checking') {
-    return <Card className="p-6"><p className="text-muted-foreground">Memeriksa sesi admin…</p></Card>;
+  if (isAuthenticated === null) {
+    return <Card className="p-6"><p className="text-muted-foreground">Checking authentication...</p></Card>;
   }
-  if (status === 'unauth') {
-    return (
-      <Card className="p-6 space-y-4">
-        <h2 className="text-xl font-semibold">Butuh Login</h2>
-        <p className="text-muted-foreground">Silakan login terlebih dahulu untuk mengakses halaman admin.</p>
-        <Button onClick={() => getSupabase().auth.signInWithOAuth({ provider: 'google' })}>Login dengan Google</Button>
-      </Card>
-    );
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
   }
-  if (status === 'forbidden') {
-    return (
-      <Card className="p-6">
-        <h2 className="text-xl font-semibold">Akses Ditolak</h2>
-        <p className="text-muted-foreground">Role saat ini: {role || 'unknown'}. Hanya admin yang dapat mengakses halaman ini.</p>
-      </Card>
-    );
-  }
-  if (status === 'error') {
-    return <Card className="p-6"><p className="text-red-600">Gagal memeriksa role admin.</p></Card>;
-  }
+
   return children;
 }
