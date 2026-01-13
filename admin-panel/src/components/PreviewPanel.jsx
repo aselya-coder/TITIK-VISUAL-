@@ -11,12 +11,14 @@ export function PreviewPanel({ url, onRefresh }) {
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 relative">
-        <iframe
-          id="tv-preview"
-          src={url}
-          className="w-full h-full border-none"
-          title="Website Preview"
-        />
+        {url ? (
+          <iframe
+            id="tv-preview"
+            src={url}
+            className="w-full h-full border-none"
+            title="Website Preview"
+          />
+        ) : null}
       </div>
     </div>
   );

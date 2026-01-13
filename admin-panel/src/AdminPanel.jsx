@@ -15,30 +15,7 @@ import { Input } from "@/components/ui/input";
 export default function AdminPanel() {
   const STORAGE_KEY = "tv_page_content";
   const API_BASE = "http://localhost:4000/api/content";
-  const [previewUrl, setPreviewUrl] = useState("http://localhost:3002");
-  
-  useEffect(() => {
-    const probe = async (url) => {
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 2000);
-        await fetch(url, { mode: "no-cors", signal: controller.signal });
-        clearTimeout(timeout);
-        return true;
-      } catch {
-        return false;
-      }
-    };
-    (async () => {
-      const candidates = ["http://localhost:3002", "http://localhost:3000", "http://localhost:3001"];
-      for (const url of candidates) {
-        if (await probe(url)) {
-          setPreviewUrl(url);
-          return;
-        }
-      }
-    })();
-  }, []);
+  const [previewUrl] = useState("http://localhost:3000");
   
   const [selectedPage, setSelectedPage] = useState(null);
   const [formValues, setFormValues] = useState({});
