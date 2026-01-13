@@ -117,7 +117,7 @@ function sendJSON(res, status, body) {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   });
   res.end(JSON.stringify(body));
 }
@@ -162,6 +162,16 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (url.startsWith('/api/content/') && (method === 'PUT' || method === 'PATCH')) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) {
+      return sendJSON(res, 401, { ok: false, error: 'Unauthorized' });
+    }
+    try {
+      jwt.verify(token, JWT_SECRET);
+    } catch (err) {
+      return sendJSON(res, 403, { ok: false, error: 'Forbidden' });
+    }
     let body = '';
     req.on('data', (chunk) => (body += chunk));
     req.on('end', () => {

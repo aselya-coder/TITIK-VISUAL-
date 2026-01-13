@@ -1,6 +1,6 @@
 {
   "page-layanan": {
-    "hero_title": "Kategori Layanan Utama",
+    "hero_title": "TEST SAVE VIA API",
     "hero_subtitle": "Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.",
     "main_services": [
       {
@@ -421,7 +421,7 @@
   },
   "page-portfolio": {
     "hero": {
-      "title": "Portfolio Kami"
+      "title": "TEST  Portfolio Title"
     },
     "portfolio_title": "Featured Projects",
     "portfolio_subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami",
