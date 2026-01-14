@@ -1645,3 +1645,116 @@ body {
     text-align: right;
     font-size: 14px;
 }
+
+/* ==========================================================================
+   FIX LAYOUT: FORCE FULL WIDTH FOR SOCIAL MEDIA PAGE
+   ========================================================================== */
+/* PAGE HARUS FULL */
+.social-media-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 2. SECTION MUST BE FULL WIDTH */
+/* SECTION HARUS FULL */
+#social-features-fix {
+  width: 100%;
+  max-width: none;
+  background: #FFFFFF;
+  /* TES CEPAT: OUTLINE MERAH */
+  outline: 5px solid red; 
+}
+
+/* 3. INNER CONTAINER RESTRICTED */
+/* YANG BOLEH SEMPIT HANYA CONTAINER DALAM */
+#social-features-fix .features-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* 4. GRID LAYOUT - SOLUSI PAKSA (ANTI BANTAH) */
+#social-features-fix .features-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 32px !important;
+  width: 100% !important;
+  
+  /* Reset Potentially Conflicting Properties */
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+  justify-content: start !important;
+}
+
+/* 5. CARD STYLING - SOLUSI PAKSA */
+#social-features-fix .features-grid > * {
+  /* FIX TOTAL: PAKSA CARD = 1 KOLOM */
+  grid-column: span 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+  
+  /* Ensure height consistency */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  /* CLEANUP: Debug colors removed */
+}
+
+/* RESPONSIVE GRID */
+@media (max-width: 992px) {
+  #social-features-fix .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #social-features-fix .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================================
+    RESPONSIVE (RESTORED)
+========================================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+    
+    .features-grid,
+    .platforms-grid,
+    .workflow-steps,
+    .pricing-grid,
+    .success-stories-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .workflow-step::after {
+        display: none;
+    }
+
+    .hero-content {
+        padding-right: 0;
+    }
+
+    .social-media-page .hero-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    .social-media-page .hero-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+}

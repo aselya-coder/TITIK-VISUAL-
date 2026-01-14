@@ -260,13 +260,12 @@ const LogoDesignPage = () => {
 
   const WhyChooseLogoSection: React.FC = () => (
     <section id="logo-features-fix" className="features section-padding" data-aos="fade-up">
-      <div className="container" style={{ margin: '0 auto' }}>
-        <div className="section-title" style={{ textAlign: 'center' }}>
+      <div className="container logo-features-container">
+        <div className="section-title">
           <h2>{content.get('Page Detail Layanan Logo Design', 'why_choose_title', 'Mengapa Pilih Logo Design Kami?')}</h2>
-          <p style={{ maxWidth: 720, margin: '0 auto', padding: '0 10px' }}>{content.get('Page Detail Layanan Logo Design', 'why_choose_subtitle', 'Logo yang kami buat tidak hanya indah, tapi juga strategis dan meaningful.')}</p>
+          <p>{content.get('Page Detail Layanan Logo Design', 'why_choose_subtitle', 'Logo yang kami buat tidak hanya indah, tapi juga strategis dan meaningful.')}</p>
         </div>
-        <div className="logo-features-container">
-        <div className="features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 35, justifyContent: 'center', justifyItems: 'center', maxWidth: 1100, margin: '0 auto' }}>
+        <div className="features-grid">
           <div className="feature-item">
             <div className="icon">
               <img src={iconKonsep} alt="Konsep Unik Icon" />
@@ -295,7 +294,6 @@ const LogoDesignPage = () => {
             <h3>{content.get('Page Detail Layanan Logo Design', 'feature_4_title', 'Unlimited Revisions')}</h3>
             <p>{content.get('Page Detail Layanan Logo Design', 'feature_4_desc', 'Revisi tanpa batas hingga Anda puas.')}</p>
           </div>
-        </div>
         </div>
       </div>
     </section>

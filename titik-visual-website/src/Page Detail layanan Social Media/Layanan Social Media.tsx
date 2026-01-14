@@ -475,8 +475,8 @@ const SocialMediaPage = () => {
       </section>
 
       {/* WHY CHOOSE US SECTION */}
-      <section className="features">
-        <div className="container">
+      <section id="social-features-fix" className="features section-padding">
+        <div className="features-container">
           <div className="section-title" data-aos="fade-up">
             <h2>{content.get('Page Detail layanan Social Media', 'why_choose_title', 'Mengapa Pilih Social Media Management Kami?')}</h2>
             <p>{content.get('Page Detail layanan Social Media', 'why_choose_subtitle', 'Strategi yang data-driven dan content yang engaging untuk hasil yang terukur')}</p>
@@ -497,7 +497,7 @@ const SocialMediaPage = () => {
               <h3>{content.get('Page Detail layanan Social Media', 'feature_3_title', 'Analytics & Reporting')}</h3>
               <p>{content.get('Page Detail layanan Social Media', 'feature_3_desc', 'Laporan performa dan insights untuk optimasi')}</p>
             </div>
-            <div className="feature-item">
+            <div className="feature-item" id="paid-ads">
               <div className="icon"><i className="fas fa-bolt"></i></div>
               <h3>{content.get('Page Detail layanan Social Media', 'feature_4_title', 'Paid Ads Management')}</h3>
               <p>{content.get('Page Detail layanan Social Media', 'feature_4_desc', 'Kelola iklan berbayar untuk reach dan conversion optimal.')}</p>

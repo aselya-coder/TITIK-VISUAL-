@@ -378,20 +378,6 @@ body[data-page="portfolio"] .hero-buttons {
   flex-wrap: wrap;
 }
 
-/* Neutralize forced positioning/transforms inside portfolio hero */
-#portfolio-fix,
-#portfolio-fix .hero-content,
-#portfolio-fix .hero-title,
-#portfolio-fix .hero-description,
-#portfolio-fix .portfolio-buttons {
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
 @media (max-width: 480px) {
   #portfolio-fix h1 {
     font-size: 22px;
