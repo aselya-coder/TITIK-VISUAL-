@@ -218,6 +218,9 @@ body {
   .portfolio-page-wrapper {
     overflow-x: hidden;
   }
+  .featured-projects-section {
+    overflow-x: hidden;
+  }
   .portfolio-hero-section {
     padding: 96px 0 64px;
   }
@@ -251,7 +254,7 @@ body {
   }
   .hero-buttons .btn {
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
     min-height: 44px;
     white-space: normal;
   }
