@@ -620,10 +620,25 @@ body {
   line-height: 1.6;
 }
 
+/* Center-align features section header/subtitle within Logo Design page */
+.logo-design-page .features .section-title {
+  text-align: center;
+}
+.logo-design-page .features .section-title p {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
 .logo-design-page .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 35px;
+    justify-content: center;
+    justify-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 .logo-design-page .features .feature-item {
     display: block;
@@ -704,6 +719,16 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
+}
+
+.logo-design-page .logo-types-grid {
+    justify-content: center !important;
+}
+
+@media (min-width: 1024px) {
+  .logo-design-page .logo-types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 .logo-type-item {
     background-color: var(--white);
@@ -1548,4 +1573,66 @@ body {
 .footer-bottom p {
   margin: 0;
   color: #9ca3af;
+}
+.logo-design-page #logo-features-fix .section-title {
+  text-align: center !important;
+}
+.logo-design-page #logo-features-fix .section-title h2 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.logo-design-page #logo-features-fix .section-title p {
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  padding: 0 10px !important;
+  text-align: center !important;
+}
+.logo-design-page #logo-features-fix .features-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 35px !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  align-items: stretch !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+@media (min-width: 1024px) {
+  .logo-design-page #logo-features-fix .features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .logo-design-page #logo-features-fix .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .logo-design-page #logo-features-fix .features-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
+
+.logo-design-page #logo-features-fix .feature-item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+.logo-design-page #logo-features-fix .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+.logo-design-page #logo-features-fix .logo-features-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
 }

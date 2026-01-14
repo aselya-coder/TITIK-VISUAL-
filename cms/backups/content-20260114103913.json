@@ -1,0 +1,777 @@
+{
+  "page-layanan": {
+    "hero_title": "Kategori Layanan Utama",
+    "hero_subtitle": "Pilih layanan digital unggulan yang sesuai dengan kebutuhan bisnis Anda.",
+    "main_services": [
+      {
+        "title": "UI/UX Design",
+        "desc": "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile",
+        "icon": "PenTool",
+        "color": "purple",
+        "cta_label": "Lihat Detail",
+        "cta_href": "#detail-services"
+      },
+      {
+        "title": "Website & Aplikasi",
+        "desc": "Website responsif dan aplikasi mobile dengan teknologi terdepan",
+        "icon": "Globe",
+        "color": "blue",
+        "cta_label": "Lihat Detail",
+        "cta_href": "#detail-services"
+      },
+      {
+        "title": "Logo Design",
+        "desc": "Logo profesional yang mencerminkan identitas dan nilai brand Anda",
+        "icon": "Sparkles",
+        "color": "orange",
+        "cta_label": "Lihat Detail",
+        "cta_href": "#detail-services"
+      },
+      {
+        "title": "Social Media Management",
+        "desc": "Kelola dan kembangkan media sosial bisnis dengan strategi yang tepat",
+        "icon": "TrendingUp",
+        "color": "pink",
+        "cta_label": "Lihat Detail",
+        "cta_href": "#detail-services"
+      },
+      {
+        "title": "Custom Merchandise",
+        "desc": "Merchandise berkualitas tinggi untuk promosi dan corporate branding",
+        "icon": "Gift",
+        "color": "green",
+        "cta_label": "Lihat Detail",
+        "cta_href": "#products"
+      }
+    ],
+    "detail_title": "Digital Creative Services",
+    "detail_subtitle": "Layanan digital lengkap untuk mengembangkan presence online bisnis Anda",
+    "detail_services": [
+      {
+        "title": "UI/UX Design",
+        "desc": "Desain interface yang user-friendly dan menarik untuk website dan aplikasi mobile",
+        "image": "ui-ux.png",
+        "accent": "purple",
+        "features": [
+          "User Research & Analysis",
+          "Wireframing & Prototyping",
+          "Visual Design System",
+          "Usability Testing",
+          "Responsive Design"
+        ],
+        "price": "Mulai dari Rp 2.500.000",
+        "duration": "2-4 minggu",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Website Development",
+        "desc": "Website responsif dan modern dengan teknologi terdepan untuk bisnis Anda",
+        "image": "web.png",
+        "accent": "blue",
+        "features": [
+          "Responsive Web Design",
+          "CMS Integration",
+          "E-commerce Solutions",
+          "SEO Optimization",
+          "Performance Optimization"
+        ],
+        "price": "Mulai dari Rp 3.500.000",
+        "duration": "3-6 minggu",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Mobile App Development",
+        "desc": "Aplikasi mobile iOS dan Android dengan performa optimal dan user experience terbaik",
+        "image": "Mobile.png",
+        "accent": "green",
+        "features": [
+          "Native iOS & Android",
+          "Cross-platform Development",
+          "API Integration",
+          "Push Notifications",
+          "App Store Deployment"
+        ],
+        "price": "Mulai dari Rp 15.000.000",
+        "duration": "6-12 minggu",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Logo Design",
+        "desc": "Logo profesional yang mencerminkan identitas dan nilai brand brand Anda",
+        "image": "Logo Design.png",
+        "accent": "orange",
+        "features": [
+          "Konsep Logo Unik",
+          "Multiple Variations",
+          "Brand Guidelines",
+          "File Format Lengkap",
+          "Unlimited Revisions"
+        ],
+        "price": "Mulai dari Rp 500.000",
+        "duration": "1-2 minggu",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Brand Identity",
+        "desc": "Paket lengkap identitas visual untuk membangun brand yang kuat dan memorable",
+        "image": "brand identity.png",
+        "accent": "purple",
+        "features": [
+          "Logo Design",
+          "Color Palette",
+          "Typography System",
+          "Business Card Design",
+          "Letterhead & Stationery"
+        ],
+        "price": "Mulai dari Rp 2.000.000",
+        "duration": "2-3 minggu",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Social Media Management",
+        "desc": "Kelola dan kembangkan media sosial bisnis Anda dengan strategi yang tepat",
+        "image": "Social Media Management.png",
+        "accent": "pink",
+        "features": [
+          "Content Planning & Strategy",
+          "Daily Posting Schedule",
+          "Community Management",
+          "Analytics & Reporting",
+          "Paid Ads Management"
+        ],
+        "price": "Mulai dari Rp 1.500.000/bulan",
+        "duration": "Ongoing",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Digital Marketing",
+        "desc": "Strategi pemasaran digital yang komprehensif untuk meningkatkan brand awareness",
+        "image": "digital marketing.png",
+        "accent": "orange",
+        "features": [
+          "SEO & SEM Strategy",
+          "Social Media Advertising",
+          "Email Marketing",
+          "Content Marketing",
+          "Analytics & Optimization"
+        ],
+        "price": "Mulai dari Rp 2.000.000/bulan",
+        "duration": "Ongoing",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      },
+      {
+        "title": "Social Media Feed Design",
+        "desc": "Desain konten visual yang menarik dan konsisten untuk feed media sosial",
+        "image": "Social Media Feed Design.png",
+        "accent": "blue",
+        "features": [
+          "Feed Template Design",
+          "Story Templates",
+          "Highlight Covers",
+          "Post Carousel Design",
+          "Brand Consistency"
+        ],
+        "price": "Mulai dari Rp 800.000/bulan",
+        "duration": "Ongoing",
+        "btn_order": "Pesan Sekarang",
+        "wa_link": "https://wa.me/6281804376001"
+      }
+    ],
+    "sect_drinkware_title": "Custom Drinkware Collection",
+    "sect_drinkware_subtitle": "Pilihan wadah minum custom berkualitas tinggi untuk promosi brand Anda.",
+    "drinkware_products": [
+      {
+        "title": "Botol Minum & Tumbler Custom",
+        "desc": "Botol minum dan tumbler berkualitas tinggi dengan custom design sesuai brand Anda",
+        "image": "Botol Minum & Tumbler Custom.png",
+        "accent": "blue",
+        "features": [
+          "Material Stainless Steel/Plastic",
+          "Berbagai Ukuran (350ml-1000ml)",
+          "Custom Logo & Design",
+          "Packaging Eksklusif",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 25.000/pcs",
+        "duration": "7-14 hari"
+      },
+      {
+        "title": "Mug Custom",
+        "desc": "Mug ceramic dan stainless berkualitas premium dengan printing yang tahan lama",
+        "image": "mug.png",
+        "accent": "orange",
+        "features": [
+          "Ceramic & Stainless Options",
+          "Full Color Printing",
+          "Heat-resistant Design",
+          "Custom Packaging",
+          "Minimum Order 24 pcs"
+        ],
+        "price": "Mulai dari Rp 20.000/pcs",
+        "duration": "7-10 hari"
+      },
+      {
+        "title": "Gelas Kaca Premium",
+        "desc": "Gelas kaca berkualitas tinggi untuk kebutuhan corporate dan event special",
+        "image": "gelas kaca.png",
+        "accent": "blue",
+        "features": [
+          "Material Kaca Berkualitas",
+          "Berbagai Model & Ukuran",
+          "Etching & Printing Options",
+          "Elegant Packaging",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 15.000/pcs",
+        "duration": "10-14 hari"
+      },
+      {
+        "title": "Drink Jar & Gelas Cup",
+        "desc": "Drink jar unik dan gelas cup branded untuk promosi yang memorable",
+        "image": "drink jar.png",
+        "accent": "green",
+        "features": [
+          "Mason Jar Style",
+          "Custom Cup Design",
+          "Food Grade Material",
+          "Creative Packaging",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 18.000/pcs",
+        "duration": "7-12 hari"
+      }
+    ],
+    "sect_bags_title": "Custom Bags Collection",
+    "sect_bags_subtitle": "Berbagai jenis tas custom untuk kebutuhan promosi dan corporate branding.",
+    "bags_products": [
+      {
+        "title": "Totebag Canvas Premium",
+        "desc": "Totebag canvas berkualitas tinggi dengan custom design yang tahan lama",
+        "image": "tas canvas.png",
+        "accent": "pink",
+        "features": [
+          "Canvas Material Premium",
+          "Custom Size & Design",
+          "Sablon/Bordir Options",
+          "Eco-friendly Material",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 15.000/pcs",
+        "duration": "7-14 hari"
+      },
+      {
+        "title": "Tas Furing Spunbond",
+        "desc": "Tas furing spunbond yang praktis dan ekonomis untuk promosi brand",
+        "image": "Tas Furing Spunbond.png",
+        "accent": "green",
+        "features": [
+          "Material Spunbond Berkualitas",
+          "Berbagai Warna Tersedia",
+          "Custom Print 1-4 Warna",
+          "Lightweight & Durable",
+          "Minimum Order 100 pcs"
+        ],
+        "price": "Mulai dari Rp 8.000/pcs",
+        "duration": "5-10 hari"
+      },
+      {
+        "title": "Tas Kertas & Plastik Custom",
+        "desc": "Tas kertas dan plastik branded untuk packaging dan promosi yang efektif",
+        "image": "Tas Kertas & Plastik Custom.png",
+        "accent": "blue",
+        "features": [
+          "Paper & Plastic Options",
+          "Custom Size & Handle",
+          "Full Color Printing",
+          "Lamination Available",
+          "Minimum Order 500 pcs"
+        ],
+        "price": "Mulai dari Rp 3.000/pcs",
+        "duration": "7-14 hari"
+      }
+    ],
+    "sect_corporate_title": "Corporate Gifts & Tech",
+    "sect_corporate_subtitle": "Merchandise teknologi dan corporate gifts premium untuk relasi bisnis Anda.",
+    "corporate_products": [
+      {
+        "title": "Powerbank Custom",
+        "desc": "Powerbank berkualitas tinggi dengan custom design untuk corporate gifts",
+        "image": "Powerbank Custom.png",
+        "accent": "green",
+        "features": [
+          "Kapasitas 5000-20000 mAh",
+          "Fast Charging Support",
+          "Custom Logo Engraving",
+          "Premium Packaging",
+          "Minimum Order 25 pcs"
+        ],
+        "price": "Mulai dari Rp 75.000/pcs",
+        "duration": "10-21 hari"
+      },
+      {
+        "title": "Flashdisk Custom",
+        "desc": "Flashdisk branded dengan berbagai kapasitas dan model unik",
+        "image": "placeholder.png",
+        "accent": "purple",
+        "features": [
+          "Kapasitas 4GB-128GB",
+          "Custom Shape & Design",
+          "Logo Engraving/Printing",
+          "Data Preload Available",
+          "Minimum Order 25 pcs"
+        ],
+        "price": "Mulai dari Rp 35.000/pcs",
+        "duration": "7-14 hari"
+      },
+      {
+        "title": "Paket Seminar Kit",
+        "desc": "Paket lengkap seminar kit dengan custom branding untuk event corporate",
+        "image": "Tumbler Sport.png",
+        "accent": "blue",
+        "features": [
+          "Tas Seminar + Isi Lengkap",
+          "Notebook & Pulpen Custom",
+          "ID Card Holder",
+          "Custom Packaging",
+          "Minimum Order 50 set"
+        ],
+        "price": "Mulai dari Rp 45.000/set",
+        "duration": "10-21 hari"
+      }
+    ],
+    "sect_lifestyle_title": "Lifestyle Merchandise",
+    "sect_lifestyle_subtitle": "Merchandise lifestyle untuk branding dan promosi yang efektif sehari-hari.",
+    "lifestyle_products": [
+      {
+        "title": "Payung Custom Premium",
+        "desc": "Payung berkualitas tinggi dengan custom design untuk promosi yang efektif",
+        "image": "Payung Custom Premium.png",
+        "accent": "blue",
+        "features": [
+          "Material Berkualitas Tinggi",
+          "Tahan Angin & Air",
+          "Custom Print Full Color",
+          "Berbagai Ukuran",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 35.000/pcs",
+        "duration": "10-21 hari"
+      },
+      {
+        "title": "Jam Dinding Custom",
+        "desc": "Jam dinding custom dengan design unik untuk dekorasi dan promosi",
+        "image": "Jam Dinding Custom.png",
+        "accent": "orange",
+        "features": [
+          "Berbagai Bentuk & Ukuran",
+          "Mesin Jam Berkualitas",
+          "Custom Design & Logo",
+          "Silent Movement",
+          "Minimum Order 25 pcs"
+        ],
+        "price": "Mulai dari Rp 45.000/pcs",
+        "duration": "14-21 hari"
+      },
+      {
+        "title": "Pulpen & Pin Custom",
+        "desc": "Pulpen dan pin branded untuk promosi sehari-hari yang efektif",
+        "image": "Pulpen & Pin Custom.png",
+        "accent": "pink",
+        "features": [
+          "Berbagai Model Pulpen",
+          "Pin Enamel/Metal",
+          "Custom Logo & Warna",
+          "Packaging Menarik",
+          "Minimum Order 100 pcs"
+        ],
+        "price": "Mulai dari Rp 5.000/pcs",
+        "duration": "7-14 hari"
+      },
+      {
+        "title": "Asbak & Aksesoris",
+        "desc": "Asbak custom dan berbagai aksesoris branded lainnya",
+        "image": "Asbak & Aksesoris.png",
+        "accent": "slate",
+        "features": [
+          "Material Berkualitas",
+          "Custom Shape & Design",
+          "Logo Engraving",
+          "Packaging Eksklusif",
+          "Minimum Order 50 pcs"
+        ],
+        "price": "Mulai dari Rp 25.000/pcs",
+        "duration": "10-14 hari"
+      }
+    ]
+  },
+  "page-about": {
+    "hero_tag": "About Titik Visual",
+    "hero_title_1": "Digital Creative Studio",
+    "hero_title_2": "yang Mengutamakan Kualitas",
+    "hero_desc": "Sejak 2019, kami telah membantu 200+ klien mewujudkan visi digital mereka melalui UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang inovatif dan result-oriented.",
+    "hero_btn_portfolio": "Lihat Portfolio",
+    "hero_btn_contact": "Hubungi Kami"
+  },
+  "page-portfolio": {
+    "hero": {
+      "title": "Portfolio Kami"
+    },
+    "portfolio_title": "Featured Projects",
+    "portfolio_subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami",
+    "items": [
+      {
+        "title": "E-Commerce Mobile App",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "ShopNow Indonesia",
+        "description": "Complete mobile app design untuk platform e-commerce dengan user experience yang optimal dan conversion rate tinggi.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "E-commerce",
+          "iOS"
+        ]
+      },
+      {
+        "title": "SaaS Dashboard Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "DataFlow Solutions",
+        "description": "Dashboard design untuk SaaS platform dengan data visualization yang clear dan user-friendly interface.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Web App",
+          "Dashboard",
+          "SaaS"
+        ]
+      },
+      {
+        "title": "Banking Mobile App",
+        "category": "Mobile App",
+        "year": "2023",
+        "client": "SecureBank Digital",
+        "description": "Secure dan user-friendly banking app dengan modern interface dan advanced security features.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile App",
+          "Banking",
+          "Security"
+        ]
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Web Development",
+        "year": "2024",
+        "client": "PT Maju Bersama",
+        "description": "Website corporate yang modern dan professional dengan CMS integration untuk easy content management.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Website",
+          "Corporate",
+          "Responsive"
+        ]
+      },
+      {
+        "title": "Brand Identity Package",
+        "category": "Branding",
+        "year": "2024",
+        "client": "GreenTech Startup",
+        "description": "Complete brand identity package termasuk logo, color palette, typography, dan brand guidelines.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Logo",
+          "Brand Identity",
+          "Guidelines"
+        ]
+      },
+      {
+        "title": "Social Media Campaign",
+        "category": "Social Media",
+        "year": "2024",
+        "client": "Fashion Brand Co",
+        "description": "Social media campaign design untuk fashion brand dengan consistent visual identity dan engaging content.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Social Media",
+          "Campaign",
+          "Instagram"
+        ]
+      },
+      {
+        "title": "Restaurant Website",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "Rasa Nusantara",
+        "description": "Website restaurant dengan online menu, table booking system, dan gallery yang menarik.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Web",
+          "Restaurant",
+          "Online Menu"
+        ]
+      },
+      {
+        "title": "Fitness App Design",
+        "category": "UI/UX Design",
+        "year": "2024",
+        "client": "FitLife App",
+        "description": "Fitness tracking app dengan motivational design dan comprehensive workout planning features.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Mobile",
+          "Fitness",
+          "Health"
+        ]
+      },
+      {
+        "title": "E-Learning Platform",
+        "category": "Web Development",
+        "year": "2023",
+        "client": "EduTech Solutions",
+        "description": "E-learning platform dengan interactive course content dan comprehensive student management system.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Web App",
+          "Education",
+          "LMS"
+        ]
+      },
+      {
+        "title": "Product Landing Page",
+        "category": "Web Design",
+        "year": "2024",
+        "client": "Startup Launch",
+        "description": "Landing page high-converting untuk campaign marketing dan lead generation.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Landing Page",
+          "Marketing",
+          "Conversion"
+        ]
+      },
+      {
+        "title": "Mobile Banking Redesign",
+        "category": "UI/UX Design",
+        "year": "2023",
+        "client": "Bank Digital",
+        "description": "Redesign aplikasi perbankan untuk meningkatkan kemudahan penggunaan dan aksesibilitas.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": true,
+        "tags": [
+          "Fintech",
+          "UX",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "Corporate Merchandise Kit",
+        "category": "Custom Merchandise",
+        "year": "2023",
+        "client": "Tech Conference",
+        "description": "Produksi paket merchandise event: tumbler, totebag, dan stationery dengan branding konsisten.",
+        "image": "portfolio.png",
+        "link": "#",
+        "featured": false,
+        "tags": [
+          "Merchandise",
+          "Event",
+          "Branding"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Tertarik dengan Karya Kami?",
+      "description": "Mari diskusikan bagaimana kami bisa membantu mewujudkan visi digital Anda.",
+      "primary": {
+        "label": "Diskusi Proyek",
+        "url": "/contact"
+      },
+      "secondary": {
+        "label": "Lihat Semua Portfolio",
+        "url": "#portfolio"
+      }
+    }
+  },
+  "test-page": {
+    "test-field": "test-value-1768182808271"
+  },
+  "beranda": {
+    "hero_badge_text": "titik visual",
+    "hero_badge_icon": "logo desain.png",
+    "hero_title_line1": "Titik Visual",
+    "hero_title_line2": "Creative Studio",
+    "hero_lead_prefix": "Dari Ide Menjadi Kenyataan dengan",
+    "hero_lead_highlight": "Sentuhan Kreativitas",
+    "hero_description": "Titik Visual adalah Digital Creative Studio yang berpengalaman dalam UI/UX Design, Web Development, Mobile App, Social Media Management, dan Custom Merchandise Premium. Kami menghadirkan solusi kreatif lengkap untuk mengembangkan bisnis Anda di Yogyakarta dan seluruh Indonesia.",
+    "cta_portfolio_label": "Lihat Portofolio",
+    "cta_consult_label": "Konsultasi Gratis",
+    "featured_title": "Layanan Unggulan Titik Visual",
+    "featured_subtitle": "Solusi kreatif terlengkap dari Titik Visual untuk mengembangkan bisnis digital Anda",
+    "service_uiux_title": "UI/UX Design",
+    "service_uiux_desc": "Desain interface yang user-friendly dan menarik untuk aplikasi dan website",
+    "img_uiux_icon": "ui-ux desain.png",
+    "service_web_title": "Website Development",
+    "service_web_desc": "Website responsif dan modern untuk bisnis Anda",
+    "img_website_icon": "icon-website.png",
+    "service_merch_title": "Custom Merchandise",
+    "service_merch_desc": "Payung, tumbler, totebag, dan merchandise custom berkualitas",
+    "img_merch_icon": "icon-custom-merchandise.png",
+    "service_gift_title": "Corporate Gifts",
+    "service_gift_desc": "Paket seminar kit, powerbank, flashdisk untuk kebutuhan corporate",
+    "img_gift_icon": "icon-corporate-gift.png",
+    "service_drink_title": "Drinkware Collection",
+    "service_drink_desc": "Botol minum, tumbler, mug, gelas kaca, dan drink jar custom",
+    "img_drink_icon": "icon-drinkware.png",
+    "service_logo_title": "Logo & Brand Identity",
+    "service_logo_desc": "Logo design dan brand identity package lengkap",
+    "img_logo_icon": "icon-logo dan brand.png",
+    "all_services_title": "Semua Layanan Titik Visual",
+    "all_services_subtitle": "Solusi kreatif lengkap dari Titik Visual untuk kebutuhan digital dan merchandise Anda",
+    "digital_services_header": "Digital Creative Services",
+    "tv_expertise_badge": "Titik Visual Expertise",
+    "service_uiux_short_desc": "Desain interface yang user-friendly dan menarik",
+    "price_uiux": "Mulai Rp 2.5jt",
+    "service_web_short_desc": "Website responsif dan modern untuk bisnis",
+    "price_web": "Mulai Rp 3.5jt",
+    "service_mobile_title": "Mobile App Development",
+    "service_mobile_desc": "Aplikasi mobile iOS dan Android",
+    "price_mobile": "Mulai Rp 15jt",
+    "service_logo_short_desc": "Logo Design",
+    "price_logo": "Mulai Rp 500rb",
+    "service_sosmed_title": "Social Media Management",
+    "service_sosmed_desc": "Kelola dan kembangkan media sosial brand",
+    "price_sosmed": "Mulai Rp 1.5jt/bulan",
+    "service_marketing_title": "Digital Marketing",
+    "service_marketing_desc": "Strategi pemasaran digital yang efektif",
+    "price_marketing": "Mulai Rp 2jt/bulan",
+    "contact_cta_title": "Mari Berkreasi Bersama Titik Visual",
+    "contact_cta_subtitle": "Siap mewujudkan ide kreatif Anda bersama tim Titik Visual?",
+    "contact_whatsapp_title": "WhatsApp Titik Visual",
+    "contact_phone_title": "Telepon Titik Visual",
+    "contact_email_title": "Email Titik Visual",
+    "cta_card_title": "Siap Memulai Proyek?",
+    "cta_card_desc": "Konsultasikan kebutuhan UI/UX, web development, digital marketing, dan custom merchandise Anda dengan tim ahli Titik Visual. Dapatkan penawaran terbaik untuk proyek impian Anda!",
+    "cta_whatsapp_btn": "WhatsApp Titik Visual",
+    "cta_contact_btn": "Halaman Kontak Lengkap",
+    "achievement": {
+      "title": "Pencapaian Titik Visual",
+      "subtitle": "Kepercayaan klien adalah prioritas utama kami",
+      "items": [
+        {
+          "value": "500+",
+          "label": "Proyek Selesai"
+        },
+        {
+          "value": "200+",
+          "label": "Klien Puas"
+        },
+        {
+          "value": "5+",
+          "label": "Tahun Pengalaman"
+        },
+        {
+          "value": "24/7",
+          "label": "Support Titik Visual"
+        }
+      ]
+    },
+    "career_preview": {
+      "title": "",
+      "subtitle": "",
+      "cta": {
+        "label": "",
+        "url": ""
+      },
+      "items": [
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        },
+        {
+          "position": "",
+          "type": "",
+          "description": "",
+          "requirements": [
+            "",
+            "",
+            ""
+          ],
+          "apply_url": ""
+        }
+      ]
+    },
+    "portfolio_preview": {
+      "items": [
+        {
+          "year": "2024",
+          "category": "Merchandise by Titik Visual",
+          "title": "Custom Merchandise Package",
+          "description": "Paket merchandise lengkap termasuk tumbler,\ntotebag, dan corporate gifts untuk event\nperusahaan.",
+          "client": "Client: PT. Teknologi Maju",
+          "url": "",
+          "image": ""
+        }
+      ]
+    }
+  },
+  "Page Detail layanan Social Media": {
+    "hero_badge": "TEST  Sosmed Badge"
+  }
+}
