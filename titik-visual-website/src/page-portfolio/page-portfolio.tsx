@@ -164,6 +164,7 @@ const DEFAULT_PROJECTS: Project[] = [
 const PortfolioPage: React.FC = () => {
   const content = useContent();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
   const getUrl = (primary: string, legacy?: string, fallback: string = '#') => {
     const v = content.get('page-portfolio', primary, undefined);
     if (typeof v === 'string' && v.trim()) return v;
@@ -205,6 +206,91 @@ const PortfolioPage: React.FC = () => {
     }
   }, [content]); // Re-run when content changes
 
+  useEffect(() => {
+    document.body.classList.add("page-portfolio");
+    document.body.setAttribute("data-page", "portfolio");
+    document.body.style.overflowX = 'hidden';
+    return () => {
+      document.body.classList.remove("page-portfolio");
+      document.body.removeAttribute("data-page");
+      document.body.style.removeProperty('overflow-x');
+    };
+  }, []);
+
+  useEffect(() => {
+    const onResizeFlag = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', onResizeFlag);
+    onResizeFlag();
+    return () => window.removeEventListener('resize', onResizeFlag);
+  }, []);
+
+  useEffect(() => {
+    const apply = () => {
+      const isMobile = window.innerWidth <= 768;
+      const root = document.querySelector('.portfolio-hero-section .hero-content') as HTMLElement | null;
+      if (!root) return;
+      const title = root.querySelector('.hero-title') as HTMLElement | null;
+      const desc = root.querySelector('.hero-description') as HTMLElement | null;
+      const buttons = root.querySelector('.hero-buttons') as HTMLElement | null;
+      const btnEls = buttons ? Array.from(buttons.querySelectorAll('.btn')) as HTMLElement[] : [];
+      if (isMobile) {
+        root.style.setProperty('display', 'flex', 'important');
+        root.style.setProperty('flexDirection', 'column', 'important');
+        root.style.setProperty('alignItems', 'center', 'important');
+        root.style.setProperty('justifyContent', 'center', 'important');
+        root.style.setProperty('textAlign', 'center', 'important');
+        if (title) {
+          title.style.setProperty('padding', '0 16px', 'important');
+          title.style.setProperty('width', '100%', 'important');
+          title.style.setProperty('whiteSpace', 'normal', 'important');
+          title.style.setProperty('wordBreak', 'break-word', 'important');
+          title.style.setProperty('overflowWrap', 'anywhere', 'important');
+          title.style.setProperty('textAlign', 'center', 'important');
+        }
+        if (desc) {
+          desc.style.setProperty('padding', '0 16px', 'important');
+          desc.style.setProperty('width', '100%', 'important');
+          desc.style.setProperty('whiteSpace', 'normal', 'important');
+          desc.style.setProperty('wordBreak', 'break-word', 'important');
+          desc.style.setProperty('overflowWrap', 'anywhere', 'important');
+          desc.style.setProperty('textAlign', 'center', 'important');
+        }
+        if (buttons) {
+          buttons.style.setProperty('display', 'flex', 'important');
+          buttons.style.setProperty('flexDirection', 'column', 'important');
+          buttons.style.setProperty('gap', '12px', 'important');
+          buttons.style.setProperty('width', '100%', 'important');
+          buttons.style.setProperty('alignItems', 'center', 'important');
+          buttons.style.setProperty('justifyContent', 'center', 'important');
+          btnEls.forEach(b => {
+            b.style.setProperty('width', 'auto', 'important');
+            b.style.setProperty('maxWidth', '100%', 'important');
+            b.style.setProperty('minHeight', '44px', 'important');
+            b.style.setProperty('whiteSpace', 'normal', 'important');
+            b.style.setProperty('marginLeft', 'auto', 'important');
+            b.style.setProperty('marginRight', 'auto', 'important');
+          });
+        }
+      } else {
+        root.style.removeProperty('display');
+        root.style.removeProperty('flexDirection');
+        root.style.removeProperty('alignItems');
+        root.style.removeProperty('justifyContent');
+        root.style.removeProperty('textAlign');
+        title?.removeAttribute('style');
+        desc?.removeAttribute('style');
+        if (buttons) {
+          buttons.removeAttribute('style');
+          btnEls.forEach(b => b.removeAttribute('style'));
+        }
+      }
+    };
+    apply();
+    const onResize = () => apply();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   const navigateToPage = (path: string) => {
     if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:')) {
       window.location.href = path;
@@ -224,13 +310,14 @@ const PortfolioPage: React.FC = () => {
       <main>
         {/* Portfolio Hero Section */}
         <section className="portfolio-hero-section">
-          <div className="container">
-            <div className="hero-content">
-              <h1 className="hero-title">{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
-              <p className="hero-description">
+          <section id="portfolio-fix">
+            <div className="container">
+              <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto', marginRight: 'auto', width: '100%', maxWidth: 900 }}>
+              <h1 className="hero-title" style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}>{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
+              <p className="hero-description" style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', maxWidth: 800, padding: '0 10px' }}>
                 {content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}
               </p>
-              <div className="hero-buttons">
+              <div className="hero-buttons portfolio-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                 <button
                   onClick={() => {
                     const url = getUrl('hero.cta_primary.url', 'hero.cta_primary.link', '');
@@ -241,18 +328,21 @@ const PortfolioPage: React.FC = () => {
                     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="btn btn-primary"
+                  style={{ width: 'auto', minHeight: 44, marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' as const }}
                 >
                   <i className="fas fa-eye"></i> {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
                 </button>
                 <button
                   onClick={() => navigateToPage(getUrl('hero.cta_secondary.url', 'hero.cta_secondary.link', '/contact'))}
                   className="btn btn-secondary"
+                  style={{ width: 'auto', minHeight: 44, marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' as const }}
                 >
                   <i className="fas fa-arrow-right"></i> {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
                 </button>
               </div>
+              </div>
             </div>
-          </div>
+          </section>
         </section>
 
         {/* Featured Projects Section */}

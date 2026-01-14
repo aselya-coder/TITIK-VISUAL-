@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import { useContent } from '../content/ContentContext';
 
@@ -19,8 +19,34 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const toggleBtnRef = useRef<HTMLButtonElement>(null);
+
+  const applyMobileMenuA11y = (open: boolean) => {
+    const menu = mobileMenuRef.current;
+    const toggleBtn = toggleBtnRef.current;
+    if (!menu) return;
+
+    if (open) {
+      menu.removeAttribute('inert');
+      menu.setAttribute('aria-hidden', 'false');
+      toggleBtn?.setAttribute('aria-expanded', 'true');
+      const firstLink = menu.querySelector<HTMLAnchorElement>('.mobile-nav-link');
+      firstLink?.focus();
+    } else {
+      const active = document.activeElement as HTMLElement | null;
+      if (active && menu.contains(active)) {
+        active.blur();
+      }
+      menu.setAttribute('inert', '');
+      menu.setAttribute('aria-hidden', 'true');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+      toggleBtn?.focus();
+    }
+  };
+
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -30,6 +56,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    applyMobileMenuA11y(isMobileMenuOpen);
+  }, [isMobileMenuOpen]);
 
   // Determine if we should apply "layanan" styles
   // Logic adapted from App.tsx
@@ -105,7 +135,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} 
           type="button" 
           aria-label="Toggle mobile menu" 
+          aria-controls="mobile-navigation"
           aria-expanded={isMobileMenuOpen}
+          ref={toggleBtnRef}
           onClick={toggleMobileMenu}
         >
           <span></span>
@@ -115,7 +147,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
+      <div id="mobile-navigation" ref={mobileMenuRef} className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <nav className="mobile-nav" aria-label="Mobile navigation">
           <a href="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/'); }}>{content.get('global', 'nav_home', 'Home')}</a>
           <a href="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`} onClick={(e) => { setIsMobileMenuOpen(false); handleLink(e, '/about'); }}>{content.get('global', 'nav_about', 'About')}</a>
