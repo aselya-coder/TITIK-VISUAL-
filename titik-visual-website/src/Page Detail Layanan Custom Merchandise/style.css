@@ -243,7 +243,7 @@ body {
     }
 }
 
-.hero .subtitle {
+.custom-merchandise-page .hero .subtitle {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -546,6 +546,23 @@ section#why-us .section-title.text-center p {
 }
 .product-collection.theme-blue .product-card.highlighted {
     border-color: #3B82F6;
+}
+
+/* Force 3 columns for Thermos collection as requested */
+.product-collection.theme-blue .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+    .product-collection.theme-blue .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .product-collection.theme-blue .product-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ================================

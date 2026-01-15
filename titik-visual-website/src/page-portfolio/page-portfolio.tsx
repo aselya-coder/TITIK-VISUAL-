@@ -312,12 +312,12 @@ const PortfolioPage: React.FC = () => {
         <section className="portfolio-hero-section">
           <section id="portfolio-fix">
             <div className="container">
-              <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto', marginRight: 'auto', width: '100%', maxWidth: 900 }}>
-              <h1 className="hero-title" style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}>{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
-              <p className="hero-description" style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', maxWidth: 800, padding: '0 10px' }}>
+              <div className="hero-content">
+              <h1 className="hero-title">{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
+              <p className="hero-description">
                 {content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}
               </p>
-              <div className="hero-buttons portfolio-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <div className="hero-buttons portfolio-buttons">
                 <button
                   onClick={() => {
                     const url = getUrl('hero.cta_primary.url', 'hero.cta_primary.link', '');
@@ -328,14 +328,12 @@ const PortfolioPage: React.FC = () => {
                     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="btn btn-primary"
-                  style={{ width: 'auto', minHeight: 44, marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' as const }}
                 >
                   <i className="fas fa-eye"></i> {content.get('page-portfolio', 'hero.cta_primary.label', 'Lihat Semua Karya')}
                 </button>
                 <button
                   onClick={() => navigateToPage(getUrl('hero.cta_secondary.url', 'hero.cta_secondary.link', '/contact'))}
                   className="btn btn-secondary"
-                  style={{ width: 'auto', minHeight: 44, marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' as const }}
                 >
                   <i className="fas fa-arrow-right"></i> {content.get('page-portfolio', 'hero.cta_secondary.label', 'Diskusi Proyek')}
                 </button>
@@ -401,7 +399,7 @@ const PortfolioPage: React.FC = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="portfolio-cta-section">
+        <section className="portfolio-cta-green">
           <div className="container">
             <div className="cta-content">
               <h2 className="cta-title">{content.get('page-portfolio', 'cta.title', 'Tertarik dengan Karya Kami?')}</h2>

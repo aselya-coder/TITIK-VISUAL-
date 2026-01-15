@@ -421,8 +421,7 @@
   },
   "page-portfolio": {
     "hero": {
-      "title": "Portfolio Kami",
-      "description": "Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile\nApp, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis\nmereka."
+      "title": "Portfolio Kami"
     },
     "portfolio_title": "Featured Projects",
     "portfolio_subtitle": "Karya-karya unggulan yang menjadi kebanggaan kami",
