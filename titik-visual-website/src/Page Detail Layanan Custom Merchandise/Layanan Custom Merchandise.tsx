@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import { useContent } from '../content/ContentContext';
 import merchandiseImg from '../img/merchandise custom.png';
@@ -826,47 +827,7 @@ const CustomMerchandisePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-col">
-              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
-              <p>{content.get('Page Detail Layanan Custom Merchandise', 'footer_desc', 'Spesialis custom merchandise berkualitas premium untuk kebutuhan promosi dan corporate branding.')}</p>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_title', 'Thermos & Drinkware')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link1', 'Vacuum Flask Office Series')}</button></li>
-                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link2', 'Smart Temperature Display')}</button></li>
-                <li><button onClick={() => handleFooterLink('#thermos')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link3', 'Tumbler Stainless Premium')}</button></li>
-                <li><button onClick={() => handleFooterLink('#aluminum')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link4', 'Aluminum Sport Bottles')}</button></li>
-                <li><button onClick={() => handleFooterLink('#water')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col1_link5', 'Water Bottles Collection')}</button></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_title', 'Stationery & Accessories')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link1', 'Notebook + Post It')}</button></li>
-                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link2', 'Memo Leather Set')}</button></li>
-                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link3', 'Umbrella Premium')}</button></li>
-                <li><button onClick={() => handleFooterLink('#water')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link4', 'Insert Paper Tumbler')}</button></li>
-                <li><button onClick={() => handleFooterLink('#stationery')} className="link-button">{content.get('Page Detail Layanan Custom Merchandise', 'footer_col2_link5', 'Corporate Gift Sets')}</button></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Custom Merchandise', 'footer_contact_title', 'Kontak Titik Visual')}</h4>
-              <ul className="footer-contact">
-                <li>{content.get('Page Detail Layanan Custom Merchandise', 'footer_contact_phone', '081804376001')}</li>
-                <li>{content.get('Page Detail Layanan Custom Merchandise', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</li>
-                <li>{content.get('Page Detail Layanan Custom Merchandise', 'footer_contact_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            {content.get('Page Detail Layanan Custom Merchandise', 'footer_copyright', '© 2025 Titik Visual. All rights reserved.')}
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
 
       {/* Back to Top Button */}
       <button 

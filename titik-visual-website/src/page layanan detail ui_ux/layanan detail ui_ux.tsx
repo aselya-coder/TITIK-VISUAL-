@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import UiUxSection from './UiUxSection';
 import { useContent } from '../content/ContentContext';
@@ -293,13 +294,13 @@ const UIUXPage = () => {
           <div className="process-grid">
             {processSteps.map(step => (
               <div className="process-card" key={step.id}>
-                <div className="process-header">
-                  <div className="process-number">{step.stepNumber}</div>
+                <div className="process-number">{step.stepNumber}</div>
+                <div className="process-content">
                   <h4>{step.title}</h4>
-                </div>
-                <p>{step.description}</p>
-                <div className="process-duration">
-                  <i className="far fa-clock"></i> {step.duration}
+                  <p>{step.description}</p>
+                  <div className="process-duration">
+                    <i className="far fa-clock"></i> {step.duration}
+                  </div>
                 </div>
               </div>
             ))}
@@ -407,45 +408,7 @@ const UIUXPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-column about">
-              <img src={getImg('img.png')} alt={content.get('page layanan detail ui_ux', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
-              <p>{content.get('page layanan detail ui_ux', 'footer_about', 'Spesialis UI/UX Design yang berfokus pada user experience dan business goals.')}</p>
-            </div>
-            <div className="footer-column">
-              <h4>{content.get('page layanan detail ui_ux', 'footer_services_title', 'UI/UX Services')}</h4>
-              <ul>
-                <li><button onClick={() => handleFooterLink('#user-research')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_1', 'User Research')}</button></li>
-                <li><button onClick={() => handleFooterLink('#wireframing')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_2', 'Wireframing')}</button></li>
-                <li><button onClick={() => handleFooterLink('#visual-design')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_3', 'Visual Design')}</button></li>
-                <li><button onClick={() => handleFooterLink('#prototyping')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_4', 'Prototyping')}</button></li>
-                <li><button onClick={() => handleFooterLink('#usability-testing')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_service_5', 'Usability Testing')}</button></li>
-              </ul>
-            </div>
-            <div className="footer-column">
-              <h4>{content.get('page layanan detail ui_ux', 'footer_resources_title', 'Resources')}</h4>
-              <ul>
-                <li><button onClick={() => handleFooterLink('#design-process')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_1', 'Design Process')}</button></li>
-                <li><button onClick={() => handleFooterLink('#case-studies')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_2', 'Case Studies')}</button></li>
-                <li><button onClick={() => handleFooterLink('#design-system')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_3', 'Design System')}</button></li>
-                <li><button onClick={() => handleFooterLink('#ui-kit')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_4', 'UI Kit')}</button></li>
-                <li><button onClick={() => handleFooterLink('/portfolio')} className="link-button">{content.get('page layanan detail ui_ux', 'footer_resource_5', 'Blog')}</button></li>
-              </ul>
-            </div>
-            <div className="footer-column">
-              <h4>{content.get('page layanan detail ui_ux', 'footer_contact_title', 'Kontak')}</h4>
-              <p>{content.get('page layanan detail ui_ux', 'footer_contact_phone', '081804376001')}</p>
-              <p>{content.get('page layanan detail ui_ux', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</p>
-              <p>{content.get('page layanan detail ui_ux', 'footer_contact_location', 'Yogyakarta, Indonesia')}</p>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} {content.get('page layanan detail ui_ux', 'footer_copyright', 'Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
 
       {/* Back to Top Button */}
       <button 

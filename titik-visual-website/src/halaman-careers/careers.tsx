@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
+import CareersFooter from './CareersFooter';
 import careersImg from '../img/carreers.png';
 import logoImage from '../img/image.png';
 
@@ -431,108 +432,7 @@ const CareersPage: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 items-start">
-            <div className="footer-about space-y-4">
-              <img src="../img/img.png" alt="Titik Visual Logo" className="footer-logo" />
-              <p className="text-gray-400 leading-relaxed max-w-sm">{content.get('halaman-careers', 'footer_brand_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
-            </div>
-            <div className="footer-links text-left">
-              <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_1_title', 'Company')}</h4>
-              <ul className="space-y-2 leading-relaxed">
-                <li><button 
-                  onClick={(e) => handleLink(e, '/about')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="About Us"
-                  >
-                    {content.get('halaman-careers', 'footer_link_about', 'About Us')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '/portfolio')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Portfolio"
-                  >
-                    {content.get('halaman-careers', 'footer_link_portfolio', 'Portfolio')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '/services')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Services"
-                  >
-                    {content.get('halaman-careers', 'footer_link_services', 'Services')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '/careers')} 
-                          className="footer-link-button active text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Careers"
-                  >
-                    {content.get('halaman-careers', 'footer_link_careers', 'Careers')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '/contact')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Contact"
-                  >
-                    {content.get('halaman-careers', 'footer_link_contact', 'Contact')}
-                  </button></li>
-              </ul>
-            </div>
-            <div className="footer-links text-left">
-              <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_2_title', 'Careers')}</h4>
-              <ul className="space-y-2 leading-relaxed">
-                <li><button 
-                  onClick={(e) => handleLink(e, '#job-openings')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Lowongan Kerja"
-                  >
-                    {content.get('halaman-careers', 'footer_link_jobs', 'Lowongan Kerja')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '#program-magang')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Program magang"
-                  >
-                    {content.get('halaman-careers', 'footer_link_internship', 'Program magang')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '#full-time-jobs')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Full Time Jobs"
-                  >
-                    {content.get('halaman-careers', 'footer_link_fulltime', 'Full Time Jobs')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '#remote-work')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Remote Work"
-                  >
-                    {content.get('halaman-careers', 'footer_link_remote', 'Remote Work')}
-                  </button></li>
-                <li><button 
-                  onClick={(e) => handleLink(e, '#contract-work')} 
-                          className="footer-link-button text-gray-400 hover:text-gray-200 transition-colors"
-                          aria-label="Contract Work"
-                  >
-                    {content.get('halaman-careers', 'footer_link_contract', 'Contract Work')}
-                  </button></li>
-              </ul>
-            </div>
-            <div className="footer-links text-left">
-              <h4 className="text-white text-base font-semibold mb-4">{content.get('halaman-careers', 'footer_col_3_title', 'Contact')}</h4>
-              <ul className="footer-contact space-y-2 leading-relaxed">
-                <li className="flex items-center gap-2 text-gray-400"><i className="fas fa-phone-alt"></i><span>{content.get('halaman-careers', 'footer_contact_phone', '081804376001')}</span></li>
-                <li className="flex items-center gap-2 text-gray-400"><i className="fas fa-envelope"></i><span>{content.get('halaman-careers', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</span></li>
-                <li className="flex items-center gap-2 text-gray-400"><i className="fas fa-map-marker-alt"></i><span>{content.get('halaman-careers', 'footer_contact_address', 'Yogyakarta, Indonesia')}</span></li>
-              </ul>
-            </div>
-          </div>
-          <hr className="footer-divider w-full border-t border-gray-700 mt-8" />
-          <div className="footer-bottom text-gray-400 text-center">
-            <p>{content.get('halaman-careers', 'footer_copyright', '© 2025 Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

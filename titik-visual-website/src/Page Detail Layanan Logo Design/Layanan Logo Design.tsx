@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import logoImg from '../img/img.png';
 import iconKonsep from '../img/icon konsep unik .png';
@@ -573,47 +574,7 @@ const LogoDesignPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-col footer-brand">
-              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
-              <p>{content.get('Page Detail Layanan Logo Design', 'footer_desc', 'Spesialis logo design dan brand identity yang berfokus pada kreativitas dan makna brand.')}</p>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Logo Design', 'footer_services_title', 'Logo Services')}</h4>
-              <ul className="footer-links">
-                <li><a href="#logo-design">{content.get('Page Detail Layanan Logo Design', 'footer_link_custom', 'Logo Custom')}</a></li>
-                <li><a href="#brand-identity">{content.get('Page Detail Layanan Logo Design', 'footer_link_identity', 'Brand Identity')}</a></li>
-                <li><a href="#logo-redesign">{content.get('Page Detail Layanan Logo Design', 'footer_link_redesign', 'Logo Redesign')}</a></li>
-                <li><a href="#brand-guidelines">{content.get('Page Detail Layanan Logo Design', 'footer_link_guidelines', 'Brand Guidelines')}</a></li>
-                <li><a href="#stationery-design">{content.get('Page Detail Layanan Logo Design', 'footer_link_stationery', 'Stationery Design')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Logo Design', 'footer_types_title', 'Logo Types')}</h4>
-              <ul className="footer-links">
-                <li><a href="#wordmark">{content.get('Page Detail Layanan Logo Design', 'footer_link_wordmark', 'Wordmark')}</a></li>
-                <li><a href="#pictorial">{content.get('Page Detail Layanan Logo Design', 'footer_link_pictorial', 'Pictorial')}</a></li>
-                <li><a href="#combination">{content.get('Page Detail Layanan Logo Design', 'footer_link_combination', 'Combination')}</a></li>
-                <li><a href="#emblem">{content.get('Page Detail Layanan Logo Design', 'footer_link_emblem', 'Emblem')}</a></li>
-                <li><a href="#abstract">{content.get('Page Detail Layanan Logo Design', 'footer_link_abstract', 'Abstract')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail Layanan Logo Design', 'footer_contact_title', 'KONTAK')}</h4>
-              <ul className="footer-contact">
-                <li>{content.get('Page Detail Layanan Logo Design', 'footer_contact_phone', '081804376001')}</li>
-                <li>{content.get('Page Detail Layanan Logo Design', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</li>
-                <li>{content.get('Page Detail Layanan Logo Design', 'footer_contact_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>{content.get('Page Detail Layanan Logo Design', 'footer_copyright', '© 2024 Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
 
       {/* BACK TO TOP BUTTON */}
       <button 

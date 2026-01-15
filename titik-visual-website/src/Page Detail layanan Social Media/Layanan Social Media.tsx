@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import { useContent } from '../content/ContentContext';
 import socialHeroImg from '../img/Social Media Management Dashboard.png';
@@ -748,47 +749,7 @@ const SocialMediaPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-col">
-              <img src={logoImg} alt={content.get('Page Detail layanan Social Media', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
-              <p>{content.get('Page Detail layanan Social Media', 'footer_desc', 'Spesialis social media management yang berfokus pada engagement dan growth yang terukur.')}</p>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail layanan Social Media', 'footer_services_title', 'Social Media Services')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={() => handleFooterLink('#content-strategy')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_1', 'Content Strategy')}</button></li>
-                <li><button onClick={() => handleFooterLink('#community-management')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_2', 'Community Management')}</button></li>
-                <li><button onClick={() => handleFooterLink('#paid-ads')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_3', 'Paid Ads Campaign')}</button></li>
-                <li><button onClick={() => handleFooterLink('#analytics')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_4', 'Analytics & Reporting')}</button></li>
-                <li><button onClick={() => handleFooterLink('#influencer')} className="link-button">{content.get('Page Detail layanan Social Media', 'footer_service_5', 'Influencer Marketing')}</button></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail layanan Social Media', 'footer_platforms_title', 'Platforms')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={() => handleFooterLink('#instagram')} className="link-button">Instagram</button></li>
-                <li><button onClick={() => handleFooterLink('#facebook')} className="link-button">Facebook</button></li>
-                <li><button onClick={() => handleFooterLink('#tiktok')} className="link-button">TikTok</button></li>
-                <li><button onClick={() => handleFooterLink('#linkedin')} className="link-button">LinkedIn</button></li>
-                <li><button onClick={() => handleFooterLink('#youtube')} className="link-button">YouTube</button></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>{content.get('Page Detail layanan Social Media', 'footer_contact_title', 'Kontak')}</h4>
-              <ul className="footer-contact">
-                <li>{content.get('Page Detail layanan Social Media', 'footer_contact_phone', '081804376001')}</li>
-                <li>{content.get('Page Detail layanan Social Media', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</li>
-                <li>{content.get('Page Detail layanan Social Media', 'footer_contact_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; {content.get('Page Detail layanan Social Media', 'footer_copyright', '2024 Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

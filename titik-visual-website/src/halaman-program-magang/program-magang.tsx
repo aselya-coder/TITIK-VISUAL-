@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import './style.css';
 import logoImg from '../img/img.png';
 import { useContent } from '../content/ContentContext';
+import CareersFooter from '../halaman-careers/CareersFooter';
 
 // Definisi tipe untuk posisi magang
 interface InternshipPosition {
@@ -543,48 +544,8 @@ const InternshipPage = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <footer className="site-footer">
-        <div className="container">
-          <div className="footer-widgets">
-            <div className="footer-widget about-widget">
-              <img src={logoImg} alt="Titik Visual Logo" className="footer-logo" />
-              <p>{content.get('halaman-program-magang', 'footer_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
-            </div>
-            <div className="footer-widget links-widget">
-              <h4>{content.get('halaman-program-magang', 'footer_col_1', 'Company')}</h4>
-              <ul>
-                <li><a href="/about" onClick={(e) => handleLink(e, '/about')}>{content.get('halaman-program-magang', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')}>{content.get('halaman-program-magang', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services" onClick={(e) => handleLink(e, '/services')}>{content.get('halaman-program-magang', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="/careers" onClick={(e) => handleLink(e, '/careers')}>{content.get('halaman-program-magang', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')}>{content.get('halaman-program-magang', 'footer_link_blog', 'Blog')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-widget links-widget">
-              <h4>{content.get('halaman-program-magang', 'footer_col_2', 'Program Magang')}</h4>
-              <ul>
-                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_frontend', 'FrontEnd Developer')}</a></li>
-                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_backend', 'BackEnd Developer')}</a></li>
-                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_hr', 'Human Resource')}</a></li>
-                <li><a href="#internship-grid">{content.get('halaman-program-magang', 'footer_link_graphic', 'Graphic Designer')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-widget contact-widget">
-              <h4>{content.get('halaman-program-magang', 'footer_col_3', 'Contact')}</h4>
-              <ul>
-                <li><i className="fas fa-phone"></i> {content.get('halaman-program-magang', 'footer_phone', '081804376001')}</li>
-                <li><i className="fas fa-envelope"></i> {content.get('halaman-program-magang', 'footer_email', 'titikvisualjogja@gmail.com')}</li>
-                <li><i className="fas fa-map-marker-alt"></i> {content.get('halaman-program-magang', 'footer_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>{content.get('halaman-program-magang', 'footer_copyright', '© 2025 Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <CareersFooter />
     </div>
   );
 };

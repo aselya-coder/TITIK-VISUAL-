@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import clientAvatar from '../img/Website Development Mockup.png';
 import logoImg from '../img/img.png';
@@ -246,56 +247,7 @@ const WebsiteAppPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            {/* Footer Column 1: About */}
-            <div className="footer-col">
-              <img src={logoImg} alt={content.get('page detail layanan web&apk', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
-              <p>{content.get('page detail layanan web&apk', 'footer_about_text', 'Spesialis website development yang berfokus pada performa, SEO, dan user experience.')}</p>
-            </div>
-
-            {/* Footer Column 2: Services */}
-            <div className="footer-col">
-              <h4>{content.get('page detail layanan web&apk', 'footer_services_title', 'Website & App Services')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={(e) => handleFooterLink(e, '#landing-page')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_1', 'Landing Page')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#business-website')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_2', 'Business Website')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#ecommerce')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_3', 'E-Commerce')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#web-application')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_4', 'Web Application')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#mobile-applications')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_5', 'Mobile Applications')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#progressive-web-apps')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_6', 'Progressive Web Apps')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#cms-integration')} className="link-button">{content.get('page detail layanan web&apk', 'footer_service_7', 'CMS Integration')}</button></li>
-              </ul>
-            </div>
-
-            {/* Footer Column 3: Technologies */}
-            <div className="footer-col">
-              <h4>{content.get('page detail layanan web&apk', 'footer_tech_title', 'Technologies')}</h4>
-              <ul className="footer-links">
-                <li><button onClick={(e) => handleFooterLink(e, '#react-nextjs')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_1', 'React/Next.js')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#wordpress')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_2', 'WordPress')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#shopify')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_3', 'Shopify')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#custom-php')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_4', 'Custom PHP')}</button></li>
-                <li><button onClick={(e) => handleFooterLink(e, '#seo-optimization')} className="link-button">{content.get('page detail layanan web&apk', 'footer_tech_5', 'SEO Optimization')}</button></li>
-              </ul>
-            </div>
-
-            {/* Footer Column 4: Contact */}
-            <div className="footer-col">
-              <h4>{content.get('page detail layanan web&apk', 'footer_contact_title', 'Kontak')}</h4>
-              <ul className="footer-contact">
-                <li>{content.get('page detail layanan web&apk', 'footer_contact_phone', '081804376001')}</li>
-                <li>{content.get('page detail layanan web&apk', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</li>
-                <li>{content.get('page detail layanan web&apk', 'footer_contact_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} {content.get('page detail layanan web&apk', 'footer_copyright', 'Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

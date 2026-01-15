@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import { useContent } from '../content/ContentContext';
 import { PenTool, Globe, Sparkles, TrendingUp, Gift } from 'lucide-react';
@@ -680,56 +681,7 @@ function ServicesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-col">
-              <img src={getImg('img.png')} alt={content.get('page-layanan', 'footer_logo_alt', 'Digital Creative Services Logo')} className="footer-logo" />
-              <p>{content.get('page-layanan', 'footer_desc', 'Partner digital kreatif terpercaya untuk pertumbuhan bisnis Anda. Melayani pembuatan website, aplikasi, desain grafis, hingga merchandise.')}</p>
-              <div className="social-links">
-                <a href={content.get('page-layanan', 'social_fb', 'https://facebook.com')} target="_blank" rel="noopener noreferrer" aria-label={content.get('page-layanan', 'social_fb_label', 'Facebook')}><i className="fab fa-facebook-f"></i></a>
-                <a href={content.get('page-layanan', 'social_ig', 'https://instagram.com')} target="_blank" rel="noopener noreferrer" aria-label={content.get('page-layanan', 'social_ig_label', 'Instagram')}><i className="fab fa-instagram"></i></a>
-                <a href={content.get('page-layanan', 'social_twitter', 'https://twitter.com')} target="_blank" rel="noopener noreferrer" aria-label={content.get('page-layanan', 'social_twitter_label', 'Twitter')}><i className="fab fa-twitter"></i></a>
-                <a href={content.get('page-layanan', 'social_linkedin', 'https://linkedin.com')} target="_blank" rel="noopener noreferrer" aria-label={content.get('page-layanan', 'social_linkedin_label', 'LinkedIn')}><i className="fab fa-linkedin-in"></i></a>
-              </div>
-            </div>
-            
-            <div className="footer-col">
-              <h4>{content.get('page-layanan', 'footer_col_1_title', 'Quick Links')}</h4>
-              <ul className="footer-list">
-                <li><a href="/" onClick={(e) => handleFooterLink(e, '/')} >{content.get('page-layanan', 'footer_link_home', 'Home')}</a></li>
-                <li><a href="/services" onClick={(e) => handleFooterLink(e, '/services')} >{content.get('page-layanan', 'footer_link_services', 'Layanan')}</a></li>
-                <li><a href="/portfolio" onClick={(e) => handleFooterLink(e, '/portfolio')} >{content.get('page-layanan', 'footer_link_portfolio', 'Portofolio')}</a></li>
-                <li><a href="/about" onClick={(e) => handleFooterLink(e, '/about')} >{content.get('page-layanan', 'footer_link_about', 'Tentang Kami')}</a></li>
-                <li><a href="/contact" onClick={(e) => handleFooterLink(e, '/contact')} >{content.get('page-layanan', 'footer_link_contact', 'Live Chat')}</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-col">
-              <h4>{content.get('page-layanan', 'footer_col_2_title', 'Layanan Kami')}</h4>
-              <ul className="footer-list">
-                <li><a href="/ui-ux" onClick={(e) => handleFooterLink(e, '/ui-ux')} >{content.get('page-layanan', 'footer_link_uiux', 'Desain Grafis')}</a></li>
-                <li><a href="/web-apk" onClick={(e) => handleFooterLink(e, '/web-apk')} >{content.get('page-layanan', 'footer_link_webapk', 'Website & Aplikasi')}</a></li>
-                <li><a href="/social-media" onClick={(e) => handleFooterLink(e, '/social-media')} >{content.get('page-layanan', 'footer_link_digital_marketing', 'Digital Marketing')}</a></li>
-                <li><a href="/custom-merchandise" onClick={(e) => handleFooterLink(e, '/custom-merchandise')} >{content.get('page-layanan', 'footer_link_merch', 'Merchandise Custom')}</a></li>
-                <li><a href="/services#corporate" onClick={(e) => handleFooterLink(e, '/services#corporate')} >{content.get('page-layanan', 'footer_link_gift', 'Corporate Gift')}</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-col">
-              <h4>{content.get('page-layanan', 'footer_col_3_title', 'Kontak Kami')}</h4>
-              <ul className="footer-list contact-info">
-                <li><i className="fas fa-map-marker-alt"></i> <span>{content.get('page-layanan', 'footer_label_address', 'Alamat')}</span></li>
-                <li><i className="fas fa-envelope"></i> <span>{content.get('page-layanan', 'footer_label_email', 'Email')}</span></li>
-                <li><i className="fas fa-phone"></i> <span>{content.get('page-layanan', 'footer_label_phone', 'Telepon')}</span></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>{content.get('page-layanan', 'footer_copyright', '© 2023 Digital Creative Services. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 }

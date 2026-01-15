@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './style.css';
 import { useContent } from '../content/ContentContext';
+import CareersFooter from '../halaman-careers/CareersFooter';
 const getImg = (name: string) => {
   try {
     return require(`../img/${name}`);
@@ -452,50 +453,7 @@ const ContactPage = () => {
       </section>
 
       {/* FOOTER SECTION */}
-      <footer className="footer">
-        <div className="container max-w-7xl mx-auto">
-          <div className="footer-grid">
-            <div className="footer-col footer-about">
-              <img src={getImg('img.png')} alt="Titik Visual Logo" className="footer-logo" />
-              <p>{content.get('page-contact', 'footer_about_desc', 'Spesialis digital creative dan custom merchandise yang berfokus pada kualitas dan kepuasan klien.')}</p>
-            </div>
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-contact', 'footer_quick_links_title', 'Quick Links')}</h4>
-              <ul className="footer-list">
-                <li><a href="/about" onClick={(e) => { e.preventDefault(); handleFooterLink('/about'); }} className="link-button">{content.get('page-contact', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="/portfolio" onClick={(e) => { e.preventDefault(); handleFooterLink('/portfolio'); }} className="link-button">{content.get('page-contact', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services" onClick={(e) => { e.preventDefault(); handleFooterLink('/services'); }} className="link-button">{content.get('page-contact', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="/careers" onClick={(e) => { e.preventDefault(); handleFooterLink('/careers'); }} className="link-button">{content.get('page-contact', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleFooterLink('/contact'); }} className="link-button">{content.get('page-contact', 'footer_link_contact', 'Contact')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-contact', 'footer_services_title', 'Services')}</h4>
-              <ul className="footer-list">
-                <li><a href="/ui-ux" onClick={(e) => { e.preventDefault(); handleFooterLink('/ui-ux'); }} className="link-button">{content.get('page-contact', 'footer_service_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="/web-apk" onClick={(e) => { e.preventDefault(); handleFooterLink('/web-apk'); }} className="link-button">{content.get('page-contact', 'footer_service_web', 'Web Development')}</a></li>
-                <li><a href="/web-apk" onClick={(e) => { e.preventDefault(); handleFooterLink('/web-apk'); }} className="link-button">{content.get('page-contact', 'footer_service_app', 'Mobile App')}</a></li>
-                <li><a href="/custom-merchandise" onClick={(e) => { e.preventDefault(); handleFooterLink('/custom-merchandise'); }} className="link-button">{content.get('page-contact', 'footer_service_merch', 'Custom Merchandise')}</a></li>
-                <li><a href="/social-media" onClick={(e) => { e.preventDefault(); handleFooterLink('/social-media'); }} className="link-button">{content.get('page-contact', 'footer_service_digital_marketing', 'Digital Marketing')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-contact', 'footer_contact_title', 'Contact Info')}</h4>
-              <ul className="footer-list">
-                <li><i className="fas fa-phone-alt"></i><span>{content.get('page-contact', 'footer_contact_phone', '081804376001')}</span></li>
-                <li><i className="far fa-envelope"></i><span>{content.get('page-contact', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</span></li>
-                <li><i className="fas fa-map-marker-alt"></i><span>{content.get('page-contact', 'footer_contact_location', 'Yogyakarta, Indonesia')}</span></li>
-              </ul>
-            </div>
-          </div>
-        <div className="footer-bottom w-full text-center border-t">
-          <p>
-            {content.get('page-contact', 'footer_line1_top', '© 2024 Titik Visual.')}<br />
-            {content.get('page-contact', 'footer_line1_bottom', 'All rights reserved.')}
-          </p>
-        </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

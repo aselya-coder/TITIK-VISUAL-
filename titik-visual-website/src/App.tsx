@@ -13,7 +13,6 @@ import LogoDesignPage from './Page Detail Layanan Logo Design/Layanan Logo Desig
 import SocialMediaPage from './Page Detail layanan Social Media/Layanan Social Media';
 import InternshipPage from './halaman-program-magang/program-magang';
 import LowonganKerjaPage from './halaman-lowongan-kerja/lowongan-kerja';
-import CareersFooter from './halaman-careers/CareersFooter.jsx';
 import Navbar from './components/Navbar';
 
 // custom lightweight router without external wrappers
@@ -402,7 +401,6 @@ function App() {
       <Navbar currentPath={path} />
       <HashRedirector />
       {element}
-      {path === '/careers' ? <CareersFooter /> : null}
     </>
   );
 }

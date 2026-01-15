@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import logoImg from '../img/img.png';
 import { useContent } from '../content/ContentContext';
@@ -389,47 +390,7 @@ const LowonganKerjaPage = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="site-footer">
-        <div className="container">
-          <div className="footer-widgets">
-            <div className="footer-widget footer-about">
-              <img src={logoImg} alt={content.get('halaman-lowongan-kerja', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
-              <p>{content.get('halaman-lowongan-kerja', 'footer_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
-            </div>
-            <div className="footer-widget footer-links">
-              <h4>{content.get('halaman-lowongan-kerja', 'footer_col_1', 'Company')}</h4>
-              <ul>
-                <li><a href="/about">{content.get('halaman-lowongan-kerja', 'footer_link_about', 'About Us')}</a></li>
-                <li><a href="/portfolio">{content.get('halaman-lowongan-kerja', 'footer_link_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services">{content.get('halaman-lowongan-kerja', 'footer_link_services', 'Services')}</a></li>
-                <li><a href="/careers">{content.get('halaman-lowongan-kerja', 'footer_link_careers', 'Careers')}</a></li>
-                <li><a href="/services#faq">{content.get('halaman-lowongan-kerja', 'footer_link_faq', 'FAQ')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-widget footer-links">
-              <h4>{content.get('halaman-lowongan-kerja', 'footer_col_2', 'Lowongan Kerja')}</h4>
-              <ul>
-                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_design', 'Design & Creative')}</a></li>
-                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_engineering', 'Engineering')}</a></li>
-                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_marketing', 'Marketing & Sales')}</a></li>
-                <li><a href="#job-listings">{content.get('halaman-lowongan-kerja', 'footer_link_management', 'Management')}</a></li>
-              </ul>
-            </div>
-            <div className="footer-widget footer-contact">
-              <h4>{content.get('halaman-lowongan-kerja', 'footer_col_3', 'Contact')}</h4>
-              <ul>
-                <li><i className="fas fa-phone"></i> {content.get('halaman-lowongan-kerja', 'footer_phone', '081804376001')}</li>
-                <li><i className="fas fa-envelope"></i> {content.get('halaman-lowongan-kerja', 'footer_email', 'titikvisualjogja@gmail.com')}</li>
-                <li><i className="fas fa-map-marker-alt"></i> {content.get('halaman-lowongan-kerja', 'footer_address', 'Yogyakarta, Indonesia')}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <hr />
-            <p>{content.get('halaman-lowongan-kerja', 'footer_copyright', '© 2025 Titik Visual. All rights reserved.')}</p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

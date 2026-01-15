@@ -1435,17 +1435,28 @@ body {
     flex-wrap: wrap;
 }
 
+/* High Specificity Override for Social Media Page CTA Button */
+.social-media-page .cta .cta-buttons .btn-light,
+.social-media-page .cta .btn-light,
 .btn-light {
     background-color: #FFFFFF;
-    color: #EC4899;
+    color: #DB2777 !important;
     padding: 14px 32px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     transition: all 0.3s ease;
+    -webkit-text-fill-color: #DB2777 !important; /* Override webkit fill if set elsewhere */
+}
+
+.social-media-page .cta .cta-buttons .btn-light i,
+.social-media-page .cta .btn-light i,
+.btn-light i {
+    color: #DB2777 !important;
+    -webkit-text-fill-color: #DB2777 !important;
 }
 
 .btn-light:hover {
@@ -1458,7 +1469,7 @@ body {
     color: #FFFFFF;
     border: 2px solid rgba(255, 255, 255, 0.5);
     padding: 14px 32px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;

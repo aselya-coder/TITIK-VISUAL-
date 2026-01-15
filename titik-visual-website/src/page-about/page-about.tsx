@@ -1,4 +1,5 @@
 import React from 'react';
+import CareersFooter from '../halaman-careers/CareersFooter';
 import './style.css';
 import { useContent } from '../content/ContentContext';
 const getImg = (name: string) => {
@@ -399,53 +400,7 @@ const AboutPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="container max-w-7xl mx-auto">
-          <div className="footer-grid grid grid-cols-4 gap-8">
-            <div className="footer-brand">
-              <img src={getImg('img.png')} alt={content.get('page-about', 'footer_logo_alt', 'Titik Visual Logo')} className="footer-logo" />
-              <p>{content.get('page-about', 'footer_brand_desc', 'Digital creative studio yang mengutamakan kualitas dan inovasi dalam setiap karya.')}</p>
-            </div>
-    
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-about', 'footer_company_title', 'Company')}</h4>
-              <ul className="footer-list">
-                <li><a href="/about" onClick={(e) => handleLink(e, '/about')} className="link-button">{content.get('page-about', 'footer_company_about', 'About Us')}</a></li>
-                <li><a href="/portfolio" onClick={(e) => handleLink(e, '/portfolio')} className="link-button">{content.get('page-about', 'footer_company_portfolio', 'Portfolio')}</a></li>
-                <li><a href="/services" onClick={(e) => handleLink(e, '/services')} className="link-button">{content.get('page-about', 'footer_company_services', 'Services')}</a></li>
-                <li><a href="/careers" onClick={(e) => handleLink(e, '/careers')} className="link-button">{content.get('page-about', 'footer_company_careers', 'Careers')}</a></li>
-                <li><a href="/contact" onClick={(e) => handleLink(e, '/contact')} className="link-button">{content.get('page-about', 'footer_company_contact', 'Contact')}</a></li>
-              </ul>
-            </div>
-    
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-about', 'footer_services_title', 'Services')}</h4>
-              <ul className="footer-list">
-                <li><a href="/ui-ux" onClick={(e) => handleLink(e, '/ui-ux')} className="link-button">{content.get('page-about', 'footer_services_uiux', 'UI/UX Design')}</a></li>
-                <li><a href="/web-apk" onClick={(e) => handleLink(e, '/web-apk')} className="link-button">{content.get('page-about', 'footer_services_web', 'Web Development')}</a></li>
-                <li><a href="/web-apk" onClick={(e) => handleLink(e, '/web-apk')} className="link-button">{content.get('page-about', 'footer_services_mobile', 'Mobile App')}</a></li>
-                <li><a href="/logo-design" onClick={(e) => handleLink(e, '/logo-design')} className="link-button">{content.get('page-about', 'footer_services_branding', 'Branding')}</a></li>
-                <li><a href="/social-media" onClick={(e) => handleLink(e, '/social-media')} className="link-button">{content.get('page-about', 'footer_services_marketing', 'Digital Marketing')}</a></li>
-              </ul>
-            </div>
-    
-            <div className="footer-col">
-              <h4 className="footer-title">{content.get('page-about', 'footer_contact_title', 'Contact')}</h4>
-              <ul className="footer-list">
-                <li><i className="fas fa-phone"></i><span>{content.get('page-about', 'footer_contact_phone', '081804376001')}</span></li>
-                <li><i className="fas fa-envelope"></i><span>{content.get('page-about', 'footer_contact_email', 'titikvisualjogja@gmail.com')}</span></li>
-                <li><i className="fas fa-location-dot"></i><span>{content.get('page-about', 'footer_contact_address', 'Yogyakarta, Indonesia')}</span></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom flex justify-center" style={{ textAlign: 'right' }}>
-            <p className="text-center whitespace-nowrap">
-              {content.get('page-about', 'footer_line1_top', '© 2025 Titik Visual.')}<br />
-              {content.get('page-about', 'footer_line1_bottom', 'All rights reserved.')}
-            </p>
-          </div>
-        </div>
-      </footer>
+      <CareersFooter />
     </div>
   );
 };

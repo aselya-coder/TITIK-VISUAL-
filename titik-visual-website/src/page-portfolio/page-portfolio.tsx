@@ -225,70 +225,7 @@ const PortfolioPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const apply = () => {
-      const isMobile = window.innerWidth <= 768;
-      const root = document.querySelector('.portfolio-hero-section .hero-content') as HTMLElement | null;
-      if (!root) return;
-      const title = root.querySelector('.hero-title') as HTMLElement | null;
-      const desc = root.querySelector('.hero-description') as HTMLElement | null;
-      const buttons = root.querySelector('.hero-buttons') as HTMLElement | null;
-      const btnEls = buttons ? Array.from(buttons.querySelectorAll('.btn')) as HTMLElement[] : [];
-      if (isMobile) {
-        root.style.setProperty('display', 'flex', 'important');
-        root.style.setProperty('flexDirection', 'column', 'important');
-        root.style.setProperty('alignItems', 'center', 'important');
-        root.style.setProperty('justifyContent', 'center', 'important');
-        root.style.setProperty('textAlign', 'center', 'important');
-        if (title) {
-          title.style.setProperty('padding', '0 16px', 'important');
-          title.style.setProperty('width', '100%', 'important');
-          title.style.setProperty('whiteSpace', 'normal', 'important');
-          title.style.setProperty('wordBreak', 'break-word', 'important');
-          title.style.setProperty('overflowWrap', 'anywhere', 'important');
-          title.style.setProperty('textAlign', 'center', 'important');
-        }
-        if (desc) {
-          desc.style.setProperty('padding', '0 16px', 'important');
-          desc.style.setProperty('width', '100%', 'important');
-          desc.style.setProperty('whiteSpace', 'normal', 'important');
-          desc.style.setProperty('wordBreak', 'break-word', 'important');
-          desc.style.setProperty('overflowWrap', 'anywhere', 'important');
-          desc.style.setProperty('textAlign', 'center', 'important');
-        }
-        if (buttons) {
-          buttons.style.setProperty('display', 'flex', 'important');
-          buttons.style.setProperty('flexDirection', 'column', 'important');
-          buttons.style.setProperty('gap', '12px', 'important');
-          buttons.style.setProperty('width', '100%', 'important');
-          buttons.style.setProperty('alignItems', 'center', 'important');
-          buttons.style.setProperty('justifyContent', 'center', 'important');
-          btnEls.forEach(b => {
-            b.style.setProperty('width', 'auto', 'important');
-            b.style.setProperty('maxWidth', '100%', 'important');
-            b.style.setProperty('minHeight', '44px', 'important');
-            b.style.setProperty('whiteSpace', 'normal', 'important');
-            b.style.setProperty('marginLeft', 'auto', 'important');
-            b.style.setProperty('marginRight', 'auto', 'important');
-          });
-        }
-      } else {
-        root.style.removeProperty('display');
-        root.style.removeProperty('flexDirection');
-        root.style.removeProperty('alignItems');
-        root.style.removeProperty('justifyContent');
-        root.style.removeProperty('textAlign');
-        title?.removeAttribute('style');
-        desc?.removeAttribute('style');
-        if (buttons) {
-          buttons.removeAttribute('style');
-          btnEls.forEach(b => b.removeAttribute('style'));
-        }
-      }
-    };
-    apply();
-    const onResize = () => apply();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    // No-op for style application, relying on CSS in style.css
   }, []);
 
   const navigateToPage = (path: string) => {
@@ -305,19 +242,18 @@ const PortfolioPage: React.FC = () => {
   };
 
   return (
-    <div className="portfolio-page-wrapper">
+    <div id="page-portfolio">
       
       <main>
         {/* Portfolio Hero Section */}
         <section className="portfolio-hero-section">
-          <section id="portfolio-fix">
-            <div className="container">
-              <div className="hero-content">
-              <h1 className="hero-title">{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
-              <p className="hero-description">
+            <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', width: '100%' }}>
+              <h1 className="hero-title" style={{ textAlign: 'center', margin: '0 auto 24px auto', width: '100%' }}>{content.get('page-portfolio', 'hero.title', 'Portfolio Kami')}</h1>
+              <p className="hero-description" style={{ textAlign: 'center', margin: '0 auto 40px auto', width: '100%', maxWidth: '800px' }}>
                 {content.get('page-portfolio', 'hero.description', 'Jelajahi koleksi karya terbaik kami dalam UI/UX Design, Web Development, Mobile App, dan Digital Marketing yang telah membantu klien mencapai tujuan bisnis mereka.')}
               </p>
-              <div className="hero-buttons portfolio-buttons">
+              <div className="hero-buttons portfolio-buttons" style={{ display: 'flex', justifyContent: 'center', gap: '16px', width: '100%' }}>
                 <button
                   onClick={() => {
                     const url = getUrl('hero.cta_primary.url', 'hero.cta_primary.link', '');
@@ -341,7 +277,6 @@ const PortfolioPage: React.FC = () => {
               </div>
             </div>
           </section>
-        </section>
 
         {/* Featured Projects Section */}
         <section id="portfolio" className="featured-projects-section">
